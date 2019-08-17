@@ -19,6 +19,7 @@ using Kingmaker.UI.LevelUp;
 using Kingmaker.Utility;
 using UnityEngine;
 using UnityModManagerNet;
+using Westwind.Globalization;
 
 namespace EldritchArcana
 {
@@ -313,6 +314,7 @@ namespace EldritchArcana
             if (testedGameVersion != GameVersion.GetVersion())
             {
                 GUILayout.Label($"<b>This mod was tested against game version {testedGameVersion}, but you are running {GameVersion.GetVersion()}.</b>", fixedWidth);
+                //DbRes.T("testedGameVersion_warning");
             }
             if (failedPatches.Count > 0)
             {
@@ -350,7 +352,7 @@ namespace EldritchArcana
                 "Debug logs", fixedWidth);
 
             settings.OracleHas3SkillPoints = GUILayout.Toggle(settings.OracleHas3SkillPoints,
-                "Give Oracle class 3+int skill points on level up (instead of 4, due to condensed skills)");
+                "Give Oracle class 3+int skill points on level up (instead of 4, due to condensed skills)", fixedWidth);
             OracleClass.MaybeUpdateSkillPoints();
 
             settings.RelaxAncientLorekeeper = GUILayout.Toggle(settings.RelaxAncientLorekeeper,

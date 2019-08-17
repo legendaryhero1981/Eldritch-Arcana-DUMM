@@ -29,9 +29,11 @@
   <ItemGroup>
     <Folder Include="resources\" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Westwind.Globalization" Version="3.0.5" />
+  </ItemGroup>
   <Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets" />
   <PropertyGroup>
     <PostBuildEvent>D:\games\exe4j\11\file -cd!~::-m!~ .::* "$(SolutionDir)\resources::$(TargetDir)" "$(TargetDir)::$(TargetDir)\EldritchArcana" ?::1</PostBuildEvent>
   </PropertyGroup>
-  <ProjectExtensions><VisualStudio><UserProperties resources_4eldritcharcana_4info_1json__JsonSchema="http://json-schema.org/draft-04/schema" /></VisualStudio></ProjectExtensions>
 </Project>
