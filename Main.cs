@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -19,7 +20,7 @@ using Kingmaker.UI.LevelUp;
 using Kingmaker.Utility;
 using UnityEngine;
 using UnityModManagerNet;
-using Westwind.Globalization;
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -276,6 +277,7 @@ namespace EldritchArcana
         static bool Load(UnityModManager.ModEntry modEntry)
         {
             logger = modEntry.Logger;
+            RES.Culture = new CultureInfo("zh-CN");
             modEntry.OnToggle = OnToggle;
             modEntry.OnGUI = OnGUI;
             modEntry.OnSaveGUI = OnSaveGUI;
@@ -313,53 +315,48 @@ namespace EldritchArcana
             var fixedWidth = new GUILayoutOption[1] { GUILayout.ExpandWidth(false) };
             if (testedGameVersion != GameVersion.GetVersion())
             {
-                GUILayout.Label($"<b>This mod was tested against game version {testedGameVersion}, but you are running {GameVersion.GetVersion()}.</b>", fixedWidth);
-                //DbRes.T("testedGameVersion_warning");
+                GUILayout.Label(string.Format(RES.testedGameVersion_warning,testedGameVersion,GameVersion.GetVersion()), fixedWidth);
             }
             if (failedPatches.Count > 0)
             {
                 GUILayout.BeginVertical();
-                GUILayout.Label("<b>Error: Some patches failed to apply. These features may not work:</b>", fixedWidth);
+                GUILayout.Label(RES.failedPatches_error, fixedWidth);
                 foreach (var featureName in failedPatches)
                 {
-                    GUILayout.Label($"  • <b>{featureName}</b>", fixedWidth);
+                    GUILayout.Label(string.Format(RES.featureName_error,featureName), fixedWidth);
                 }
                 GUILayout.EndVertical();
             }
             if (failedLoading.Count > 0)
             {
                 GUILayout.BeginVertical();
-                GUILayout.Label("<b>Error: Some assets failed to load. Saves using these features won't work:</b>", fixedWidth);
+                GUILayout.Label(RES.failedLoading_error, fixedWidth);
                 foreach (var featureName in failedLoading)
                 {
-                    GUILayout.Label($"  • <b>{featureName}</b>", fixedWidth);
+                    GUILayout.Label(string.Format(RES.featureName_error,featureName), fixedWidth);
                 }
                 GUILayout.EndVertical();
             }
 
-            settings.EldritchKnightFix = GUILayout.Toggle(settings.EldritchKnightFix,
-                "Eldritch Knight requires martial class (doesn't affect existing EKs)", fixedWidth);
+            settings.EldritchKnightFix = GUILayout.Toggle(settings.EldritchKnightFix, RES.EldritchKnightFix_info, fixedWidth);
 
-            settings.ShowCustomPortraits = GUILayout.Toggle(settings.ShowCustomPortraits,
-                "Show custom portraits in the portrait list at character creation (if changed, requires restart)", fixedWidth);
+            settings.ShowCustomPortraits = GUILayout.Toggle(settings.ShowCustomPortraits, RES.ShowCustomPortraits_info, fixedWidth);
 
             settings.CheatCustomTraits = GUILayout.Toggle(settings.CheatCustomTraits,
-                "Enable choosing extra cheat traits,spells(if changed, requires restart for changes to show up)", fixedWidth);
+                RES.CheatCustomTraits_info, fixedWidth);
 
-
-            string message = "Enable Picking Bloodline mutations on every bloodline class(if changed, requires new save but it doesn't work yet)";
             settings.DrawbackForextraTraits = GUILayout.Toggle(settings.DrawbackForextraTraits,
-                "Debug logs", fixedWidth);
+                RES.DrawbackForextraTraits_info, fixedWidth);
 
             settings.OracleHas3SkillPoints = GUILayout.Toggle(settings.OracleHas3SkillPoints,
-                "Give Oracle class 3+int skill points on level up (instead of 4, due to condensed skills)", fixedWidth);
+                RES.OracleHas3SkillPoints_info, fixedWidth);
             OracleClass.MaybeUpdateSkillPoints();
 
             settings.RelaxAncientLorekeeper = GUILayout.Toggle(settings.RelaxAncientLorekeeper,
-                "Any race can choose the Oracle Ancient Lorekeeper archetype", fixedWidth);
+                RES.RelaxAncientLorekeeper_info, fixedWidth);
 
             settings.RelaxTonguesCurse = GUILayout.Toggle(settings.RelaxTonguesCurse,
-                "Disable Tongues curse penalty (that party members need 1 rank Knowledge: World to be controlled by PC in combat)", fixedWidth);
+                RES.RelaxTonguesCurse_info, fixedWidth);
         }
 
         static void OnSaveGUI(UnityModManager.ModEntry modEntry)

@@ -4,7 +4,7 @@
   <Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props" />
   <PropertyGroup>
     <ProjectGuid>{D2DA5871-9346-49F1-9B20-914F5B21ACAF}</ProjectGuid>
-    <NeutralLanguage>zh-CN</NeutralLanguage>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     <OutputType>Library</OutputType>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworks>net472</TargetFrameworks>
@@ -30,10 +30,22 @@
     <Folder Include="resources\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Westwind.Globalization" Version="3.0.5" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-CN.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets" />
   <PropertyGroup>
-    <PostBuildEvent>D:\games\exe4j\11\file -cd!~::-m!~ .::* "$(SolutionDir)\resources::$(TargetDir)" "$(TargetDir)::$(TargetDir)\EldritchArcana" ?::1</PostBuildEvent>
+    <PostBuildEvent>D:\games\exe4j\11\file -cd~::-m!~::-md~ ".::*::*" "$(SolutionDir)\resources\EldritchArcana::$(TargetDir)::*\zh-CN" "$(TargetDir)::$(TargetDir)\EldritchArcana::*" ?::1::?</PostBuildEvent>
   </PropertyGroup>
 </Project>
