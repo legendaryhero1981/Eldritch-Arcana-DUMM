@@ -61,7 +61,52 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Enable choosing extra cheat traits,spells(if changed, requires restart for changes to show up). 的本地化字符串。
+        ///   查找类似 Failed to apply patch {0}: {1} 的本地化字符串。
+        /// </summary>
+        internal static string applyPatch_error {
+            get {
+                return ResourceManager.GetString("applyPatch_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Did not apply patch for {0} 的本地化字符串。
+        /// </summary>
+        internal static string applyPath_warning {
+            get {
+                return ResourceManager.GetString("applyPath_warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Failed to apply patch {0}: could not find Harmony attributes 的本地化字符串。
+        /// </summary>
+        internal static string applyPathHarmony_error {
+            get {
+                return ResourceManager.GetString("applyPathHarmony_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Failed to apply patch {0}: no dynamic method generated 的本地化字符串。
+        /// </summary>
+        internal static string applyPathMethod {
+            get {
+                return ResourceManager.GetString("applyPathMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Failed to patch LibraryScriptableObject.LoadDictionary(), cannot load mod! 的本地化字符串。
+        /// </summary>
+        internal static string cannotLoadMod_error {
+            get {
+                return ResourceManager.GetString("cannotLoadMod_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Enable choosing extra cheat traits,spells(if changed, requires restart for changes to show up) 的本地化字符串。
         /// </summary>
         internal static string CheatCustomTraits_info {
             get {
@@ -70,7 +115,7 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Debug logs. 的本地化字符串。
+        ///   查找类似 Enabling feats with drawback 的本地化字符串。
         /// </summary>
         internal static string DrawbackForextraTraits_info {
             get {
@@ -79,11 +124,20 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Eldritch Knight requires martial class (doesn&apos;t affect existing EKs). 的本地化字符串。
+        ///   查找类似 Eldritch Knight requires martial class 的本地化字符串。
         /// </summary>
         internal static string EldritchKnightFix_info {
             get {
                 return ResourceManager.GetString("EldritchKnightFix_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 doesn&apos;t affect existing EKs 的本地化字符串。
+        /// </summary>
+        internal static string EldritchKnightFix_tip {
+            get {
+                return ResourceManager.GetString("EldritchKnightFix_tip", resourceCulture);
             }
         }
         
@@ -115,7 +169,142 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Give Oracle class 3+int skill points on level up (instead of 4, due to condensed skills). 的本地化字符串。
+        ///   查找类似 All mod features 的本地化字符串。
+        /// </summary>
+        internal static string featureNameAll_error {
+            get {
+                return ResourceManager.GetString("featureNameAll_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Bloodlines 的本地化字符串。
+        /// </summary>
+        internal static string loadBloodlines_error {
+            get {
+                return ResourceManager.GetString("loadBloodlines_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Crossblooded Sorcerer 的本地化字符串。
+        /// </summary>
+        internal static string loadCrossbloodedSorcerer_error {
+            get {
+                return ResourceManager.GetString("loadCrossbloodedSorcerer_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Custom Portraits in main portrait selection 的本地化字符串。
+        /// </summary>
+        internal static string LoadCustomPortraits_error {
+            get {
+                return ResourceManager.GetString("LoadCustomPortraits_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Drawback Feats 的本地化字符串。
+        /// </summary>
+        internal static string loadDrawbackFeats_error {
+            get {
+                return ResourceManager.GetString("loadDrawbackFeats_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Eldritch Heritage 的本地化字符串。
+        /// </summary>
+        internal static string loadEldritchHeritage_error {
+            get {
+                return ResourceManager.GetString("loadEldritchHeritage_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Favored class bonus, deity selection 的本地化字符串。
+        /// </summary>
+        internal static string loadFavoredClassBonus_error {
+            get {
+                return ResourceManager.GetString("loadFavoredClassBonus_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Initialization code 的本地化字符串。
+        /// </summary>
+        internal static string loadHelpers_error {
+            get {
+                return ResourceManager.GetString("loadHelpers_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Magic feats 的本地化字符串。
+        /// </summary>
+        internal static string loadMagicFeats_error {
+            get {
+                return ResourceManager.GetString("loadMagicFeats_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Oracle class 的本地化字符串。
+        /// </summary>
+        internal static string loadOracleClass_error {
+            get {
+                return ResourceManager.GetString("loadOracleClass_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Prestigious Spellcaster 的本地化字符串。
+        /// </summary>
+        internal static string loadPrestigiousSpellcaster_error {
+            get {
+                return ResourceManager.GetString("loadPrestigiousSpellcaster_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Spell replacement for spontaneous casters 的本地化字符串。
+        /// </summary>
+        internal static string loadReplaceSpells_error {
+            get {
+                return ResourceManager.GetString("loadReplaceSpells_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 New spells 的本地化字符串。
+        /// </summary>
+        internal static string loadSpells_error {
+            get {
+                return ResourceManager.GetString("loadSpells_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Traits 的本地化字符串。
+        /// </summary>
+        internal static string loadTraits_error {
+            get {
+                return ResourceManager.GetString("loadTraits_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Wish spells 的本地化字符串。
+        /// </summary>
+        internal static string loadWishSpells_error {
+            get {
+                return ResourceManager.GetString("loadWishSpells_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Give Oracle class 3+int skill points on level up (instead of 4, due to condensed skills) 的本地化字符串。
         /// </summary>
         internal static string OracleHas3SkillPoints_info {
             get {
@@ -124,7 +313,7 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Any race can choose the Oracle Ancient Lorekeeper archetype. 的本地化字符串。
+        ///   查找类似 Any race can choose the Oracle Ancient Lorekeeper archetype 的本地化字符串。
         /// </summary>
         internal static string RelaxAncientLorekeeper_info {
             get {
@@ -133,7 +322,7 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Disable Tongues curse penalty (that party members need 1 rank Knowledge: World to be controlled by PC in combat). 的本地化字符串。
+        ///   查找类似 Disable Tongues curse penalty 的本地化字符串。
         /// </summary>
         internal static string RelaxTonguesCurse_info {
             get {
@@ -142,7 +331,16 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Show custom portraits in the portrait list at character creation (if changed, requires restart). 的本地化字符串。
+        ///   查找类似 that party members need 1 rank Knowledge: World to be controlled by PC in combat 的本地化字符串。
+        /// </summary>
+        internal static string RelaxTonguesCurse_tip {
+            get {
+                return ResourceManager.GetString("RelaxTonguesCurse_tip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Show custom portraits in the portrait list at character creation (if changed, requires restart) 的本地化字符串。
         /// </summary>
         internal static string ShowCustomPortraits_info {
             get {

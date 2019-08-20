@@ -118,25 +118,49 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheatCustomTraits_info" xml:space="preserve">
-    <value>启用选择额外的作弊特征、拼写（如果更改，需要重新启动才能显示更改）。</value>
+    <value>启用额外的作弊特性和法术（需要重新启动才能生效）</value>
   </data>
   <data name="DrawbackForextraTraits_info" xml:space="preserve">
-    <value>调试日志。</value>
+    <value>启用有缺点的专长（需要重新启动才能生效）</value>
   </data>
   <data name="EldritchKnightFix_info" xml:space="preserve">
-    <value>兼职埃尔德里奇骑士需要已拥有战士类职业（如：野蛮人、战士、圣武士、游侠，不影响已创建的角色）。</value>
+    <value>兼职埃尔德里奇骑士需要已拥有战士类职业</value>
+  </data>
+  <data name="EldritchKnightFix_tip" xml:space="preserve">
+    <value>例如：野蛮人、战士、圣武士、游侠，不影响已创建的角色</value>
+  </data>
+  <data name="LoadCustomPortraits_error" xml:space="preserve">
+    <value>在肖像列表中列出自定义肖像</value>
   </data>
   <data name="OracleHas3SkillPoints_info" xml:space="preserve">
-    <value>神使在升级时获得3个技能点（取代4个，因为技能压缩）。</value>
+    <value>神使在升级时获得3个技能点（取代4个，因为技能压缩）</value>
   </data>
   <data name="RelaxAncientLorekeeper_info" xml:space="preserve">
-    <value>任何种族都可以选择职业 神使：远古博学者。</value>
+    <value>任何种族都可以选择职业 神使：远古博学者</value>
   </data>
   <data name="RelaxTonguesCurse_info" xml:space="preserve">
-    <value>丧失沟通能力诅咒惩罚（即出主角外的其他队伍成员的 知识：世界 技能不能低于1级，否则在战斗中不能被控制）。</value>
+    <value>丧失沟通能力诅咒</value>
+  </data>
+  <data name="RelaxTonguesCurse_tip" xml:space="preserve">
+    <value>即除主角外的其他队伍成员的 知识：世界 技能不能低于1级，否则在战斗中不能被控制</value>
   </data>
   <data name="ShowCustomPortraits_info" xml:space="preserve">
-    <value>在创建角色时在“肖像”列表中显示自定义肖像（如果更改，则需要重新启动）。</value>
+    <value>创建角色时在肖像列表中显示自定义肖像（需要重新启动才能生效）</value>
+  </data>
+  <data name="applyPatch_error" xml:space="preserve">
+    <value>应用修补类型{0}失败：{1}！</value>
+  </data>
+  <data name="applyPathHarmony_error" xml:space="preserve">
+    <value>应用修补类型{0}失败：找不到Harmony属性！</value>
+  </data>
+  <data name="applyPathMethod" xml:space="preserve">
+    <value>应用修补类型{0}失败：没有生成动态方法！</value>
+  </data>
+  <data name="applyPath_warning" xml:space="preserve">
+    <value>不能应用修补类型{0}！</value>
+  </data>
+  <data name="cannotLoadMod_error" xml:space="preserve">
+    <value>修补方法libraryscriptableobject.loadDictionary()失败，无法加载mod！</value>
   </data>
   <data name="failedLoading_error" xml:space="preserve">
     <value>&lt;b&gt;错误：某些功能加载失败。保存的这些功能将不起作用：&lt;/b&gt;</value>
@@ -144,8 +168,50 @@
   <data name="failedPatches_error" xml:space="preserve">
     <value>&lt;b&gt;错误：某些修补方法无法应用。保存的这些方法将不起作用：&lt;/b&gt;</value>
   </data>
+  <data name="featureNameAll_error" xml:space="preserve">
+    <value>所有mod功能</value>
+  </data>
   <data name="featureName_error" xml:space="preserve">
-    <value>  • &lt;b&gt;{0}&lt;/b&gt;</value>
+    <value> ● &lt;b&gt;{0}&lt;/b&gt;</value>
+  </data>
+  <data name="loadBloodlines_error" xml:space="preserve">
+    <value>血源</value>
+  </data>
+  <data name="loadCrossbloodedSorcerer_error" xml:space="preserve">
+    <value>混血巫师</value>
+  </data>
+  <data name="loadDrawbackFeats_error" xml:space="preserve">
+    <value>有缺点的专长</value>
+  </data>
+  <data name="loadEldritchHeritage_error" xml:space="preserve">
+    <value>埃尔德里奇的遗产</value>
+  </data>
+  <data name="loadFavoredClassBonus_error" xml:space="preserve">
+    <value>天赋职业奖励和神祗选择</value>
+  </data>
+  <data name="loadHelpers_error" xml:space="preserve">
+    <value>初始化代码</value>
+  </data>
+  <data name="loadMagicFeats_error" xml:space="preserve">
+    <value>魔法专长</value>
+  </data>
+  <data name="loadOracleClass_error" xml:space="preserve">
+    <value>神使职业</value>
+  </data>
+  <data name="loadPrestigiousSpellcaster_error" xml:space="preserve">
+    <value>有威望的施法者</value>
+  </data>
+  <data name="loadReplaceSpells_error" xml:space="preserve">
+    <value>自然施法者的法术替换</value>
+  </data>
+  <data name="loadSpells_error" xml:space="preserve">
+    <value>新法术</value>
+  </data>
+  <data name="loadTraits_error" xml:space="preserve">
+    <value>特性</value>
+  </data>
+  <data name="loadWishSpells_error" xml:space="preserve">
+    <value>心愿法术</value>
   </data>
   <data name="testedGameVersion_warning" xml:space="preserve">
     <value>&lt;b&gt;此Mod是基于游戏版本{0}测试的，但是正在运行的游戏版本为{1}。&lt;/b&gt;</value>

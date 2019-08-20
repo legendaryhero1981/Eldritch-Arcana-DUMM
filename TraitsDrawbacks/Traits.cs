@@ -90,7 +90,7 @@ namespace EldritchArcana
             var DrawbackPhysique = PhysiqueDrawbacks.CreatePhysiqueDrawbacks();
             Drawbackchoices.Add(DrawbackEmotion);
             Drawbackchoices.Add(DrawbackPhysique);
-            choices.Add(CombatTraits.CreateCombatTraits());
+            choices.Add(CombatTraits.CreateCombatTraits());//,choices,"combattraits");
             choices.Add(FaithTraits.CreateFaithTraits());
             choices.Add(MagicTraits.CreateMagicTraits());
             BlueprintFeatureSelection adopted;
@@ -127,7 +127,7 @@ namespace EldritchArcana
                 "Additional Traits",
                 "You have more traits than normal.\nBenefit: You gain two character traits of your choice. These traits must be chosen from different lists, and cannot be chosen from lists from which you have already selected a character trait. You must meet any additional qualifications for the character traits you choose — this feat cannot enable you to select a dwarf character trait if you are an elf, for example.",
                 "02dbb324cc334412a55e6d8f9fe87009",
-                Helpers.GetIcon("0d3651b2cb0d89448b112e23214e744e"), // Extra Performance
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Additional_Traits.png"),//Helpers.GetIcon("0d3651b2cb0d89448b112e23214e744e"), // Extra Performance
                 FeatureGroup.Feat);
 
             var additionalTrait1 = Helpers.CreateFeatureSelection("AdditionalTraitSelection1", "Traits",
@@ -238,7 +238,22 @@ namespace EldritchArcana
                             Helpers.Create<OrcBloodlineArcana>()
                             ));
 
-            
+
+            var dwarfy = new BlueprintComponent[64];
+            for (int i = 1; i < 65; i++)
+            {
+                dwarfy[i - 1] = Helpers.CreateAddStatBonusOnLevel(StatType.HitPoints, i * 2, ModifierDescriptor.Trait, i);
+            };
+            var dwarfReq = Helpers.PrerequisiteFeature(Helpers.dwarf);
+            var bulkybattleborn = Helpers.CreateFeature("BulkyAfTrait", "Bulky Battleborn (Dwarf)",
+                "Your greatest joy is being in the thick of battle and taking hits for the team,\nNote: this trait is not realy a cheat but it's homebrew so that's why its here. \nBenefit:you gain 2 extra hitpoints per level",
+                "a987f5e69db44cdd99983985e37a6c3b",
+                Helpers.GetIcon("121811173a614534e8720d7550aae253"), // Weapon Specialization
+                FeatureGroup.None,
+                dwarfReq);
+            bulkybattleborn.AddComponents(dwarfy);
+            choices.Add(bulkybattleborn);
+
 
             if (optedin) customTraits.SetFeatures(choices);
             return customTraits;

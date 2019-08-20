@@ -171,7 +171,7 @@ namespace EldritchArcana
                 "Meteor swarm is a very powerful and spectacular spell that is similar to fireball in many aspects. When you cast it, four 2-foot-diameter spheres spring from your outstretched hand and streak in straight lines to the spots you select. The meteor spheres leave a fiery trail of sparks.\n" +
                 "If you aim a sphere at a specific creature, you may make a ranged touch attack to strike the target with the meteor.Any creature struck by a sphere takes 2d6 points of bludgeoning damage(no save) and has to make a saving throw against +4 DC for the sphere’s fire damage(see below).If a targeted sphere misses its target, it simply explodes at the nearest corner of the target’s space. You may aim more than one sphere at the same target.\n" +
                 "Once a sphere reaches its destination, it explodes in a 40-foot-radius spread, dealing 6d6 points of fire damage to each creature in the area.If a creature is within the area of more than one sphere, it must save separately against each.Despite stemming from separate spheres, all of the fire damage is added together after the saves have been made, and fire resistance is applied only once.",
-                Helpers.GetIcon("f72f8f03bf0136c4180cd1d70eb773a5")); // controlled fireball
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/meteor_swarm.png")); 
             spell.LocalizedSavingThrow = Helpers.CreateString($"{spell.name}.SavingThrow", "None or Reflex half, see text");
 
             var deliverProjectile = UnityEngine.Object.Instantiate(fireball.GetComponent<AbilityDeliverProjectile>());

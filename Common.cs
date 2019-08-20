@@ -1,56 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Items.Armors;
+using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.Blueprints.Root.Strings.GameLog;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
-using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
-using Kingmaker.UI.Common;
+using Kingmaker.RuleSystem.Rules;
+using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UI.Log;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Abilities.Components.CasterCheckers;
+using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Commands.Base;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.Blueprints.Items.Weapons;
-using Kingmaker.UnitLogic.Parts;
-using Kingmaker.Utility;
-using Kingmaker.Blueprints.Items;
-using static Kingmaker.UnitLogic.ActivatableAbilities.ActivatableAbilityResourceLogic;
-using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
-using Kingmaker.Blueprints.Items.Armors;
-using Kingmaker.UnitLogic.Buffs.Components;
-using Kingmaker.Designers.Mechanics.Buffs;
-using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
-using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.UI.Log;
-using Kingmaker.Blueprints.Root.Strings.GameLog;
-using Kingmaker;
+using Kingmaker.Utility;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 using UnityEngine;
-using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
-using Kingmaker.ElementsSystem;
-using Kingmaker.RuleSystem.Rules;
-using Kingmaker.Designers.Mechanics.WeaponEnchants;
-using Kingmaker.Blueprints.Items.Ecnchantments;
-using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Components.Base;
+
+using UnityModManagerNet;
+
+using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
+
+using GC = UnityEngine.GUIContent;
+using GL = UnityEngine.GUILayout;
 
 namespace EldritchArcana
 {
@@ -60,14 +58,14 @@ namespace EldritchArcana
 
         static readonly Type ParametrizedFeatureData = Harmony12.AccessTools.Inner(typeof(AddParametrizedFeatures), "Data");
 
-        static internal string[] roman_id = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
+        internal static string[] roman_id = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
 
 
-        static internal BlueprintFeatureSelection EldritchKnightSpellbookSelection = Main.library.Get<BlueprintFeatureSelection>("dc3ab8d0484467a4787979d93114ebc3");
-        static internal BlueprintFeatureSelection ArcaneTricksterSelection = Main.library.Get<BlueprintFeatureSelection>("ae04b7cdeb88b024b9fd3882cc7d3d76");
-        static internal BlueprintFeatureSelection DragonDiscipleSpellbookSelection = Main.library.Get<BlueprintFeatureSelection>("8c1ba14c0b6dcdb439c56341385ee474");
-        static internal BlueprintFeatureSelection MysticTheurgeArcaneSpellbookSelection = Main.library.Get<BlueprintFeatureSelection>("97f510c6483523c49bc779e93e4c4568");
-        static internal BlueprintFeatureSelection MysticTheurgeDivineSpellbookSelection = Main.library.Get<BlueprintFeatureSelection>("7cd057944ce7896479717778330a4933");
+        internal static BlueprintFeatureSelection EldritchKnightSpellbookSelection = Main.library.Get<BlueprintFeatureSelection>("dc3ab8d0484467a4787979d93114ebc3");
+        internal static BlueprintFeatureSelection ArcaneTricksterSelection = Main.library.Get<BlueprintFeatureSelection>("ae04b7cdeb88b024b9fd3882cc7d3d76");
+        internal static BlueprintFeatureSelection DragonDiscipleSpellbookSelection = Main.library.Get<BlueprintFeatureSelection>("8c1ba14c0b6dcdb439c56341385ee474");
+        internal static BlueprintFeatureSelection MysticTheurgeArcaneSpellbookSelection = Main.library.Get<BlueprintFeatureSelection>("97f510c6483523c49bc779e93e4c4568");
+        internal static BlueprintFeatureSelection MysticTheurgeDivineSpellbookSelection = Main.library.Get<BlueprintFeatureSelection>("7cd057944ce7896479717778330a4933");
         static LibraryScriptableObject library => Main.library;
 
         internal enum DomainSpellsType
@@ -210,7 +208,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.UnitLogic.Mechanics.Components.DeathActions createDeathActions(Kingmaker.ElementsSystem.ActionList action_list,
+        internal static Kingmaker.UnitLogic.Mechanics.Components.DeathActions createDeathActions(Kingmaker.ElementsSystem.ActionList action_list,
                                                                                                  BlueprintAbilityResource resource = null)
         {
             var a = Helpers.Create<Kingmaker.UnitLogic.Mechanics.Components.DeathActions>();
@@ -221,7 +219,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Designers.Mechanics.Facts.CriticalConfirmationACBonus createCriticalConfirmationACBonus(int bonus)
+        internal static Kingmaker.Designers.Mechanics.Facts.CriticalConfirmationACBonus createCriticalConfirmationACBonus(int bonus)
         {
             var c = Helpers.Create<CriticalConfirmationACBonus>();
             c.Bonus = bonus;
@@ -229,7 +227,7 @@ namespace EldritchArcana
         }
 
 
-        static internal CriticalConfirmationBonus createCriticalConfirmationBonus(int bonus)
+        internal static CriticalConfirmationBonus createCriticalConfirmationBonus(int bonus)
         {
             var c = Helpers.Create<CriticalConfirmationBonus>();
             c.Bonus = bonus;
@@ -291,7 +289,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.UnitLogic.Mechanics.Actions.ContextActionApplyBuff createContextActionApplyBuff(BlueprintBuff buff, ContextDurationValue duration, bool is_from_spell = false,
+        internal static Kingmaker.UnitLogic.Mechanics.Actions.ContextActionApplyBuff createContextActionApplyBuff(BlueprintBuff buff, ContextDurationValue duration, bool is_from_spell = false,
                                                                                                                   bool is_child = false, bool is_permanent = false, bool dispellable = true,
                                                                                                                   int duration_seconds = 0)
         {
@@ -307,7 +305,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.UnitLogic.Mechanics.Actions.ContextActionRandomize createContextActionRandomize(params Kingmaker.ElementsSystem.ActionList[] actions)
+        internal static Kingmaker.UnitLogic.Mechanics.Actions.ContextActionRandomize createContextActionRandomize(params Kingmaker.ElementsSystem.ActionList[] actions)
         {
             var c = Helpers.Create<Kingmaker.UnitLogic.Mechanics.Actions.ContextActionRandomize>();
             Type m_Action_type = Helpers.GetField(c, "m_Actions").GetType().GetElementType();
@@ -324,7 +322,7 @@ namespace EldritchArcana
         }
 
 
-        static internal BuffDescriptorImmunity createBuffDescriptorImmunity(SpellDescriptor descriptor)
+        internal static BuffDescriptorImmunity createBuffDescriptorImmunity(SpellDescriptor descriptor)
         {
             var b = Helpers.Create<BuffDescriptorImmunity>();
             b.Descriptor = descriptor;
@@ -332,7 +330,7 @@ namespace EldritchArcana
         }
 
 
-        static internal SpecificBuffImmunity createSpecificBuffImmunity(BlueprintBuff buff)
+        internal static SpecificBuffImmunity createSpecificBuffImmunity(BlueprintBuff buff)
         {
             var b = Helpers.Create<SpecificBuffImmunity>();
             b.Buff = buff;
@@ -340,7 +338,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.SpecificBuffImmunityExceptCaster createSpecificBuffImmunityExceptCaster(BlueprintBuff buff, bool except_caster = true)
+        internal static NewMechanics.SpecificBuffImmunityExceptCaster createSpecificBuffImmunityExceptCaster(BlueprintBuff buff, bool except_caster = true)
         {
             var b = Helpers.Create<NewMechanics.SpecificBuffImmunityExceptCaster>();
             b.Buff = buff;
@@ -348,7 +346,7 @@ namespace EldritchArcana
             return b;
         }
 
-        static internal Blindsense createBlindsense(int range)
+        internal static Blindsense createBlindsense(int range)
         {
             var b = Helpers.Create<Blindsense>();
             b.Range = range.Feet();
@@ -356,7 +354,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Blindsense createBlindsight(int range)
+        internal static Blindsense createBlindsight(int range)
         {
             var b = Helpers.Create<Blindsense>();
             b.Range = range.Feet();
@@ -365,7 +363,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Designers.Mechanics.Facts.AddFortification createAddFortification(int bonus = 0, ContextValue value = null)
+        internal static Kingmaker.Designers.Mechanics.Facts.AddFortification createAddFortification(int bonus = 0, ContextValue value = null)
         {
             var a = Helpers.Create<AddFortification>();
             a.Bonus = bonus;
@@ -375,7 +373,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Designers.Mechanics.Buffs.BuffStatusCondition createBuffStatusCondition(UnitCondition condition, SavingThrowType save_type = SavingThrowType.Unknown,
+        internal static Kingmaker.Designers.Mechanics.Buffs.BuffStatusCondition createBuffStatusCondition(UnitCondition condition, SavingThrowType save_type = SavingThrowType.Unknown,
                                                                                                            bool save_each_round = true)
         {
             var c = Helpers.Create<Kingmaker.Designers.Mechanics.Buffs.BuffStatusCondition>();
@@ -385,7 +383,7 @@ namespace EldritchArcana
             return c;
         }
 
-        static internal Kingmaker.UnitLogic.Buffs.Conditions.BuffConditionCheckRoundNumber createBuffConditionCheckRoundNumber(int round_number, bool not = false)
+        internal static Kingmaker.UnitLogic.Buffs.Conditions.BuffConditionCheckRoundNumber createBuffConditionCheckRoundNumber(int round_number, bool not = false)
         {
             var c = Helpers.Create<Kingmaker.UnitLogic.Buffs.Conditions.BuffConditionCheckRoundNumber>();
             c.RoundNumber = round_number;
@@ -394,7 +392,7 @@ namespace EldritchArcana
         }
 
 
-        static internal ContextValue createSimpleContextValue(int value)
+        internal static ContextValue createSimpleContextValue(int value)
         {
             var v = new ContextValue();
             v.Value = value;
@@ -403,7 +401,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.UnitLogic.FactLogic.SpontaneousSpellConversion createSpontaneousSpellConversion(BlueprintCharacterClass character_class, params BlueprintAbility[] spells)
+        internal static Kingmaker.UnitLogic.FactLogic.SpontaneousSpellConversion createSpontaneousSpellConversion(BlueprintCharacterClass character_class, params BlueprintAbility[] spells)
         {
             var sc = Helpers.Create<Kingmaker.UnitLogic.FactLogic.SpontaneousSpellConversion>();
             sc.CharacterClass = character_class;
@@ -412,7 +410,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteAlignment createPrerequisiteAlignment(Kingmaker.UnitLogic.Alignments.AlignmentMaskType alignment)
+        internal static Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteAlignment createPrerequisiteAlignment(Kingmaker.UnitLogic.Alignments.AlignmentMaskType alignment)
         {
             var p = Helpers.Create<Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteAlignment>();
             p.Alignment = alignment;
@@ -420,7 +418,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Designers.Mechanics.Facts.AddCasterLevelForAbility createAddCasterLevelToAbility(BlueprintAbility spell, int bonus)
+        internal static Kingmaker.Designers.Mechanics.Facts.AddCasterLevelForAbility createAddCasterLevelToAbility(BlueprintAbility spell, int bonus)
         {
             var a = Helpers.Create<Kingmaker.Designers.Mechanics.Facts.AddCasterLevelForAbility>();
             a.Bonus = bonus;
@@ -428,7 +426,7 @@ namespace EldritchArcana
             return a;
         }
 
-        static internal PrerequisiteArchetypeLevel createPrerequisiteArchetypeLevel(BlueprintCharacterClass character_class, BlueprintArchetype archetype, int level)
+        internal static PrerequisiteArchetypeLevel createPrerequisiteArchetypeLevel(BlueprintCharacterClass character_class, BlueprintArchetype archetype, int level)
         {
             var p = Helpers.Create<PrerequisiteArchetypeLevel>();
             p.CharacterClass = character_class;
@@ -438,7 +436,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Designers.Mechanics.Facts.ArcaneArmorProficiency createArcaneArmorProficiency(params Kingmaker.Blueprints.Items.Armors.ArmorProficiencyGroup[] armor)
+        internal static Kingmaker.Designers.Mechanics.Facts.ArcaneArmorProficiency createArcaneArmorProficiency(params Kingmaker.Blueprints.Items.Armors.ArmorProficiencyGroup[] armor)
         {
             var p = Helpers.Create<Kingmaker.Designers.Mechanics.Facts.ArcaneArmorProficiency>();
             p.Armor = armor;
@@ -446,14 +444,14 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Blueprints.Classes.Spells.SpellsLevelEntry createSpellsLevelEntry(params int[] count)
+        internal static Kingmaker.Blueprints.Classes.Spells.SpellsLevelEntry createSpellsLevelEntry(params int[] count)
         {
             var s = new Kingmaker.Blueprints.Classes.Spells.SpellsLevelEntry();
             s.Count = count;
             return s;
         }
 
-        static internal Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable createSpellsTable(string name, string guid, params Kingmaker.Blueprints.Classes.Spells.SpellsLevelEntry[] levels)
+        internal static Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable createSpellsTable(string name, string guid, params Kingmaker.Blueprints.Classes.Spells.SpellsLevelEntry[] levels)
         {
             var t = Helpers.Create<Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable>();
             t.name = name;
@@ -463,7 +461,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable createSpontaneousHalfCasterSpellsPerDay(string name, string guid)
+        internal static Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable createSpontaneousHalfCasterSpellsPerDay(string name, string guid)
         {
             return createSpellsTable(name, guid,
                                        Common.createSpellsLevelEntry(),  //0
@@ -491,7 +489,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable createSpontaneousHalfCasterSpellsKnown(string name, string guid)
+        internal static Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable createSpontaneousHalfCasterSpellsKnown(string name, string guid)
         {
             return createSpellsTable(name, guid,
                                        Common.createSpellsLevelEntry(),  //0
@@ -519,7 +517,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Designers.Mechanics.Buffs.EmptyHandWeaponOverride createEmptyHandWeaponOverride(BlueprintItemWeapon weapon)
+        internal static Kingmaker.Designers.Mechanics.Buffs.EmptyHandWeaponOverride createEmptyHandWeaponOverride(BlueprintItemWeapon weapon)
         {
             var c = Helpers.Create<Kingmaker.Designers.Mechanics.Buffs.EmptyHandWeaponOverride>();
             c.Weapon = weapon;
@@ -527,7 +525,7 @@ namespace EldritchArcana
         }
 
 
-        static internal RemoveFeatureOnApply createRemoveFeatureOnApply(BlueprintFeature feature)
+        internal static RemoveFeatureOnApply createRemoveFeatureOnApply(BlueprintFeature feature)
         {
             var c = Helpers.Create<RemoveFeatureOnApply>();
             c.Feature = feature;
@@ -535,7 +533,7 @@ namespace EldritchArcana
         }
 
 
-        
+
 
         public static AddFactContextActions CreateEmptyAddFactContextActions()
         {
@@ -546,13 +544,13 @@ namespace EldritchArcana
             return a;
         }
 
-     
 
 
-        
 
 
-        static internal NewMechanics.WeaponTypeSizeChange createWeaponTypeSizeChange(int size_change, params BlueprintWeaponType[] types)
+
+
+        internal static NewMechanics.WeaponTypeSizeChange createWeaponTypeSizeChange(int size_change, params BlueprintWeaponType[] types)
         {
             var w = Helpers.Create<NewMechanics.WeaponTypeSizeChange>();
             w.SizeCategoryChange = size_change;
@@ -562,7 +560,7 @@ namespace EldritchArcana
 
 
 
-        static internal Kingmaker.UnitLogic.Buffs.Components.AddAreaEffect createAddAreaEffect(BlueprintAbilityAreaEffect area_effect)
+        internal static Kingmaker.UnitLogic.Buffs.Components.AddAreaEffect createAddAreaEffect(BlueprintAbilityAreaEffect area_effect)
         {
             var a = Helpers.Create<Kingmaker.UnitLogic.Buffs.Components.AddAreaEffect>();
             a.AreaEffect = area_effect;
@@ -570,7 +568,7 @@ namespace EldritchArcana
         }
 
 
-        static internal AddInitiatorAttackWithWeaponTrigger createAddInitiatorAttackWithWeaponTrigger(Kingmaker.ElementsSystem.ActionList action, bool only_hit = true, bool critical_hit = false,
+        internal static AddInitiatorAttackWithWeaponTrigger createAddInitiatorAttackWithWeaponTrigger(Kingmaker.ElementsSystem.ActionList action, bool only_hit = true, bool critical_hit = false,
                                                                                                       bool check_weapon_range_type = false, bool reduce_hp_to_zero = false,
                                                                                                       bool on_initiator = false,
                                                                                                       AttackTypeAttackBonus.WeaponRangeType range_type = AttackTypeAttackBonus.WeaponRangeType.Melee,
@@ -590,7 +588,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.UnitLogic.FactLogic.AddOutgoingPhysicalDamageProperty createAddOutgoingAlignment(DamageAlignment alignment, bool check_range = false, bool is_ranged = false)
+        internal static Kingmaker.UnitLogic.FactLogic.AddOutgoingPhysicalDamageProperty createAddOutgoingAlignment(DamageAlignment alignment, bool check_range = false, bool is_ranged = false)
         {
             var a = Helpers.Create<AddOutgoingPhysicalDamageProperty>();
             a.AddAlignment = true;
@@ -602,7 +600,7 @@ namespace EldritchArcana
 
 
 
-        static internal NewMechanics.ContextWeaponTypeDamageBonus createContextWeaponTypeDamageBonus(ContextValue bonus, params BlueprintWeaponType[] weapon_types)
+        internal static NewMechanics.ContextWeaponTypeDamageBonus createContextWeaponTypeDamageBonus(ContextValue bonus, params BlueprintWeaponType[] weapon_types)
         {
             var c = Helpers.Create<NewMechanics.ContextWeaponTypeDamageBonus>();
             c.Value = bonus;
@@ -635,7 +633,7 @@ namespace EldritchArcana
 
 
 
-        
+
 
         internal static PrerequisiteNoArchetype prerequisiteNoArchetype(BlueprintCharacterClass character_class, BlueprintArchetype archetype)
         {
@@ -993,7 +991,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.UnitLogic.FactLogic.AddConditionImmunity createAddConditionImmunity(UnitCondition condition)
+        internal static Kingmaker.UnitLogic.FactLogic.AddConditionImmunity createAddConditionImmunity(UnitCondition condition)
         {
             Kingmaker.UnitLogic.FactLogic.AddConditionImmunity c = Helpers.Create<Kingmaker.UnitLogic.FactLogic.AddConditionImmunity>();
             c.Condition = condition;
@@ -1001,7 +999,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Designers.Mechanics.Facts.SavingThrowBonusAgainstDescriptor createSavingThrowBonusAgainstDescriptor(int bonus, ModifierDescriptor descriptor, SpellDescriptor spell_descriptor)
+        internal static Kingmaker.Designers.Mechanics.Facts.SavingThrowBonusAgainstDescriptor createSavingThrowBonusAgainstDescriptor(int bonus, ModifierDescriptor descriptor, SpellDescriptor spell_descriptor)
         {
             Kingmaker.Designers.Mechanics.Facts.SavingThrowBonusAgainstDescriptor c = Helpers.Create<Kingmaker.Designers.Mechanics.Facts.SavingThrowBonusAgainstDescriptor>();
             c.Bonus = bonus;
@@ -1011,7 +1009,7 @@ namespace EldritchArcana
         }
 
 
-        static internal SavingThrowBonusAgainstAlignment createSavingThrowBonusAgainstAlignment(int bonus, ModifierDescriptor descriptor, AlignmentComponent alignment)
+        internal static SavingThrowBonusAgainstAlignment createSavingThrowBonusAgainstAlignment(int bonus, ModifierDescriptor descriptor, AlignmentComponent alignment)
         {
             var c = Helpers.Create<SavingThrowBonusAgainstAlignment>();
             c.Value = bonus;
@@ -1021,7 +1019,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Designers.Mechanics.Facts.SavingThrowContextBonusAgainstDescriptor createContextSavingThrowBonusAgainstDescriptor(ContextValue value, ModifierDescriptor descriptor, SpellDescriptor spell_descriptor)
+        internal static Kingmaker.Designers.Mechanics.Facts.SavingThrowContextBonusAgainstDescriptor createContextSavingThrowBonusAgainstDescriptor(ContextValue value, ModifierDescriptor descriptor, SpellDescriptor spell_descriptor)
         {
             var c = Helpers.Create<Kingmaker.Designers.Mechanics.Facts.SavingThrowContextBonusAgainstDescriptor>();
             c.ModifierDescriptor = descriptor;
@@ -1031,7 +1029,7 @@ namespace EldritchArcana
         }
 
 
-        static internal SavingThrowBonusAgainstSchool createSavingThrowBonusAgainstSchool(int bonus, ModifierDescriptor descriptor, SpellSchool school)
+        internal static SavingThrowBonusAgainstSchool createSavingThrowBonusAgainstSchool(int bonus, ModifierDescriptor descriptor, SpellSchool school)
         {
             var c = Helpers.Create<SavingThrowBonusAgainstSchool>();
             c.School = school;
@@ -1041,7 +1039,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.UnitLogic.FactLogic.BuffEnchantWornItem createBuffEnchantWornItem(Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment enchantment)
+        internal static Kingmaker.UnitLogic.FactLogic.BuffEnchantWornItem createBuffEnchantWornItem(Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment enchantment)
         {
             var b = Helpers.Create<BuffEnchantWornItem>();
             b.Enchantment = enchantment;
@@ -1049,7 +1047,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.UnitLogic.FactLogic.AddEnergyDamageImmunity createAddEnergyDamageImmunity(DamageEnergyType energy_type)
+        internal static Kingmaker.UnitLogic.FactLogic.AddEnergyDamageImmunity createAddEnergyDamageImmunity(DamageEnergyType energy_type)
         {
             var a = Helpers.Create<Kingmaker.UnitLogic.FactLogic.AddEnergyDamageImmunity>();
             a.EnergyType = energy_type;
@@ -1057,7 +1055,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.UnitLogic.ActivatableAbilities.ActivatableAbilityUnitCommand createActivatableAbilityUnitCommand(CommandType command_type)
+        internal static Kingmaker.UnitLogic.ActivatableAbilities.ActivatableAbilityUnitCommand createActivatableAbilityUnitCommand(CommandType command_type)
         {
             var a = Helpers.Create<ActivatableAbilityUnitCommand>();
             a.Type = command_type;
@@ -1065,7 +1063,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Designers.Mechanics.Facts.AttackTypeAttackBonus createAttackTypeAttackBonus(ContextValue value, AttackTypeAttackBonus.WeaponRangeType attack_type,
+        internal static Kingmaker.Designers.Mechanics.Facts.AttackTypeAttackBonus createAttackTypeAttackBonus(ContextValue value, AttackTypeAttackBonus.WeaponRangeType attack_type,
                                                                                                               ModifierDescriptor descriptor)
         {
             var a = Helpers.Create<AttackTypeAttackBonus>();
@@ -1078,7 +1076,7 @@ namespace EldritchArcana
 
 
 
-        static internal BlueprintActivatableAbility createSwitchActivatableAbilityOnlyBuff(string name, string switch_guid, string ability_guid,
+        internal static BlueprintActivatableAbility createSwitchActivatableAbilityOnlyBuff(string name, string switch_guid, string ability_guid,
                                                             BlueprintBuff effect, BlueprintBuff target_buff, Kingmaker.ElementsSystem.GameAction[] pre_actions,
                                                             UnityEngine.AnimationClip animation,
                                                             ActivatableAbilityGroup group = ActivatableAbilityGroup.None, int weight = 1,
@@ -1118,7 +1116,7 @@ namespace EldritchArcana
         }
 
 
-        static internal BlueprintFeature createSwitchActivatableAbilityBuff(string name, string switch_guid, string ability_guid, string feature_guid,
+        internal static BlueprintFeature createSwitchActivatableAbilityBuff(string name, string switch_guid, string ability_guid, string feature_guid,
                                                                     BlueprintBuff effect, BlueprintBuff target_buff, Kingmaker.ElementsSystem.GameAction[] pre_actions,
                                                                     UnityEngine.AnimationClip animation,
                                                                     ActivatableAbilityGroup group = ActivatableAbilityGroup.None, int weight = 1,
@@ -1142,7 +1140,7 @@ namespace EldritchArcana
         }
 
 
-        static internal BlueprintFeature createSwitchActivatableAbilityBuff(string name, string switch_guid, string ability_guid, string feature_guid,
+        internal static BlueprintFeature createSwitchActivatableAbilityBuff(string name, string switch_guid, string ability_guid, string feature_guid,
                                                                             BlueprintBuff effect, BlueprintBuff target_buff, UnityEngine.AnimationClip animation,
                                                                             ActivatableAbilityGroup group = ActivatableAbilityGroup.None, int weight = 1,
                                                                             CommandType command_type = CommandType.Free, CommandType unit_command = CommandType.Free)
@@ -1153,7 +1151,7 @@ namespace EldritchArcana
         }
 
 
-        static internal ContextActionRemoveBuffsByDescriptor createContextActionRemoveBuffsByDescriptor(SpellDescriptor descriptor, bool not_self = true)
+        internal static ContextActionRemoveBuffsByDescriptor createContextActionRemoveBuffsByDescriptor(SpellDescriptor descriptor, bool not_self = true)
         {
             var r = Helpers.Create<ContextActionRemoveBuffsByDescriptor>();
             r.SpellDescriptor = descriptor;
@@ -1162,7 +1160,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.AddContextEffectFastHealing createAddContextEffectFastHealing(ContextValue value, int multiplier = 1)
+        internal static NewMechanics.AddContextEffectFastHealing createAddContextEffectFastHealing(ContextValue value, int multiplier = 1)
         {
             var a = Helpers.Create<NewMechanics.AddContextEffectFastHealing>();
             a.Value = value;
@@ -1171,7 +1169,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.Designers.Mechanics.Facts.AuraFeatureComponent createAuraFeatureComponent(BlueprintBuff buff)
+        internal static Kingmaker.Designers.Mechanics.Facts.AuraFeatureComponent createAuraFeatureComponent(BlueprintBuff buff)
         {
             var a = Helpers.Create<Kingmaker.Designers.Mechanics.Facts.AuraFeatureComponent>();
             a.Buff = buff;
@@ -1179,7 +1177,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.UnitLogic.Mechanics.Actions.ContextActionHealTarget createContextActionHealTarget(ContextDiceValue value)
+        internal static Kingmaker.UnitLogic.Mechanics.Actions.ContextActionHealTarget createContextActionHealTarget(ContextDiceValue value)
         {
             var c = Helpers.Create<ContextActionHealTarget>();
             c.Value = value;
@@ -1187,14 +1185,14 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.UnitLogic.FactLogic.AddProficiencies createAddArmorProficiencies(params ArmorProficiencyGroup[] armor)
+        internal static Kingmaker.UnitLogic.FactLogic.AddProficiencies createAddArmorProficiencies(params ArmorProficiencyGroup[] armor)
         {
             var a = Helpers.Create<Kingmaker.UnitLogic.FactLogic.AddProficiencies>();
             a.ArmorProficiencies = armor;
             return a;
         }
 
-        static internal Kingmaker.UnitLogic.FactLogic.AddProficiencies createAddWeaponProficiencies(params WeaponCategory[] weapons)
+        internal static Kingmaker.UnitLogic.FactLogic.AddProficiencies createAddWeaponProficiencies(params WeaponCategory[] weapons)
         {
             var a = Helpers.Create<Kingmaker.UnitLogic.FactLogic.AddProficiencies>();
             a.WeaponProficiencies = weapons;
@@ -1202,7 +1200,7 @@ namespace EldritchArcana
         }
 
 
-        static internal AddEnergyVulnerability createAddEnergyVulnerability(DamageEnergyType energy)
+        internal static AddEnergyVulnerability createAddEnergyVulnerability(DamageEnergyType energy)
         {
             var a = Helpers.Create<AddEnergyVulnerability>();
             a.Type = energy;
@@ -1210,14 +1208,14 @@ namespace EldritchArcana
         }
 
 
-        static internal AbilityCasterHasNoFacts createAbilityCasterHasNoFacts(params BlueprintUnitFact[] facts)
+        internal static AbilityCasterHasNoFacts createAbilityCasterHasNoFacts(params BlueprintUnitFact[] facts)
         {
             var a = Helpers.Create<AbilityCasterHasNoFacts>();
             a.Facts = facts;
             return a;
         }
 
-        static internal AbilityCasterHasFacts createAbilityCasterHasFacts(params BlueprintUnitFact[] facts)
+        internal static AbilityCasterHasFacts createAbilityCasterHasFacts(params BlueprintUnitFact[] facts)
         {
             var a = Helpers.Create<AbilityCasterHasFacts>();
             a.Facts = facts;
@@ -1225,7 +1223,7 @@ namespace EldritchArcana
         }
 
 
-        static internal AddGenericStatBonus createAddGenericStatBonus(int bonus, ModifierDescriptor descriptor, StatType stat)
+        internal static AddGenericStatBonus createAddGenericStatBonus(int bonus, ModifierDescriptor descriptor, StatType stat)
         {
             var a = Helpers.Create<AddGenericStatBonus>();
             a.Stat = stat;
@@ -1235,7 +1233,7 @@ namespace EldritchArcana
         }
 
 
-        static internal ChangeUnitSize createChangeUnitSize(Size size)
+        internal static ChangeUnitSize createChangeUnitSize(Size size)
         {
             var c = Helpers.Create<ChangeUnitSize>();
             c.Size = size;
@@ -1244,7 +1242,7 @@ namespace EldritchArcana
         }
 
 
-        static internal void addReplaceSpellbook(BlueprintFeatureSelection selection, BlueprintSpellbook spellbook, string name, params BlueprintComponent[] components)
+        internal static void addReplaceSpellbook(BlueprintFeatureSelection selection, BlueprintSpellbook spellbook, string name, params BlueprintComponent[] components)
         {
             var feature = Helpers.Create<BlueprintFeatureReplaceSpellbook>();
             feature.name = name;
@@ -1259,7 +1257,7 @@ namespace EldritchArcana
         }
 
 
-        static internal PrerequisiteClassSpellLevel createPrerequisiteClassSpellLevel(BlueprintCharacterClass character_class, int spell_level)
+        internal static PrerequisiteClassSpellLevel createPrerequisiteClassSpellLevel(BlueprintCharacterClass character_class, int spell_level)
         {
             var p = Helpers.Create<PrerequisiteClassSpellLevel>();
             p.CharacterClass = character_class;
@@ -1268,7 +1266,7 @@ namespace EldritchArcana
         }
 
 
-        static internal ContextActionRemoveBuff createContextActionRemoveBuff(BlueprintBuff buff)
+        internal static ContextActionRemoveBuff createContextActionRemoveBuff(BlueprintBuff buff)
         {
             var r = Helpers.Create<ContextActionRemoveBuff>();
             r.Buff = buff;
@@ -1276,7 +1274,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.SavingThrowBonusAgainstSpecificSpells createSavingThrowBonusAgainstSpecificSpells(int bonus, ModifierDescriptor descriptor, params BlueprintAbility[] spells)
+        internal static NewMechanics.SavingThrowBonusAgainstSpecificSpells createSavingThrowBonusAgainstSpecificSpells(int bonus, ModifierDescriptor descriptor, params BlueprintAbility[] spells)
         {
             var s = Helpers.Create<NewMechanics.SavingThrowBonusAgainstSpecificSpells>();
             s.Spells = spells;
@@ -1286,7 +1284,7 @@ namespace EldritchArcana
         }
 
 
-        static internal AbilityTargetHasFact createAbilityTargetHasFact(bool inverted, params BlueprintUnitFact[] facts)
+        internal static AbilityTargetHasFact createAbilityTargetHasFact(bool inverted, params BlueprintUnitFact[] facts)
         {
 
             var a = Helpers.Create<AbilityTargetHasFact>();
@@ -1296,7 +1294,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.AbilityTargetHasNoFactUnlessBuffsFromCaster createAbilityTargetHasNoFactUnlessBuffsFromCaster(BlueprintBuff[] target_buffs,
+        internal static NewMechanics.AbilityTargetHasNoFactUnlessBuffsFromCaster createAbilityTargetHasNoFactUnlessBuffsFromCaster(BlueprintBuff[] target_buffs,
                                                                                                           BlueprintBuff[] alternative_buffs)
         {
             var h = Helpers.Create<NewMechanics.AbilityTargetHasNoFactUnlessBuffsFromCaster>();
@@ -1306,7 +1304,7 @@ namespace EldritchArcana
         }
 
 
-        static internal Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetIsPartyMember createAbilityTargetIsPartyMember(bool val = false)
+        internal static Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetIsPartyMember createAbilityTargetIsPartyMember(bool val = false)
         {
             var a = Helpers.Create<AbilityTargetIsPartyMember>();
             a.Not = !val;
@@ -1314,7 +1312,7 @@ namespace EldritchArcana
         }
 
 
-        static internal AbilityShowIfCasterHasFact createAbilityShowIfCasterHasFact(BlueprintUnitFact fact)
+        internal static AbilityShowIfCasterHasFact createAbilityShowIfCasterHasFact(BlueprintUnitFact fact)
         {
             var a = Helpers.Create<AbilityShowIfCasterHasFact>();
             a.UnitFact = fact;
@@ -1322,7 +1320,7 @@ namespace EldritchArcana
         }
 
 
-        static internal ContextConditionHasFact createContextConditionHasFact(BlueprintUnitFact fact, bool has = true)
+        internal static ContextConditionHasFact createContextConditionHasFact(BlueprintUnitFact fact, bool has = true)
         {
             var c = Helpers.Create<ContextConditionHasFact>();
             c.Fact = fact;
@@ -1331,7 +1329,7 @@ namespace EldritchArcana
         }
 
 
-        static internal ContextConditionCasterHasFact createContextConditionCasterHasFact(BlueprintUnitFact fact, bool has = true)
+        internal static ContextConditionCasterHasFact createContextConditionCasterHasFact(BlueprintUnitFact fact, bool has = true)
         {
             var c = Helpers.Create<ContextConditionCasterHasFact>();
             c.Fact = fact;
@@ -1350,7 +1348,7 @@ namespace EldritchArcana
         }
 
 
-        static internal ClassLevelsForPrerequisites createClassLevelsForPrerequisites(BlueprintCharacterClass fake_class, BlueprintCharacterClass actual_class, double modifier = 1.0, int summand = 0)
+        internal static ClassLevelsForPrerequisites createClassLevelsForPrerequisites(BlueprintCharacterClass fake_class, BlueprintCharacterClass actual_class, double modifier = 1.0, int summand = 0)
         {
             var c = Helpers.Create<ClassLevelsForPrerequisites>();
             c.ActualClass = actual_class;
@@ -1361,7 +1359,7 @@ namespace EldritchArcana
         }
 
 
-        static internal ACBonusAgainstFactOwner createACBonusAgainstFactOwner(int bonus, ModifierDescriptor descriptor, BlueprintUnitFact fact)
+        internal static ACBonusAgainstFactOwner createACBonusAgainstFactOwner(int bonus, ModifierDescriptor descriptor, BlueprintUnitFact fact)
         {
             var a = Helpers.Create<ACBonusAgainstFactOwner>();
             a.Bonus = bonus;
@@ -1372,7 +1370,7 @@ namespace EldritchArcana
 
 
 
-        static internal AddFeatureIfHasFact createAddFeatureIfHasFact(BlueprintUnitFact fact, BlueprintUnitFact feature, bool not = false)
+        internal static AddFeatureIfHasFact createAddFeatureIfHasFact(BlueprintUnitFact fact, BlueprintUnitFact feature, bool not = false)
         {
             var a = Helpers.Create<AddFeatureIfHasFact>();
             a.CheckedFact = fact;
@@ -1382,7 +1380,7 @@ namespace EldritchArcana
         }
 
 
-        static internal BuffExtraAttack createBuffExtraAttack(int num, bool haste)
+        internal static BuffExtraAttack createBuffExtraAttack(int num, bool haste)
         {
             var b = Helpers.Create<BuffExtraAttack>();
             b.Number = num;
@@ -1391,7 +1389,7 @@ namespace EldritchArcana
         }
 
 
-        static internal ContextConditionIsCaster createContextConditionIsCaster(bool not = false)
+        internal static ContextConditionIsCaster createContextConditionIsCaster(bool not = false)
         {
             var c = Helpers.Create<ContextConditionIsCaster>();
             c.Not = not;
@@ -1399,7 +1397,7 @@ namespace EldritchArcana
         }
 
 
-        static internal AddWearinessHours createAddWearinessHours(int hours)
+        internal static AddWearinessHours createAddWearinessHours(int hours)
         {
             var a = Helpers.Create<AddWearinessHours>();
             a.Hours = hours;
@@ -1407,7 +1405,7 @@ namespace EldritchArcana
         }
 
 
-        static internal AbilityScoreCheckBonus createAbilityScoreCheckBonus(ContextValue bonus, ModifierDescriptor descriptor, StatType stat)
+        internal static AbilityScoreCheckBonus createAbilityScoreCheckBonus(ContextValue bonus, ModifierDescriptor descriptor, StatType stat)
         {
             var a = Helpers.Create<AbilityScoreCheckBonus>();
             a.Bonus = bonus;
@@ -1417,7 +1415,7 @@ namespace EldritchArcana
         }
 
 
-        static internal ContextActionResurrect createContextActionResurrect(float result_health, bool full_restore = false)
+        internal static ContextActionResurrect createContextActionResurrect(float result_health, bool full_restore = false)
         {
             var c = Helpers.Create<ContextActionResurrect>();
             c.ResultHealth = result_health;
@@ -1426,18 +1424,18 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.ContextActionRemoveBuffFromCaster createContextActionRemoveBuffFromCaster(BlueprintBuff buff)
+        internal static NewMechanics.ContextActionRemoveBuffFromCaster createContextActionRemoveBuffFromCaster(BlueprintBuff buff)
         {
             var c = Helpers.Create<NewMechanics.ContextActionRemoveBuffFromCaster>();
             c.Buff = buff;
             return c;
         }
 
-        
 
-        
 
-        static internal ContextActionDispelMagic createContextActionDispelMagic(SpellDescriptor spell_descriptor, SpellSchool[] schools, RuleDispelMagic.CheckType check_type,
+
+
+        internal static ContextActionDispelMagic createContextActionDispelMagic(SpellDescriptor spell_descriptor, SpellSchool[] schools, RuleDispelMagic.CheckType check_type,
                                                                                  ContextValue max_spell_level = null, ContextValue max_caster_level = null)
         {
             var c = Helpers.Create<ContextActionDispelMagic>();
@@ -1459,7 +1457,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.CrowdAlliesACBonus createCrowdAlliesACBonus(int min_num_allies_around, ContextValue value, int radius = 2)
+        internal static NewMechanics.CrowdAlliesACBonus createCrowdAlliesACBonus(int min_num_allies_around, ContextValue value, int radius = 2)
         {
             var c = Helpers.Create<NewMechanics.CrowdAlliesACBonus>();
             c.num_allies_around = min_num_allies_around;
@@ -1469,7 +1467,7 @@ namespace EldritchArcana
         }
 
 
-        static internal BlueprintFeature AbilityToFeature(BlueprintAbility ability, bool hide = true, string guid = "")
+        internal static BlueprintFeature AbilityToFeature(BlueprintAbility ability, bool hide = true, string guid = "")
         {
             var feature = Helpers.CreateFeature(ability.name + "Feature",
                                                      ability.Name,
@@ -1488,7 +1486,7 @@ namespace EldritchArcana
         }
 
 
-        static internal BlueprintFeature ActivatableAbilityToFeature(BlueprintActivatableAbility ability, bool hide = true, string guid = "")
+        internal static BlueprintFeature ActivatableAbilityToFeature(BlueprintActivatableAbility ability, bool hide = true, string guid = "")
         {
             var feature = Helpers.CreateFeature(ability.name + "Feature",
                                                      ability.Name,
@@ -1507,7 +1505,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.ComeAndGetMe createComeAndGetMe()
+        internal static NewMechanics.ComeAndGetMe createComeAndGetMe()
         {
             var c = Helpers.Create<NewMechanics.ComeAndGetMe>();
             return c;
@@ -1536,7 +1534,7 @@ namespace EldritchArcana
                 else
                 {
                     processed_spell.Parent = parent;
-                    processed_spell.MaterialComponent=null;
+                    processed_spell.MaterialComponent = null;
                     processed_spells.Add(processed_spell);
                 }
             }
@@ -1544,7 +1542,7 @@ namespace EldritchArcana
         }
 
 
-        static internal void addToFactInContextConditionHasFact(BlueprintBuff buff, BlueprintUnitFact inner_buff_to_locate = null,
+        internal static void addToFactInContextConditionHasFact(BlueprintBuff buff, BlueprintUnitFact inner_buff_to_locate = null,
                                                        Condition condition_to_add = null)
         {
             var component = buff.GetComponent<AddFactContextActions>();
@@ -1581,7 +1579,7 @@ namespace EldritchArcana
 
 
 
-        static internal NewMechanics.ContextWeaponDamageBonus createContextWeaponDamageBonus(ContextValue bonus, bool apply_to_melee = true, bool apply_to_ranged = false, bool apply_to_thrown = true,
+        internal static NewMechanics.ContextWeaponDamageBonus createContextWeaponDamageBonus(ContextValue bonus, bool apply_to_melee = true, bool apply_to_ranged = false, bool apply_to_thrown = true,
                                                                                              bool scale_2h = true)
         {
             var c = Helpers.Create<NewMechanics.ContextWeaponDamageBonus>();
@@ -1594,7 +1592,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.VitalStrikeScalingDamage createVitalStrikeScalingDamage(ContextValue value, int multiplier = 1)
+        internal static NewMechanics.VitalStrikeScalingDamage createVitalStrikeScalingDamage(ContextValue value, int multiplier = 1)
         {
             var v = Helpers.Create<NewMechanics.VitalStrikeScalingDamage>();
             v.Value = value;
@@ -1603,7 +1601,7 @@ namespace EldritchArcana
         }
 
 
-        static internal SavingThrowBonusAgainstAbilityType createSavingThrowBonusAgainstAbilityType(int base_value, ContextValue bonus, AbilityType ability_type)
+        internal static SavingThrowBonusAgainstAbilityType createSavingThrowBonusAgainstAbilityType(int base_value, ContextValue bonus, AbilityType ability_type)
         {
             var b = Helpers.Create<SavingThrowBonusAgainstAbilityType>();
             b.Value = base_value;
@@ -1612,7 +1610,7 @@ namespace EldritchArcana
             return b;
         }
 
-        static internal PrerequisiteParametrizedFeature createPrerequisiteParametrizedFeatureWeapon(BlueprintParametrizedFeature feature, WeaponCategory category, bool any = false)
+        internal static PrerequisiteParametrizedFeature createPrerequisiteParametrizedFeatureWeapon(BlueprintParametrizedFeature feature, WeaponCategory category, bool any = false)
         {
             var p = Helpers.Create<PrerequisiteParametrizedFeature>();
             p.Feature = feature;
@@ -1623,7 +1621,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.ForbidSpellCastingUnlessHasClass createForbidSpellCastingUnlessHasClass(bool forbid_magic_items, params BlueprintCharacterClass[] classes)
+        internal static NewMechanics.ForbidSpellCastingUnlessHasClass createForbidSpellCastingUnlessHasClass(bool forbid_magic_items, params BlueprintCharacterClass[] classes)
         {
             var f = Helpers.Create<NewMechanics.ForbidSpellCastingUnlessHasClass>();
             f.allowed_classes = classes;
@@ -1632,7 +1630,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.WeaponDamageStatReplacement createWeaponDamageStatReplacementEnchantment(StatType stat)
+        internal static NewMechanics.WeaponDamageStatReplacement createWeaponDamageStatReplacementEnchantment(StatType stat)
         {
             var w = Helpers.Create<NewMechanics.WeaponDamageStatReplacement>();
             w.Stat = stat;
@@ -1641,7 +1639,7 @@ namespace EldritchArcana
 
 
 
-        static internal BlueprintWeaponEnchantment createWeaponEnchantment(string name, string display_name, string description, string prefix, string suffix, string guid, int identify_dc, GameObject fx_prefab, params BlueprintComponent[] components)
+        internal static BlueprintWeaponEnchantment createWeaponEnchantment(string name, string display_name, string description, string prefix, string suffix, string guid, int identify_dc, GameObject fx_prefab, params BlueprintComponent[] components)
         {
             var e = Helpers.Create<BlueprintWeaponEnchantment>();
             Helpers.SetField(e, "m_IdentifyDC", identify_dc);
@@ -1659,7 +1657,7 @@ namespace EldritchArcana
         }
 
 
-        static internal BlueprintArmorEnchantment createArmorEnchantment(string name, string display_name, string description, string prefix, string suffix, string guid, int identify_dc, int cost, params BlueprintComponent[] components)
+        internal static BlueprintArmorEnchantment createArmorEnchantment(string name, string display_name, string description, string prefix, string suffix, string guid, int identify_dc, int cost, params BlueprintComponent[] components)
         {
             var e = Helpers.Create<BlueprintArmorEnchantment>();
             Helpers.SetField(e, "m_IdentifyDC", identify_dc);
@@ -1676,20 +1674,20 @@ namespace EldritchArcana
             return e;
         }
 
-        static internal NewMechanics.WeaponAttackStatReplacement createWeaponAttackStatReplacementEnchantment(StatType stat)
+        internal static NewMechanics.WeaponAttackStatReplacement createWeaponAttackStatReplacementEnchantment(StatType stat)
         {
             var w = Helpers.Create<NewMechanics.WeaponAttackStatReplacement>();
             w.Stat = stat;
             return w;
         }
 
-        static internal void addEnchantment(BlueprintItemWeapon weapon, params BlueprintWeaponEnchantment[] enchantments)
+        internal static void addEnchantment(BlueprintItemWeapon weapon, params BlueprintWeaponEnchantment[] enchantments)
         {
             BlueprintWeaponEnchantment[] original_enchantments = Helpers.GetField<BlueprintWeaponEnchantment[]>(weapon, "m_Enchantments");
             Helpers.SetField(weapon, "m_Enchantments", original_enchantments.AddToArray(enchantments));
         }
 
-        static internal DamageTypeDescription createEnergyDamageDescription(DamageEnergyType energy)
+        internal static DamageTypeDescription createEnergyDamageDescription(DamageEnergyType energy)
         {
             var d = new DamageTypeDescription();
             d.Energy = energy;
@@ -1698,7 +1696,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.BuffContextEnchantPrimaryHandWeapon createBuffContextEnchantPrimaryHandWeapon(ContextValue value,
+        internal static NewMechanics.BuffContextEnchantPrimaryHandWeapon createBuffContextEnchantPrimaryHandWeapon(ContextValue value,
                                                                                                                    bool only_non_magical, bool lock_slot,
                                                                                                                    BlueprintWeaponType[] allowed_types,
                                                                                                                    params BlueprintWeaponEnchantment[] enchantments)
@@ -1715,7 +1713,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.BuffContextEnchantPrimaryHandWeapon createBuffContextEnchantPrimaryHandWeapon(ContextValue value,
+        internal static NewMechanics.BuffContextEnchantPrimaryHandWeapon createBuffContextEnchantPrimaryHandWeapon(ContextValue value,
                                                                                                            bool only_non_magical, bool lock_slot,
                                                                                                            params BlueprintWeaponEnchantment[] enchantments)
 
@@ -1725,7 +1723,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.BuffContextEnchantArmor createBuffContextEnchantArmor(ContextValue value,
+        internal static NewMechanics.BuffContextEnchantArmor createBuffContextEnchantArmor(ContextValue value,
                                                                                                            bool only_non_magical, bool lock_slot,
                                                                                                            params BlueprintArmorEnchantment[] enchantments)
         {
@@ -1738,7 +1736,7 @@ namespace EldritchArcana
         }
 
 
-        static internal AbilityCasterMainWeaponCheck createAbilityCasterMainWeaponCheck(params WeaponCategory[] category)
+        internal static AbilityCasterMainWeaponCheck createAbilityCasterMainWeaponCheck(params WeaponCategory[] category)
         {
             var a = Helpers.Create<AbilityCasterMainWeaponCheck>();
             a.Category = category;
@@ -1746,7 +1744,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.BuffContextEnchantPrimaryHandWeaponIfHasMetamagic createBuffContextEnchantPrimaryHandWeaponIfHasMetamagic(Metamagic metamagic, bool only_non_magical, bool lock_slot,
+        internal static NewMechanics.BuffContextEnchantPrimaryHandWeaponIfHasMetamagic createBuffContextEnchantPrimaryHandWeaponIfHasMetamagic(Metamagic metamagic, bool only_non_magical, bool lock_slot,
                                                                                                                             BlueprintWeaponType[] allowed_types, BlueprintWeaponEnchantment enchantment)
         {
             var b = Helpers.Create<NewMechanics.BuffContextEnchantPrimaryHandWeaponIfHasMetamagic>();
@@ -1759,7 +1757,7 @@ namespace EldritchArcana
         }
 
 
-        static internal AddParametrizedFeatures createAddParametrizedFeatures(BlueprintParametrizedFeature feature, WeaponCategory category)
+        internal static AddParametrizedFeatures createAddParametrizedFeatures(BlueprintParametrizedFeature feature, WeaponCategory category)
         {
             var data = Activator.CreateInstance(ParametrizedFeatureData);
             Helpers.SetField(data, "Feature", feature);
@@ -1773,7 +1771,7 @@ namespace EldritchArcana
             return a;
         }
 
-        static internal IncreaseActivatableAbilityGroupSize createIncreaseActivatableAbilityGroupSize(ActivatableAbilityGroup group)
+        internal static IncreaseActivatableAbilityGroupSize createIncreaseActivatableAbilityGroupSize(ActivatableAbilityGroup group)
         {
             var i = Helpers.Create<IncreaseActivatableAbilityGroupSize>();
             i.Group = group;
@@ -1781,7 +1779,7 @@ namespace EldritchArcana
         }
 
 
-        static internal ReplaceStatForPrerequisites createReplace34BabWithClassLevel(BlueprintCharacterClass character_class)
+        internal static ReplaceStatForPrerequisites createReplace34BabWithClassLevel(BlueprintCharacterClass character_class)
         {
             var r = Helpers.Create<ReplaceStatForPrerequisites>();
             r.Policy = ReplaceStatForPrerequisites.StatReplacementPolicy.MagusBaseAttack;
@@ -1791,7 +1789,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.ContextWeaponDamageDiceReplacement createContextWeaponDamageDiceReplacement(BlueprintParametrizedFeature required_parametrized_feature,
+        internal static NewMechanics.ContextWeaponDamageDiceReplacement createContextWeaponDamageDiceReplacement(BlueprintParametrizedFeature required_parametrized_feature,
                                                                                                                  ContextValue value, params DiceFormula[] dice_formulas)
         {
             var c = Helpers.Create<NewMechanics.ContextWeaponDamageDiceReplacement>();
@@ -1802,7 +1800,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.BuffRemainingGroupsSizeEnchantPrimaryHandWeapon createBuffRemainingGroupsSizeEnchantPrimaryHandWeapon(ActivatableAbilityGroup group, bool only_non_magical,
+        internal static NewMechanics.BuffRemainingGroupsSizeEnchantPrimaryHandWeapon createBuffRemainingGroupsSizeEnchantPrimaryHandWeapon(ActivatableAbilityGroup group, bool only_non_magical,
                                                                                                                                        bool lock_slot, params BlueprintWeaponEnchantment[] enchants)
         {
             var b = Helpers.Create<NewMechanics.BuffRemainingGroupsSizeEnchantPrimaryHandWeapon>();
@@ -1815,7 +1813,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.BuffRemainingGroupSizetEnchantArmor createBuffRemainingGroupSizetEnchantArmor(ActivatableAbilityGroup group, bool only_non_magical,
+        internal static NewMechanics.BuffRemainingGroupSizetEnchantArmor createBuffRemainingGroupSizetEnchantArmor(ActivatableAbilityGroup group, bool only_non_magical,
                                                                                                                                        bool lock_slot, params BlueprintArmorEnchantment[] enchants)
         {
             var b = Helpers.Create<NewMechanics.BuffRemainingGroupSizetEnchantArmor>();
@@ -1828,7 +1826,7 @@ namespace EldritchArcana
         }
 
 
-        static internal WeaponGroupAttackBonus createWeaponGroupAttackBonus(int bonus, ModifierDescriptor descriptor, WeaponFighterGroup group)
+        internal static WeaponGroupAttackBonus createWeaponGroupAttackBonus(int bonus, ModifierDescriptor descriptor, WeaponFighterGroup group)
         {
             WeaponGroupAttackBonus w = Helpers.Create<WeaponGroupAttackBonus>();
             w.AttackBonus = bonus;
@@ -1838,7 +1836,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.RunActionsDependingOnContextValue createRunActionsDependingOnContextValue(ContextValue value, params ActionList[] actions)
+        internal static NewMechanics.RunActionsDependingOnContextValue createRunActionsDependingOnContextValue(ContextValue value, params ActionList[] actions)
         {
             var r = Helpers.Create<NewMechanics.RunActionsDependingOnContextValue>();
             r.value = value;
@@ -1847,7 +1845,7 @@ namespace EldritchArcana
         }
 
 
-        static internal WeaponDamageAgainstAlignment createWeaponDamageAgainstAlignment(DamageEnergyType energy, DamageAlignment damage_alignment, AlignmentComponent enemy_alignment,
+        internal static WeaponDamageAgainstAlignment createWeaponDamageAgainstAlignment(DamageEnergyType energy, DamageAlignment damage_alignment, AlignmentComponent enemy_alignment,
                                                                                         ContextDiceValue value)
         {
             var w = Helpers.Create<WeaponDamageAgainstAlignment>();
@@ -1859,7 +1857,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.ContextActionSpendResource createContextActionSpendResource(BlueprintAbilityResource resource, int amount, params BlueprintUnitFact[] cost_reducing_facts)
+        internal static NewMechanics.ContextActionSpendResource createContextActionSpendResource(BlueprintAbilityResource resource, int amount, params BlueprintUnitFact[] cost_reducing_facts)
         {
             var c = Helpers.Create<NewMechanics.ContextActionSpendResource>();
             c.amount = amount;
@@ -1869,7 +1867,7 @@ namespace EldritchArcana
         }
 
 
-        static internal WeaponEnergyDamageDice weaponEnergyDamageDice(DamageEnergyType energy, DiceFormula dice_formula)
+        internal static WeaponEnergyDamageDice weaponEnergyDamageDice(DamageEnergyType energy, DiceFormula dice_formula)
         {
             var w = Helpers.Create<WeaponEnergyDamageDice>();
             w.Element = energy;
@@ -1878,7 +1876,7 @@ namespace EldritchArcana
         }
 
 
-        static internal EvasionAgainstDescriptor createEvasionAgainstDescriptor(SpellDescriptor descriptor, SavingThrowType save_type)
+        internal static EvasionAgainstDescriptor createEvasionAgainstDescriptor(SpellDescriptor descriptor, SavingThrowType save_type)
         {
             var e = Helpers.Create<EvasionAgainstDescriptor>();
             e.SpellDescriptor = descriptor;
@@ -1887,7 +1885,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.AddEnergyDamageDurability createAddEnergyDamageDurability(DamageEnergyType energy, float scaling_factor)
+        internal static NewMechanics.AddEnergyDamageDurability createAddEnergyDamageDurability(DamageEnergyType energy, float scaling_factor)
         {
             var a = Helpers.Create<NewMechanics.AddEnergyDamageDurability>();
             a.scaling = scaling_factor;
@@ -1896,7 +1894,7 @@ namespace EldritchArcana
         }
 
 
-        static internal NewMechanics.AbilityTargetCompositeOr createAbilityTargetCompositeOr(bool not, params IAbilityTargetChecker[] checkers)
+        internal static NewMechanics.AbilityTargetCompositeOr createAbilityTargetCompositeOr(bool not, params IAbilityTargetChecker[] checkers)
         {
             var c = Helpers.Create<NewMechanics.AbilityTargetCompositeOr>();
             c.ability_checkers = checkers;
@@ -1905,7 +1903,7 @@ namespace EldritchArcana
         }
 
 
-        static internal AbilityTargetHasCondition createAbilityTargetHasCondition(UnitCondition condition, bool not = false)
+        internal static AbilityTargetHasCondition createAbilityTargetHasCondition(UnitCondition condition, bool not = false)
         {
             var c = Helpers.Create<AbilityTargetHasCondition>();
             c.Condition = condition;
@@ -1913,6 +1911,46 @@ namespace EldritchArcana
             return c;
         }
 
+        /// <summary>
+        /// [1.2.1.7] 窗口尺寸
+        /// </summary>
+        internal static Vector2 WindowSize => UnityModManager.UI.WindowSize;
 
+        /// <summary>
+        /// [1.2.1.7] 窗口宽度样式
+        /// </summary>
+        internal static GUILayoutOption WindowWidth => GL.MaxWidth(UnityModManager.UI.WindowSize.x - 40f);
+
+        internal static void SingleLineLabel(string label)
+        {
+            GL.BeginHorizontal();
+            GL.Label(label, WindowWidth);
+            GL.EndHorizontal();
+            GL.Space(10);
+        }
+
+        internal static void SingleLineToggle(ref bool value, string info, string tip = "")
+        {
+            GL.BeginHorizontal();
+            value = GL.Toggle(value, new GC(info, tip), WindowWidth);
+            GL.EndHorizontal();
+            GL.Space(10);
+        }
+
+        public static void DealTooltip()
+        {
+            if (string.IsNullOrEmpty(GUI.tooltip)) return;
+            var tooltip = new GC(GUI.tooltip);
+            var styleRect = GUI.skin.box;
+            var tooltipSize = styleRect.CalcSize(tooltip);
+            var styleTooltip = new GUIStyle();
+            var background = new Texture2D(1, 1);
+            background.SetPixels32(new[] { new Color32(0, 0, 0, 220) });
+            var state = new GUIStyleState { background = background };
+            styleTooltip.normal = state;
+            var x = (WindowSize.x - tooltipSize.x) / 2;
+            var y = (WindowSize.y - Input.mousePosition.y) / 2;
+            GUI.Label(new Rect(x, y, tooltipSize.x, tooltipSize.y), GUI.tooltip, styleTooltip);
+        }
     }
 }

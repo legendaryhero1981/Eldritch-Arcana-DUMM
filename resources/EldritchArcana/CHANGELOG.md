@@ -3,6 +3,31 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [1.2.1]
+
+### Added
+-More Icons Made by Nolanoth for spells traits and feats in the mod.
+-Frostborn dwarf trait.
+
+### Changed
+-Undeadfeature Has now also a prerequisite option Spellfocus or Spellfocus-Necromancy.
+-Summon six goblins now has a spell school and required material components.
+-Bulky battelborn Has been moved to custom traits.
+
+### Fixed
+-A lot of descriptions see list:https://imgur.com/gallery/fr7rV2A 
+Credits to Silverite for bringing them to my attention and pointing out the correct descriptions. 
+
+
+## [1.2.0]
+
+### Added
+-Icons Made by Nolanoth for spells traits and feats in the mod.
+
+### Changed
+-Drawback spell vulnerability now adds vulnerability to a fitting school. 
+-The undead feature now requires a Urgortha as a deity
+
 ## [1.1.9]
 
 ### Added

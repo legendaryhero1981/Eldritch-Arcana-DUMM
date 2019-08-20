@@ -55,7 +55,7 @@ namespace EldritchArcana
                 "You are descended from a long line of sorcerers, and some portion of their power flows in your veins.\n" +
                 "Select one sorcerer bloodline. You must have Skill focus in the class skill that bloodline grants to a sorcerer at 1st level (for example, Heal for the celestial bloodline). This bloodline cannot be a bloodline you already have. You gain the first-level bloodline power for the selected bloodline. For purposes of using that power, treat your sorcerer level as equal to your character level – 2, even if you have levels in sorcerer. You do not gain any of the other bloodline abilities.",
                 "733b54b0669b4aeda47953ec0e2b33dd",
-                spellSpecialization.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Eldritch_Heritage.png"),//spellSpecialization.Icon,
                 FeatureGroup.Feat);
 
             var components = new List<BlueprintComponent> {
@@ -71,7 +71,7 @@ namespace EldritchArcana
                 "The power of your discovered bloodline continues to grow.\n" +
                 "You gain either the 3rd-level or the 9th-level power (your choice) of the bloodline you selected with the Eldritch Heritage feat. For purposes of using that power, treat your sorcerer level as equal to your character level – 2, even if you have levels in sorcerer. You do not gain any of the other bloodline abilities.",
                 "c8bd273034684e6689b105a7d8bc9c3b",
-                spellSpecialization.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Eldritch_Heritage_Improved.png"),//spellSpecialization.Icon,
                 FeatureGroup.Feat,
                 Helpers.PrerequisiteCharacterLevel(11),
                 Helpers.PrerequisiteStatValue(StatType.Charisma, 15),
@@ -85,7 +85,7 @@ namespace EldritchArcana
                 "Your discovered bloodline power reaches its zenith.\n" +
                 "You gain an additional power from the bloodline you selected with the Eldritch Heritage feat. You gain a 15th-level (or lower) sorcerer bloodline power that you do not already have. For purposes of using that power, treat your character level as your sorcerer level for all your sorcerer bloodline powers granted by this feat, Eldritch Heritage, and Improved Eldritch Heritage.",
                 "24aad7af058a49f88d1203b856409023",
-                spellSpecialization.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Eldritch_Heritage_Greater.png"),// spellSpecialization.Icon,
                 FeatureGroup.Feat,
                 Helpers.PrerequisiteCharacterLevel(17),
                 Helpers.PrerequisiteStatValue(StatType.Charisma, 17),

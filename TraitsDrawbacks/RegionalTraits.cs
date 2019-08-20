@@ -75,7 +75,7 @@ namespace EldritchArcana
             var dagger = Traits.library.Get<BlueprintWeaponType>("07cc1a7fceaee5b42b3e43da960fe76d");
 
             var riverrat = Traits.CreateAddStatBonus("DaggerboyTrait", "River Rat (Marsh or River)",
-                "You learned to swim right after you learned to walk. When you were a youth, a gang of river pirates put you to work swimming in nighttime rivers and canals with a dagger between your teeth so you could sever the anchor ropes of merchant vessels. \n Benefit: You gain a +1 trait bonus on damage rolls with a dagger and a +1 trait bonus on Swim(atletics is class skill) checks. and you start with a dagger",
+                "You learned to swim right after you learned to walk. When you were a youth, a gang of river pirates put you to work swimming in night-time rivers. And canals with a dagger between your teeth so you could sever the anchor ropes of merchant vessels. \n Benefit: You gain a +1 trait bonus on damage rolls with a dagger and a +1 trait bonus on Swim(atletics is class skill) checks. and you start with a dagger.",
                 "e16eb56b2f964321a29976226dccb39f",
                 StatType.SkillAthletics // strongman
 

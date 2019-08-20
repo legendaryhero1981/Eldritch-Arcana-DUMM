@@ -52,7 +52,8 @@ namespace EldritchArcana
             var prestigiousSpell = Helpers.CreateFeatureSelection("PrestigiousSpellcasterSelection", "Prestigious Spellcaster",
                 "The transition into a spellcasting prestige class is less difficult for you, and because of this, you gain 1 additional effective spellcaster level from your prestige class levels.",
                 "30e9a3fcdb0446aa87f45d0f50b3b3fc",
-                spellSpecialization.Icon, FeatureGroup.Feat);
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Prestigious_Spellcaster.png"),//spellSpecialization.Icon,
+                FeatureGroup.Feat);
             prestigiousSpell.SetFeatures(
                 CreatePrestigiousSpellcaster(eldritchKnightClass, "dc3ab8d0484467a4787979d93114ebc3" /*EldritchKnightSpellbookSelection*/ ),
                 CreatePrestigiousSpellcaster(dragonDiscipleClass, "8c1ba14c0b6dcdb439c56341385ee474" /*DragonDiscipleSpellbookSelection*/ ));

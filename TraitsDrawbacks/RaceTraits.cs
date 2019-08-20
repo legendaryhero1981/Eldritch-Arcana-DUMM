@@ -311,8 +311,8 @@ namespace EldritchArcana
                 Helpers.GetIcon("3a8d34905eae4a74892aae37df3352b9"), // Skill Focus Stealth (mobility)
                 FeatureGroup.None,
                 dwarfReq,
-                Helpers.CreateAddStatBonus(StatType.SkillMobility, 2, ModifierDescriptor.Trait),
-                Helpers.CreateAddStatBonus(StatType.SaveReflex, 1, ModifierDescriptor.Trait)));
+                Helpers.CreateAddStatBonus(StatType.SkillMobility, 2, ModifierDescriptor.Racial),
+                Helpers.CreateAddStatBonus(StatType.SaveReflex, 1, ModifierDescriptor.Racial)));
 
             choices.Add(Traits.CreateAddStatBonus("MilitantMerchantTrait", "Militant Merchant (Dwarf)",
                 "You know what it takes to get your goods to market and will stop at nothing to protect your products. Years of fending off thieves, cutthroats, and brigands have given you a sixth sense when it comes to danger.",
@@ -326,22 +326,16 @@ namespace EldritchArcana
                 dwarfReq,
                 Helpers.Create<CriticalConfirmationBonus>(a => { a.Bonus = 1; a.Value = 0; })));
 
-            var dwarfy = new BlueprintComponent[64];
-            for(int i = 1; i < 65; i++)
-            {
-                dwarfy[i-1] = Helpers.CreateAddStatBonusOnLevel(StatType.HitPoints, i * 2, ModifierDescriptor.Trait, i);
-            };
-            //var scale = Helpers.Create<BuffScaling>(a => { a.TypeOfScaling = BuffScaling.ScalingType.ByLevel; a.StartingMod = 1; });
-            //var x = BuffScaling.ScalingType.ByLevel;
-            //dwarfy;
-            var bulkybattleborn = Helpers.CreateFeature("BulkyAfTrait", "Bulky Battleborn (Dwarf)",
-                "Your greatest joy is being in the thick of battle and taking hits for the team, \nBenefit:you gain 2 extra hitpoints per level",
-                "a987f5e69db44cdd99983985e37a6c3b",
+            
+            var Frostborn = Helpers.CreateFeature("FrostbornTrait", "Frostborn(Dwarf)",
+                "Your where raized in the icy tundra\nBenefit:Benefit: You gain a +4 trait bonus to resist the effects of cold environments, as well as a +1 trait bonus on all saving throws against cold effects.",
+                "f987f5e69db44cdd99983985e37a6c3c",
                 Helpers.GetIcon("121811173a614534e8720d7550aae253"), // Weapon Specialization
                 FeatureGroup.None,
                 dwarfReq);
-            bulkybattleborn.AddComponents(dwarfy);
-            choices.Add(bulkybattleborn);
+            Frostborn.AddComponent(Helpers.Create<AddDamageResistanceEnergy>(r=> { r.Type = Kingmaker.Enums.Damage.DamageEnergyType.Cold; r.Value = 4; }));
+            Frostborn.AddComponent(Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Cold; s.ModifierDescriptor=ModifierDescriptor.Racial; s.Bonus = 1; }));
+            choices.Add(Frostborn);
 
             choices.Add(Helpers.CreateFeature("ZestForBattleTrait", "Zest for Battle (Dwarf)",
                 "Your greatest joy is being in the thick of battle, and smiting your enemies for a righteous or even dastardly cause.\nBenefit: Whenever you have a morale bonus to weapon attack rolls, you also receive a +1 trait bonus on weapon damage rolls.",
@@ -398,7 +392,7 @@ namespace EldritchArcana
             choices.Add(Helpers.CreateFeature("AnimalFriendTrait", "Animal Friend (Gnome)",
                 "You’ve long been a friend to animals, and feel safer when animals are nearby.\nBenefits: You gain a +1 trait bonus on Will saving throws as long as you have an animal companion or familiar, and Lore (Nature) is always a class skill for you.",
                 "91c612b225d54adaa4ce4c633501b58e",
-                Helpers.GetIcon("1670990255e4fe948a863bafd5dbda5d"), // Boon Companion
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Gnome_Animal_Friend.png"),//Helpers.GetIcon("1670990255e4fe948a863bafd5dbda5d"), // Boon Companion
                 FeatureGroup.None,
                 components.ToArray()));
 

@@ -94,20 +94,20 @@ namespace EldritchArcana
             choices.Add(Helpers.CreateFeature("FatesFavoredTrait", "Fate's Favored",
                 "Whenever you are under the effect of a luck bonus of any kind, that bonus increases by 1.",
                 "0c5dcccc21e148cdaf0fb3c643249bfb",
-                Helpers.GetIcon("9a7e3cd1323dfe347a6dcce357844769"), // blessing luck & resolve
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Fey_foundling.png"), // blessing luck & resolve
                 FeatureGroup.None,
                 Helpers.Create<ExtraLuckBonus>()));
 
             var WisFlesh = Helpers.CreateFeatureSelection("WisdomintheFleshTrait", "Wisdom in the Flesh",
                 "Your hours of meditation on inner perfection and the nature of strength and speed allow you to focus your thoughts to achieve things your body might not normally be able to do on its own.\n" +
-                "Benefit: choose a stat normaly decided by strength charisma or dexterety and use wisom instead.",
+                "Benefit: Choose a skill normally decided by Strength, Charisma, or Dexterity, and use Wisdom instead.",
                 "1d4dcccc21e148cdaf0fb3c643249cbf",
                 Helpers.NiceIcons(43), // blessing luck & resolve
                 FeatureGroup.None,
                 Helpers.Create<ExtraLuckBonus>());
 
             var WisFleshOptions = new BlueprintFeature[6];
-            var icons = new int[] {0,1,24,2,25,6 };
+            var icons = new int[] {0,1,24,2,25,6,22 };
             var OldStats = new StatType[] {
                 StatType.Dexterity,
                 StatType.Dexterity,
@@ -116,6 +116,7 @@ namespace EldritchArcana
                 StatType.Strength,
                 //StatType.Intelligence,
                 StatType.Dexterity,
+                StatType.Charisma,
             };
             var Stats = new StatType[] {
                 StatType.SkillMobility,
@@ -125,11 +126,12 @@ namespace EldritchArcana
                 StatType.SkillAthletics,
                 //StatType.SkillKnowledgeWorld,
                 StatType.SkillStealth,
+                StatType.SkillPersuasion,
             };
             for (int i = 0; i < 6; i++) {                
                 WisFleshOptions[i]= Helpers.CreateFeature($"EmpathicDiplomatTrait{Stats[i]}", $"Use Wisdom for calculating {Stats[i]}",
                     "Your hours of meditation on inner perfection and the nature of strength and speed allow you to focus your thoughts to achieve things your body might not normally be able to do on its own. \n" +
-                    $"Benefit:You modify your {Stats[i]} using your Wisdom modifier. insted of your {OldStats[i]}",
+                    $"Benefit: You modify your {Stats[i]} using your Wisdom modifier. insted of your {OldStats[i]}",
                     $"a98{i}f{i}e69db44cdd889{i}3985e37a6d2b",
                     Helpers.NiceIcons(i),
                     FeatureGroup.None,                   

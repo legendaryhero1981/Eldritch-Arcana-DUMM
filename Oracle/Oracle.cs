@@ -181,7 +181,7 @@ namespace EldritchArcana
             var extraRevelation = Helpers.CreateFeatureSelection("ExtraRevelation",
                 "Extra Revelation", "You gain one additional revelation. You must meet all of the prerequisites for this revelation.\nSpecial: You can gain Extra Revelation multiple times.",
                 "e91bd89bb5534ae2b61a3222a9b7325e",
-                Helpers.GetIcon("fd30c69417b434d47b6b03b9c1f568ff"), // selective channel
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Revelations_Extra.png"),//Helpers.GetIcon("fd30c69417b434d47b6b03b9c1f568ff"), // selective channel
                 FeatureGroup.Feat,
                 Helpers.PrerequisiteClassLevel(oracle, 1));
             var extras = revelation.Features.Select(
@@ -194,7 +194,7 @@ namespace EldritchArcana
                 "Abundant Revelations",
                 "Choose one of your revelations that has a number of uses per day. You gain 1 additional use per day of that revelation.\nSpecial: You can gain this feat multiple times. Its effects do not stack. Each time you take the feat, it applies to a new revelation.",
                 "1614c7b40565481fa3728fd7375ddca0",
-                Helpers.GetIcon("a2b2f20dfb4d3ed40b9198e22be82030"), // extra lay on hands
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Revelations_Abundant.png"),//Helpers.GetIcon("a2b2f20dfb4d3ed40b9198e22be82030"), // extra lay on hands
                 FeatureGroup.Feat);
             var resourceChoices = new List<BlueprintFeature>();
             var prereqRevelations = new List<Prerequisite> { Helpers.PrerequisiteClassLevel(oracle, 1) };

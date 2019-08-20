@@ -51,6 +51,7 @@ namespace EldritchArcana
             Main.SafeLoad(LoadWish, "Wish");
             Main.SafeLoad(LoadLimitedWish, "Limited Wish");
             Main.SafeLoad(LoadWishFabricate, "Wish(Arcane)");
+            Log.Write("wishSPells loaded");
         }
 
         static void LoadLimitedWish()
@@ -65,7 +66,7 @@ namespace EldritchArcana
                 "• Produce any other effect whose power level is in line with the above effects, such as a single creature automatically hitting on its next attack or taking a -7 penalty on its next saving throw.\n" +
                 "A duplicated spell allows saving throws and spell resistance as normal, but the save DC is for a 7th-level spell. When a limited wish spell duplicates a spell with a material component that costs more than 1,000 gp, you must provide that component (in addition to the 1,500 gp diamond component for this spell).",
                 "9e70b011f2554c3ba0fe9060dc93fc6c",
-                Helpers.GetIcon("6f1f99b38e471fa42b1b42f7549b4210"), // geniekind
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/limited_wish.png"), // geniekind
                 AbilityType.Spell,
                 CommandType.Standard,
                 AbilityRange.Personal,
@@ -146,7 +147,7 @@ namespace EldritchArcana
                 "Duplicated spells allow saves and Spell Resistance as normal (but save DCs are for 9th-level spells).\n" +
                 "When a wish duplicates a spell with a material component that costs more than 10,000 gp, you must provide that component (in addition to the 25,000 gp diamond component for this spell).",
                 "508802d7c0cb452ab7473c2e83c3f535",
-                Helpers.GetIcon("6f1f99b38e471fa42b1b42f7549b4210"), // geniekind
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/wish_spell.png"),
                 AbilityType.Spell,
                 CommandType.Standard,
                 AbilityRange.Personal,

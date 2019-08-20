@@ -86,16 +86,16 @@ namespace EldritchArcana
             var NobleFamilyBorn = Helpers.CreateFeatureSelection("NobleFamilyBornTrait", "Noble born",
                 NobleDescription + "\nBenefits: Select one of the following Royal families to gain its Traits",
                 "ecacfcbeddfe453cafc8d60fc2fb5d45",
-                Helpers.NiceIcons(41),//Helpers.GetIcon("3adf9274a210b164cb68f472dc1e4544"), // Human Skilled
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Noble_Houses.png"),
                 FeatureGroup.None);
 
 
-            var Orlovski = Helpers.CreateFeatureSelection("Noble family Orlovski Trait", "Noble family — Orlovski",
-                "Their motto is 'High Above' \n" +
+            var Orlovski = Helpers.CreateFeatureSelection("Noble family Orlovsky Trait", "Noble family — Orlovsky",
+                "Their motto is 'High Above.' \n" +
                 "House Orlovsky controls northeastern Brevoy from Eagle's Watch on Mount Veshka. They try to rise above petty political maneuvers. As staunch allies of the now disappeared House Rogarvia, this has landed them in a prickly situation." +
-                "\n Benefit: have +1 CMD and Select one of the following skills: Persuasion, Athletics, or Stealth. You gain a +1 trait bonus on checks with that skill, and it is always a class skill for you.",
+                "\nBenefit: You have a +1 trait bonus on CMD. You select one of the following skills: Persuasion, Athletics, or Stealth. You gain a +1 trait bonus on checks with that skill, and it is always a class skill for you.",
                 Helpers.MergeIds(Helpers.getGuids(StatType.AC), "9b03b7ff17394007a3fbec18bb42604b"),
-                Helpers.GetIcon("79042cb55f030614ea29956177977c52"), // Great Fortitude
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Orlovsky.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.AdditionalCMD, 1, ModifierDescriptor.Trait));
 
@@ -118,12 +118,11 @@ namespace EldritchArcana
 
 
             var Lebda = Helpers.CreateFeatureSelection("Noble family Lebeda Trait", "Noble family — Lebeda",
-                "family motto 'Success through Grace.'\n" +
-                "House Lebeda is based to the southwest of Lake Reykal in Brevoy, controlling the plains and significant portions of the lake's shipping.[1] They are considered to be the Brevic noble family that epitomizes Rostland, having significant Taldan blood, an appreciation for fine things, and a love of sword fighting." +
-                "\nBenefit:+1 knowledge arcana" +
-                "\nBefefit:select a recource for a usable ability and you are able to use it more",
+                "Family Motto: 'Success through Grace.'\n" +
+                "House Lebeda is based to the southwest of Lake Reykal in Brevoy, controlling the plains and significant portions of the lake's shipping. They are considered to be the Brevic noble family that epitomizes Rostland, having significant Taldan blood, an appreciation for fine things, and a love of sword fighting." +
+                "\nBenefit: You get a +1 trait bonus on Knowledge (Arcana), and select a resource for a usable ability. You can use it at least one additional time.",
                 Helpers.MergeIds(Helpers.getGuids(StatType.Intelligence), "9b03b7ff17394007a3fbec18bb42604c"),
-                Helpers.GetIcon("79042cb55f030614ea29956177977c52"), // Great Fortitude
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Lebeda.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.SkillKnowledgeArcana, 1, ModifierDescriptor.Trait));
             //
@@ -187,9 +186,12 @@ namespace EldritchArcana
             var hoi = new List<BlueprintFeature>() {
                 //family medyved
                 Helpers.CreateFeature("Noble family none Trait", "Noble family — Medvyed",
-                NobleDescription+" and your family made to deal with fey creatures so people from your family can cure each other better \n Benefit: you can use lay on hands 4 times more often and you have + 1 on saving throws vs fey compulsion",
+                "House Medvyed is a noble house of Brevoy that holds authority over the eastern lands that border and contain the Icerime Peaks and Gronzi Forest. They have maintained the traditions of worshiping nature, the 'Old Way'. Lord Gurev Medyed heads the Stoneclimb-based house."+
+                "The people of the area raise mountain goats and sheep. They hunt in the forest and farm what little good land is on the edges of their concerns. Religion in this area tends to be more centralized on Erastil, but rumors of hidden shrines to Lamashtu do exist."+
+                "The house crest is a black bear with black antlers above its head in front of a red field.Their motto is 'Endurance Overcomes All.'" +
+                "\nBenefit: You can use Lay on Hands 4 times more per day, and you get a +1 trait bonus on saving throws vs compulsion effects from feys.",
                 Helpers.MergeIds(Helpers.getGuids(StatType.AdditionalCMB), "9b03b7ff17394007a3fbec18bb42604b"),
-                Helpers.GetIcon("79042cb55f030614ea29956177977c52"), // Great Fortitude
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Medvyed.png"),
                 FeatureGroup.None,
                 layonhandsResource.CreateIncreaseResourceAmount(4),Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Compulsion; s.Value = 1; s.ModifierDescriptor = ModifierDescriptor.Trait; })),
                 
@@ -198,10 +200,10 @@ namespace EldritchArcana
                 "House Lodovka is a noble family of Brevoy with their headquarters on Acuben Isle on the Lake of Mists and Veils."+
                 "They have traditionally been a power on the lake.Led by Lord Kozek Lodovka, both their fleet size and influence along the lake continue to increase."+
                 "The fleet primarily catches fish and freshwater crabs."+
-                "The house's crest includes a green crab climbing out of the water towards a gray tower/keep. Their motto is 'The Waters, Our Fields'" +
-                "\n Benefit:+ 2 atletics and atlecics, and if you are a caster you know the spell snowball",
+                "The house's crest includes a green crab climbing out of the water towards a gray tower/keep. Their motto is 'The Waters, Our Fields'." +
+                "\nBenefit: You get a +2 trait bonus on Athletics checks. If you are a spellcaster, you know the spell Snowball.",
                 Helpers.MergeIds(Helpers.getGuids(StatType.BaseAttackBonus), "9b03b7ff17394007a3fbec18bb42604b"),
-                Helpers.GetIcon("79042cb55f030614ea29956177977c52"), // Great Fortitude
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Lodovka.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddKnownSpell(snowball,wizard,0),
                 Helpers.CreateAddKnownSpell(snowball,alchemist,1),
@@ -219,31 +221,28 @@ namespace EldritchArcana
                 //Helpers.CreateAddKnownSpell(snowball,bloodrager,1),
                 //Helpers.CreateAddKnownSpell(snowball,witch,1),
                 //Helpers.CreateAddKnownSpell(snowball,scald,1),
-
-
-                //Helpers.adc
                 Helpers.CreateAddStatBonus(StatType.SkillAthletics,2,ModifierDescriptor.Trait)),
                 //family garess + 5 mvnt spd
                 Helpers.CreateFeature("Noble family Garess Trait", "Noble family — Garess",
-                "famly motto:'Strong as the Mountains'\n" +
-                "House Garess is based in the western part of Brevoy, in the foothills of the Golushkin Mountains." +
-                "House Garess' crest is that of a snow-capped mountain peak in gray set against a dark blue field. There is a silvery crescent moon in the upper right corner, and there is a black hammer across the base of the peak. The Houses' motto is Strong as the Mountains."+
-                "House Garess had a good relationship with the Golka dwarves until the dwarves vanished. Members of the house worked the metal that the dwarves mined."+
-                "The House has built several strongholds, Highdelve and Grayhaven, in the Golushkin Mountains. \n Benefit: Your movementspeed is 5ft faster",
+                "Familty motto: 'Strong as the Mountains'\n" +
+                "House Garess is based in the western part of Brevoy, in the foothills of the Golushkin Mountains. " +
+                "House Garess's crest is that of a snow-capped mountain peak in gray set against a dark blue field. There is a silvery crescent moon in the upper right corner, and there is a black hammer across the base of the peak. The Houses motto is Strong as the Mountains. "+
+                "House Garess had a good relationship with the Golka dwarves until the dwarves vanished. Members of the house worked the metal that the dwarves mined. "+
+                "The House has built several strongholds, Highdelve and Grayhaven, in the Golushkin Mountains. \nBenefit: Your movement speed is 5ft faster.",
                 Helpers.MergeIds(Helpers.getGuids(StatType.Reach), "9b03b7ff17394007a3fbec18bb42604b"),
-                Helpers.GetIcon("79042cb55f030614ea29956177977c52"), // Great Fortitude
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Garess.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.Speed,5,ModifierDescriptor.Trait)),
                 //family rogarvia
                 Helpers.CreateFeature("Noble family Rogarvia Trait", "Noble family — Rogarvia",
-                "famly motto:'With Sword and Flame.'\n" +
+                "Family Motto: 'With Sword and Flame.'\n" +
                 "The former ruling house of Brevoy, House Rogarvia was founded by the descendants of Choral the Conqueror and Myrna Rogarvia, daughter of Nikos Surtova. Choral united Rostland and Issia into the kingdom of Brevoy after invading from Iobaria, accompanied by dragons. Most members of the House, including King Urzen Rogarvia, disappeared mysteriously in 4699 AR, in an event called the Vanishing. Their loss is not greatly mourned by the Brevic people and loyalists are calling for an investigation instead of blind allegiance to Noleski Surtova, who declared himself king."+
                 "The Rogarvians were known to be ruthless rulers who did their best to hold Brevoy's disparate houses and factions together."+
                 "A two-headed red dragon is the family's crest. One head of the dragon breathes fire while the other wields a sword. The house motto is 'With Sword and Flame.'" +
-                "\nDrawback:-4 on persuasion checks vs nobles(they hate you)" +
-                "\nBenefit:you know the spell fireball if you are any caster",
+                "\nDrawback: You take a -4 penalty on Persuasion checks vs nobles (They hate you)." +
+                "\nBenefit: You know the spell Fireball if you are a spell caster. Even if the caster normally does not get to learn the spell.",
                 "B48B8234942C4FD191E99721728BF49D",
-                Helpers.GetIcon("79042cb55f030614ea29956177977c52"), // Great Fortitude
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Rogarvia.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonusOnLevel(StatType.SkillPersuasion, -4, ModifierDescriptor.Penalty, 1, 3),
                 Helpers.CreateAddKnownSpell(fireball,sorcerer,0),
@@ -276,13 +275,13 @@ namespace EldritchArcana
                 */
                 //family khartorov
                 Helpers.CreateFeature("Noble family Khavortorov Trait", "Noble family — Khavortorov",
-                "famly Motto:'We Won't Be Saddled'\n" +
-                "are a hot-tempered family that has produced knights for many generations.\n " +
+                "Family Motto: 'We Won't be Saddled.'\n" +
+                "Khavortorov are hot-tempered family that has produced knights for many generations.\n" +
                 "They are trying to better establish themselves as a great house of Brevoy now that their lieges, the Rogarvias, have disappeared. \n" +
                 "Their crest is a white dragon with a helmet embedded in its chest. Many of the Khavortorov's are experts with the Aldori dueling sword.\n" +
-                "Benefit:dueling sword and longsword deal 1 extra damage and you start with one of both",
+                "Benefit: Dueling sword and longsword deal 1 extra damage and you start with one of both.",
                 "44DFCE0451FC4188A06E2184EF65064B",
-                Helpers.GetIcon("79042cb55f030614ea29956177977c52"), // Great Fortitude
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Khavortonov.png"),
                 FeatureGroup.None,
                 Helpers.Create<AddStartingEquipment>(a =>
                 {
@@ -297,13 +296,13 @@ namespace EldritchArcana
                 Helpers.Create<WeaponTypeDamageBonus>(a => { a.WeaponType = longsword; a.DamageBonus = 1; })),
                 // family surtova
                 Helpers.CreateFeature("Noble family Surtova Trait", "Noble family — Surtova",
-                "famly Motto:'Ours Is the Right,'\n" +
+                "Family Motto: 'Ours Is the Right.'\n" +
                 "House Surtova is the current ruling family of Brevoy is the oldest Brevic noble family and the most influential. Their original holdings are the environs of Port Ice in northern Issia on the shores of the Lake of Mists and Veils. Their claim to the throne is linked to Nikos Surtova giving the hand of his daughter, Myrna Surtova, to Choral the Conqueror in marriage. This marriage allowed the house to keep its power as a staunch ally of House Rogarvia. In 4699 AR, during the Vanishing, House Surtova was able to use its high position to immediately claim regency until the Rogarvia's returned."+
                 "The Surtovans are known as careful and cunning diplomats. Before Choral the Conqueror invaded, the Surtovans were known as pirates and raiders, and the family still has many connections with the pirates and brigands of the region, many of whom are distant relations of the Surtova clan. One of the more active pirates of the Lake of Mists and Veils, Captain Vali Dobos, is rumoured to have a close connection with the Surtova's, although he keeps his lineage hidden."+
                 "Their family motto is 'Ours Is the Right,' which likely reflects their belief in a right to rulership of Brevoy since their family formerly ruled Issia as a group of crafty pirate-kings. Their crest is a gray ship in front of fields of blue on the lower half and black with silver stars on the upper half." +
-                "\nBenefit:+2 damage against flanked targets",
+                "\nBenefit: You get a +2 trait bonus on damage against flanked targets.",
                 Helpers.MergeIds(Helpers.getGuids(StatType.SneakAttack), "9b03b7ff17394007a3fbec18bb42604c"),
-                Helpers.GetIcon("79042cb55f030614ea29956177977c52"), // Great Fortitude
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Surtova.png"),
                 FeatureGroup.None,
                 Helpers.Create<DamageBonusAgainstFlankedTarget>(a => a.Bonus = 2))
                 //
@@ -419,18 +418,19 @@ namespace EldritchArcana
                 StatType.BaseAttackBonus,
                 StatType.AdditionalCMB
             };
+            //ishomebrew
             var dice = Helpers.GetIcon("3fcc181a8b2094b4d9a636b639f0b79b");
             var OptimisticGambler =Helpers.CreateFeatureSelection("OptimisticGamblerTrait", "Optimistic Gambler",
                  "You’ve always seemed to have trouble keeping money. Worse, you always seem to have debts looming over your head. When you heard about the “Cheat the Devil and Take His Gold” gambling tournament, you felt in your gut that your luck was about to change. You’ve always been optimistic, in fact, and even though right now is one of those rare times where you don’t owe anyone any money (you just paid off a recent loan from local moneylender Lymas Smeed), you know that’ll change soon enough. Better to start amassing money now when you’re at one of those rare windfall times! You’ve set aside a gold coin for the entrance fee, and look forward to making it big—you can feel it in your bones! This time’s gonna be the big one! Your boundless optimism, even in the face of crushing situations, has always bolstered your spirit.\n" +
                  "Benefit: take a chance you will get a random benefit",
                  "c88b9398af66406cac173884df308eb8",
-                 Helpers.GetIcon("79042cb55f030614ea29956177977c52"), // Great Fortitude
+                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Fey_Foundling.png"), // Great Fortitude
                  FeatureGroup.None);
             //list with random features
             string wwib = "What will it be?";
             string Gmbldsc = "Look at your stats and inventory or at your class ability usage stats and you will find out your bonus\n" +
-                    "Or you won't Thats the thing sometimes you win sometimes you lose but thats what you are all about.\n" +
-                    "Benefit:to know bonus in advance klick info and scroll down" +
+                    "Or you won't. That's the thing. Sometimes you win, and sometimes you lose. But that's what you are all about.\n" +
+                    "Benefit: To know what type of bonus you get in advance, right-click on the trait and scroll down." +
                     $"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n " +
                     $"Note if you want a different bonus you need to restart the game. this bonus will stay the same" +
                     $"\n";
@@ -507,6 +507,7 @@ namespace EldritchArcana
                 CopiedFeat.SetDescription(Gmbldsc + CopiedFeat.GetName());//feature name
                 CopiedFeat.SetName(wwib);
                 CopiedFeat.SetIcon(dice);
+                CopiedFeat.PrerequisiteFeature(any:true);
 
                 
                 OptimisticGamblerOptions.Add(CopiedFeat);
@@ -547,7 +548,7 @@ namespace EldritchArcana
                     Helpers.CreateFeature(
                         $"randomeffectExtra{weap}", wwib, Gmbldsc + $" You start with a {weap} and you have +3 damage with weapons of this type"
                         , CampaignGuids[x], dice, FeatureGroup.None,
-                        Helpers.Create<WeaponCategoryAttackBonus>(b => { b.Category = weap; b.AttackBonus = 3; }),
+                        Helpers.Create<WeaponCategoryAttackBonus>(b => { b.Category = weap; b.AttackBonus = 3; }),                        
                         Helpers.Create<AddStartingEquipment>(a =>
                         {
                             a.CategoryItems = new WeaponCategory[] { weap, weap };

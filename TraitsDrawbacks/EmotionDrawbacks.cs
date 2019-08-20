@@ -29,7 +29,7 @@ namespace EldritchArcana
 
             var noFeature = Helpers.PrerequisiteNoFeature(null);
             var EmotionDrawbacks = Helpers.CreateFeatureSelection("EmotionDrawback", "Emotion Drawback",
-                "Emotion Drawbacks puts the focus on mental aspects of your character’s background.",
+                "Emotion Drawbacks put the focus on mental aspects of your character’s background.",
                 EmotionGuids[0], null, FeatureGroup.None, noFeature);
 
             noFeature.Feature = EmotionDrawbacks;
@@ -37,7 +37,7 @@ namespace EldritchArcana
             var choices = new List<BlueprintFeature>();
             choices.Add(Helpers.CreateFeature("AnxiousDrawback", "Anxious",
                 "After suffering terribly for not being tight-lipped enough as a child, such as when you accidentally exposed your family to enemy inquisitors, you developed a habit of being overly cautious with your words." +
-                "\nDrawback: You take a –2 penalty on Persuasion checks and must speak slowly due to the concentration required.Unless stated otherwise, you are assumed to not be speaking at a volume above a whisper.",
+                "\nDrawback: You take a –2 penalty on Persuasion checks and must speak slowly due to the concentration required. Unless stated otherwise, you are assumed to not be speaking at a volume above a whisper.",
                 EmotionGuids[1],
                 Helpers.NiceIcons(16), // great fortitude
                 FeatureGroup.None,
@@ -45,8 +45,8 @@ namespace EldritchArcana
 
             //var tieflingHeritageDemodand = library.Get<BlueprintFeature>("a53d760a364cd90429e16aa1e7048d0a");
             choices.Add(Helpers.CreateFeature("AttachedDrawback", "Attached",
-                "You are attached to yourself. Whenever the object of your attachment is either threatened, in danger, or in someone else’s possession," +
-                "\nDrawback you take a –1 penalty on Will saves and a –2 penalty on saves against fear effects.",
+                "You are attached to yourself. Whenever the object of your attachment is either threatened, in danger, or in someone else’s possession, you take a –1 penalty on Will saves and a –2 penalty on saves against fear effects." +
+                "\nDrawback: You take a –1 penalty on Will saves and a –2 penalty on saves against fear effects.",
                 EmotionGuids[2],
                 Helpers.GetIcon("2483a523984f44944a7cf157b21bf79c"), // Elven Immunities
                 FeatureGroup.None,
@@ -55,8 +55,8 @@ namespace EldritchArcana
 
 
             choices.Add(Helpers.CreateFeature("BetrayedDrawback", "Betrayed",
-                "You can roll twice and take the lower result on Sense Motive checks to get hunches. You cannot reroll this result, even if you have another ability that would normally allow you to do so" +
-                "\nDrawback: You take a –3 on diplomacy.",
+                "You can roll twice and take the lower result on Sense Motive checks to get hunches. You cannot reroll this result, even if you have another ability that would normally allow you to do so." +
+                "\nDrawback: You take a -3 penalty on Diplomacy checks.",
                 EmotionGuids[3],
                 Helpers.NiceIcons(2), // Accomplished Sneak Attacker
                 FeatureGroup.None,
@@ -73,7 +73,7 @@ namespace EldritchArcana
 
             choices.Add(Helpers.CreateFeature("CondescendingDrawback", "Condescending",
                 "Raised with the assurance that only those like you are truly worthy of respect, you have an off-putting way of demonstrating that you look down on those not of your race and ethnicity or nationality." +
-                "\nDrawback: You take a –5 penalty on diplomacy and intimidate checks",
+                "\nDrawback: You take a –5 penalty on Diplomacy and Intimidate checks.",
                 EmotionGuids[5],
                 Helpers.NiceIcons(10), // enchantment
                 FeatureGroup.None,
@@ -82,9 +82,9 @@ namespace EldritchArcana
 
             //Effect Your base speed when frightened and fleeing increases by 5 feet, and the penalties you take from having the cowering, frightened, panicked, or shaken conditions increase by 1.If you would normally be immune to fear, you do not take these penalties but instead lose your immunity to fear(regardless of its source).
             choices.Add(Helpers.CreateFeature("CowardlyDrawback", "Cowardly",
-                "You might face dangerous situations with bravado, but you are constantly afraid. and if you see a dead body you might just throw up." +
-                "\nBenefit:+5 movementspeed" +
-                "\nDrawback you take a –4 penalty on saves against fear effects. and -2 to all fortituede saves",
+                "You might face dangerous situations with bravado, but you are constantly afraid. And if you see a dead body you might just throw up." +
+                "\nBenefit: Your movementspeed increases by 5" +
+                "\nDrawback: You take a –4 penalty on saves against fear effects. And -2 to all Fortitude saves.",
                 EmotionGuids[6],
                 Helpers.NiceIcons(6), //invisiblilty
                 FeatureGroup.None,
@@ -94,8 +94,8 @@ namespace EldritchArcana
 
             choices.Add(Helpers.CreateFeature("CrueltyDrawback", "Cruelty",
                 "You were rewarded as a child for flaunting your victory over others as completely as possible, and you discovered you enjoyed the feeling of rubbing your foes’ faces in the dirt." +
-                "\nBenefit:+2 on attacks against flanked targets" +
-                "\nDrawback: You take a –2 penalty on attack rols against someone that is not flanked.",
+                "\nBenefit: You have +2 on attack rolls against flanked targets." +
+                "\nDrawback: You take a –2 penalty on attack rolls against someone that is not flanked.",
                 EmotionGuids[7],
                 Helpers.NiceIcons(9), // breakbone
                 FeatureGroup.None,
@@ -128,7 +128,7 @@ namespace EldritchArcana
             //int rnd = DateTime.Now.Millisecond % 64;
             var Fraud = Helpers.CreateFeatureSelection("GuiltyFraudDrawback", "Guilty Fraud",
                 "You received something through trickery that you did not deserve, and your guilt for the misdeed distracts you from dangers around you." +
-                "\nBenefit:start the game dual wielding a one handed weapon." +
+                "\nBenefit: Start the game dual wielding a one handed weapon." +
                 "\nDrawback: You take a –2 penalty on Persuasion checks.",
                 EmotionGuids[11],
                 Helpers.NiceIcons(999), // great fortitude
@@ -182,8 +182,8 @@ namespace EldritchArcana
             //Log.Write(x.ToString());
             x++;
             choices.Add(Helpers.CreateFeature("HauntedDrawback", "Haunted",
-                "Something from your past—or a dark secret you presently hold—makes it difficult for you to ever be at peace, and your chronic worry that you might fall to evil influence has become a self-fulfilling prophecy.." +
-                "\nDrawback: you take a –2 penalty on spells with the evil descriptor.",
+                "Something from your past—or a dark secret you presently hold—makes it difficult for you to ever be at peace, and your chronic worry that you might fall to evil influence has become a self-fulfilling prophecy." +
+                "\nDrawback: You take a –2 penalty on spells with the evil descriptor.",
                 EmotionGuids[x],
                 Helpers.NiceIcons(39), // fatigue
                 FeatureGroup.None,
@@ -200,14 +200,14 @@ namespace EldritchArcana
                 Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.MindAffecting; s.Value = -2; s.ModifierDescriptor = ModifierDescriptor.Penalty; })));
             x++;
             choices.Add(Helpers.CreateFeature("ImpatientDrawback", "Impatient",
-                "YouYou love leaping into battle at the earliest opportunity, and it frustrates you to wait for others to act." +
-                "\nBenefit:+1 Ininiative" +
-                "\nDrawback you take a –2 penalty on saves against evil. and -1 to all attack rolls",
+                "You love leaping into battle at the earliest opportunity, and it frustrates you to wait for others to act." +
+                "\nBenefit: You take a +1 Insight bonus on Initiative." +
+                "\nDrawback: You take a -2 penalty on saves against evil spells, and a -1 penalty to all attack rolls.",
                 EmotionGuids[x],
                 Helpers.NiceIcons(33), //rush
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.BaseAttackBonus, -1, ModifierDescriptor.Penalty),
-                Helpers.CreateAddStatBonus(StatType.Initiative, 1, ModifierDescriptor.FearPenalty),
+                Helpers.CreateAddStatBonus(StatType.Initiative, 1, ModifierDescriptor.Insight),
                 Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Evil; s.Value = -2; s.ModifierDescriptor = ModifierDescriptor.Penalty; })));
 
 

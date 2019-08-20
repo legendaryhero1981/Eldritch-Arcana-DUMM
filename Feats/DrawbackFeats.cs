@@ -49,11 +49,12 @@ namespace EldritchArcana
 
         internal static void Load()
         {
+            if (!Main.settings.DrawbackForextraTraits) return;
             magus = library.Get<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780");
 
-            for(int i = 1000; i < 1010; i++)
+            for (int i = 1000; i < 1010; i++)
             {
-                DrawFeatGuids[i-1000] = $"{i}63947738b04ecc8e069e050751cc";
+                DrawFeatGuids[i - 1000] = $"{i}63947738b04ecc8e069e050751cc";
                 //Log.Write($"{i}63947738b04ecc8e069e050751cc");
             }
             // Load metamagic feats
@@ -67,7 +68,7 @@ namespace EldritchArcana
             var noFrail = Helpers.PrerequisiteNoFeature(null);
             var noOneleg = Helpers.PrerequisiteNoFeature(null);
             var noSpellVul = Helpers.PrerequisiteNoFeature(null);
-            
+
 
             var Frailfeat = CreateFrail();
             var OneLegged = CreateOneLegged();
@@ -77,7 +78,7 @@ namespace EldritchArcana
             noOneleg.Feature = OneLegged;
             noSpellVul.Feature = SpellVulnerability;
 
-            var NoDrawback = new PrerequisiteNoFeature[] {noFrail,noOneleg,noSpellVul };
+            var NoDrawback = new PrerequisiteNoFeature[] { noFrail, noOneleg, noSpellVul };
 
 
             feats.Add(Frailfeat);
@@ -86,7 +87,8 @@ namespace EldritchArcana
 
             //feats.Add(CreateSpellVulnerability());
             var BasicFeatSelection = library.Get<BlueprintFeatureSelection>("247a4068296e8be42890143f451b4b45");
-            foreach(var feat in feats) {
+            foreach (var feat in feats)
+            {
                 feat.AddComponents(NoDrawback);
                 SelectFeature_Apply_Patch.onApplyFeature.Add(feat, (state, unit) =>
                 {
@@ -94,10 +96,10 @@ namespace EldritchArcana
                     BasicFeatSelection.AddSelection(state, unit, 1);
                 });
             }
-            
-            
+
+
             library.AddFeats(feats.ToArray());
-            
+
         }
 
         internal static T SafeLoad<T>(Func<T> load, String name) => Main.SafeLoad(load, name);
@@ -107,6 +109,7 @@ namespace EldritchArcana
 
         static BlueprintFeature CreateFrail()
         {
+            var frailsprite = Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Frail.png");
             var fraily = new BlueprintComponent[64];
             fraily[0] = Helpers.CreateAddStatBonus(StatType.HitPoints, -3, ModifierDescriptor.Crippled);
             for (int i = 2; i < 65; i++)
@@ -119,9 +122,9 @@ namespace EldritchArcana
                 "if you pick a Drawback at level one you can choose an extra feat on top\n" +
                 "Drawback: -3 hp at level 1 and You lose 1 additional hit points.For every Hit Die you possess.",
                 "0639446638b04ecc85e069e050751bfb",
-                Helpers.NiceIcons(9),
+                frailsprite,//Helpers.NiceIcons(9),
                 FeatureGroup.Feat,
-                Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Disease;s.Bonus=-1; s.ModifierDescriptor = ModifierDescriptor.Crippled; }),
+                Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Disease; s.Bonus = -1; s.ModifierDescriptor = ModifierDescriptor.Crippled; }),
                 //Helpers.Create<FeyFoundlingLogic>(s => { s.dieModefier = 2;}),
                 //Helpers.CreateAddStatBonusOnLevel(StatType.HitPoints,-3,ModifierDescriptor.Penalty,1),
                 PrerequisiteCharacterLevelExact.Create(1));
@@ -131,13 +134,14 @@ namespace EldritchArcana
 
         static BlueprintFeature CreateOneLegged()
         {
+            var frailsprite = Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Peg_Leg.png");
             Log.Write(DrawFeatGuids[0]);
             var feat = Helpers.CreateFeature("OneLegged", "Peg leg",
                 "if you pick a Drawback at level one you can choose an extra feat on top\n" +
                 "Drawback: Even with a peg leg, you lose 10 feet from your race’s normal speed.\n" +
                 "Drawback: You lose 2 initiative",
                 DrawFeatGuids[0],
-                Helpers.NiceIcons(38),
+                frailsprite,//Helpers.NiceIcons(38),
                 FeatureGroup.Feat,
                 Helpers.CreateAddStatBonus(StatType.Speed, -10, ModifierDescriptor.Crippled),
                 Helpers.CreateAddStatBonus(StatType.Initiative, -2, ModifierDescriptor.Crippled),
@@ -148,6 +152,7 @@ namespace EldritchArcana
         static BlueprintFeature CreateSpellVulnerability()
         {
             //Log.Write(DrawFeatGuids[1]);
+            var spellvulsprite = Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_spell_Vulnerability.png");
             int SpellVunrabilityBonus = -4;
             var components = new List<BlueprintComponent> { };
             var SpellschoolChoiceFeature = (new SpellSchool[]
@@ -163,7 +168,7 @@ namespace EldritchArcana
                 //SpellSchool.Universalist
             }).Select((school) => Helpers.CreateFeature($"SpellVulnerability{school}", $"SpellVulnerability-{school}",
             $" you have {SpellVunrabilityBonus} on saves vs {school}", Helpers.MergeIds(DrawFeatGuids[1], Helpers.spellSchoolGuid(school)),
-            Helpers.GetIcon(Helpers.spellSchoolGuid(school)), FeatureGroup.None,            
+            Helpers.GetIcon(Helpers.spellSchoolGuid(school)), FeatureGroup.None,
             Helpers.Create<SavingThrowBonusAgainstSchool>(a =>
             {
                 a.School = school;
@@ -172,47 +177,38 @@ namespace EldritchArcana
             }))).ToArray();
 
             var ElementalWeaknes = new DamageEnergyType[] {
-                DamageEnergyType.Fire,
-                DamageEnergyType.Magic,
-                DamageEnergyType.Acid,
                 DamageEnergyType.Cold,
-                DamageEnergyType.Electricity,
+                DamageEnergyType.Acid,
+                //divination
                 DamageEnergyType.Sonic,
-                DamageEnergyType.Unholy
+                DamageEnergyType.Fire,
+                DamageEnergyType.Electricity,
+                DamageEnergyType.Unholy,
+                DamageEnergyType.Divine,
+                //universalist
             };
 
             BlueprintFeature feature = SpellschoolChoiceFeature[1];
-            for(int i =0;i<7;i++)
+            for (int i = 0; i < 7; i++)
             {
                 feature = SpellschoolChoiceFeature[i];
-                feature.SetDescription(feature.GetDescription()+$" and Elementalweakness {ElementalWeaknes[i]}");
+                feature.SetDescription(feature.GetDescription() + $" and Elementalweakness {ElementalWeaknes[i]}");
                 feature.AddComponent(Helpers.Create<AddEnergyVulnerability>(a => { a.Type = ElementalWeaknes[i]; }));
             }
-
-            var ElementalWeaknesChoiceFeature = (new DamageEnergyType[] {
-                DamageEnergyType.Fire,
-                DamageEnergyType.Magic,
-                DamageEnergyType.Acid,                
-                DamageEnergyType.Cold,
-                DamageEnergyType.Electricity,
-                DamageEnergyType.Sonic,
-                DamageEnergyType.Unholy
-            }).Select((element) =>
-            Helpers.Create<AddEnergyVulnerability>(a => { a.Type = element;}));
 
             //var noFeature = Helpers.PrerequisiteNoFeature(null);
 
             var feat = Helpers.CreateFeatureSelection("SpellVulnerability", "Spell Vulnerability",
                 "if you pick a Drawback at level one you can choose an extra feat on top\n" +
-                $"Bane: choose a spellschool you have {SpellVunrabilityBonus} on saves vs that spellschool.",//\n(except universalist and divination becouse there are no saves of those catagor)
+                $"Bane: choose a spellschool you have {SpellVunrabilityBonus} on saves vs that spellschool.",//\n(except universalist and divination becouse there are no saves of those catagory)
                 DrawFeatGuids[1],
-                Helpers.NiceIcons(15),
+                spellvulsprite,//Helpers.NiceIcons(15),
                 FeatureGroup.Feat,
                 PrerequisiteCharacterLevelExact.Create(1));
             //feat.AddComponents(ElementalWeaknesChoiceFeature);
             //noFeature.Feature = feat;
             feat.SetFeatures(SpellschoolChoiceFeature);
-            
+
 
             //feat.AddComponents(ikweethetniet);
             //components.AddRange(ikweethetniet);
@@ -223,5 +219,5 @@ namespace EldritchArcana
     }
 }
 
-    
+
 

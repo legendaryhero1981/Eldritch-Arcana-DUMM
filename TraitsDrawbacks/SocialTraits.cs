@@ -84,7 +84,7 @@ namespace EldritchArcana
             var ColdIronDaggerPlus1 = Traits.library.Get<BlueprintItem>("ebea3139c4649e7459079d424c89e561");
 
             var FamilyHeirloomTrait =Helpers.CreateFeatureSelection("HairloomTrait", "Family Heirloom Weapon",
-                "you inheritid a weapon from someone \nBenefit:you can choose a weapon and you start the game with a + 1 variant",
+                "You inherited a weapon from someone.\nBenefit: You can choose a weapon and you start the game with a +1 variant on you.\nBenefit: When using weapons of this type you have a +1 bonus on attack rolls and combat maneurvers.",
                 "e16eb56b2f964321a30086226dccb39e",
                 Helpers.NiceIcons(37),
                 FeatureGroup.None);
@@ -93,8 +93,8 @@ namespace EldritchArcana
             {
                 //longbow
                 Helpers.CreateFeature("HairloomTraitBow", "Family Heirloom Longbow",
-                "you inheritid this +1Longbow From your uncle wo was in an acher assasins devision" +
-                "\nBenefit:you can shoot better with longbows",
+                "You inherited this +1 longbow from your uncle who was in the archer assassins division." +
+                "\nBenefit: You can shoot better with longbows.",
                 "e16eb56b2f964321a30086226dccb390",
                 LongbowPlus1.Icon,
                 FeatureGroup.None,Helpers.Create<AddStartingEquipment>(a =>
@@ -107,8 +107,8 @@ namespace EldritchArcana
                 ),
                 //DuelingSword
                 Helpers.CreateFeature("HairloomTraitDuel", "Family Heirloom DuelingSword",
-                "you inheritid this +1Dueling Sword from your retired father." +
-                "\nBenefit:you can Fight better with DuelingSwords",
+                "You inherited this +1 dueling sword from your retired father." +
+                "\nBenefit: You can fight better with dueling swords.",
                 "e16eb56b2f964321a30086226dccb391",
                 DuelingSwordPlus1.Icon,
                 FeatureGroup.None,Helpers.Create<AddStartingEquipment>(a =>
@@ -121,8 +121,8 @@ namespace EldritchArcana
                 ),
                 //sai
                 Helpers.CreateFeature("HairloomTraitSai", "Family Heirloom Sai",
-                "you Got this Sai From your brother after he Heard you where going on an adventure." +
-                "\nBenefit:you can Fight better with Sai",
+                "You got this sai from your brother after he heard you were going on an adventure." +
+                "\nBenefit: You can fight better with sais.",
                 "e16eb56b2f964321a30086226dccb392",
                 SaiPlus1.Icon,
                 FeatureGroup.None,Helpers.Create<AddStartingEquipment>(a =>
@@ -135,8 +135,8 @@ namespace EldritchArcana
                 ),
                 //Longsword
                 Helpers.CreateFeature("HairloomTraitLongsword", "Family Heirloom Longsword",
-                "you always saw this old iron longsword on display in your mansion and you decided to take it along on your adventure" +
-                "\nBenefit:You Are practiced with longswords",
+                "You always saw this old iron longsword on display in your mansion and you decided to take it along in your adventure." +
+                "\nBenefit: You are practiced with longswords.",
                 "e16eb56b2f964321a30086226dccb393",
                 ColdIronLongswordPlus1.Icon, // DuelingMastery
                 FeatureGroup.None,Helpers.Create<AddStartingEquipment>(a =>
@@ -149,8 +149,8 @@ namespace EldritchArcana
                 ),
                 //
                 Helpers.CreateFeature("HairloomTraitSpear", "Family Heirloom LongSpear",
-                "you inheritid this Longspear from your grandpa who was a veteran in the army of the war." +
-                "\nBenefit:you Get a longspear and you are experienced with it.",
+                "You inherited this longspear from your grandfather who was a veteran in the army." +
+                "\nBenefit: You get a longspear and you are experienced with it.",
                 "e16eb56b2f964321a30086226dccb394",
                 LongspearPlus1.Icon, 
                 FeatureGroup.None,Helpers.Create<AddStartingEquipment>(a =>
@@ -163,7 +163,7 @@ namespace EldritchArcana
                 ),
                 Helpers.CreateFeature("HairloomTraitDagger", "Family Heirloom Dagger",
                 "After catching a poacher on your land your family took care of it and you could have the poachers dagger." +
-                "\nBenefit:you Get a Dagger and you are experienced with it.",
+                "\nBenefit: You get a dagger and you have experience with daggers.",
                 "e17eb56b2f964321a30086226dccb395",
                 ColdIronDaggerPlus1.Icon,
                 FeatureGroup.None,Helpers.Create<AddStartingEquipment>(a =>

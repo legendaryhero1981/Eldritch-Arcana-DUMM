@@ -46,7 +46,7 @@ namespace EldritchArcana
                 "You can detect secret doors, compartments, caches, and so forth. Only passages, doors, or openings that have been specifically constructed to escape detection are detected by this spell.\n" +
                 "Each round, you can turn to detect secret doors in a new area. This spell requires concentration, and will end prematurely if you cast another spell, take a standard action, or fail a concentration check.",
                 "5462b5e9578349ffa59bb469b94ffbb0",
-                Helpers.GetIcon("4709274b2080b6444a3c11c6ebbe2404"), // find traps
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Detect_Secret_Doors_Spell.png"),//Helpers.GetIcon("4709274b2080b6444a3c11c6ebbe2404"), // find traps
                 AbilityType.Spell, CommandType.Standard, AbilityRange.Personal, "concentration, up to 1 min/level", "");
 
             var foresightBuff = library.Get<BlueprintBuff>("8c385a7610aa409468f3a6c0f904ac92");

@@ -118,25 +118,49 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheatCustomTraits_info" xml:space="preserve">
-    <value>Enable choosing extra cheat traits,spells(if changed, requires restart for changes to show up).</value>
+    <value>Enable choosing extra cheat traits,spells(if changed, requires restart for changes to show up)</value>
   </data>
   <data name="DrawbackForextraTraits_info" xml:space="preserve">
-    <value>Debug logs.</value>
+    <value>Enabling feats with drawback</value>
   </data>
   <data name="EldritchKnightFix_info" xml:space="preserve">
-    <value>Eldritch Knight requires martial class (doesn't affect existing EKs).</value>
+    <value>Eldritch Knight requires martial class</value>
+  </data>
+  <data name="EldritchKnightFix_tip" xml:space="preserve">
+    <value>doesn't affect existing EKs</value>
+  </data>
+  <data name="LoadCustomPortraits_error" xml:space="preserve">
+    <value>Custom Portraits in main portrait selection</value>
   </data>
   <data name="OracleHas3SkillPoints_info" xml:space="preserve">
-    <value>Give Oracle class 3+int skill points on level up (instead of 4, due to condensed skills).</value>
+    <value>Give Oracle class 3+int skill points on level up (instead of 4, due to condensed skills)</value>
   </data>
   <data name="RelaxAncientLorekeeper_info" xml:space="preserve">
-    <value>Any race can choose the Oracle Ancient Lorekeeper archetype.</value>
+    <value>Any race can choose the Oracle Ancient Lorekeeper archetype</value>
   </data>
   <data name="RelaxTonguesCurse_info" xml:space="preserve">
-    <value>Disable Tongues curse penalty (that party members need 1 rank Knowledge: World to be controlled by PC in combat).</value>
+    <value>Disable Tongues curse penalty</value>
+  </data>
+  <data name="RelaxTonguesCurse_tip" xml:space="preserve">
+    <value>that party members need 1 rank Knowledge: World to be controlled by PC in combat</value>
   </data>
   <data name="ShowCustomPortraits_info" xml:space="preserve">
-    <value>Show custom portraits in the portrait list at character creation (if changed, requires restart).</value>
+    <value>Show custom portraits in the portrait list at character creation (if changed, requires restart)</value>
+  </data>
+  <data name="applyPatch_error" xml:space="preserve">
+    <value>Failed to apply patch {0}: {1}</value>
+  </data>
+  <data name="applyPathHarmony_error" xml:space="preserve">
+    <value>Failed to apply patch {0}: could not find Harmony attributes</value>
+  </data>
+  <data name="applyPathMethod" xml:space="preserve">
+    <value>Failed to apply patch {0}: no dynamic method generated</value>
+  </data>
+  <data name="applyPath_warning" xml:space="preserve">
+    <value>Did not apply patch for {0}</value>
+  </data>
+  <data name="cannotLoadMod_error" xml:space="preserve">
+    <value>Failed to patch LibraryScriptableObject.LoadDictionary(), cannot load mod!</value>
   </data>
   <data name="failedLoading_error" xml:space="preserve">
     <value>&lt;b&gt;Error: Some assets failed to load. Saves using these features won't work:&lt;/b&gt;</value>
@@ -144,8 +168,50 @@
   <data name="failedPatches_error" xml:space="preserve">
     <value>&lt;b&gt;Error: Some patches failed to apply. These features may not work:&lt;/b&gt;</value>
   </data>
+  <data name="featureNameAll_error" xml:space="preserve">
+    <value>All mod features</value>
+  </data>
   <data name="featureName_error" xml:space="preserve">
     <value>  • &lt;b&gt;{0}&lt;/b&gt;</value>
+  </data>
+  <data name="loadBloodlines_error" xml:space="preserve">
+    <value>Bloodlines</value>
+  </data>
+  <data name="loadCrossbloodedSorcerer_error" xml:space="preserve">
+    <value>Crossblooded Sorcerer</value>
+  </data>
+  <data name="loadDrawbackFeats_error" xml:space="preserve">
+    <value>Drawback Feats</value>
+  </data>
+  <data name="loadEldritchHeritage_error" xml:space="preserve">
+    <value>Eldritch Heritage</value>
+  </data>
+  <data name="loadFavoredClassBonus_error" xml:space="preserve">
+    <value>Favored class bonus, deity selection</value>
+  </data>
+  <data name="loadHelpers_error" xml:space="preserve">
+    <value>Initialization code</value>
+  </data>
+  <data name="loadMagicFeats_error" xml:space="preserve">
+    <value>Magic feats</value>
+  </data>
+  <data name="loadOracleClass_error" xml:space="preserve">
+    <value>Oracle class</value>
+  </data>
+  <data name="loadPrestigiousSpellcaster_error" xml:space="preserve">
+    <value>Prestigious Spellcaster</value>
+  </data>
+  <data name="loadReplaceSpells_error" xml:space="preserve">
+    <value>Spell replacement for spontaneous casters</value>
+  </data>
+  <data name="loadSpells_error" xml:space="preserve">
+    <value>New spells</value>
+  </data>
+  <data name="loadTraits_error" xml:space="preserve">
+    <value>Traits</value>
+  </data>
+  <data name="loadWishSpells_error" xml:space="preserve">
+    <value>Wish spells</value>
   </data>
   <data name="testedGameVersion_warning" xml:space="preserve">
     <value>&lt;b&gt;This mod was tested against game version {0}, but you are running {1}.&lt;/b&gt;</value>

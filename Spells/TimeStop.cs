@@ -66,7 +66,7 @@ namespace EldritchArcana
                 "You cannot move or harm items held, carried, or worn by a creature stuck in normal time, but you can affect any item that is not in another creature’s possession.\n" +
                 "You are undetectable while time stop lasts. You cannot enter an area protected by an antimagic field while under the effect of time stop.",
                 "a5adb4794e364485bca802e7ecfb694a",
-                freezeBuff.Icon, expeditiousRetreatBuff.FxOnStart,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/time_stop.png"), expeditiousRetreatBuff.FxOnStart,
                 UnitCondition.ImmuneToAttackOfOpportunity.CreateAddCondition(),
                 UnitCondition.CanNotAttack.CreateAddCondition(),
                 Helpers.Create<TimeStopEffect>(t => t.FreezeTime = freezeBuff));
