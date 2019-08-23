@@ -1912,10 +1912,13 @@ namespace EldritchArcana
         }
 
         /// <summary>
+        /// [1.2.1.8] 显示窗口控件的文本提示
+        /// </summary>
+        internal static void ShowTooltip() => UnityModManager.UI.ShowTooltip();
+        /// <summary>
         /// [1.2.1.7] 窗口尺寸
         /// </summary>
         internal static Vector2 WindowSize => UnityModManager.UI.WindowSize;
-
         /// <summary>
         /// [1.2.1.7] 窗口宽度样式
         /// </summary>
@@ -1935,22 +1938,6 @@ namespace EldritchArcana
             value = GL.Toggle(value, new GC(info, tip), WindowWidth);
             GL.EndHorizontal();
             GL.Space(10);
-        }
-
-        public static void DealTooltip()
-        {
-            if (string.IsNullOrEmpty(GUI.tooltip)) return;
-            var tooltip = new GC(GUI.tooltip);
-            var styleRect = GUI.skin.box;
-            var tooltipSize = styleRect.CalcSize(tooltip);
-            var styleTooltip = new GUIStyle();
-            var background = new Texture2D(1, 1);
-            background.SetPixels32(new[] { new Color32(0, 0, 0, 220) });
-            var state = new GUIStyleState { background = background };
-            styleTooltip.normal = state;
-            var x = (WindowSize.x - tooltipSize.x) / 2;
-            var y = (WindowSize.y - Input.mousePosition.y) / 2;
-            GUI.Label(new Rect(x, y, tooltipSize.x, tooltipSize.y), GUI.tooltip, styleTooltip);
         }
     }
 }

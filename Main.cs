@@ -348,7 +348,7 @@ namespace EldritchArcana
 
             GL.EndVertical();
 
-            DealTooltip();
+            ShowTooltip();
         }
 
         static void OnSaveGUI(UnityModManager.ModEntry modEntry)
