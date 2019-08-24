@@ -1,22 +1,16 @@
 // Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Root;
-using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.Enums.Damage;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Abilities;
@@ -31,9 +25,16 @@ using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
+
 using Newtonsoft.Json;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
-using Kingmaker;
+
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -46,25 +47,18 @@ namespace EldritchArcana
 
         internal static void Load()
         {
-            Main.SafeLoad(LoadLesserMiracle, "Miracle preloading");//this is neccecairy to declaire id's so the copys work.
-            Main.SafeLoad(LoadMiracle, "Miracle");
-            Main.SafeLoad(LoadWish, "Wish");
-            Main.SafeLoad(LoadLimitedWish, "Limited Wish");
-            Main.SafeLoad(LoadWishFabricate, "Wish(Arcane)");
+            Main.SafeLoad(LoadLesserMiracle, RES.LesserMiracleSpells_info);//this is neccecairy to declaire id's so the copys work.
+            Main.SafeLoad(LoadMiracle, RES.MiracleSpells_info);
+            Main.SafeLoad(LoadWish, RES.WishSpells_info);
+            Main.SafeLoad(LoadLimitedWish, RES.LimitedWishSpells_info);
+            Main.SafeLoad(LoadWishFabricate, RES.WishFabricateSpells_info);
             Log.Write("wishSPells loaded");
         }
 
         static void LoadLimitedWish()
         {
-            var spell = Helpers.CreateAbility("LimitedWish", "Limited Wish",
-                "A limited wish lets you create nearly any type of effect. For example, a limited wish can do any of the following things.\n" +
-                "• Duplicate any sorcerer/wizard spell of 6th level or lower, provided the spell does not belong to one of your opposition schools.\n" +
-                "• Duplicate any non-sorcerer/wizard spell of 5th level or lower, provided the spell does not belong to one of your opposition schools.\n" +
-                "• Duplicate any sorcerer/wizard spell of 5th level or lower, even if it belongs to one of your opposition schools.\n" +
-                "• Duplicate any non-sorcerer/wizard spell of 4th level or lower, even if it belongs to one of your opposition schools.\n" +
-                "• Undo the harmful effects of many spells, such as insanity.\n" +
-                "• Produce any other effect whose power level is in line with the above effects, such as a single creature automatically hitting on its next attack or taking a -7 penalty on its next saving throw.\n" +
-                "A duplicated spell allows saving throws and spell resistance as normal, but the save DC is for a 7th-level spell. When a limited wish spell duplicates a spell with a material component that costs more than 1,000 gp, you must provide that component (in addition to the 1,500 gp diamond component for this spell).",
+            var spell = Helpers.CreateAbility("LimitedWish", RES.LimitedWishSpells_info,
+                RES.LimitedWishAbilityDescription_info,
                 "9e70b011f2554c3ba0fe9060dc93fc6c",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/limited_wish.png"), // geniekind
                 AbilityType.Spell,
@@ -91,15 +85,8 @@ namespace EldritchArcana
 
         static void LoadWishFabricate()
         {
-            var spell = Helpers.CreateAbility("Wishy", "Wish(Arcane)",
-                "Arcane Wish lets you create nearly any type of effect as long as you provide 5 diamonds is high enough.\n" +
-                "• Duplicate any sorcerer/wizard spell of 6th level or lower, provided the spell does not belong to one of your opposition schools.\n" +
-                "• Duplicate any non-sorcerer/wizard spell of 5th level or lower, provided the spell does not belong to one of your opposition schools.\n" +
-                "• Duplicate any sorcerer/wizard spell of 5th level or lower, even if it belongs to one of your opposition schools.\n" +
-                "• Duplicate any non-sorcerer/wizard spell of 4th level or lower, even if it belongs to one of your opposition schools.\n" +
-                "• Undo the harmful effects of many spells, such as insanity.\n" +
-                "• Produce any other effect whose power level is in line with the above effects, such as a single creature automatically hitting on its next attack or taking a -7 penalty on its next saving throw.\n" +
-                "A duplicated spell allows saving throws and spell resistance as normal, but the save DC is for a 7th-level spell. When a limited wish spell duplicates a spell with a material component that costs more than 1,000 gp, you must provide that component (in addition to the 1,500 gp diamond component for this spell).",
+            var spell = Helpers.CreateAbility("Wishy", RES.WishFabricateSpells_info,
+                "",
                 "9e70b011f25453cba0fe9060dc93fc6c",
                 Helpers.GetIcon("6f1f99b38e471fa42b1b42f7549b4210"), // geniekind
                 AbilityType.Spell,
@@ -122,7 +109,8 @@ namespace EldritchArcana
 
             //spell.MaterialComponent = variants[0].MaterialComponent;
             //variants[0].MaterialComponent;
-            if (Main.settings.CheatCustomTraits) { 
+            if (Main.settings.CheatCustomTraits)
+            {
                 spell.AddToSpellList(Helpers.wizardSpellList, 9);
                 //if opdedin for cheats will display
             }
@@ -132,26 +120,14 @@ namespace EldritchArcana
 
         static void LoadWish()
         {
-            var spell = Helpers.CreateAbility("Wish", "Wish",
-                "Wish is the mightiest spell a wizard or sorcerer can cast. By simply speaking aloud, you can alter reality to better suit you. Even wish, however, has its limits. A wish can produce any one of the following effects.\n" +
-                "• Duplicate any sorcerer/wizard spell of 8th level or lower, provided the spell does not belong to one of your opposition schools.\n" +
-                "• Duplicate any non-sorcerer/wizard spell of 7th level or lower, provided the spell does not belong to one of your opposition schools.\n" +
-                "• Duplicate any sorcerer/wizard spell of 7th level or lower, even if it belongs to one of your opposition schools.\n" +
-                "• Duplicate any non-sorcerer/wizard spell of 6th level or lower, even if it belongs to one of your opposition schools.\n" +
-                "• Undo the harmful effects of many other spells, such as geas/quest or insanity.\n" +
-                "• Grant a creature a +1 inherent bonus to an ability score. Two to five wish spells cast in immediate succession can grant a creature a +2 to +5 inherent bonus to an ability score (two wishes for a +2 inherent bonus, three wishes for a +3 inherent bonus, and so on). Inherent bonuses are instantaneous, so they cannot be dispelled. Note: An inherent bonus may not exceed +5 for a single ability score, and inherent bonuses to a particular ability score do not stack, so only the best one applies.\n" +
-                "• Remove injuries and afflictions. A single wish can aid one creature per caster level, and all subjects are cured of the same kind of affliction. For example, you could heal all the damage you and your companions have taken, or remove all poison effects from everyone in the party, but not do both with the same wish.\n" +
-                "• Revive the dead. A wish can bring a dead creature back to life by duplicating a resurrection spell. A wish can revive a dead creature whose body has been destroyed, but the task takes two wishes: one to recreate the body and another to infuse the body with life again. A wish cannot prevent a character who was brought back to life from gaining a permanent negative level.\n" +
-                //"• Transport travelers. A wish can lift one creature per caster level from anywhere on any plane and place those creatures anywhere else on any plane regardless of local conditions. An unwilling target gets a Will save to negate the effect, and spell resistance (if any) applies.\n" +
-                //"• Undo misfortune. A wish can undo a single recent event. The wish forces a reroll of any roll made within the last round (including your last turn). Reality reshapes itself to accommodate the new result. For example, a wish could undo an opponent’s successful save, a foe’s successful critical hit (either the attack roll or the critical roll), a friend’s failed save, and so on. The re-roll, however, may be as bad as or worse than the original roll. An unwilling target gets a Will save to negate the effect, and Spell Resistance (if any) applies.\n" +
-                "Duplicated spells allow saves and Spell Resistance as normal (but save DCs are for 9th-level spells).\n" +
-                "When a wish duplicates a spell with a material component that costs more than 10,000 gp, you must provide that component (in addition to the 25,000 gp diamond component for this spell).",
+            var spell = Helpers.CreateAbility("Wish", RES.WishSpells_info,
+                RES.WishAbilityDescription_info,
                 "508802d7c0cb452ab7473c2e83c3f535",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/wish_spell.png"),
                 AbilityType.Spell,
                 CommandType.Standard,
                 AbilityRange.Personal,
-                "", "",Helpers.CreateSpellComponent(SpellSchool.Universalist),
+                "", "", Helpers.CreateSpellComponent(SpellSchool.Universalist),
                 Helpers.CreateSpellDescriptor());
             spell.CanTargetSelf = true;
             spell.AvailableMetamagic = Metamagic.Quicken | Metamagic.Heighten | Metamagic.Empower | Metamagic.Extend | Metamagic.Maximize | Metamagic.Reach;
@@ -164,7 +140,7 @@ namespace EldritchArcana
             }
             //variants.AddRange(CreateWishForStatBonus(spell));
 
-            variants.AddRange(CreateWishForStatBonus(spell,spell.AssetGuid));
+            variants.AddRange(CreateWishForStatBonus(spell, spell.AssetGuid));
             spell.AddComponent(spell.CreateAbilityVariants(variants));
             spell.MaterialComponent = variants[0].MaterialComponent;
 
@@ -180,8 +156,7 @@ namespace EldritchArcana
         internal static void FixBloodlineSpell(BlueprintAbility spell, String bloodlineId, String addSpellId)
         {
             var addSpellFeat = library.Get<BlueprintFeature>(addSpellId);
-            var prefix = "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline. These spells are in addition to the number of spells given at new levels.\n";
-            addSpellFeat.SetNameDescriptionIcon(spell.Name, $"{prefix}{spell.Description}", spell.Icon);
+            addSpellFeat.SetNameDescriptionIcon(spell.Name, $"{RES.FixBloodlineSpellDescriptionPrefix_info}{spell.Description}", spell.Icon);
 
             // Fix the spell, and the spell recommendations.
             var addSpell = addSpellFeat.GetComponent<AddKnownSpell>();
@@ -223,21 +198,21 @@ namespace EldritchArcana
                 var statName = LocalizedTexts.Instance.Stats.GetText(stat);
 
                 var feat = Helpers.CreateFeature($"{wish.name}InherentBonus{stat}", $"{wish.Name} — {statName}",
-                    $"A wish granted a permanent inherent bonus to {statName}.",
-                    Helpers.MergeIds(statId, "e9a878036b9e4df78f85d8558058fc56",noduplicateId),
+                    string.Format(RES.WishFeatureDescription_info, statName),
+                    Helpers.MergeIds(statId, "e9a878036b9e4df78f85d8558058fc56", noduplicateId),
                     wish.Icon,
                     FeatureGroup.None,
                     Helpers.CreateAddStatBonus(stat, 1, ModifierDescriptor.Inherent));
                 feat.Ranks = 5;
                 var buff = Helpers.CreateBuff($"{feat.name}Buff", feat.Name,
-                    $"Wish for a permanent inherent bonus to {statName}.\nTwo to five wish spells cast in immediate succession can grant a creature a +2 to +5 inherent bonus to an ability score (two wishes for a +2 inherent bonus, three wishes for a +3 inherent bonus, and so on). Inherent bonuses are instantaneous, so they cannot be dispelled. Note: An inherent bonus may not exceed +5 for a single ability score, and inherent bonuses to a particular ability score do not stack, so only the best one applies.",
+                    string.Format(RES.WishBuffDescription_info, statName),
                     Helpers.MergeIds(statId, "f6f99525b8da4e33bae58a13f4db5a98", noduplicateId),
                     wish.Icon, null,
                     Helpers.Create<WishStatBonusTemporary>(w => { w.PermanentBonus = feat; w.Stat = stat; }));
                 buff.Stacking = StackingType.Prolong;
 
                 var ability = Helpers.CreateAbility($"{feat.name}Ability", feat.Name, buff.Description,
-                    Helpers.MergeIds(statId, "5d50b81a2af146f69775ca350e37494d",noduplicateId),
+                    Helpers.MergeIds(statId, "5d50b81a2af146f69775ca350e37494d", noduplicateId),
                     wish.Icon, AbilityType.Spell, CommandType.Standard,
                     AbilityRange.Medium, wish.LocalizedDuration, wish.LocalizedSavingThrow,
                     //Game.Instance.Player.Inventory.Add(itemByGuid, itemAmount)
@@ -249,13 +224,14 @@ namespace EldritchArcana
                 ability.EffectOnAlly = AbilityEffectOnUnit.Helpful;
                 ability.MaterialComponent.Item = diamond.Value;
                 ability.MaterialComponent.Count = 5;
-                if (i % 8 == 1) {
+                if (i % 8 == 1)
+                {
                     ability.MaterialComponent.Count = Main.settings?.CheatCustomTraits == true ? -50 : 5;
                 }/*
                 else { 
                 //ability.MaterialComponent.Item = summonedBow.Value;
                 }*/
-                
+
                 variants.Add(ability);
             }
             return variants;
@@ -265,19 +241,8 @@ namespace EldritchArcana
 
         static void LoadMiracle()
         {
-            var spell = Helpers.CreateAbility("Miracle", "Miracle",
-                "You don’t so much cast a miracle as request one. You state what you would like to have happen and request that your deity (or the power you pray to for spells) intercede.\n" +
-                "A miracle can do any of the following things.\n" +
-                "• Duplicate any cleric spell of 8th level or lower.\n" +
-                "• Duplicate any other spell of 7th level or lower.\n" +
-                "• Undo the harmful effects of certain spells, such as feeblemind or insanity.\n" +
-                "• Have any effect whose power level is in line with the above effects.\n" +
-                "Alternatively, a cleric can make a very powerful request. Casting such a miracle costs the cleric 25,000 gp in powdered diamond because of the powerful divine energies involved. Examples of especially powerful miracles of this sort could include the following:\n" +
-                "• Swinging the tide of a battle in your favor by raising fallen allies to continue fighting.\n" +
-                "• Moving you and your allies, with all your and their gear, from one plane to a specific locale through planar barriers with no chance of error.\n" +
-                "• Protecting a city from an earthquake, volcanic eruption, flood, or other major natural disaster.\n" +
-                "In any event, a request that is out of line with the deity’s (or alignment’s) nature is refused.\n" +
-                "A duplicated spell allows saving throws and spell resistance as normal, but the save DCs are as for a 9th-level spell.When a miracle spell duplicates a spell with a material component that costs more than 100 gp, you must provide that component.",
+            var spell = Helpers.CreateAbility("Miracle", RES.MiracleSpells_info,
+                RES.MiracleAbilityDescription_info,
                 "8ce2676c93de461b91596ef7e4e04c09",
                 Helpers.GetIcon("fafd77c6bfa85c04ba31fdc1c962c914"), // restoration greater
                 AbilityType.Spell,
@@ -311,19 +276,8 @@ namespace EldritchArcana
 
         static void LoadLesserMiracle()
         {
-            var spell = Helpers.CreateAbility("LesserMiracle", "(Divine) Miracle",
-                "You don’t so much cast a miracle as request one. You state what you would like to have happen and request that your deity (or the power you pray to for spells) intercede.\n" +
-                "A miracle can do any of the following things.\n" +
-                "• Duplicate any cleric spell of 8th level or lower.\n" +
-                "• Duplicate any other spell of 7th level or lower.\n" +
-                "• Undo the harmful effects of certain spells, such as feeblemind or insanity.\n" +
-                "• Have any effect whose power level is in line with the above effects.\n" +
-                "Alternatively, a cleric can make a very powerful request. Casting such a miracle costs the cleric 25,000 gp in powdered diamond because of the powerful divine energies involved. Examples of especially powerful miracles of this sort could include the following:\n" +
-                "• Swinging the tide of a battle in your favor by raising fallen allies to continue fighting.\n" +
-                "• Moving you and your allies, with all your and their gear, from one plane to a specific locale through planar barriers with no chance of error.\n" +
-                "• Protecting a city from an earthquake, volcanic eruption, flood, or other major natural disaster.\n" +
-                "In any event, a request that is out of line with the deity’s (or alignment’s) nature is refused.\n" +
-                "A duplicated spell allows saving throws and spell resistance as normal, but the save DCs are as for a 9th-level spell.When a miracle spell duplicates a spell with a material component that costs more than 100 gp, you must provide that component.",
+            var spell = Helpers.CreateAbility("LesserMiracle", RES.LesserMiracleAbilityName_info,
+                RES.LesserMiracleAbilityDescription_info,
                 "2ce3374c93de461b91596ef7e4e04c14",
                 Helpers.GetIcon("fafd77c6bfa85c04ba31fdc1c962c914"), // restoration greater
                 AbilityType.Spell,
@@ -343,7 +297,7 @@ namespace EldritchArcana
             spell.AddComponent(spell.CreateAbilityVariants(variants));
             spell.MaterialComponent = variants[0].MaterialComponent;
 
-            variants.AddRange(CreateWishForStatBonus(spell,spell.AssetGuid));
+            variants.AddRange(CreateWishForStatBonus(spell, spell.AssetGuid));
             // TODO: variant for mass Resurrection (cost 25,000)
             // TODO: variant for protection from natural disasters (cost 25,000)
             // Perhaps it should prevent some of the bad kingdom effects that can happen,
@@ -360,10 +314,10 @@ namespace EldritchArcana
             //make shure the ids are different becouse doublicate ids would overwrite each outher
             string MiracleID = isMiracle ? "6db719c91bcc4f31b997904ef1f873c9" : "7db719c91bcc4f31b997904ef1f873c8";
 
-            var wishText = isMiracle ? "miracle" : "wish";
+            var wishText = isMiracle ? RES.MiracleSpells_info : RES.WishSpells_info;
             var spell = Helpers.CreateAbility($"{wishSpell.name}{level}",
-                $"{wishSpell.Name} (spell level {level})",
-                $"(After casting this spell, use the ability bar to select your {wishText}.)\n{wishSpell.Description}",
+                $"{wishSpell.Name}{string.Format(RES.LevelSpellNamePostfix_info, level)}",
+                $"{string.Format(RES.SpellDescriptionPrefix_info, wishText)}{wishSpell.Description}",
                 Helpers.MergeIds(wishSpell.AssetGuid, MiracleID, FavoredClassBonus.spellLevelGuids[level - 1]),
                 wishSpell.Icon, wishSpell.Type, wishSpell.ActionType, wishSpell.Range,
                 wishSpell.LocalizedDuration, wishSpell.LocalizedSavingThrow);
@@ -486,7 +440,7 @@ namespace EldritchArcana
                     variantSpells = validSpells.Where(s => s.HasVariants).ToArray();
                     // Group all of the non-variant spells together.
                     var schoolVariant = Helpers.CreateAbility($"{spellForLevel.name}{school}Spells",
-                        $"{schoolName} Spells", spellForLevel.Description,
+                        $"{schoolName}{RES.SpellsSpellNamePostfix_info}", spellForLevel.Description,
                         Helpers.MergeIds(spellForLevel.AssetGuid, spellSchoolGuids[(int)school]),
                         schoolIcon,
                         AbilityType.SpellLike,
@@ -643,7 +597,7 @@ namespace EldritchArcana
             return !unit.HasFact(WishBuff) || !unit.HasFact(OppositionSchool);
         }
 
-        public string GetReason() => $"Opposition school spells of this level are not available.";
+        public string GetReason() => RES.WishReason_error;
     }
 
     public class WishStatBonusTemporary : BuffLogic, IInitiatorRulebookHandler<RuleApplyBuff>

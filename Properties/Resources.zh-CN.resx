@@ -120,6 +120,19 @@
   <data name="CheatCustomTraits_info" xml:space="preserve">
     <value>启用额外的作弊特性和法术（需要重新启动才能生效）</value>
   </data>
+  <data name="DetectSecretDoorsAbilityDescription_info" xml:space="preserve">
+    <value>您可以检测密门、隔间、隐藏物等等。这个法术只能探测到专门为逃避侦查而建造的通道、门或开口。
+每回合，你都可以在一个新的区域内打开来侦查密门。这个法术需要通过专注检定，如果你施放另一个法术，采取标准动作，或者专注检定失败，它会提前结束。</value>
+  </data>
+  <data name="DetectSecretDoorsAbilityDuration_info" xml:space="preserve">
+    <value>专注，1分钟/每施法者等级</value>
+  </data>
+  <data name="DetectSecretDoorsSpells_info" xml:space="preserve">
+    <value>检测暗门</value>
+  </data>
+  <data name="DismissSpells_info" xml:space="preserve">
+    <value>驱散区域效果的能力</value>
+  </data>
   <data name="DrawbackForextraTraits_info" xml:space="preserve">
     <value>启用有缺点的专长（需要重新启动才能生效）</value>
   </data>
@@ -129,8 +142,123 @@
   <data name="EldritchKnightFix_tip" xml:space="preserve">
     <value>例如：野蛮人、战士、圣武士、游侠，不影响已创建的角色</value>
   </data>
+  <data name="EmergencyForceSphereSpells_info" xml:space="preserve">
+    <value>应急击退法球</value>
+  </data>
+  <data name="FireSpells_info" xml:space="preserve">
+    <value>火系法术</value>
+  </data>
+  <data name="FixBloodlineSpellDescriptionPrefix_info" xml:space="preserve">
+    <value>从第三级起，以及之后每两级，巫师可学习一个额外的法术，来自她的血统。这些法术是在新等级的法术数量之外的附加法术。
+</value>
+  </data>
+  <data name="FixElementalSpells_info" xml:space="preserve">
+    <value>启用元素形式的施法</value>
+  </data>
+  <data name="FlySpells_info" xml:space="preserve">
+    <value>飞行和空中行走法术</value>
+  </data>
+  <data name="GoblinSpellDescription_info" xml:space="preserve">
+    <value>此法术召唤了一个地精群共六个地精生物。召唤的地精群出现在你指定的地方，并在轮到你时立即行动。它尽其所能攻击你的对手。如果你能和这个生物交流，你可以指示它不要攻击，攻击特定的敌人，或者按照你的命令执行其他的行动。</value>
+  </data>
+  <data name="GoblinSpellName_info" xml:space="preserve">
+    <value>召唤六个地精</value>
+  </data>
+  <data name="GreaterMagicWeaponAbilityDescription_info" xml:space="preserve">
+    <value>这个法术的功能类似于魔化武器，除了它给武器每四个施法者等级+1的攻击和伤害骰的增强加值（最大+5）。这个加值不允许武器绕过魔法之外的伤害减免。</value>
+  </data>
+  <data name="GreaterMagicWeaponSpells_info" xml:space="preserve">
+    <value>高等魔化武器</value>
+  </data>
+  <data name="HypnoticDurationLocalized_info" xml:space="preserve">
+    <value>专注+2轮</value>
+  </data>
+  <data name="HypnoticPatternSpells_info" xml:space="preserve">
+    <value>催眠符文</value>
+  </data>
+  <data name="HypnoticSpellDescription_info" xml:space="preserve">
+    <value>一种微妙而多变的扭曲的彩色符文在空气中编织，里面有着迷人的生物。投掷2D4并添加施法者等级（最多10级），以确定受影响生物的HD总数。具有最小HD的生物首先受到影响；在具有相同HD的生物中，最接近法术原点的生物首先受到影响。不足以影响生物的HD将被浪费。受影响的生物将对彩色符文着迷。无视觉的生物不会受到影响。</value>
+  </data>
+  <data name="KeepAllSpellsFeatureDescription_info" xml:space="preserve">
+    <value>选择此选项可跳过替换此级别的已知法术。</value>
+  </data>
+  <data name="KeepAllSpellsFeatureName_info" xml:space="preserve">
+    <value>保留所有法术</value>
+  </data>
+  <data name="KnockAbilityDescription_info" xml:space="preserve">
+    <value>敲击打开卡住的、被关上的或被锁上的门，以及那些被关上入口或被奥术锁住的门。当你完成施法时，用+10加值对锁的DC进行施法者等级检查。如果成功，敲击打开最多两种关闭方式。这个法术可以打开秘密的门，也可以打开盒子或箱子。它也会使焊缝、钩环或链条松动（前提是它们能将某些东西封闭）。如果用来打开一扇被奥术锁住的门，这个法术不会移除奥术锁，只会暂停10分钟。在所有其他情况下，门不会自行重新锁定或再次卡住。敲击不会升起有栅栏的门或类似的障碍物（如门槽），也不会影响绳索、藤蔓等。效果受区域限制。每次施法可以撤销多达两种防止进入的方法。</value>
+  </data>
+  <data name="KnockAndDetectSecretsSpells_info" xml:space="preserve">
+    <value>敲探暗门</value>
+  </data>
+  <data name="KnockMassAbilityDescription_info" xml:space="preserve">
+    <value>这个法术起到敲击的作用，但同时作用于多个被锁住的物体（最多1个/每施法者级别）。
+{0}</value>
+  </data>
+  <data name="KnockMassAbilityName_info" xml:space="preserve">
+    <value>群体敲击术</value>
+  </data>
+  <data name="KnockSpells_info" xml:space="preserve">
+    <value>敲击</value>
+  </data>
+  <data name="LesserMiracleAbilityDescription_info" xml:space="preserve">
+    <value>你不会像要求的那样创造奇迹。你陈述你希望发生的事情，并请求你的神（或你为法术祈祷的力量）调解。
+奇迹可以做以下任何一件事。
+● 复制8级或更低级别的牧师法术。
+● 复制任何其他7级或更低级别的法术。
+● 撤消某些法术的有害影响，如虚弱或狂乱。
+● 具有与上述效果一致的任何效果。
+或者，一个牧师可以提出一个非常强大的请求。施放这样一个奇迹需要神职人员25000 gp的钻石粉，因为涉及强大的神圣能量。这类特别强大的奇迹的例子包括：
+● 通过援助倒下的盟友继续战斗来改变战争局势，向有利于你的方向发展。
+● 通过平面屏障将你和你的盟友，连同你和他们的装备，从一个地点传送到另一个指定的地点，而不会出错。
+● 保护城市免受地震、火山爆发、洪水或其他重大自然灾害的影响。
+在任何情况下，与神的（或阵营的）性质不一致的请求都会被拒绝。
+复制的法术可以像普通法术那样进行豁免投掷和法术抵抗，但是豁免的DC相当于9级法术。当一个奇迹法术为复制一个法术所使用的材料花费超过100 gp，你必须提供该材料。</value>
+  </data>
+  <data name="LesserMiracleAbilityName_info" xml:space="preserve">
+    <value>奇迹——神圣</value>
+  </data>
+  <data name="LesserMiracleSpells_info" xml:space="preserve">
+    <value>奇迹——预警</value>
+  </data>
+  <data name="LevelSpellNamePostfix_info" xml:space="preserve">
+    <value>（法术等级{0}）</value>
+  </data>
+  <data name="LifeMysteryReason_error" xml:space="preserve">
+    <value>{0}在任何目标上都未激活。</value>
+  </data>
+  <data name="LimitedWishAbilityDescription_info" xml:space="preserve">
+    <value>有限许愿术可以让你创造几乎任何类型的效果。例如，有限许愿术可以做以下任何一件事。
+● 复制任何6级或更低级别的巫师/法师法术，前提是该法术不属于你的任何敌对学派。
+● 复制任何5级或更低级别的非巫师/法师法术，前提是该法术不属于你的任何敌对学派。
+● 复制任何5级或更低级别的巫师/法师法术，即使它属于你的任何敌对学派。
+● 复制任何4级或更低级别的非巫师/法师法术，即使它属于你的任何敌对学派。
+● 撤销许多法术的有害效果，如：狂乱。
+● 产生与上述效果一致的任何其他效果，例如单个生物自动攻击其下一次攻击或在其下一次豁免投掷中受到-7惩罚。
+复制的法术可以像普通法术那样进行豁免投掷和法术抵抗，但是豁免的DC相当于7级法术。当一个有限许愿术为复制一个法术所使用的材料花费超过1000 gp，你必须提供该材料（除了这个法术的1500 gp钻石材料）。</value>
+  </data>
+  <data name="LimitedWishSpells_info" xml:space="preserve">
+    <value>有限许愿术</value>
+  </data>
   <data name="LoadCustomPortraits_error" xml:space="preserve">
     <value>在肖像列表中列出自定义肖像</value>
+  </data>
+  <data name="MiracleAbilityDescription_info" xml:space="preserve">
+    <value>你不会像要求的那样创造奇迹。你陈述你希望发生的事情，并请求你的神（或你为法术祈祷的力量）调解。
+奇迹可以做以下任何一件事。
+● 复制8级或更低级别的牧师法术。
+● 复制任何其他7级或更低级别的法术。
+● 撤消某些法术的有害影响，如虚弱或狂乱。
+● 具有与上述效果一致的任何效果。
+或者，一个牧师可以提出一个非常强大的请求。施放这样一个奇迹需要神职人员25000 gp的钻石粉，因为涉及强大的神圣能量。这类特别强大的奇迹的例子包括：
+● 通过援助倒下的盟友继续战斗来改变战争局势，向有利于你的方向发展。
+● 通过平面屏障将你和你的盟友，连同你和他们的装备，从一个地点传送到另一个指定的地点，而不会出错。
+● 保护城市免受地震、火山爆发、洪水或其他重大自然灾害的影响。
+在任何情况下，与神的（或阵营的）性质不一致的请求都会被拒绝。
+复制的法术可以像普通法术那样进行豁免投掷和法术抵抗，但是豁免的DC相当于9级法术。当一个奇迹法术为复制一个法术所使用的材料花费超过100 gp，你必须提供该材料。</value>
+  </data>
+  <data name="MiracleSpells_info" xml:space="preserve">
+    <value>奇迹</value>
   </data>
   <data name="OracleHas3SkillPoints_info" xml:space="preserve">
     <value>神使在升级时获得3个技能点（取代4个，因为技能压缩）</value>
@@ -144,8 +272,91 @@
   <data name="RelaxTonguesCurse_tip" xml:space="preserve">
     <value>即除主角外的其他队伍成员的 知识：世界 技能不能低于1级，否则在战斗中不能被控制</value>
   </data>
+  <data name="ReplacementFeatureDescription_info" xml:space="preserve">
+    <value>达到{0}级后，在每{1}{2}等级之后（{3}，{4}，以此类推），{5}可以选择学习一个新的法术来代替他们已知的法术。实际上，{6}会丢弃旧的法术，以换取新的法术。新法术的等级必须与被交换的法术的等级相同。{7}在任何给定等级只能交换一个法术，并且必须选择是否在获得该等级已知的新法术的同时交换该法术。</value>
+  </data>
+  <data name="ReplacementFeatureName_info" xml:space="preserve">
+    <value>替换法术（{0}）</value>
+  </data>
+  <data name="ResurrectionSpellDescription_info" xml:space="preserve">
+    <value>这个法术的功能类似于复活死者，除了你可以复活一个每施法者等级已经死亡长达10年的生物。这个法术甚至可以使尸体被摧毁的生物复活，前提是你以某种方式明确地识别死者（吟诵死者的出生或死亡时间和地点是最常见的方法）。在法术完成后，生物立即恢复到完全的生命值、活力和健康状态，没有负面等级（或失去属性点），并且生物在死亡时拥有的所有已准备好的法术。你可以复活被死亡效果杀死的人或被变成不死生物再被摧毁的人。这个法术也可以复活元素或异界生物，但不能复活构造物或不死生物。即使是真正的复活也不能使一个死于老年的生物恢复生命。
+超载：这是一个自由行动。</value>
+  </data>
   <data name="ShowCustomPortraits_info" xml:space="preserve">
     <value>创建角色时在肖像列表中显示自定义肖像（需要重新启动才能生效）</value>
+  </data>
+  <data name="SpellDescriptionPrefix_info" xml:space="preserve">
+    <value>（施法后，使用能力栏选择你的{0}）。
+</value>
+  </data>
+  <data name="SpellsSpellNamePostfix_info" xml:space="preserve">
+    <value>法术</value>
+  </data>
+  <data name="SpritualWeaponSpells_info" xml:space="preserve">
+    <value>灵能武器</value>
+  </data>
+  <data name="SquirrelSpellDescription_info" xml:space="preserve">
+    <value>你召唤了松鼠集群，它们会攻击它所在区域内的所有其他生物。（你可以召唤集群，让它共享其他生物的区域。）如果在它的区域内没有生物，集群会尽其所能攻击或追逐最近的生物。施法者无法控制其目标或行进方向。</value>
+  </data>
+  <data name="SquirrelSpellName_info" xml:space="preserve">
+    <value>召唤松鼠集群</value>
+  </data>
+  <data name="SummonWildhuntSpells_info" xml:space="preserve">
+    <value>荒野猎人</value>
+  </data>
+  <data name="TimeStopSpells_info" xml:space="preserve">
+    <value>时间停止</value>
+  </data>
+  <data name="TrueResurrectionSpells_info" xml:space="preserve">
+    <value>完全复生术</value>
+  </data>
+  <data name="WeaponOfAweAbilityDescription_info" xml:space="preserve">
+    <value>你把一件武器变成令人敬畏的工具。该武器在伤害骰上获得+2神圣加值，如果该武器获得暴击，被暴击的目标将被摇晃1轮且不能进行豁免投掷。
+这是一种影响心灵的恐惧效果。受此法术影响的远程武器对其弹药应用这些效果。
+您不能将此法术施加于自然武器，但可以将其施加于徒手攻击。</value>
+  </data>
+  <data name="WeaponOfAweSpells_info" xml:space="preserve">
+    <value>敬畏武器</value>
+  </data>
+  <data name="WeaponofAweDescription_info" xml:space="preserve">
+    <value>伤害骰获得+2神圣奖励，被暴击目标会摇晃1轮。</value>
+  </data>
+  <data name="WishAbilityDescription_info" xml:space="preserve">
+    <value>许愿术是巫师或法师能施展的最强大的法术。只要大声说话，你就能改变现实，使之更适合你。然而，即使是许愿术也有其局限性。许愿术可以产生以下任何一种效果。
+● 复制任何8级或更低级别的巫师/法师法术，前提是该法术不属于你的任何敌对学派。
+● 复制任何7级或更低级别的非巫师/法师法术，前提是该法术不属于你的任何敌对学派。
+● 复制任何7级或更低级别的巫师/法师法术，即使它属于你的任何敌对学派。
+● 复制任何6级或更低级别的非巫师/法师法术，即使它属于你的任何敌对学派。
+● 给生物一个能力点数+1固有加值。立即连续施放2到5个许愿术可以给生物一个能力点数+2到+5的内在加值（两个许愿术获得+2的内在加值，三个许愿术获得+3的内在加值，以此类推）。固有加值是即时的，所以它们不能被驱散。注意：对于单个能力点数，固有加值不能超过+5，并且对于特定能力点数的固有加值不能叠加，因此只能应用最大加值。
+● 消除伤害和痛苦。一个许愿术可以帮助每施法者等级一个生物，并且所有受试者都能被治愈相同的痛苦。例如，您可以治愈您和您的同伴所遭受的所有伤害，或者从队伍中的每个人身上移除所有的毒害效果，但不能进行群体治愈。
+● 复活死者。一个许愿术可以通过复制复活法术使一个死去的生物复活。一个许愿术可以唤醒一个身体被摧毁的死去的生物，但此任务需要两次许愿：一次是重建身体，另一次是再次给身体注入生命。许愿术不能阻止一个重新复活的角色获得永久的负面等级。
+复制的法术可以像普通法术那样进行豁免投掷和法术抵抗，但是豁免的DC相当于9级法术。当一个有限许愿术为复制一个法术所使用的材料花费超过10000 gp，你必须提供该材料（除了这个法术的25000 gp钻石材料）。</value>
+  </data>
+  <data name="WishBuffDescription_info" xml:space="preserve">
+    <value>许愿术获得{0}永久固有加值。
+立即连续施放2到5个许愿术可以给生物一个能力点数+2到+5的内在加值（两个许愿术获得+2的内在加值，三个许愿术获得+3的内在加值，以此类推）。固有加值是即时的，所以它们不能被驱散。注意：对于单个能力点数，固有加值不能超过+5，并且对于特定能力点数的固有加值不能叠加，因此只能应用最大加值。</value>
+  </data>
+  <data name="WishFabricateAbilityDescription_info" xml:space="preserve">
+    <value>奥术许愿术可以让你创造几乎任何类型的效果，只需要提供5颗钻石。
+● 复制任何6级或更低级别的巫师/法师法术，前提是该法术不属于你的任何敌对学派。
+● 复制任何5级或更低级别的非巫师/法师法术，前提是该法术不属于你的任何敌对学派。
+● 复制任何5级或更低级别的巫师/法师法术，即使它属于你的任何敌对学派。
+● 复制任何4级或更低级别的非巫师/法师法术，即使它属于你的任何敌对学派。
+● 撤销许多法术的有害效果，如：狂乱。
+● 产生与上述效果一致的任何其他效果，例如单个生物自动攻击其下一次攻击或在其下一次豁免投掷中受到-7惩罚。
+复制的法术可以像普通法术那样进行豁免投掷和法术抵抗，但是豁免的DC相当于7级法术。当一个有限许愿术为复制一个法术所使用的材料花费超过1000 gp，你必须提供该材料（除了这个法术的1500 gp钻石材料）。</value>
+  </data>
+  <data name="WishFabricateSpells_info" xml:space="preserve">
+    <value>许愿术（奥术）</value>
+  </data>
+  <data name="WishFeatureDescription_info" xml:space="preserve">
+    <value>许愿术给予{0}永久固有加值。</value>
+  </data>
+  <data name="WishReason_error" xml:space="preserve">
+    <value>此级别法术的反对学派法术不可用。</value>
+  </data>
+  <data name="WishSpells_info" xml:space="preserve">
+    <value>许愿术</value>
   </data>
   <data name="applyPatch_error" xml:space="preserve">
     <value>应用修补类型{0}失败：{1}！</value>
@@ -172,7 +383,7 @@
     <value>所有mod功能</value>
   </data>
   <data name="featureName_error" xml:space="preserve">
-    <value> ● &lt;b&gt;{0}&lt;/b&gt;</value>
+    <value>● &lt;b&gt;{0}&lt;/b&gt;</value>
   </data>
   <data name="loadBloodlines_error" xml:space="preserve">
     <value>血源</value>
@@ -211,7 +422,7 @@
     <value>特性</value>
   </data>
   <data name="loadWishSpells_error" xml:space="preserve">
-    <value>心愿法术</value>
+    <value>许愿法术</value>
   </data>
   <data name="testedGameVersion_warning" xml:space="preserve">
     <value>&lt;b&gt;此Mod是基于游戏版本{0}测试的，但是正在运行的游戏版本为{1}。&lt;/b&gt;</value>

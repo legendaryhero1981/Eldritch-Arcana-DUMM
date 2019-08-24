@@ -27,6 +27,7 @@ using Kingmaker.View.MapObjects.InteractionRestrictions;
 using Kingmaker.Visual.FogOfWar;
 using UnityEngine;
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -42,12 +43,11 @@ namespace EldritchArcana
 
         static void LoadDetectSecretDoors()
         {
-            var spell = Helpers.CreateAbility("DetectSecretDoors", "Detect Secret Doors",
-                "You can detect secret doors, compartments, caches, and so forth. Only passages, doors, or openings that have been specifically constructed to escape detection are detected by this spell.\n" +
-                "Each round, you can turn to detect secret doors in a new area. This spell requires concentration, and will end prematurely if you cast another spell, take a standard action, or fail a concentration check.",
+            var spell = Helpers.CreateAbility("DetectSecretDoors", RES.DetectSecretDoorsSpells_info,
+                RES.DetectSecretDoorsAbilityDescription_info,
                 "5462b5e9578349ffa59bb469b94ffbb0",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Detect_Secret_Doors_Spell.png"),//Helpers.GetIcon("4709274b2080b6444a3c11c6ebbe2404"), // find traps
-                AbilityType.Spell, CommandType.Standard, AbilityRange.Personal, "concentration, up to 1 min/level", "");
+                AbilityType.Spell, CommandType.Standard, AbilityRange.Personal, RES.DetectSecretDoorsAbilityDuration_info, "");
 
             var foresightBuff = library.Get<BlueprintBuff>("8c385a7610aa409468f3a6c0f904ac92");
 
@@ -73,8 +73,8 @@ namespace EldritchArcana
 
         static void LoadKnock()
         {
-            var spell = Helpers.CreateAbility("KnockSpell", "Knock",
-                "Knock opens stuck, barred, or locked doors, as well as those subject to hold portal or arcane lock. When you complete the casting of this spell, make a caster level check against the DC of the lock with a +10 bonus. If successful, knock opens up to two means of closure. This spell opens secret doors, as well as locked or trick-opening boxes or chests. It also loosens welds, shackles, or chains (provided they serve to hold something shut). If used to open an arcane locked door, the spell does not remove the arcane lock but simply suspends its functioning for 10 minutes. In all other cases, the door does not relock itself or become stuck again on its own. Knock does not raise barred gates or similar impediments (such as a portcullis), nor does it affect ropes, vines, and the like. The effect is limited by the area. Each casting can undo as many as two means of preventing access.",
+            var spell = Helpers.CreateAbility("KnockSpell", RES.KnockSpells_info,
+                RES.KnockAbilityDescription_info,
                 "1dc0c67a10a54387b2679712969cab27",
                 Helpers.GetIcon("26a668c5a8c22354bac67bcd42e09a3f"), // adaptability
                 AbilityType.Spell, CommandType.Standard, AbilityRange.Medium, "", "",
@@ -88,8 +88,8 @@ namespace EldritchArcana
             spell.AddToSpellList(Helpers.wizardSpellList, 2);
             Helpers.AddSpellAndScroll(spell, "5e9bd8e141c622a4a8f4e4654d022f40"); // find traps scroll
 
-            var massSpell = Helpers.CreateAbility("KnockMass", "Knock, Mass",
-                $"This spell functions as knock, but works on multiple means of closure at once (up to 1/caster level).\n{spell.Description}",
+            var massSpell = Helpers.CreateAbility("KnockMass", RES.KnockMassAbilityName_info,
+                string.Format(RES.KnockMassAbilityDescription_info,spell.Description),
                 "551f0b78de034fe88b4391293ff20e1b",
                 spell.Icon, // adaptability
                 AbilityType.Spell, CommandType.Standard, AbilityRange.Close, "", "",

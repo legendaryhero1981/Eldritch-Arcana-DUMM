@@ -1,23 +1,27 @@
 // Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Class.LevelUp;
 using Kingmaker.UnitLogic.FactLogic;
+
 using Newtonsoft.Json;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 using UnityEngine;
+
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -101,7 +105,7 @@ namespace EldritchArcana
         {
             var caster = spellbook.CharacterClass;
 
-            var displayName = $"Replace Spell ({spellbook.CharacterClass.Name})";
+            var displayName = string.Format(RES.ReplacementFeatureName_info, spellbook.CharacterClass.Name);
             var description = GetDescription(spellbook);
             Sprite icon = null; // TODO: grab icon like the spellbook UI does
 
@@ -140,9 +144,9 @@ namespace EldritchArcana
             var replacementFrequency = isFullCaster ? 2 : 3;
             var secondSpell = firstSpell + replacementFrequency;
             var thirdSpell = firstSpell + replacementFrequency * 2;
-
             var className = spellbook.CharacterClass.Name.ToLower();
-            return $"Upon reaching {firstSpell}th level, and at every {replacementFrequency} {className} level after that ({secondSpell}th, {thirdSpell}th, and so on), a {className} can choose to learn a new spell in place of one they already know. In effect, the {className} loses the old spell in exchange for the new one. The new spell's level must be the same as that of the spell being exchanged. A {className} may swap only a single spell at any given level, and must choose whether or not to swap the spell at the same time that they gain new spells known for the level.";
+
+            return string.Format(RES.ReplacementFeatureDescription_info, firstSpell, replacementFrequency, className, secondSpell, thirdSpell, className, className, className);
         }
 
         internal static bool CanReplaceSpellThisLevel(Spellbook spellbook)
@@ -192,7 +196,7 @@ namespace EldritchArcana
         static BlueprintFeature CreateKeepAllSpellsFeat(BlueprintSpellbook spellbook)
         {
             var feat = Helpers.CreateFeature(spellbook.name + "KnownAllSpellsFeature",
-                "Keep all spells", "Choose this to skip replacing a known spell this level.",
+                RES.KeepAllSpellsFeatureName_info, RES.KeepAllSpellsFeatureDescription_info,
                 Helpers.MergeIds(spellbook.AssetGuid, "b09dfa039e3e4893a8c1f5df5c7f8195"),
                 spellbook.CharacterClass.Icon,
                 FeatureGroup.None);

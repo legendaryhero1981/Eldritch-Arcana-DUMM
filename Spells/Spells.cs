@@ -1,13 +1,12 @@
 // Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
+
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.Root;
@@ -39,10 +38,17 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
+
 using Newtonsoft.Json;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 using static Kingmaker.UI.GenericSlot.EquipSlotBase;
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
-using Kingmaker.Blueprints.Items;
+
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -62,24 +68,24 @@ namespace EldritchArcana
             var angelicAspect = library.Get<BlueprintAbility>("75a10d5a635986641bfbcceceec87217");
             commonTransmutationFx = angelicAspect.GetComponent<AbilitySpawnFx>();
 
-            Main.SafeLoad(FixElementalFormSpellcasting, "Enable spellcasting for elemental forms");
+            Main.SafeLoad(FixElementalFormSpellcasting, RES.FixElementalSpells_info);
 
-            Main.SafeLoad(DismissSpell.Load, "Ability to dismiss area effects");
+            Main.SafeLoad(DismissSpell.Load, RES.DismissSpells_info);
 
-            Main.SafeLoad(FireSpells.Load, "Fire spells");
-            Main.SafeLoad(FlySpells.Load, "Fly and Air Walk spells");
-            Main.SafeLoad(TimeStop.Load, "Time Stop");
-            Main.SafeLoad(KnockAndDetectSecrets.Load, "Knock and Detect Secret Doors");
-            Main.SafeLoad(LoadTrueResurrection, "True resurrection");
-            Main.SafeLoad(LoadSummonWildhunt, "Wild Hunt");
+            Main.SafeLoad(FireSpells.Load, RES.FireSpells_info);
+            Main.SafeLoad(FlySpells.Load, RES.FlySpells_info);
+            Main.SafeLoad(TimeStop.Load, RES.TimeStopSpells_info);
+            Main.SafeLoad(KnockAndDetectSecrets.Load, RES.KnockAndDetectSecretsSpells_info);
+            Main.SafeLoad(LoadTrueResurrection, RES.TrueResurrectionSpells_info);
+            Main.SafeLoad(LoadSummonWildhunt, RES.SummonWildhuntSpells_info);
 
-            Main.SafeLoad(ExperimentalSpells.LoadSpritualWeapon, "Spiritual Weapon");
-            Main.SafeLoad(ExperimentalSpells.LoadEmergencyForceSphere, "Emergency force sphere");
+            Main.SafeLoad(ExperimentalSpells.LoadSpritualWeapon, RES.SpritualWeaponSpells_info);
+            Main.SafeLoad(ExperimentalSpells.LoadEmergencyForceSphere, RES.EmergencyForceSphereSpells_info);
 
-            Main.SafeLoad(LoadGreaterMagicWeapon, "Greater Magic Weapon");
-            Main.SafeLoad(LoadWeaponOfAwe, "Weapon of Awe");
+            Main.SafeLoad(LoadGreaterMagicWeapon, RES.GreaterMagicWeaponSpells_info);
+            Main.SafeLoad(LoadWeaponOfAwe, RES.WeaponOfAweSpells_info);
 
-            Main.SafeLoad(LoadHypnoticPattern, "Hypnotic Pattern");
+            Main.SafeLoad(LoadHypnoticPattern, RES.HypnoticPatternSpells_info);
 
             // TODO: divine spell: Blessing of Fervor, Atonement (w/ option to change to your alignment?)
             // TODO: blood money would be interesting.
@@ -156,19 +162,16 @@ namespace EldritchArcana
 
             var enchantment = Helpers.Create<BlueprintWeaponEnchantment>();
             enchantment.name = "WeaponOfAweEnchantment";
-            Helpers.SetLocalizedStringField(enchantment, "m_EnchantName", "Weapon of Awe");
-            Helpers.SetLocalizedStringField(enchantment, "m_Description", "+2 sacred bonus on damage rolls, and target is shaken for 1 round on critical hits");
+            Helpers.SetLocalizedStringField(enchantment, "m_EnchantName", RES.WeaponOfAweSpells_info);
+            Helpers.SetLocalizedStringField(enchantment, "m_Description", RES.WeaponofAweDescription_info);
             Helpers.SetLocalizedStringField(enchantment, "m_Prefix", "");
             Helpers.SetLocalizedStringField(enchantment, "m_Suffix", "");
             library.AddAsset(enchantment, "21985d11a0f941a2b359c48b5d8a32da");
             enchantment.SetComponents(Helpers.Create<WeaponOfAweLogic>(w => w.Buff = shaken));
 
             var paladinWeaponBond = library.Get<BlueprintAbility>("7ff088ab58c69854b82ea95c2b0e35b4");
-            var spell = Helpers.CreateAbility("WeaponOfAwe", "Weapon of Awe",
-                "You transform a single weapon into an awe-inspiring instrument. The weapon gains a +2 sacred bonus on damage rolls, and if the weapon scores a critical hit, the target of that critical hit becomes shaken for 1 round with no saving throw.\n" +
-                "This is a mind-affecting fear effect. A ranged weapon affected by this spell applies these effects to its ammunition.\n" +
-                // TODO: does this work for an unarmed strike?
-                "You can’t cast this spell on a natural weapon, but you can cast it on an unarmed strike.",
+            var spell = Helpers.CreateAbility("WeaponOfAwe", RES.WeaponOfAweSpells_info,
+                RES.WeaponOfAweAbilityDescription_info,
                 "9c98a1de91a54ba583b9f4880d505766",
                 paladinWeaponBond.Icon,
                 AbilityType.Spell, CommandType.Standard, AbilityRange.Close,
@@ -223,10 +226,10 @@ namespace EldritchArcana
             GoblinSpell.MaterialComponent.Item = shortSword.Value;
             GoblinSpell.MaterialComponent.Count = 1;
             var SquirrelSpell = library.CopyAndAdd(SummonSpecial, "Squirrelhorde", SummonSquirrelId);
-            SquirrelSpell.SetNameDescription("Summon Swarm Squirrels",
-                "You summon a swarm of Squirrels, which attacks all other creatures within its area. (You may summon the swarm so that it shares the area of other creatures.) If no living creatures are within its area, the swarm attacks or pursues the nearest creature as best it can. The caster has no control over its target or direction of travel.");
-            GoblinSpell.SetNameDescription("Summon Six Goblins",
-                            "This spell summons to your side a sextuple band of goblin creatures. The summoned band appears where you designate and acts immediately, on your turn. It attacks your opponents to the best of its ability. If you can communicate with the creature, you can direct it not to attack, to attack particular enemies, or to perform other actions as you command.");
+            SquirrelSpell.SetNameDescription(RES.SquirrelSpellName_info,
+                RES.SquirrelSpellDescription_info);
+            GoblinSpell.SetNameDescription(RES.GoblinSpellName_info,
+                RES.GoblinSpellDescription_info);
             GoblinSpell.SetIcon(GobIcon);
             //var spell2 = library.CopyAndAdd(kalike, "kalikesw", "5cc0f13fc0eef464993b2e082f186033");
             //var spell3 = library.CopyAndAdd(kanerah, "kanerahsw", "5db0f13fc0eef464993b2e082f186034");
@@ -248,24 +251,20 @@ namespace EldritchArcana
         {
             var resurrection = library.Get<BlueprintAbility>("80a1a388ee938aa4e90d427ce9a7a3e9");
             var raiseDead = library.Get<BlueprintAbility>("a0fc99f0933d01643b2b8fe570caa4c5");
-            
+
             var resurrectionBuff = library.Get<BlueprintBuff>("12f2f2cf326dfd743b2cce5b14e99b3c");//resurrectionBuff
             var fireball = library.Get<BlueprintAbility>("2d81362af43aeac4387a3d4fced489c3");
             var spell = library.CopyAndAdd(resurrection, "MassResurrection", MassResurrectionId);
-            
+
             //var 00084298d39172b4e954b8eca5575dd9
-            spell.SetNameDescription("True Resurrection",
-                "This spell functions like raise dead, except that you can resurrect a creature that has been dead for as long as 10 years per caster level.This spell can even bring back creatures whose bodies have been destroyed, provided that you unambiguously identify the deceased in some fashion(reciting the deceased’s time and place of birth or death is the most common method)."+
-                "Upon completion of the spell, the creature is immediately restored to full hit points, vigor, and health, with no negative levels(or loss of * Constitution points) and all of the prepared spells possessed by the creature when it died." +
-                "You can revive someone killed by a death effect or someone who has been turned into an undead creature and then destroyed.This spell can also resurrect elementals or outsiders, but it can’t resurrect constructs or undead creatures." +
-                "Even true resurrection can’t restore to life a creature who has died of old age." +
-                "\nBefit over Ressurection: this is a free action.");
+            spell.SetNameDescription(RES.TrueResurrectionSpells_info,
+                RES.ResurrectionSpellDescription_info);
 
             spell.ActionType = CommandType.Free;
-            
+
             //spell.HasAreaEffect();
-            
-            spell.ReplaceComponent<AbilityTargetsAround>(Helpers.CreateAbilityTargetsAround(25.Feet(), TargetType.Ally,includeDead:true));
+
+            spell.ReplaceComponent<AbilityTargetsAround>(Helpers.CreateAbilityTargetsAround(25.Feet(), TargetType.Ally, includeDead: true));
 
             //spell.ReplaceComponent<AbilityDeliverClashingRocks>()
             spell.ReplaceComponent<AbilityAoERadius>(fireball.GetComponent<AbilityAoERadius>());
@@ -279,11 +278,6 @@ namespace EldritchArcana
             Helpers.AddSpellAndScroll(spell, "84cd707a7ae9f934389ed6bbf51b023a"); // scroll rainbow pattern*/
 
         }
-        
-
-
-         
-
 
         static void LoadHypnoticPattern()
         {
@@ -291,9 +285,9 @@ namespace EldritchArcana
             var rainbowPatternBuff = library.Get<BlueprintBuff>("6477ae917b0ec7a4ca76bc9f36b023ac");
 
             var spell = library.CopyAndAdd(rainbowPattern, "HypnoticPattern", hypnoticPatternId);
-            spell.SetNameDescription("Hypnotic Pattern",
-                "A twisting pattern of subtle, shifting colors weaves through the air, fascinating creatures within it. Roll 2d4 and add your caster level (maximum 10) to determine the total number of HD of creatures affected. Creatures with the fewest HD are affected first; and, among creatures with equal HD, those who are closest to the spell’s point of origin are affected first. HD that are not sufficient to affect a creature are wasted. Affected creatures become fascinated by the pattern of colors. Sightless creatures are not affected.");
-            spell.LocalizedDuration = Helpers.CreateString($"{spell.name}.Duration", "Concentration + 2 rounds");
+            spell.SetNameDescription(RES.HypnoticPatternSpells_info,
+                RES.HypnoticSpellDescription_info);
+            spell.LocalizedDuration = Helpers.CreateString($"{spell.name}.Duration", RES.HypnoticDurationLocalized_info);
 
             var buff = library.CopyAndAdd(rainbowPatternBuff, $"{spell.name}Buff", "d5a5ac267e21484a9332d96f3be3452d");
             buff.SetNameDescription(spell.Name, spell.Description);
@@ -336,7 +330,7 @@ namespace EldritchArcana
                         // Regardless of will save, subtract these HD.
                         SharedValueChangeType.SubHD.CreateActionChangeSharedValue()
                     })));
-            
+
             spell.AddToSpellList(Helpers.wizardSpellList, 2);
             spell.AddToSpellList(Helpers.bardSpellList, 2);
             Helpers.AddSpellAndScroll(spell, "84cd707a7ae9f934389ed6bbf51b023a"); // scroll rainbow pattern
@@ -366,8 +360,8 @@ namespace EldritchArcana
             enchantItem.DurationValue = Helpers.CreateContextDuration(rate: DurationRate.Hours);
 
             var arcaneWeaponSwitchAbility = library.Get<BlueprintAbility>("3c89dfc82c2a3f646808ea250eb91b91");
-            var spell = Helpers.CreateAbility(name, "Greater Magic Weapon",
-                "This spell functions like magic weapon, except that it gives a weapon an enhancement bonus on attack and damage rolls of +1 per four caster levels (maximum +5). This bonus does not allow a weapon to bypass damage reduction aside from magic.",
+            var spell = Helpers.CreateAbility(name, RES.GreaterMagicWeaponSpells_info,
+                RES.GreaterMagicWeaponAbilityDescription_info,
                 "6e513ce66905424eb441755cd264fbfa",
                 arcaneWeaponSwitchAbility.Icon,
                 AbilityType.Spell, CommandType.Standard, AbilityRange.Close,

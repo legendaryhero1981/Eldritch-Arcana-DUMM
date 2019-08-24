@@ -120,6 +120,19 @@
   <data name="CheatCustomTraits_info" xml:space="preserve">
     <value>Enable choosing extra cheat traits,spells(if changed, requires restart for changes to show up)</value>
   </data>
+  <data name="DetectSecretDoorsAbilityDescription_info" xml:space="preserve">
+    <value>You can detect secret doors, compartments, caches, and so forth. Only passages, doors, or openings that have been specifically constructed to escape detection are detected by this spell.
+Each round, you can turn to detect secret doors in a new area. This spell requires concentration, and will end prematurely if you cast another spell, take a standard action, or fail a concentration check.</value>
+  </data>
+  <data name="DetectSecretDoorsAbilityDuration_info" xml:space="preserve">
+    <value>concentration, up to 1 min/level</value>
+  </data>
+  <data name="DetectSecretDoorsSpells_info" xml:space="preserve">
+    <value>Detect Secret Doors</value>
+  </data>
+  <data name="DismissSpells_info" xml:space="preserve">
+    <value>Ability to dismiss area effects</value>
+  </data>
   <data name="DrawbackForextraTraits_info" xml:space="preserve">
     <value>Enabling feats with drawback</value>
   </data>
@@ -129,8 +142,123 @@
   <data name="EldritchKnightFix_tip" xml:space="preserve">
     <value>doesn't affect existing EKs</value>
   </data>
+  <data name="EmergencyForceSphereSpells_info" xml:space="preserve">
+    <value>Emergency force sphere</value>
+  </data>
+  <data name="FireSpells_info" xml:space="preserve">
+    <value>Fire spells</value>
+  </data>
+  <data name="FixBloodlineSpellDescriptionPrefix_info" xml:space="preserve">
+    <value>At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline. These spells are in addition to the number of spells given at new levels.
+</value>
+  </data>
+  <data name="FixElementalSpells_info" xml:space="preserve">
+    <value>Enable spellcasting for elemental forms</value>
+  </data>
+  <data name="FlySpells_info" xml:space="preserve">
+    <value>Fly and Air Walk spells</value>
+  </data>
+  <data name="GoblinSpellDescription_info" xml:space="preserve">
+    <value>This spell summons to your side a sextuple band of goblin creatures. The summoned band appears where you designate and acts immediately, on your turn. It attacks your opponents to the best of its ability. If you can communicate with the creature, you can direct it not to attack, to attack particular enemies, or to perform other actions as you command.</value>
+  </data>
+  <data name="GoblinSpellName_info" xml:space="preserve">
+    <value>Summon Six Goblins</value>
+  </data>
+  <data name="GreaterMagicWeaponAbilityDescription_info" xml:space="preserve">
+    <value>This spell functions like magic weapon, except that it gives a weapon an enhancement bonus on attack and damage rolls of +1 per four caster levels (maximum +5). This bonus does not allow a weapon to bypass damage reduction aside from magic.</value>
+  </data>
+  <data name="GreaterMagicWeaponSpells_info" xml:space="preserve">
+    <value>Greater Magic Weapon</value>
+  </data>
+  <data name="HypnoticDurationLocalized_info" xml:space="preserve">
+    <value>Concentration + 2 rounds</value>
+  </data>
+  <data name="HypnoticPatternSpells_info" xml:space="preserve">
+    <value>Hypnotic Pattern</value>
+  </data>
+  <data name="HypnoticSpellDescription_info" xml:space="preserve">
+    <value>A twisting pattern of subtle, shifting colors weaves through the air, fascinating creatures within it. Roll 2d4 and add your caster level (maximum 10) to determine the total number of HD of creatures affected. Creatures with the fewest HD are affected first; and, among creatures with equal HD, those who are closest to the spell's point of origin are affected first. HD that are not sufficient to affect a creature are wasted. Affected creatures become fascinated by the pattern of colors. Sightless creatures are not affected.</value>
+  </data>
+  <data name="KeepAllSpellsFeatureDescription_info" xml:space="preserve">
+    <value>Choose this to skip replacing a known spell this level.</value>
+  </data>
+  <data name="KeepAllSpellsFeatureName_info" xml:space="preserve">
+    <value>Keep all spells</value>
+  </data>
+  <data name="KnockAbilityDescription_info" xml:space="preserve">
+    <value>Knock opens stuck, barred, or locked doors, as well as those subject to hold portal or arcane lock. When you complete the casting of this spell, make a caster level check against the DC of the lock with a +10 bonus. If successful, knock opens up to two means of closure. This spell opens secret doors, as well as locked or trick-opening boxes or chests. It also loosens welds, shackles, or chains (provided they serve to hold something shut). If used to open an arcane locked door, the spell does not remove the arcane lock but simply suspends its functioning for 10 minutes. In all other cases, the door does not relock itself or become stuck again on its own. Knock does not raise barred gates or similar impediments (such as a portcullis), nor does it affect ropes, vines, and the like. The effect is limited by the area. Each casting can undo as many as two means of preventing access.</value>
+  </data>
+  <data name="KnockAndDetectSecretsSpells_info" xml:space="preserve">
+    <value>Knock and Detect Secret Doors</value>
+  </data>
+  <data name="KnockMassAbilityDescription_info" xml:space="preserve">
+    <value>This spell functions as knock, but works on multiple means of closure at once (up to 1/caster level).
+{0}</value>
+  </data>
+  <data name="KnockMassAbilityName_info" xml:space="preserve">
+    <value>Knock, Mass</value>
+  </data>
+  <data name="KnockSpells_info" xml:space="preserve">
+    <value>Knock</value>
+  </data>
+  <data name="LesserMiracleAbilityDescription_info" xml:space="preserve">
+    <value>You don't so much cast a miracle as request one. You state what you would like to have happen and request that your deity (or the power you pray to for spells) intercede.
+A miracle can do any of the following things.
+• Duplicate any cleric spell of 8th level or lower.
+• Duplicate any other spell of 7th level or lower.
+• Undo the harmful effects of certain spells, such as feeblemind or insanity.
+• Have any effect whose power level is in line with the above effects.
+Alternatively, a cleric can make a very powerful request. Casting such a miracle costs the cleric 25,000 gp in powdered diamond because of the powerful divine energies involved. Examples of especially powerful miracles of this sort could include the following:
+• Swinging the tide of a battle in your favor by raising fallen allies to continue fighting.
+• Moving you and your allies, with all your and their gear, from one plane to a specific locale through planar barriers with no chance of error.
+• Protecting a city from an earthquake, volcanic eruption, flood, or other major natural disaster.
+In any event, a request that is out of line with the deity's (or alignment's) nature is refused.
+A duplicated spell allows saving throws and spell resistance as normal, but the save DCs are as for a 9th-level spell.When a miracle spell duplicates a spell with a material component that costs more than 100 gp, you must provide that component.</value>
+  </data>
+  <data name="LesserMiracleAbilityName_info" xml:space="preserve">
+    <value>(Divine) Miracle</value>
+  </data>
+  <data name="LesserMiracleSpells_info" xml:space="preserve">
+    <value>Miracle preloading</value>
+  </data>
+  <data name="LevelSpellNamePostfix_info" xml:space="preserve">
+    <value> (spell level {0})</value>
+  </data>
+  <data name="LifeMysteryReason_error" xml:space="preserve">
+    <value>{0} is not active on any targets.</value>
+  </data>
+  <data name="LimitedWishAbilityDescription_info" xml:space="preserve">
+    <value>A limited wish lets you create nearly any type of effect. For example, a limited wish can do any of the following things.
+• Duplicate any sorcerer/wizard spell of 6th level or lower, provided the spell does not belong to one of your opposition schools.
+• Duplicate any non-sorcerer/wizard spell of 5th level or lower, provided the spell does not belong to one of your opposition schools.
+• Duplicate any sorcerer/wizard spell of 5th level or lower, even if it belongs to one of your opposition schools.
+• Duplicate any non-sorcerer/wizard spell of 4th level or lower, even if it belongs to one of your opposition schools.
+• Undo the harmful effects of many spells, such as insanity.
+• Produce any other effect whose power level is in line with the above effects, such as a single creature automatically hitting on its next attack or taking a -7 penalty on its next saving throw.
+A duplicated spell allows saving throws and spell resistance as normal, but the save DC is for a 7th-level spell. When a limited wish spell duplicates a spell with a material component that costs more than 1,000 gp, you must provide that component (in addition to the 1,500 gp diamond component for this spell).</value>
+  </data>
+  <data name="LimitedWishSpells_info" xml:space="preserve">
+    <value>Limited Wish</value>
+  </data>
   <data name="LoadCustomPortraits_error" xml:space="preserve">
     <value>Custom Portraits in main portrait selection</value>
+  </data>
+  <data name="MiracleAbilityDescription_info" xml:space="preserve">
+    <value>You don't so much cast a miracle as request one. You state what you would like to have happen and request that your deity (or the power you pray to for spells) intercede.
+A miracle can do any of the following things.
+• Duplicate any cleric spell of 8th level or lower.
+• Duplicate any other spell of 7th level or lower.
+• Undo the harmful effects of certain spells, such as feeblemind or insanity.
+• Have any effect whose power level is in line with the above effects.
+Alternatively, a cleric can make a very powerful request. Casting such a miracle costs the cleric 25,000 gp in powdered diamond because of the powerful divine energies involved. Examples of especially powerful miracles of this sort could include the following:
+• Swinging the tide of a battle in your favor by raising fallen allies to continue fighting.
+• Moving you and your allies, with all your and their gear, from one plane to a specific locale through planar barriers with no chance of error.
+• Protecting a city from an earthquake, volcanic eruption, flood, or other major natural disaster.
+In any event, a request that is out of line with the deity's (or alignment's) nature is refused.
+A duplicated spell allows saving throws and spell resistance as normal, but the save DCs are as for a 9th-level spell.When a miracle spell duplicates a spell with a material component that costs more than 100 gp, you must provide that component.</value>
+  </data>
+  <data name="MiracleSpells_info" xml:space="preserve">
+    <value>Miracle</value>
   </data>
   <data name="OracleHas3SkillPoints_info" xml:space="preserve">
     <value>Give Oracle class 3+int skill points on level up (instead of 4, due to condensed skills)</value>
@@ -144,8 +272,93 @@
   <data name="RelaxTonguesCurse_tip" xml:space="preserve">
     <value>that party members need 1 rank Knowledge: World to be controlled by PC in combat</value>
   </data>
+  <data name="ReplacementFeatureDescription_info" xml:space="preserve">
+    <value>Upon reaching {0}th level, and at every {1} {2} level after that ({3}th, {4}th, and so on), a {5} can choose to learn a new spell in place of one they already know. In effect, the {6} loses the old spell in exchange for the new one. The new spell's level must be the same as that of the spell being exchanged. A {7} may swap only a single spell at any given level, and must choose whether or not to swap the spell at the same time that they gain new spells known for the level.</value>
+  </data>
+  <data name="ReplacementFeatureName_info" xml:space="preserve">
+    <value>Replace Spell ({0})</value>
+  </data>
+  <data name="ResurrectionSpellDescription_info" xml:space="preserve">
+    <value>This spell functions like raise dead, except that you can resurrect a creature that has been dead for as long as 10 years per caster level.This spell can even bring back creatures whose bodies have been destroyed, provided that you unambiguously identify the deceased in some fashion(reciting the deceased's time and place of birth or death is the most common method).Upon completion of the spell, the creature is immediately restored to full hit points, vigor, and health, with no negative levels(or loss of * Constitution points) and all of the prepared spells possessed by the creature when it died.You can revive someone killed by a death effect or someone who has been turned into an undead creature and then destroyed.This spell can also resurrect elementals or outsiders, but it can't resurrect constructs or undead creatures.Even true resurrection can't restore to life a creature who has died of old age.
+Befit over Ressurection: this is a free action.</value>
+  </data>
   <data name="ShowCustomPortraits_info" xml:space="preserve">
     <value>Show custom portraits in the portrait list at character creation (if changed, requires restart)</value>
+  </data>
+  <data name="SpellDescriptionPrefix_info" xml:space="preserve">
+    <value>(After casting this spell, use the ability bar to select your {0}.)
+</value>
+  </data>
+  <data name="SpellsSpellNamePostfix_info" xml:space="preserve">
+    <value> Spells</value>
+  </data>
+  <data name="SpritualWeaponSpells_info" xml:space="preserve">
+    <value>Spiritual Weapon</value>
+  </data>
+  <data name="SquirrelSpellDescription_info" xml:space="preserve">
+    <value>You summon a swarm of Squirrels, which attacks all other creatures within its area. (You may summon the swarm so that it shares the area of other creatures.) If no living creatures are within its area, the swarm attacks or pursues the nearest creature as best it can. The caster has no control over its target or direction of travel.</value>
+  </data>
+  <data name="SquirrelSpellName_info" xml:space="preserve">
+    <value>Summon Swarm Squirrels</value>
+  </data>
+  <data name="SummonWildhuntSpells_info" xml:space="preserve">
+    <value>Wild Hunt</value>
+  </data>
+  <data name="TimeStopSpells_info" xml:space="preserve">
+    <value>Time Stop</value>
+  </data>
+  <data name="TrueResurrectionSpells_info" xml:space="preserve">
+    <value>True resurrection</value>
+  </data>
+  <data name="WeaponOfAweAbilityDescription_info" xml:space="preserve">
+    <value>You transform a single weapon into an awe-inspiring instrument. The weapon gains a +2 sacred bonus on damage rolls, and if the weapon scores a critical hit, the target of that critical hit becomes shaken for 1 round with no saving throw.
+This is a mind-affecting fear effect. A ranged weapon affected by this spell applies these effects to its ammunition.
+You can't cast this spell on a natural weapon, but you can cast it on an unarmed strike.</value>
+  </data>
+  <data name="WeaponOfAweSpells_info" xml:space="preserve">
+    <value>Weapon Of Awe</value>
+  </data>
+  <data name="WeaponofAweDescription_info" xml:space="preserve">
+    <value>+2 sacred bonus on damage rolls, and target is shaken for 1 round on critical hits.</value>
+  </data>
+  <data name="WishAbilityDescription_info" xml:space="preserve">
+    <value>Wish is the mightiest spell a wizard or sorcerer can cast. By simply speaking aloud, you can alter reality to better suit you. Even wish, however, has its limits. A wish can produce any one of the following effects.
+• Duplicate any sorcerer/wizard spell of 8th level or lower, provided the spell does not belong to one of your opposition schools.
+• Duplicate any non-sorcerer/wizard spell of 7th level or lower, provided the spell does not belong to one of your opposition schools.
+• Duplicate any sorcerer/wizard spell of 7th level or lower, even if it belongs to one of your opposition schools.
+• Duplicate any non-sorcerer/wizard spell of 6th level or lower, even if it belongs to one of your opposition schools.
+• Undo the harmful effects of many other spells, such as geas/quest or insanity.
+• Grant a creature a +1 inherent bonus to an ability score. Two to five wish spells cast in immediate succession can grant a creature a +2 to +5 inherent bonus to an ability score (two wishes for a +2 inherent bonus, three wishes for a +3 inherent bonus, and so on). Inherent bonuses are instantaneous, so they cannot be dispelled. Note: An inherent bonus may not exceed +5 for a single ability score, and inherent bonuses to a particular ability score do not stack, so only the best one applies.
+• Remove injuries and afflictions. A single wish can aid one creature per caster level, and all subjects are cured of the same kind of affliction. For example, you could heal all the damage you and your companions have taken, or remove all poison effects from everyone in the party, but not do both with the same wish.
+• Revive the dead. A wish can bring a dead creature back to life by duplicating a resurrection spell. A wish can revive a dead creature whose body has been destroyed, but the task takes two wishes: one to recreate the body and another to infuse the body with life again. A wish cannot prevent a character who was brought back to life from gaining a permanent negative level.
+Duplicated spells allow saves and Spell Resistance as normal (but save DCs are for 9th-level spells).
+When a wish duplicates a spell with a material component that costs more than 10,000 gp, you must provide that component (in addition to the 25,000 gp diamond component for this spell).</value>
+  </data>
+  <data name="WishBuffDescription_info" xml:space="preserve">
+    <value>Wish for a permanent inherent bonus to {0}.
+Two to five wish spells cast in immediate succession can grant a creature a +2 to +5 inherent bonus to an ability score (two wishes for a +2 inherent bonus, three wishes for a +3 inherent bonus, and so on). Inherent bonuses are instantaneous, so they cannot be dispelled. Note: An inherent bonus may not exceed +5 for a single ability score, and inherent bonuses to a particular ability score do not stack, so only the best one applies.</value>
+  </data>
+  <data name="WishFabricateAbilityDescription_info" xml:space="preserve">
+    <value>Arcane Wish lets you create nearly any type of effect as long as you provide 5 diamonds is high enough.
+• Duplicate any sorcerer/wizard spell of 6th level or lower, provided the spell does not belong to one of your opposition schools.
+• Duplicate any non-sorcerer/wizard spell of 5th level or lower, provided the spell does not belong to one of your opposition schools.
+• Duplicate any sorcerer/wizard spell of 5th level or lower, even if it belongs to one of your opposition schools.
+• Duplicate any non-sorcerer/wizard spell of 4th level or lower, even if it belongs to one of your opposition schools.
+• Undo the harmful effects of many spells, such as insanity.
+• Produce any other effect whose power level is in line with the above effects, such as a single creature automatically hitting on its next attack or taking a -7 penalty on its next saving throw.
+A duplicated spell allows saving throws and spell resistance as normal, but the save DC is for a 7th-level spell. When a limited wish spell duplicates a spell with a material component that costs more than 1,000 gp, you must provide that component (in addition to the 1,500 gp diamond component for this spell).</value>
+  </data>
+  <data name="WishFabricateSpells_info" xml:space="preserve">
+    <value>Wish(Arcane)</value>
+  </data>
+  <data name="WishFeatureDescription_info" xml:space="preserve">
+    <value>A wish granted a permanent inherent bonus to {0}.</value>
+  </data>
+  <data name="WishReason_error" xml:space="preserve">
+    <value>Opposition school spells of this level are not available.</value>
+  </data>
+  <data name="WishSpells_info" xml:space="preserve">
+    <value>Wish</value>
   </data>
   <data name="applyPatch_error" xml:space="preserve">
     <value>Failed to apply patch {0}: {1}</value>

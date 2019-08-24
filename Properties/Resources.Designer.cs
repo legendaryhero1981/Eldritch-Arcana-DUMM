@@ -115,6 +115,42 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 You can detect secret doors, compartments, caches, and so forth. Only passages, doors, or openings that have been specifically constructed to escape detection are detected by this spell.\nEach round, you can turn to detect secret doors in a new area. This spell requires concentration, and will end prematurely if you cast another spell, take a standard action, or fail a concentration check. 的本地化字符串。
+        /// </summary>
+        internal static string DetectSecretDoorsAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("DetectSecretDoorsAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 concentration, up to 1 min/level 的本地化字符串。
+        /// </summary>
+        internal static string DetectSecretDoorsAbilityDuration_info {
+            get {
+                return ResourceManager.GetString("DetectSecretDoorsAbilityDuration_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Detect Secret Doors 的本地化字符串。
+        /// </summary>
+        internal static string DetectSecretDoorsSpells_info {
+            get {
+                return ResourceManager.GetString("DetectSecretDoorsSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Ability to dismiss area effects 的本地化字符串。
+        /// </summary>
+        internal static string DismissSpells_info {
+            get {
+                return ResourceManager.GetString("DismissSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Enabling feats with drawback 的本地化字符串。
         /// </summary>
         internal static string DrawbackForextraTraits_info {
@@ -138,6 +174,15 @@ namespace EldritchArcana.Properties {
         internal static string EldritchKnightFix_tip {
             get {
                 return ResourceManager.GetString("EldritchKnightFix_tip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Emergency force sphere 的本地化字符串。
+        /// </summary>
+        internal static string EmergencyForceSphereSpells_info {
+            get {
+                return ResourceManager.GetString("EmergencyForceSphereSpells_info", resourceCulture);
             }
         }
         
@@ -174,6 +219,231 @@ namespace EldritchArcana.Properties {
         internal static string featureNameAll_error {
             get {
                 return ResourceManager.GetString("featureNameAll_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Fire spells 的本地化字符串。
+        /// </summary>
+        internal static string FireSpells_info {
+            get {
+                return ResourceManager.GetString("FireSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline. These spells are in addition to the number of spells given at new levels.\n 的本地化字符串。
+        /// </summary>
+        internal static string FixBloodlineSpellDescriptionPrefix_info {
+            get {
+                return ResourceManager.GetString("FixBloodlineSpellDescriptionPrefix_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Enable spellcasting for elemental forms 的本地化字符串。
+        /// </summary>
+        internal static string FixElementalSpells_info {
+            get {
+                return ResourceManager.GetString("FixElementalSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Fly and Air Walk spells 的本地化字符串。
+        /// </summary>
+        internal static string FlySpells_info {
+            get {
+                return ResourceManager.GetString("FlySpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This spell summons to your side a sextuple band of goblin creatures. The summoned band appears where you designate and acts immediately, on your turn. It attacks your opponents to the best of its ability. If you can communicate with the creature, you can direct it not to attack, to attack particular enemies, or to perform other actions as you command. 的本地化字符串。
+        /// </summary>
+        internal static string GoblinSpellDescription_info {
+            get {
+                return ResourceManager.GetString("GoblinSpellDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Summon Six Goblins 的本地化字符串。
+        /// </summary>
+        internal static string GoblinSpellName_info {
+            get {
+                return ResourceManager.GetString("GoblinSpellName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This spell functions like magic weapon, except that it gives a weapon an enhancement bonus on attack and damage rolls of +1 per four caster levels (maximum +5). This bonus does not allow a weapon to bypass damage reduction aside from magic. 的本地化字符串。
+        /// </summary>
+        internal static string GreaterMagicWeaponAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("GreaterMagicWeaponAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Greater Magic Weapon 的本地化字符串。
+        /// </summary>
+        internal static string GreaterMagicWeaponSpells_info {
+            get {
+                return ResourceManager.GetString("GreaterMagicWeaponSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Concentration + 2 rounds 的本地化字符串。
+        /// </summary>
+        internal static string HypnoticDurationLocalized_info {
+            get {
+                return ResourceManager.GetString("HypnoticDurationLocalized_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Hypnotic Pattern 的本地化字符串。
+        /// </summary>
+        internal static string HypnoticPatternSpells_info {
+            get {
+                return ResourceManager.GetString("HypnoticPatternSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 A twisting pattern of subtle, shifting colors weaves through the air, fascinating creatures within it. Roll 2d4 and add your caster level (maximum 10) to determine the total number of HD of creatures affected. Creatures with the fewest HD are affected first; and, among creatures with equal HD, those who are closest to the spell&apos;s point of origin are affected first. HD that are not sufficient to affect a creature are wasted. Affected creatures become fascinated by the pattern of colors. Sightless creatures a [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string HypnoticSpellDescription_info {
+            get {
+                return ResourceManager.GetString("HypnoticSpellDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Choose this to skip replacing a known spell this level. 的本地化字符串。
+        /// </summary>
+        internal static string KeepAllSpellsFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("KeepAllSpellsFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Keep all spells 的本地化字符串。
+        /// </summary>
+        internal static string KeepAllSpellsFeatureName_info {
+            get {
+                return ResourceManager.GetString("KeepAllSpellsFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Knock opens stuck, barred, or locked doors, as well as those subject to hold portal or arcane lock. When you complete the casting of this spell, make a caster level check against the DC of the lock with a +10 bonus. If successful, knock opens up to two means of closure. This spell opens secret doors, as well as locked or trick-opening boxes or chests. It also loosens welds, shackles, or chains (provided they serve to hold something shut). If used to open an arcane locked door, the spell does not remove the  [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string KnockAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("KnockAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Knock and Detect Secret Doors 的本地化字符串。
+        /// </summary>
+        internal static string KnockAndDetectSecretsSpells_info {
+            get {
+                return ResourceManager.GetString("KnockAndDetectSecretsSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This spell functions as knock, but works on multiple means of closure at once (up to 1/caster level).\n{0} 的本地化字符串。
+        /// </summary>
+        internal static string KnockMassAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("KnockMassAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Knock, Mass 的本地化字符串。
+        /// </summary>
+        internal static string KnockMassAbilityName_info {
+            get {
+                return ResourceManager.GetString("KnockMassAbilityName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Knock 的本地化字符串。
+        /// </summary>
+        internal static string KnockSpells_info {
+            get {
+                return ResourceManager.GetString("KnockSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You don&apos;t so much cast a miracle as request one. You state what you would like to have happen and request that your deity (or the power you pray to for spells) intercede.\nA miracle can do any of the following things.\n• Duplicate any cleric spell of 8th level or lower.\n• Duplicate any other spell of 7th level or lower.\n• Undo the harmful effects of certain spells, such as feeblemind or insanity.\n• Have any effect whose power level is in line with the above effects.\nAlternatively, a cleric can make a ve [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string LesserMiracleAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("LesserMiracleAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 (Divine) Miracle 的本地化字符串。
+        /// </summary>
+        internal static string LesserMiracleAbilityName_info {
+            get {
+                return ResourceManager.GetString("LesserMiracleAbilityName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Miracle preloading 的本地化字符串。
+        /// </summary>
+        internal static string LesserMiracleSpells_info {
+            get {
+                return ResourceManager.GetString("LesserMiracleSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  (spell level {0}) 的本地化字符串。
+        /// </summary>
+        internal static string LevelSpellNamePostfix_info {
+            get {
+                return ResourceManager.GetString("LevelSpellNamePostfix_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {0} is not active on any targets. 的本地化字符串。
+        /// </summary>
+        internal static string LifeMysteryReason_error {
+            get {
+                return ResourceManager.GetString("LifeMysteryReason_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 A limited wish lets you create nearly any type of effect. For example, a limited wish can do any of the following things.\n• Duplicate any sorcerer/wizard spell of 6th level or lower, provided the spell does not belong to one of your opposition schools.\n• Duplicate any non-sorcerer/wizard spell of 5th level or lower, provided the spell does not belong to one of your opposition schools.\n• Duplicate any sorcerer/wizard spell of 5th level or lower, even if it belongs to one of your opposition schools.\n• Dup [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string LimitedWishAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("LimitedWishAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Limited Wish 的本地化字符串。
+        /// </summary>
+        internal static string LimitedWishSpells_info {
+            get {
+                return ResourceManager.GetString("LimitedWishSpells_info", resourceCulture);
             }
         }
         
@@ -304,6 +574,24 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 You don&apos;t so much cast a miracle as request one. You state what you would like to have happen and request that your deity (or the power you pray to for spells) intercede.\nA miracle can do any of the following things.\n• Duplicate any cleric spell of 8th level or lower.\n• Duplicate any other spell of 7th level or lower.\n• Undo the harmful effects of certain spells, such as feeblemind or insanity.\n• Have any effect whose power level is in line with the above effects.\nAlternatively, a cleric can make a ve [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string MiracleAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("MiracleAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Miracle 的本地化字符串。
+        /// </summary>
+        internal static string MiracleSpells_info {
+            get {
+                return ResourceManager.GetString("MiracleSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Give Oracle class 3+int skill points on level up (instead of 4, due to condensed skills) 的本地化字符串。
         /// </summary>
         internal static string OracleHas3SkillPoints_info {
@@ -340,6 +628,33 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Upon reaching {0}th level, and at every {1} {2} level after that ({3}th, {4}th, and so on), a {5} can choose to learn a new spell in place of one they already know. In effect, the {6} loses the old spell in exchange for the new one. The new spell&apos;s level must be the same as that of the spell being exchanged. A {7} may swap only a single spell at any given level, and must choose whether or not to swap the spell at the same time that they gain new spells known for the level. 的本地化字符串。
+        /// </summary>
+        internal static string ReplacementFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("ReplacementFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Replace Spell ({0}) 的本地化字符串。
+        /// </summary>
+        internal static string ReplacementFeatureName_info {
+            get {
+                return ResourceManager.GetString("ReplacementFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This spell functions like raise dead, except that you can resurrect a creature that has been dead for as long as 10 years per caster level.This spell can even bring back creatures whose bodies have been destroyed, provided that you unambiguously identify the deceased in some fashion(reciting the deceased&apos;s time and place of birth or death is the most common method).Upon completion of the spell, the creature is immediately restored to full hit points, vigor, and health, with no negative levels(or loss of * C [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string ResurrectionSpellDescription_info {
+            get {
+                return ResourceManager.GetString("ResurrectionSpellDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Show custom portraits in the portrait list at character creation (if changed, requires restart) 的本地化字符串。
         /// </summary>
         internal static string ShowCustomPortraits_info {
@@ -349,11 +664,173 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 (After casting this spell, use the ability bar to select your {0}.)\n 的本地化字符串。
+        /// </summary>
+        internal static string SpellDescriptionPrefix_info {
+            get {
+                return ResourceManager.GetString("SpellDescriptionPrefix_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  Spells 的本地化字符串。
+        /// </summary>
+        internal static string SpellsSpellNamePostfix_info {
+            get {
+                return ResourceManager.GetString("SpellsSpellNamePostfix_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Spiritual Weapon 的本地化字符串。
+        /// </summary>
+        internal static string SpritualWeaponSpells_info {
+            get {
+                return ResourceManager.GetString("SpritualWeaponSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You summon a swarm of Squirrels, which attacks all other creatures within its area. (You may summon the swarm so that it shares the area of other creatures.) If no living creatures are within its area, the swarm attacks or pursues the nearest creature as best it can. The caster has no control over its target or direction of travel. 的本地化字符串。
+        /// </summary>
+        internal static string SquirrelSpellDescription_info {
+            get {
+                return ResourceManager.GetString("SquirrelSpellDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Summon Swarm Squirrels 的本地化字符串。
+        /// </summary>
+        internal static string SquirrelSpellName_info {
+            get {
+                return ResourceManager.GetString("SquirrelSpellName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Wild Hunt 的本地化字符串。
+        /// </summary>
+        internal static string SummonWildhuntSpells_info {
+            get {
+                return ResourceManager.GetString("SummonWildhuntSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 &lt;b&gt;This mod was tested against game version {0}, but you are running {1}.&lt;/b&gt; 的本地化字符串。
         /// </summary>
         internal static string testedGameVersion_warning {
             get {
                 return ResourceManager.GetString("testedGameVersion_warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Time Stop 的本地化字符串。
+        /// </summary>
+        internal static string TimeStopSpells_info {
+            get {
+                return ResourceManager.GetString("TimeStopSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 True resurrection 的本地化字符串。
+        /// </summary>
+        internal static string TrueResurrectionSpells_info {
+            get {
+                return ResourceManager.GetString("TrueResurrectionSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You transform a single weapon into an awe-inspiring instrument. The weapon gains a +2 sacred bonus on damage rolls, and if the weapon scores a critical hit, the target of that critical hit becomes shaken for 1 round with no saving throw.\nThis is a mind-affecting fear effect. A ranged weapon affected by this spell applies these effects to its ammunition.\nYou can’t cast this spell on a natural weapon, but you can cast it on an unarmed strike. 的本地化字符串。
+        /// </summary>
+        internal static string WeaponOfAweAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("WeaponOfAweAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 +2 sacred bonus on damage rolls, and target is shaken for 1 round on critical hits. 的本地化字符串。
+        /// </summary>
+        internal static string WeaponofAweDescription_info {
+            get {
+                return ResourceManager.GetString("WeaponofAweDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Weapon Of Awe 的本地化字符串。
+        /// </summary>
+        internal static string WeaponOfAweSpells_info {
+            get {
+                return ResourceManager.GetString("WeaponOfAweSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Wish is the mightiest spell a wizard or sorcerer can cast. By simply speaking aloud, you can alter reality to better suit you. Even wish, however, has its limits. A wish can produce any one of the following effects.\n• Duplicate any sorcerer/wizard spell of 8th level or lower, provided the spell does not belong to one of your opposition schools.\n• Duplicate any non-sorcerer/wizard spell of 7th level or lower, provided the spell does not belong to one of your opposition schools.\n• Duplicate any sorcerer/wi [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string WishAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("WishAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Wish for a permanent inherent bonus to {0}.\nTwo to five wish spells cast in immediate succession can grant a creature a +2 to +5 inherent bonus to an ability score (two wishes for a +2 inherent bonus, three wishes for a +3 inherent bonus, and so on). Inherent bonuses are instantaneous, so they cannot be dispelled. Note: An inherent bonus may not exceed +5 for a single ability score, and inherent bonuses to a particular ability score do not stack, so only the best one applies. 的本地化字符串。
+        /// </summary>
+        internal static string WishBuffDescription_info {
+            get {
+                return ResourceManager.GetString("WishBuffDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Arcane Wish lets you create nearly any type of effect as long as you provide 5 diamonds is high enough.\n• Duplicate any sorcerer/wizard spell of 6th level or lower, provided the spell does not belong to one of your opposition schools.\n• Duplicate any non-sorcerer/wizard spell of 5th level or lower, provided the spell does not belong to one of your opposition schools.\n• Duplicate any sorcerer/wizard spell of 5th level or lower, even if it belongs to one of your opposition schools.\n• Duplicate any non-sor [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string WishFabricateAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("WishFabricateAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Wish(Arcane) 的本地化字符串。
+        /// </summary>
+        internal static string WishFabricateSpells_info {
+            get {
+                return ResourceManager.GetString("WishFabricateSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 A wish granted a permanent inherent bonus to {0}. 的本地化字符串。
+        /// </summary>
+        internal static string WishFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("WishFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Opposition school spells of this level are not available. 的本地化字符串。
+        /// </summary>
+        internal static string WishReason_error {
+            get {
+                return ResourceManager.GetString("WishReason_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Wish 的本地化字符串。
+        /// </summary>
+        internal static string WishSpells_info {
+            get {
+                return ResourceManager.GetString("WishSpells_info", resourceCulture);
             }
         }
     }

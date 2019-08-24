@@ -1,9 +1,6 @@
 // Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
@@ -39,8 +36,15 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 using static Kingmaker.UnitLogic.ActivatableAbilities.ActivatableAbilityResourceLogic;
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
+
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -150,7 +154,7 @@ namespace EldritchArcana
 
             feat.SetComponents(resource.CreateAddAbilityResource(),
                 lifeChannel.CreateAddFact(), lifeChannelHarm.CreateAddFact());
-            
+
             // Add Extra Channel, fix Selective Channel
             var extraChannel = library.CopyAndAdd<BlueprintFeature>("cd9f19775bd9d3343a31a065e93f0c47",
                 "ExtraChannelOracle", "670d560ed7fe4329b2d311eba3600949");
@@ -160,7 +164,7 @@ namespace EldritchArcana
 
             var selectiveChannel = library.Get<BlueprintFeature>("fd30c69417b434d47b6b03b9c1f568ff");
             selectiveChannel.AddComponent(feat.PrerequisiteFeature(true));
-            
+
             return feat;
         }
 
@@ -665,6 +669,6 @@ namespace EldritchArcana
             return (available == max) != Not;
         }
 
-        public string GetReason() => $"{Resource.Name} is not active on any targets.";
+        public string GetReason() => string.Format(RES.LifeMysteryReason_error, Resource.Name);
     }
 }
