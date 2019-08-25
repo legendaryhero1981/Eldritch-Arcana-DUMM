@@ -2358,7 +2358,7 @@ namespace EldritchArcana
         internal static void Flush()
         {
             if (str.Length == 0) return;
-            Main.logger.Log(str.ToString());
+            Main.Logger.Log(str.ToString());
             str.Clear();
         }
 

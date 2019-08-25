@@ -89,7 +89,7 @@ namespace EldritchArcana
             Helpers.AddSpellAndScroll(spell, "5e9bd8e141c622a4a8f4e4654d022f40"); // find traps scroll
 
             var massSpell = Helpers.CreateAbility("KnockMass", RES.KnockMassAbilityName_info,
-                string.Format(RES.KnockMassAbilityDescription_info,spell.Description),
+                string.Format(RES.KnockMassAbilityDescription_info, spell.Description),
                 "551f0b78de034fe88b4391293ff20e1b",
                 spell.Icon, // adaptability
                 AbilityType.Spell, CommandType.Standard, AbilityRange.Close, "", "",
@@ -137,7 +137,7 @@ namespace EldritchArcana
                     if (!item.IsPerceptionCheckPassed)
                     {
                         Helpers.GameLog.AddLogEntry(
-                            "Detect Secret Doors: found hidden item.",
+                            RES.DetectSecretDoorsFoundItemLog_info,
                             GameLogStrings.Instance.SkillCheckSuccess.Color, LogChannel.Combat);
                         item.IsPerceptionCheckPassed = true;
                     }
@@ -154,7 +154,7 @@ namespace EldritchArcana
                             if (c == null)
                             {
                                 Helpers.GameLog.AddLogEntry(
-                                    "Detect Secret Doors: found hidden door.",
+                                    RES.DetectSecretDoorsFoundDoorLog_info,
                                     GameLogStrings.Instance.SkillCheckSuccess.Color, LogChannel.Combat);
 
                                 // Add a component to reveal this door (used by MapObjectView_UpdateHighlight_Patch, below).
@@ -278,12 +278,16 @@ namespace EldritchArcana
             Log.Append($"Knock rolled {result} against DC {dc}, lock {lockInfo.name}");
             var success = data.Unlocked = result > dc;
 
-            Helpers.GameLog.AddLogEntry(
-                success ? "Knock successfully opened lock." : "Knock failed to open lock.",
-                GameLogStrings.Instance.SkillCheckSuccess.Color, LogChannel.Combat,
-                $"Knock result: {result} (roll {roll} + caster level {casterLevel} + bonus 10).\n" +
-                $"Difficulty Class (DC): {dc}.\n" +
-                $"Result: {(success ? "success" : "failure")}");
+            if (success)
+                Helpers.GameLog.AddLogEntry(
+                    RES.KnockOpenLockSuccessLog_info,
+                    GameLogStrings.Instance.SkillCheckSuccess.Color, LogChannel.Combat,
+                    RES.KnockResultLog_info + RES.ResultSuccessLog_info);
+            else
+                Helpers.GameLog.AddLogEntry(
+                    RES.KnockOpenLockFailLog_info,
+                    GameLogStrings.Instance.SkillCheckFail.Color, LogChannel.Combat,
+                    RES.KnockResultLog_info + RES.ResultFailLog_info);
 
             EventBus.RaiseEvent((IPickLockHandler h) =>
             {

@@ -76,15 +76,11 @@ namespace EldritchArcana
             var skill1 = StatType.SkillAthletics;
             var skill2 = StatType.SkillLoreNature;
             var description = new StringBuilder(mysteryDescription).AppendLine();
-            description.AppendLine(
-                $"Class skills: {UIUtility.GetStatText(skill1)}, {UIUtility.GetStatText(skill2)}\n" +
-                "An oracle with the life mystery can choose from any of the following revelations:");
+            description.AppendLine(string.Format(RES.LifeMysteryProgressionDescription_info, UIUtility.GetStatText(skill1), UIUtility.GetStatText(skill2)));
             foreach (var r in revelations)
-            {
-                description.AppendLine($"• {r.Name}");
-            }
+                description.AppendLine(string.Format(RES.SingleLineDescription_info, r.Name));
 
-            var mystery = Helpers.CreateProgression("MysteryLifeProgression", "Life Mystery", description.ToString(),
+            var mystery = Helpers.CreateProgression("MysteryLifeProgression", RES.LifeMysteryProgressionName_info, description.ToString(),
                 "a2c3c801deb84bc9bab6bd35e5290d5d",
                 Helpers.GetIcon("d5847cad0b0e54c4d82d6c59a3cda6b0"), // channel energy // a79013ff4bcd4864cb669622a29ddafb
                 UpdateLevelUpDeterminatorText.Group,
@@ -118,7 +114,7 @@ namespace EldritchArcana
             mystery.LevelEntries = entries.ToArray();
             mystery.UIGroups = Helpers.CreateUIGroups(new List<BlueprintFeatureBase>(spells) { finalRevelation });
 
-            var revelation = Helpers.CreateFeatureSelection("MysteryLifeRevelation", "Life Revelation",
+            var revelation = Helpers.CreateFeatureSelection("MysteryLifeRevelation", RES.LifeRevelationFeatureName_info,
                 mystery.Description, "6949da6445394dabbfb327c000706122", null, FeatureGroup.None,
                 mystery.PrerequisiteFeature());
             revelation.Mode = SelectionMode.OnlyNew;
@@ -131,9 +127,8 @@ namespace EldritchArcana
             var channelEnergy = library.Get<BlueprintAbility>("f5fc9a1a2a3c1a946a31b320d1dd31b2");
             var channelPositiveHarm = library.Get<BlueprintAbility>("279447a6bf2d3544d93a0a39c3b8e91d");
 
-            var feat = Helpers.CreateFeature("MysteryLifeChannel", "Channel Energy",
-                "You can channel positive energy like a cleric, using your oracle level as your effective cleric level when determining the amount of damage healed (or caused to undead) and the DC. " +
-                "You can use this ability a number of times per day equal to 1+your Charisma modifier.",
+            var feat = Helpers.CreateFeature("MysteryLifeChannel", RES.ChannelEnergyFeatureName_info,
+                RES.ChannelEnergyFeatureDescription_info,
                 "86763655ebbc406f8a4d9a58415847d5",
                 channelEnergy.Icon, FeatureGroup.None);
             var resource = library.CopyAndAdd<BlueprintAbilityResource>("5e2bba3e07c37be42909a12945c27de7", // channel energy resource
@@ -173,8 +168,8 @@ namespace EldritchArcana
             var elementalBodyIIFireBuff = library.Get<BlueprintBuff>("103a680886ba18742a40b840c3b237f6");
             var auraOfHealingEffectBuff = library.Get<BlueprintBuff>("8960038b7e7fbcc46897ca86ce70bae4");
 
-            var feat = Helpers.CreateFeature("MysteryLifeEnergyBody", "Energy Body",
-                "As a standard action, you can transform your body into pure life energy, resembling a golden-white fire elemental. In this form, you gain the elemental subtype and give off a warm, welcoming light that increases the light level within 10 feet by one step, up to normal light. Any undead creature striking you with its body or a handheld weapon deals normal damage, but at the same time the attacker takes 1d6 points of positive energy damage + 1 point per oracle level. Creatures wielding melee weapons with reach are not subject to this damage if they attack you. If you grapple or attack an undead creature using unarmed strikes or natural weapons, you may deal this damage in place of the normal damage for the attack. Once per round, if you pass through a living allied creature’s square or the ally passes through your square, it heals 1d6 hit points + 1 per oracle level. You may use this ability to heal yourself as a move action. You choose whether or not to heal a creature when it passes through your space. You may return to your normal form as a free action. You may remain in energy body form for a number of rounds per day equal to your oracle level.",
+            var feat = Helpers.CreateFeature("MysteryLifeEnergyBody", RES.EnergyBodyFeatureName_info,
+                RES.EnergyBodyFeatureDescription_info,
                 "af6f1094822c4a34b0c81270a6fe281b",
                 Helpers.GetIcon("4093d5a0eb5cae94e909eb1e0e1a6b36"), // remove disease
                 FeatureGroup.None);

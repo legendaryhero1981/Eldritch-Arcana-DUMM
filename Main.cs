@@ -107,7 +107,7 @@ namespace EldritchArcana
 
         public static bool enabled;
 
-        public static UnityModManager.ModEntry.ModLogger logger;
+        public static UnityModManager.ModEntry.ModLogger Logger;
 
         internal static Settings settings;
 
@@ -278,8 +278,8 @@ namespace EldritchArcana
 
         static bool Load(UnityModManager.ModEntry modEntry)
         {
-            logger = modEntry.Logger;
-            if (null == RES.Culture) RES.Culture = new CultureInfo("zh-CN");
+            Logger = modEntry.Logger;
+            RES.Culture = CultureInfo.InstalledUICulture;
             modEntry.OnToggle = OnToggle;
             modEntry.OnGUI = OnGUI;
             modEntry.OnSaveGUI = OnSaveGUI;
@@ -383,13 +383,12 @@ namespace EldritchArcana
             }
         }
 
-        internal static Exception Error(String message)
+        internal static Exception Error(string message)
         {
-            logger?.Log(message);
+            Logger.Log(message);
             return new InvalidOperationException(message);
         }
     }
-
 
     public class Settings : UnityModManager.ModSettings
     {

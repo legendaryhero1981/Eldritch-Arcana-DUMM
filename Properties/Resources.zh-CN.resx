@@ -117,6 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChannelEnergyFeatureDescription_info" xml:space="preserve">
+    <value>你可以像牧师一样输送正能量，在确定治愈（或伤害不死生物）的生命值和DC时，使用你的神使等级作为你的有效牧师等级。
+你可以每天多次使用这个能力，相当于你的魅力修正值+1。</value>
+  </data>
+  <data name="ChannelEnergyFeatureName_info" xml:space="preserve">
+    <value>引导能量</value>
+  </data>
   <data name="CheatCustomTraits_info" xml:space="preserve">
     <value>启用额外的作弊特性和法术（需要重新启动才能生效）</value>
   </data>
@@ -126,6 +133,12 @@
   </data>
   <data name="DetectSecretDoorsAbilityDuration_info" xml:space="preserve">
     <value>专注，1分钟/每施法者等级</value>
+  </data>
+  <data name="DetectSecretDoorsFoundDoorLog_info" xml:space="preserve">
+    <value>检测暗门：发现了密门。</value>
+  </data>
+  <data name="DetectSecretDoorsFoundItemLog_info" xml:space="preserve">
+    <value>检测暗门：发现了隐藏物品。</value>
   </data>
   <data name="DetectSecretDoorsSpells_info" xml:space="preserve">
     <value>检测暗门</value>
@@ -144,6 +157,12 @@
   </data>
   <data name="EmergencyForceSphereSpells_info" xml:space="preserve">
     <value>应急击退法球</value>
+  </data>
+  <data name="EnergyBodyFeatureDescription_info" xml:space="preserve">
+    <value>作为一个标准动作，你可以将你的身体转化为纯净的生命能量，就像一个金白色的火元素。在这种形式下，你获得元素亚型并发出一种温暖的迎宾之光，它将10英尺范围内的光照水平提高一步，直至正常光照。任何不死生物用身体或手持武器攻击你都会造成正常伤害，同时攻击者也会受到每神使等级1d6+1点正能量伤害。使用近战武器的生物如果攻击你，就不会受到这种伤害。如果你用徒手攻击或天然武器抓取或攻击一个不死生物，你可以用这个伤害代替攻击的正常伤害。每轮一次，如果你通过一个有生命的盟军生物的方阵或盟军通过你的方阵，每神使等级治愈1d6+1点伤害。你可以用这个能力作为移动动作来治愈自己。当一个生物通过你的空间时，你可以选择是否治愈它。你可以作为一个自由动作回到你的正常状态。你可以保持能量之躯形态，每天可使用相当于你的神使等级的轮数。</value>
+  </data>
+  <data name="EnergyBodyFeatureName_info" xml:space="preserve">
+    <value>能量之躯</value>
   </data>
   <data name="FireSpells_info" xml:space="preserve">
     <value>火系法术</value>
@@ -198,6 +217,16 @@
   <data name="KnockMassAbilityName_info" xml:space="preserve">
     <value>群体敲击术</value>
   </data>
+  <data name="KnockOpenLockFailLog_info" xml:space="preserve">
+    <value>敲击术开锁失败。</value>
+  </data>
+  <data name="KnockOpenLockSuccessLog_info" xml:space="preserve">
+    <value>敲击术开锁成功。</value>
+  </data>
+  <data name="KnockResultLog_info" xml:space="preserve">
+    <value>敲击术结果：{0}（投掷{1} + 施法者等级{2} + 加值10）。
+难度级别（DC）：{3}。</value>
+  </data>
   <data name="KnockSpells_info" xml:space="preserve">
     <value>敲击</value>
   </data>
@@ -224,8 +253,18 @@
   <data name="LevelSpellNamePostfix_info" xml:space="preserve">
     <value>（法术等级{0}）</value>
   </data>
+  <data name="LifeMysteryProgressionDescription_info" xml:space="preserve">
+    <value>职业技能：{0}，{1}
+具有生命奥秘的神使可以从以下任何启示中选择：</value>
+  </data>
+  <data name="LifeMysteryProgressionName_info" xml:space="preserve">
+    <value>生命奥秘</value>
+  </data>
   <data name="LifeMysteryReason_error" xml:space="preserve">
     <value>{0}在任何目标上都未激活。</value>
+  </data>
+  <data name="LifeRevelationFeatureName_info" xml:space="preserve">
+    <value>启示生命</value>
   </data>
   <data name="LimitedWishAbilityDescription_info" xml:space="preserve">
     <value>有限许愿术可以让你创造几乎任何类型的效果。例如，有限许愿术可以做以下任何一件事。
@@ -278,12 +317,21 @@
   <data name="ReplacementFeatureName_info" xml:space="preserve">
     <value>替换法术（{0}）</value>
   </data>
+  <data name="ResultFailLog_info" xml:space="preserve">
+    <value>结果：失败。</value>
+  </data>
+  <data name="ResultSuccessLog_info" xml:space="preserve">
+    <value>结果：成功。</value>
+  </data>
   <data name="ResurrectionSpellDescription_info" xml:space="preserve">
     <value>这个法术的功能类似于复活死者，除了你可以复活一个每施法者等级已经死亡长达10年的生物。这个法术甚至可以使尸体被摧毁的生物复活，前提是你以某种方式明确地识别死者（吟诵死者的出生或死亡时间和地点是最常见的方法）。在法术完成后，生物立即恢复到完全的生命值、活力和健康状态，没有负面等级（或失去属性点），并且生物在死亡时拥有的所有已准备好的法术。你可以复活被死亡效果杀死的人或被变成不死生物再被摧毁的人。这个法术也可以复活元素或异界生物，但不能复活构造物或不死生物。即使是真正的复活也不能使一个死于老年的生物恢复生命。
 超载：这是一个自由行动。</value>
   </data>
   <data name="ShowCustomPortraits_info" xml:space="preserve">
     <value>创建角色时在肖像列表中显示自定义肖像（需要重新启动才能生效）</value>
+  </data>
+  <data name="SingleLineDescription_info" xml:space="preserve">
+    <value>● {0}</value>
   </data>
   <data name="SpellDescriptionPrefix_info" xml:space="preserve">
     <value>（施法后，使用能力栏选择你的{0}）。

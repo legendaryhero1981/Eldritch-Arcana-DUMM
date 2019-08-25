@@ -117,6 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChannelEnergyFeatureDescription_info" xml:space="preserve">
+    <value>You can channel positive energy like a cleric, using your oracle level as your effective cleric level when determining the amount of damage healed (or caused to undead) and the DC.
+You can use this ability a number of times per day equal to 1+your Charisma modifier.</value>
+  </data>
+  <data name="ChannelEnergyFeatureName_info" xml:space="preserve">
+    <value>Channel Energy</value>
+  </data>
   <data name="CheatCustomTraits_info" xml:space="preserve">
     <value>Enable choosing extra cheat traits,spells(if changed, requires restart for changes to show up)</value>
   </data>
@@ -126,6 +133,12 @@ Each round, you can turn to detect secret doors in a new area. This spell requir
   </data>
   <data name="DetectSecretDoorsAbilityDuration_info" xml:space="preserve">
     <value>concentration, up to 1 min/level</value>
+  </data>
+  <data name="DetectSecretDoorsFoundDoorLog_info" xml:space="preserve">
+    <value>Detect Secret Doors: found hidden door.</value>
+  </data>
+  <data name="DetectSecretDoorsFoundItemLog_info" xml:space="preserve">
+    <value>Detect Secret Doors: found hidden item.</value>
   </data>
   <data name="DetectSecretDoorsSpells_info" xml:space="preserve">
     <value>Detect Secret Doors</value>
@@ -144,6 +157,12 @@ Each round, you can turn to detect secret doors in a new area. This spell requir
   </data>
   <data name="EmergencyForceSphereSpells_info" xml:space="preserve">
     <value>Emergency force sphere</value>
+  </data>
+  <data name="EnergyBodyFeatureDescription_info" xml:space="preserve">
+    <value>As a standard action, you can transform your body into pure life energy, resembling a golden-white fire elemental. In this form, you gain the elemental subtype and give off a warm, welcoming light that increases the light level within 10 feet by one step, up to normal light. Any undead creature striking you with its body or a handheld weapon deals normal damage, but at the same time the attacker takes 1d6 points of positive energy damage + 1 point per oracle level. Creatures wielding melee weapons with reach are not subject to this damage if they attack you. If you grapple or attack an undead creature using unarmed strikes or natural weapons, you may deal this damage in place of the normal damage for the attack. Once per round, if you pass through a living allied creature’s square or the ally passes through your square, it heals 1d6 hit points + 1 per oracle level. You may use this ability to heal yourself as a move action. You choose whether or not to heal a creature when it passes through your space. You may return to your normal form as a free action. You may remain in energy body form for a number of rounds per day equal to your oracle level.</value>
+  </data>
+  <data name="EnergyBodyFeatureName_info" xml:space="preserve">
+    <value>Energy Body</value>
   </data>
   <data name="FireSpells_info" xml:space="preserve">
     <value>Fire spells</value>
@@ -198,6 +217,17 @@ Each round, you can turn to detect secret doors in a new area. This spell requir
   <data name="KnockMassAbilityName_info" xml:space="preserve">
     <value>Knock, Mass</value>
   </data>
+  <data name="KnockOpenLockFailLog_info" xml:space="preserve">
+    <value>Knock failed to open lock.</value>
+  </data>
+  <data name="KnockOpenLockSuccessLog_info" xml:space="preserve">
+    <value>Knock successfully opened lock.</value>
+  </data>
+  <data name="KnockResultLog_info" xml:space="preserve">
+    <value>Knock result: {0} (roll {1} + caster level {2} + bonus 10).
+Difficulty Class (DC): {3}.
+</value>
+  </data>
   <data name="KnockSpells_info" xml:space="preserve">
     <value>Knock</value>
   </data>
@@ -224,8 +254,18 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
   <data name="LevelSpellNamePostfix_info" xml:space="preserve">
     <value> (spell level {0})</value>
   </data>
+  <data name="LifeMysteryProgressionDescription_info" xml:space="preserve">
+    <value>Class skills: {0}, {1}
+An oracle with the life mystery can choose from any of the following revelations:</value>
+  </data>
+  <data name="LifeMysteryProgressionName_info" xml:space="preserve">
+    <value>Life Mystery</value>
+  </data>
   <data name="LifeMysteryReason_error" xml:space="preserve">
     <value>{0} is not active on any targets.</value>
+  </data>
+  <data name="LifeRevelationFeatureName_info" xml:space="preserve">
+    <value>Life Revelation</value>
   </data>
   <data name="LimitedWishAbilityDescription_info" xml:space="preserve">
     <value>A limited wish lets you create nearly any type of effect. For example, a limited wish can do any of the following things.
@@ -278,12 +318,21 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
   <data name="ReplacementFeatureName_info" xml:space="preserve">
     <value>Replace Spell ({0})</value>
   </data>
+  <data name="ResultFailLog_info" xml:space="preserve">
+    <value>Result: failure.</value>
+  </data>
+  <data name="ResultSuccessLog_info" xml:space="preserve">
+    <value>Result: success.</value>
+  </data>
   <data name="ResurrectionSpellDescription_info" xml:space="preserve">
     <value>This spell functions like raise dead, except that you can resurrect a creature that has been dead for as long as 10 years per caster level.This spell can even bring back creatures whose bodies have been destroyed, provided that you unambiguously identify the deceased in some fashion(reciting the deceased's time and place of birth or death is the most common method).Upon completion of the spell, the creature is immediately restored to full hit points, vigor, and health, with no negative levels(or loss of * Constitution points) and all of the prepared spells possessed by the creature when it died.You can revive someone killed by a death effect or someone who has been turned into an undead creature and then destroyed.This spell can also resurrect elementals or outsiders, but it can't resurrect constructs or undead creatures.Even true resurrection can't restore to life a creature who has died of old age.
 Befit over Ressurection: this is a free action.</value>
   </data>
   <data name="ShowCustomPortraits_info" xml:space="preserve">
     <value>Show custom portraits in the portrait list at character creation (if changed, requires restart)</value>
+  </data>
+  <data name="SingleLineDescription_info" xml:space="preserve">
+    <value>• {0}</value>
   </data>
   <data name="SpellDescriptionPrefix_info" xml:space="preserve">
     <value>(After casting this spell, use the ability bar to select your {0}.)

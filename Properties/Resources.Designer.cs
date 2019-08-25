@@ -106,6 +106,25 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 You can channel positive energy like a cleric, using your oracle level as your effective cleric level when determining the amount of damage healed (or caused to undead) and the DC.
+        ///You can use this ability a number of times per day equal to 1+your Charisma modifier. 的本地化字符串。
+        /// </summary>
+        internal static string ChannelEnergyFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("ChannelEnergyFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Channel Energy 的本地化字符串。
+        /// </summary>
+        internal static string ChannelEnergyFeatureName_info {
+            get {
+                return ResourceManager.GetString("ChannelEnergyFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Enable choosing extra cheat traits,spells(if changed, requires restart for changes to show up) 的本地化字符串。
         /// </summary>
         internal static string CheatCustomTraits_info {
@@ -115,7 +134,8 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 You can detect secret doors, compartments, caches, and so forth. Only passages, doors, or openings that have been specifically constructed to escape detection are detected by this spell.\nEach round, you can turn to detect secret doors in a new area. This spell requires concentration, and will end prematurely if you cast another spell, take a standard action, or fail a concentration check. 的本地化字符串。
+        ///   查找类似 You can detect secret doors, compartments, caches, and so forth. Only passages, doors, or openings that have been specifically constructed to escape detection are detected by this spell.
+        ///Each round, you can turn to detect secret doors in a new area. This spell requires concentration, and will end prematurely if you cast another spell, take a standard action, or fail a concentration check. 的本地化字符串。
         /// </summary>
         internal static string DetectSecretDoorsAbilityDescription_info {
             get {
@@ -129,6 +149,24 @@ namespace EldritchArcana.Properties {
         internal static string DetectSecretDoorsAbilityDuration_info {
             get {
                 return ResourceManager.GetString("DetectSecretDoorsAbilityDuration_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Detect Secret Doors: found hidden door. 的本地化字符串。
+        /// </summary>
+        internal static string DetectSecretDoorsFoundDoorLog_info {
+            get {
+                return ResourceManager.GetString("DetectSecretDoorsFoundDoorLog_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Detect Secret Doors: found hidden item. 的本地化字符串。
+        /// </summary>
+        internal static string DetectSecretDoorsFoundItemLog_info {
+            get {
+                return ResourceManager.GetString("DetectSecretDoorsFoundItemLog_info", resourceCulture);
             }
         }
         
@@ -187,6 +225,24 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 As a standard action, you can transform your body into pure life energy, resembling a golden-white fire elemental. In this form, you gain the elemental subtype and give off a warm, welcoming light that increases the light level within 10 feet by one step, up to normal light. Any undead creature striking you with its body or a handheld weapon deals normal damage, but at the same time the attacker takes 1d6 points of positive energy damage + 1 point per oracle level. Creatures wielding melee weapons with reac [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string EnergyBodyFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("EnergyBodyFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Energy Body 的本地化字符串。
+        /// </summary>
+        internal static string EnergyBodyFeatureName_info {
+            get {
+                return ResourceManager.GetString("EnergyBodyFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 &lt;b&gt;Error: Some assets failed to load. Saves using these features won&apos;t work:&lt;/b&gt; 的本地化字符串。
         /// </summary>
         internal static string failedLoading_error {
@@ -232,7 +288,8 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline. These spells are in addition to the number of spells given at new levels.\n 的本地化字符串。
+        ///   查找类似 At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline. These spells are in addition to the number of spells given at new levels.
+        /// 的本地化字符串。
         /// </summary>
         internal static string FixBloodlineSpellDescriptionPrefix_info {
             get {
@@ -358,7 +415,8 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 This spell functions as knock, but works on multiple means of closure at once (up to 1/caster level).\n{0} 的本地化字符串。
+        ///   查找类似 This spell functions as knock, but works on multiple means of closure at once (up to 1/caster level).
+        ///{0} 的本地化字符串。
         /// </summary>
         internal static string KnockMassAbilityDescription_info {
             get {
@@ -376,6 +434,35 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Knock failed to open lock. 的本地化字符串。
+        /// </summary>
+        internal static string KnockOpenLockFailLog_info {
+            get {
+                return ResourceManager.GetString("KnockOpenLockFailLog_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Knock successfully opened lock. 的本地化字符串。
+        /// </summary>
+        internal static string KnockOpenLockSuccessLog_info {
+            get {
+                return ResourceManager.GetString("KnockOpenLockSuccessLog_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Knock result: {0} (roll {1} + caster level {2} + bonus 10).
+        ///Difficulty Class (DC): {3}.
+        /// 的本地化字符串。
+        /// </summary>
+        internal static string KnockResultLog_info {
+            get {
+                return ResourceManager.GetString("KnockResultLog_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Knock 的本地化字符串。
         /// </summary>
         internal static string KnockSpells_info {
@@ -385,7 +472,13 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 You don&apos;t so much cast a miracle as request one. You state what you would like to have happen and request that your deity (or the power you pray to for spells) intercede.\nA miracle can do any of the following things.\n• Duplicate any cleric spell of 8th level or lower.\n• Duplicate any other spell of 7th level or lower.\n• Undo the harmful effects of certain spells, such as feeblemind or insanity.\n• Have any effect whose power level is in line with the above effects.\nAlternatively, a cleric can make a ve [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   查找类似 You don&apos;t so much cast a miracle as request one. You state what you would like to have happen and request that your deity (or the power you pray to for spells) intercede.
+        ///A miracle can do any of the following things.
+        ///• Duplicate any cleric spell of 8th level or lower.
+        ///• Duplicate any other spell of 7th level or lower.
+        ///• Undo the harmful effects of certain spells, such as feeblemind or insanity.
+        ///• Have any effect whose power level is in line with the above effects.
+        ///Alternatively, a cleric can make a ve [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string LesserMiracleAbilityDescription_info {
             get {
@@ -421,6 +514,25 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Class skills: {0}, {1}
+        ///An oracle with the life mystery can choose from any of the following revelations: 的本地化字符串。
+        /// </summary>
+        internal static string LifeMysteryProgressionDescription_info {
+            get {
+                return ResourceManager.GetString("LifeMysteryProgressionDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Life Mystery 的本地化字符串。
+        /// </summary>
+        internal static string LifeMysteryProgressionName_info {
+            get {
+                return ResourceManager.GetString("LifeMysteryProgressionName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 {0} is not active on any targets. 的本地化字符串。
         /// </summary>
         internal static string LifeMysteryReason_error {
@@ -430,7 +542,20 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 A limited wish lets you create nearly any type of effect. For example, a limited wish can do any of the following things.\n• Duplicate any sorcerer/wizard spell of 6th level or lower, provided the spell does not belong to one of your opposition schools.\n• Duplicate any non-sorcerer/wizard spell of 5th level or lower, provided the spell does not belong to one of your opposition schools.\n• Duplicate any sorcerer/wizard spell of 5th level or lower, even if it belongs to one of your opposition schools.\n• Dup [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   查找类似 Life Revelation 的本地化字符串。
+        /// </summary>
+        internal static string LifeRevelationFeatureName_info {
+            get {
+                return ResourceManager.GetString("LifeRevelationFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 A limited wish lets you create nearly any type of effect. For example, a limited wish can do any of the following things.
+        ///• Duplicate any sorcerer/wizard spell of 6th level or lower, provided the spell does not belong to one of your opposition schools.
+        ///• Duplicate any non-sorcerer/wizard spell of 5th level or lower, provided the spell does not belong to one of your opposition schools.
+        ///• Duplicate any sorcerer/wizard spell of 5th level or lower, even if it belongs to one of your opposition schools.
+        ///• Dup [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string LimitedWishAbilityDescription_info {
             get {
@@ -574,7 +699,13 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 You don&apos;t so much cast a miracle as request one. You state what you would like to have happen and request that your deity (or the power you pray to for spells) intercede.\nA miracle can do any of the following things.\n• Duplicate any cleric spell of 8th level or lower.\n• Duplicate any other spell of 7th level or lower.\n• Undo the harmful effects of certain spells, such as feeblemind or insanity.\n• Have any effect whose power level is in line with the above effects.\nAlternatively, a cleric can make a ve [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   查找类似 You don&apos;t so much cast a miracle as request one. You state what you would like to have happen and request that your deity (or the power you pray to for spells) intercede.
+        ///A miracle can do any of the following things.
+        ///• Duplicate any cleric spell of 8th level or lower.
+        ///• Duplicate any other spell of 7th level or lower.
+        ///• Undo the harmful effects of certain spells, such as feeblemind or insanity.
+        ///• Have any effect whose power level is in line with the above effects.
+        ///Alternatively, a cleric can make a ve [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string MiracleAbilityDescription_info {
             get {
@@ -646,6 +777,24 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Result: failure. 的本地化字符串。
+        /// </summary>
+        internal static string ResultFailLog_info {
+            get {
+                return ResourceManager.GetString("ResultFailLog_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Result: success. 的本地化字符串。
+        /// </summary>
+        internal static string ResultSuccessLog_info {
+            get {
+                return ResourceManager.GetString("ResultSuccessLog_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 This spell functions like raise dead, except that you can resurrect a creature that has been dead for as long as 10 years per caster level.This spell can even bring back creatures whose bodies have been destroyed, provided that you unambiguously identify the deceased in some fashion(reciting the deceased&apos;s time and place of birth or death is the most common method).Upon completion of the spell, the creature is immediately restored to full hit points, vigor, and health, with no negative levels(or loss of * C [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string ResurrectionSpellDescription_info {
@@ -664,7 +813,17 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 (After casting this spell, use the ability bar to select your {0}.)\n 的本地化字符串。
+        ///   查找类似 • {0} 的本地化字符串。
+        /// </summary>
+        internal static string SingleLineDescription_info {
+            get {
+                return ResourceManager.GetString("SingleLineDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 (After casting this spell, use the ability bar to select your {0}.)
+        /// 的本地化字符串。
         /// </summary>
         internal static string SpellDescriptionPrefix_info {
             get {
@@ -745,7 +904,9 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 You transform a single weapon into an awe-inspiring instrument. The weapon gains a +2 sacred bonus on damage rolls, and if the weapon scores a critical hit, the target of that critical hit becomes shaken for 1 round with no saving throw.\nThis is a mind-affecting fear effect. A ranged weapon affected by this spell applies these effects to its ammunition.\nYou can’t cast this spell on a natural weapon, but you can cast it on an unarmed strike. 的本地化字符串。
+        ///   查找类似 You transform a single weapon into an awe-inspiring instrument. The weapon gains a +2 sacred bonus on damage rolls, and if the weapon scores a critical hit, the target of that critical hit becomes shaken for 1 round with no saving throw.
+        ///This is a mind-affecting fear effect. A ranged weapon affected by this spell applies these effects to its ammunition.
+        ///You can&apos;t cast this spell on a natural weapon, but you can cast it on an unarmed strike. 的本地化字符串。
         /// </summary>
         internal static string WeaponOfAweAbilityDescription_info {
             get {
@@ -772,7 +933,10 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Wish is the mightiest spell a wizard or sorcerer can cast. By simply speaking aloud, you can alter reality to better suit you. Even wish, however, has its limits. A wish can produce any one of the following effects.\n• Duplicate any sorcerer/wizard spell of 8th level or lower, provided the spell does not belong to one of your opposition schools.\n• Duplicate any non-sorcerer/wizard spell of 7th level or lower, provided the spell does not belong to one of your opposition schools.\n• Duplicate any sorcerer/wi [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   查找类似 Wish is the mightiest spell a wizard or sorcerer can cast. By simply speaking aloud, you can alter reality to better suit you. Even wish, however, has its limits. A wish can produce any one of the following effects.
+        ///• Duplicate any sorcerer/wizard spell of 8th level or lower, provided the spell does not belong to one of your opposition schools.
+        ///• Duplicate any non-sorcerer/wizard spell of 7th level or lower, provided the spell does not belong to one of your opposition schools.
+        ///• Duplicate any sorcerer/wi [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string WishAbilityDescription_info {
             get {
@@ -781,7 +945,8 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Wish for a permanent inherent bonus to {0}.\nTwo to five wish spells cast in immediate succession can grant a creature a +2 to +5 inherent bonus to an ability score (two wishes for a +2 inherent bonus, three wishes for a +3 inherent bonus, and so on). Inherent bonuses are instantaneous, so they cannot be dispelled. Note: An inherent bonus may not exceed +5 for a single ability score, and inherent bonuses to a particular ability score do not stack, so only the best one applies. 的本地化字符串。
+        ///   查找类似 Wish for a permanent inherent bonus to {0}.
+        ///Two to five wish spells cast in immediate succession can grant a creature a +2 to +5 inherent bonus to an ability score (two wishes for a +2 inherent bonus, three wishes for a +3 inherent bonus, and so on). Inherent bonuses are instantaneous, so they cannot be dispelled. Note: An inherent bonus may not exceed +5 for a single ability score, and inherent bonuses to a particular ability score do not stack, so only the best one applies. 的本地化字符串。
         /// </summary>
         internal static string WishBuffDescription_info {
             get {
@@ -790,7 +955,11 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Arcane Wish lets you create nearly any type of effect as long as you provide 5 diamonds is high enough.\n• Duplicate any sorcerer/wizard spell of 6th level or lower, provided the spell does not belong to one of your opposition schools.\n• Duplicate any non-sorcerer/wizard spell of 5th level or lower, provided the spell does not belong to one of your opposition schools.\n• Duplicate any sorcerer/wizard spell of 5th level or lower, even if it belongs to one of your opposition schools.\n• Duplicate any non-sor [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   查找类似 Arcane Wish lets you create nearly any type of effect as long as you provide 5 diamonds is high enough.
+        ///• Duplicate any sorcerer/wizard spell of 6th level or lower, provided the spell does not belong to one of your opposition schools.
+        ///• Duplicate any non-sorcerer/wizard spell of 5th level or lower, provided the spell does not belong to one of your opposition schools.
+        ///• Duplicate any sorcerer/wizard spell of 5th level or lower, even if it belongs to one of your opposition schools.
+        ///• Duplicate any non-sor [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string WishFabricateAbilityDescription_info {
             get {
