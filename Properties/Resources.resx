@@ -117,6 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AbundantRevelationsFeatureDescription_info" xml:space="preserve">
+    <value>Choose one of your revelations that has a number of uses per day. You gain 1 additional use per day of that revelation.
+Special: You can gain this feat multiple times. Its effects do not stack. Each time you take the feat, it applies to a new revelation.</value>
+  </data>
+  <data name="AbundantRevelationsFeatureName_info" xml:space="preserve">
+    <value>Abundant Revelations</value>
+  </data>
+  <data name="AddSpellScrollsFeatureName_info" xml:space="preserve">
+    <value>Scrolls for new spells</value>
+  </data>
   <data name="ChannelEnergyFeatureDescription_info" xml:space="preserve">
     <value>You can channel positive energy like a cleric, using your oracle level as your effective cleric level when determining the amount of damage healed (or caused to undead) and the DC.
 You can use this ability a number of times per day equal to 1+your Charisma modifier.</value>
@@ -126,6 +136,18 @@ You can use this ability a number of times per day equal to 1+your Charisma modi
   </data>
   <data name="CheatCustomTraits_info" xml:space="preserve">
     <value>Enable choosing extra cheat traits,spells(if changed, requires restart for changes to show up)</value>
+  </data>
+  <data name="DelayAfflictionFeatureDescription_info" xml:space="preserve">
+    <value>Once per day as an immediate action, whenever you fail a saving throw against a disease or poison, you may ignore its effects for 1 hour per level. At 7th and 15th level, you can use this ability one additional time per day.</value>
+  </data>
+  <data name="DelayAfflictionFeatureName_info" xml:space="preserve">
+    <value>Delay Affliction</value>
+  </data>
+  <data name="DervishDanceFeatureDescription_info" xml:space="preserve">
+    <value>When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier on melee attack and damage rolls. You treat the scimitar as a one-handed piercing weapon for all feats and class abilities that require such a weapon (such as a duelist's precise strike ability). The scimitar must be for a creature of your size. You cannot use this feat if you are carrying a weapon or shield in your off hand.</value>
+  </data>
+  <data name="DervishDanceFeatureName_info" xml:space="preserve">
+    <value>Dervish Dance</value>
   </data>
   <data name="DetectSecretDoorsAbilityDescription_info" xml:space="preserve">
     <value>You can detect secret doors, compartments, caches, and so forth. Only passages, doors, or openings that have been specifically constructed to escape detection are detected by this spell.
@@ -164,6 +186,39 @@ Each round, you can turn to detect secret doors in a new area. This spell requir
   <data name="EnergyBodyFeatureName_info" xml:space="preserve">
     <value>Energy Body</value>
   </data>
+  <data name="EnhancedCuresFeatureDescription_info" xml:space="preserve">
+    <value>Whenever you cast a cure spell, the maximum number of hit points healed is based on your oracle level, not the limit based on the spell. For example, an 11th-level oracle of life with this revelation may cast cure light wounds to heal 1d8+11 hit points instead of the normal 1d8+5 maximum.</value>
+  </data>
+  <data name="EnhancedCuresFeatureName_info" xml:space="preserve">
+    <value>Enhanced Cures</value>
+  </data>
+  <data name="ExtraArcanaFeatureDescription_info" xml:space="preserve">
+    <value>You have unlocked the secret of a new magus arcana. You gain one additional magus arcana. You must meet all the prerequisites for this magus arcana.
+Special: You can gain this feat multiple times. Its effects stack, granting a new arcana each time you gain this feat.</value>
+  </data>
+  <data name="ExtraArcanaFeatureName_info" xml:space="preserve">
+    <value>Extra Arcana</value>
+  </data>
+  <data name="ExtraRevelationFeatureDescription_info" xml:space="preserve">
+    <value>You gain one additional revelation. You must meet all of the prerequisites for this revelation.
+Special: You can gain Extra Revelation multiple times.</value>
+  </data>
+  <data name="ExtraRevelationFeatureName_info" xml:space="preserve">
+    <value>Extra Revelation</value>
+  </data>
+  <data name="FeyFoundlingFeatureDescription_info" xml:space="preserve">
+    <value>You were found in the wilds as a child.
+Whenever you receive magical healing, you heal an additional 2 points per die rolled. You gain a +2 bonus on all saving throws against death effects. Unfortunately, you also suffer +1 point of damage from cold iron weapons (although you can wield cold iron weapons without significant discomfort).</value>
+  </data>
+  <data name="FeyFoundlingFeatureName_info" xml:space="preserve">
+    <value>Fey Foundling</value>
+  </data>
+  <data name="FinalRevelationFeatureDescription_info" xml:space="preserve">
+    <value>Upon reaching 20th level, you become a perfect channel for life energy. You become immune to bleed, death attacks, exhaustion, fatigue, nausea effects, negative levels, and sickened effects. Ability damage and drain cannot reduce you below 1 in any ability score.</value>
+  </data>
+  <data name="FinalRevelationFeatureName_info" xml:space="preserve">
+    <value>Final Revelation</value>
+  </data>
   <data name="FireSpells_info" xml:space="preserve">
     <value>Fire spells</value>
   </data>
@@ -173,6 +228,9 @@ Each round, you can turn to detect secret doors in a new area. This spell requir
   </data>
   <data name="FixElementalSpells_info" xml:space="preserve">
     <value>Enable spellcasting for elemental forms</value>
+  </data>
+  <data name="FixSpellSpecializationFeatureName_info" xml:space="preserve">
+    <value>Spell Specialization</value>
   </data>
   <data name="FlySpells_info" xml:space="preserve">
     <value>Fly and Air Walk spells</value>
@@ -188,6 +246,12 @@ Each round, you can turn to detect secret doors in a new area. This spell requir
   </data>
   <data name="GreaterMagicWeaponSpells_info" xml:space="preserve">
     <value>Greater Magic Weapon</value>
+  </data>
+  <data name="HealingHandsFeatureDescription_info" xml:space="preserve">
+    <value>You gain a +4 bonus on Heal checks. You may use {0} as a swift action.</value>
+  </data>
+  <data name="HealingHandsFeatureName_info" xml:space="preserve">
+    <value>Healing Hands</value>
   </data>
   <data name="HypnoticDurationLocalized_info" xml:space="preserve">
     <value>Concentration + 2 rounds</value>
@@ -254,6 +318,12 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
   <data name="LevelSpellNamePostfix_info" xml:space="preserve">
     <value> (spell level {0})</value>
   </data>
+  <data name="LifeLinkFeatureDescription_info" xml:space="preserve">
+    <value>As a standard action, you may create a bond between yourself and another creature. Each round at the start of your turn, if the bonded creature is wounded for 5 or more hit points below its maximum hit points, it heals 5 hit points and you take 5 hit points of damage. You may have one bond active per oracle level. This bond continues until the bonded creature dies, you die, the distance between you and the other creature exceeds medium range, or you end it as an immediate action (if you have multiple bonds active, you may end as many as you want as part of the same immediate action).</value>
+  </data>
+  <data name="LifeLinkFeatureName_info" xml:space="preserve">
+    <value>Life Link</value>
+  </data>
   <data name="LifeMysteryProgressionDescription_info" xml:space="preserve">
     <value>Class skills: {0}, {1}
 An oracle with the life mystery can choose from any of the following revelations:</value>
@@ -266,6 +336,12 @@ An oracle with the life mystery can choose from any of the following revelations
   </data>
   <data name="LifeRevelationFeatureName_info" xml:space="preserve">
     <value>Life Revelation</value>
+  </data>
+  <data name="LifeSenseFeatureDescription_info" xml:space="preserve">
+    <value>You notice and locate living creatures within 30 feet, just as if you possessed the blindsight ability. You must be at least 11th level to select this revelation.</value>
+  </data>
+  <data name="LifeSenseFeatureName_info" xml:space="preserve">
+    <value>Life Sense</value>
   </data>
   <data name="LimitedWishAbilityDescription_info" xml:space="preserve">
     <value>A limited wish lets you create nearly any type of effect. For example, a limited wish can do any of the following things.
@@ -282,6 +358,36 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
   </data>
   <data name="LoadCustomPortraits_error" xml:space="preserve">
     <value>Custom Portraits in main portrait selection</value>
+  </data>
+  <data name="MagesTattooFeatureDescription_info" xml:space="preserve">
+    <value>Select a school of magic in which you have Spell Focus—you cast spells from this school at +1 caster level.</value>
+  </data>
+  <data name="MagesTattooFeatureName_info" xml:space="preserve">
+    <value>Mage's Tattoo</value>
+  </data>
+  <data name="MagusArcanasFeatureName_info" xml:space="preserve">
+    <value>Magus Arcanas</value>
+  </data>
+  <data name="MagusFamiliarFeatureDescription_info" xml:space="preserve">
+    <value>The magus gains a familiar, using their magus level as their effective wizard level. This familiar follows the rules for familiars presented in the arcane bond wizard class feature.</value>
+  </data>
+  <data name="MagusFamiliarFeatureName_info" xml:space="preserve">
+    <value>Familiar</value>
+  </data>
+  <data name="MagusMagicCastTimeLevelFeatureDescription_info" xml:space="preserve">
+    <value>This does not increase the casting time or the level of the spell.</value>
+  </data>
+  <data name="MagusMagicFeatureDescription_info" xml:space="preserve">
+    <value>The magus can cast one spell per day as if it were modified by the {0} Spell feat. </value>
+  </data>
+  <data name="MagusMagicFeatureName_info" xml:space="preserve">
+    <value>{0} Magic</value>
+  </data>
+  <data name="MagusMagicLevelFeatureDescription_info" xml:space="preserve">
+    <value>This does not increase the level of the spell.</value>
+  </data>
+  <data name="MetamagicFeatsFeatureName_info" xml:space="preserve">
+    <value>Metamagic feats</value>
   </data>
   <data name="MiracleAbilityDescription_info" xml:space="preserve">
     <value>You don't so much cast a miracle as request one. You state what you would like to have happen and request that your deity (or the power you pray to for spells) intercede.
@@ -300,8 +406,59 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
   <data name="MiracleSpells_info" xml:space="preserve">
     <value>Miracle</value>
   </data>
+  <data name="MysteryClassSkillsFeatureDescription_info" xml:space="preserve">
+    <value>Oracles receive additional class skills depending upon their oracle mystery.</value>
+  </data>
+  <data name="MysteryClassSkillsFeatureName_info" xml:space="preserve">
+    <value>Bonus Class Skills</value>
+  </data>
+  <data name="OppositionResearchFeatureName_info" xml:space="preserve">
+    <value>Opposition Research</value>
+  </data>
+  <data name="OracleCureOrInflictSpellFeatureDescription_info" xml:space="preserve">
+    <value>In addition to the spells gained by oracles as they gain levels, each oracle also adds all of either the cure spells or the inflict spells to her list of spells known (cure spells include all spells with "cure" in the name, inflict spells include all spells with "inflict" in the name). These spells are added as soon as the oracle is capable of casting them. This choice is made when the oracle gains her first level and cannot be changed.</value>
+  </data>
+  <data name="OracleCureOrInflictSpellFeatureName_info" xml:space="preserve">
+    <value>Cure or Inflict Spells</value>
+  </data>
+  <data name="OracleCureSpellProgressionName_info" xml:space="preserve">
+    <value>Cure Spells</value>
+  </data>
   <data name="OracleHas3SkillPoints_info" xml:space="preserve">
     <value>Give Oracle class 3+int skill points on level up (instead of 4, due to condensed skills)</value>
+  </data>
+  <data name="OracleInflictSpellProgressionName_info" xml:space="preserve">
+    <value>Inflict Spells</value>
+  </data>
+  <data name="OracleLocalizedDescription_info" xml:space="preserve">
+    <value>Although the gods work through many agents, perhaps none is more mysterious than the oracle. These divine vessels are granted power without their choice, selected by providence to wield powers that even they do not fully understand. Unlike a cleric, who draws her magic through devotion to a deity, oracles garner strength and power from many sources, namely those patron deities who support their ideals. Instead of worshiping a single source, oracles tend to venerate all of the gods that share their beliefs. While some see the powers of the oracle as a gift, others view them as a curse, changing the life of the chosen in unforeseen ways.
+Role: Oracles do not usually associate with any one church or temple, instead preferring to strike out on their own, or with a small group of like-minded individuals. Oracles typically use their spells and revelations to further their understanding of their mystery, be it through fighting mighty battles or tending to the poor and sick.</value>
+  </data>
+  <data name="OracleLocalizedName_info" xml:space="preserve">
+    <value>Oracle</value>
+  </data>
+  <data name="OracleMysteryFeatureDescription_info" xml:space="preserve">
+    <value>Each oracle draws upon a divine mystery to grant her spells and powers. This mystery also grants additional class skills and other special abilities. This mystery can represent a devotion to one ideal, prayers to deities that support the concept, or a natural calling to champion a cause. For example, an oracle with the waves mystery might have been born at sea and found a natural calling to worship the gods of the oceans, rivers, and lakes, be they benign or malevolent. Regardless of its source, the mystery manifests in a number of ways as the oracle gains levels. An oracle must pick one mystery upon taking her first level of oracle. Once made, this choice cannot be changed.
+At 2nd level, and every two levels thereafter, an oracle learns an additional spell derived from her mystery. These spells are in addition to the number of chosen known spells. They cannot be exchanged for different spells at higher levels.</value>
+  </data>
+  <data name="OracleMysteryFeatureName_info" xml:space="preserve">
+    <value>Mystery</value>
+  </data>
+  <data name="OracleOrisonsFeatureDescription_info" xml:space="preserve">
+    <value>Oracles learn a number of orisons, or 0-level spells. These spells are cast like any other spell, but they do not consume any slots and may be used again.</value>
+  </data>
+  <data name="OracleProficienciesFeatureDescription_info" xml:space="preserve">
+    <value>Oracles are proficient with all simple weapons, light armor, medium armor, and shields (except tower shields). Some oracle revelations grant additional proficiencies.</value>
+  </data>
+  <data name="OracleProficienciesFeatureName_info" xml:space="preserve">
+    <value>Oracle Proficiencies</value>
+  </data>
+  <data name="OracleRevelationFeatureDescription_info" xml:space="preserve">
+    <value>At 1st level, 3rd level, and every four levels thereafter (7th, 11th, and so on), an oracle uncovers a new secret about her mystery that grants her powers and abilities. The oracle must select a revelation from the list of revelations available to her mystery (see FAQ at right). If a revelation is chosen at a later level, the oracle gains all of the abilities and bonuses granted by that revelation based on her current level. Unless otherwise noted, activating the power of a revelation is a standard action.
+Unless otherwise noted, the DC to save against these revelations is equal to 10 + 1 / 2 the oracle’s level + the oracle’s Charisma modifier.</value>
+  </data>
+  <data name="OracleRevelationFeatureName_info" xml:space="preserve">
+    <value>Revelation</value>
   </data>
   <data name="RelaxAncientLorekeeper_info" xml:space="preserve">
     <value>Any race can choose the Oracle Ancient Lorekeeper archetype</value>
@@ -328,18 +485,46 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
     <value>This spell functions like raise dead, except that you can resurrect a creature that has been dead for as long as 10 years per caster level.This spell can even bring back creatures whose bodies have been destroyed, provided that you unambiguously identify the deceased in some fashion(reciting the deceased's time and place of birth or death is the most common method).Upon completion of the spell, the creature is immediately restored to full hit points, vigor, and health, with no negative levels(or loss of * Constitution points) and all of the prepared spells possessed by the creature when it died.You can revive someone killed by a death effect or someone who has been turned into an undead creature and then destroyed.This spell can also resurrect elementals or outsiders, but it can't resurrect constructs or undead creatures.Even true resurrection can't restore to life a creature who has died of old age.
 Befit over Ressurection: this is a free action.</value>
   </data>
+  <data name="SafeCuringFeatureDescription_info" xml:space="preserve">
+    <value>Whenever you cast a spell that cures the target of hit point damage, you do not provoke attacks of opportunity for spellcasting.</value>
+  </data>
+  <data name="SafeCuringFeatureName_info" xml:space="preserve">
+    <value>Safe Curing</value>
+  </data>
+  <data name="ScionExtraArcanaFeatureName_info" xml:space="preserve">
+    <value>Extra Arcana ({0})</value>
+  </data>
   <data name="ShowCustomPortraits_info" xml:space="preserve">
     <value>Show custom portraits in the portrait list at character creation (if changed, requires restart)</value>
   </data>
   <data name="SingleLineDescription_info" xml:space="preserve">
     <value>• {0}</value>
   </data>
+  <data name="SpellBlendingFeatureDescription_info" xml:space="preserve">
+    <value>When a magus selects this arcana, they must select one spell from the wizard spell list that is of a magus spell level they can cast. They adds this spell to their spellbook and list of magus spells known as a magus spell of its wizard spell level. They can instead select two spells to add in this way, but both must be at least one level lower than the highest-level magus spell they can cast.
+Special: A magus can select this magus arcana more than once.</value>
+  </data>
+  <data name="SpellBlendingFeatureName_info" xml:space="preserve">
+    <value>Spell Blending</value>
+  </data>
   <data name="SpellDescriptionPrefix_info" xml:space="preserve">
     <value>(After casting this spell, use the ability bar to select your {0}.)
 </value>
   </data>
+  <data name="SpellPerfectionFeatureDescription_info" xml:space="preserve">
+    <value>Pick one spell which you have the ability to cast. Whenever you cast that spell you may apply any one metamagic feat you have to that spell without affecting its level or casting time, as long as the total modified level of the spell does not use a spell slot above 9th level. In addition, if you have other feats which allow you to apply a set numerical bonus to any aspect of this spell (such as Spell Focus, Spell Penetration, Weapon Focus [ray], and so on), double the bonus granted by that feat when applied to this spell.</value>
+  </data>
+  <data name="SpellPerfectionFeatureName_info" xml:space="preserve">
+    <value>Spell Perfection</value>
+  </data>
   <data name="SpellsSpellNamePostfix_info" xml:space="preserve">
     <value> Spells</value>
+  </data>
+  <data name="SpiritBoostFeatureDescription_info" xml:space="preserve">
+    <value>Whenever your healing spells heal a target up to its maximum hit points, any excess points persist for 1 round per level as temporary hit points (up to a maximum number of temporary hit points equal to your oracle level).</value>
+  </data>
+  <data name="SpiritBoostFeatureName_info" xml:space="preserve">
+    <value>Spirit Boost</value>
   </data>
   <data name="SpritualWeaponSpells_info" xml:space="preserve">
     <value>Spiritual Weapon</value>

@@ -241,8 +241,8 @@ namespace EldritchArcana
         static BlueprintFeature CreateEnhancedCures()
         {
             ContextRankConfig_GetValue_Patch.Apply();
-            return enhancedCures = Helpers.CreateFeature("MysteryLifeEnhancedCures", "Enhanced Cures",
-                "Whenever you cast a cure spell, the maximum number of hit points healed is based on your oracle level, not the limit based on the spell. For example, an 11th-level oracle of life with this revelation may cast cure light wounds to heal 1d8+11 hit points instead of the normal 1d8+5 maximum.",
+            return enhancedCures = Helpers.CreateFeature("MysteryLifeEnhancedCures", RES.EnhancedCuresFeatureName_info,
+                RES.EnhancedCuresFeatureDescription_info,
                 "111a339509c140b2818877f538351bca",
                 Helpers.GetIcon("3361c5df793b4c8448756146a88026ad"), // cure serious wounds
                 FeatureGroup.None);
@@ -251,8 +251,8 @@ namespace EldritchArcana
         static BlueprintFeature CreateHealingHands()
         {
             var treatAfflictions = library.Get<BlueprintAbility>("4843cb4c23951f54290c5149a4907f54"); // LoreReligionUseAbility
-            var feat = Helpers.CreateFeature("MysteryLifeHealingHands", "Healing Hands",
-                $"You gain a +4 bonus on Heal checks. You may use {treatAfflictions.Name} as a swift action.",
+            var feat = Helpers.CreateFeature("MysteryLifeHealingHands", RES.HealingHandsFeatureName_info,
+                string.Format(RES.HealingHandsFeatureDescription_info, treatAfflictions.Name),
                 "72138f6a0753498aaa6b5134f61e88ab",
                 treatAfflictions.Icon,
                 FeatureGroup.None,
@@ -262,9 +262,8 @@ namespace EldritchArcana
 
         static BlueprintFeature CreateLifeLink()
         {
-            var feat = Helpers.CreateFeature("MysteryLifeLink", "Life Link",
-                "As a standard action, you may create a bond between yourself and another creature. Each round at the start of your turn, if the bonded creature is wounded for 5 or more hit points below its maximum hit points, it heals 5 hit points and you take 5 hit points of damage. " +
-                "You may have one bond active per oracle level. This bond continues until the bonded creature dies, you die, the distance between you and the other creature exceeds medium range, or you end it as an immediate action (if you have multiple bonds active, you may end as many as you want as part of the same immediate action).",
+            var feat = Helpers.CreateFeature("MysteryLifeLink", RES.LifeLinkFeatureName_info,
+                RES.LifeLinkFeatureDescription_info,
                 "1c493aa458b94e13b6cd727b492d6cb4",
                 Helpers.GetIcon("f8bce986adfc88544a42bf4ab7ae75b2"), // remove paralysis
                 FeatureGroup.None);
@@ -317,8 +316,8 @@ namespace EldritchArcana
 
         static BlueprintFeature CreateLifeSense()
         {
-            return Helpers.CreateFeature("MysteryLifeSense", "Life Sense",
-                "You notice and locate living creatures within 30 feet, just as if you possessed the blindsight ability. You must be at least 11th level to select this revelation.",
+            return Helpers.CreateFeature("MysteryLifeSense", RES.LifeSenseFeatureName_info,
+                RES.LifeSenseFeatureDescription_info,
                 "9a9f7afcc70742fca888ab73f73996d4",
                 Helpers.GetIcon("4cf3d0fae3239ec478f51e86f49161cb"), // true seeing
                 FeatureGroup.None,
@@ -331,8 +330,8 @@ namespace EldritchArcana
         static BlueprintFeature CreateDelayAffliction()
         {
             var delayPoisonBuff = library.Get<BlueprintBuff>("51ebd62ee464b1446bb01fa1e214942f");
-            var feat = Helpers.CreateFeature("MysteryLifeDelayAffliction", "Delay Affliction",
-                "Once per day as an immediate action, whenever you fail a saving throw against a disease or poison, you may ignore its effects for 1 hour per level. At 7th and 15th level, you can use this ability one additional time per day.",
+            var feat = Helpers.CreateFeature("MysteryLifeDelayAffliction", "",
+                "",
                 "42f849d6508949658931e4ed9bca77a8",
                 delayPoisonBuff.Icon,
                 FeatureGroup.None);
@@ -366,8 +365,8 @@ namespace EldritchArcana
 
         static BlueprintFeature CreateSafeCuring()
         {
-            return Helpers.CreateFeature("MysteryLifeSafeCuring", "Safe Curing",
-                "Whenever you cast a spell that cures the target of hit point damage, you do not provoke attacks of opportunity for spellcasting.",
+            return Helpers.CreateFeature("MysteryLifeSafeCuring", RES.SafeCuringFeatureName_info,
+                RES.SafeCuringFeatureDescription_info,
                 "fe4e347238a544ec94be7a665d6b7910",
                 Helpers.GetIcon("7aa83ee3526a946419561d8d1aa09e75"), // arcane combat casting
                 FeatureGroup.None,
@@ -377,8 +376,8 @@ namespace EldritchArcana
         static BlueprintFeature CreateSpiritBoost()
         {
             var falseLifeBuff = library.Get<BlueprintBuff>("0fdb3cca6744fd94b9436459e6d9b947");
-            var feat = Helpers.CreateFeature("MysteryLifeSpiritBoost", "Spirit Boost",
-                "Whenever your healing spells heal a target up to its maximum hit points, any excess points persist for 1 round per level as temporary hit points (up to a maximum number of temporary hit points equal to your oracle level).",
+            var feat = Helpers.CreateFeature("MysteryLifeSpiritBoost", RES.SpiritBoostFeatureName_info,
+                RES.SpiritBoostFeatureDescription_info,
                 "769eba54ba5f40548eab67f0c5aff6e4",
                 falseLifeBuff.Icon, FeatureGroup.None);
 
@@ -395,10 +394,8 @@ namespace EldritchArcana
         {
             var immunities = SpellDescriptor.Bleed | SpellDescriptor.Death | SpellDescriptor.Exhausted | SpellDescriptor.Fatigue | SpellDescriptor.Nauseated | SpellDescriptor.Sickened;
 
-            var feat = Helpers.CreateFeature("MysteryLifeFinalRevelation", "Final Revelation",
-                "Upon reaching 20th level, you become a perfect channel for life energy. " +
-                "You become immune to bleed, death attacks, exhaustion, fatigue, nausea effects, negative levels, and sickened effects." +
-                "Ability damage and drain cannot reduce you below 1 in any ability score.",
+            var feat = Helpers.CreateFeature("MysteryLifeFinalRevelation", RES.FinalRevelationFeatureName_info,
+                RES.FinalRevelationFeatureDescription_info,
                 "88c41e041d3d4e68b24e4d0d04ed51a0",
                 Helpers.GetIcon("be2062d6d85f4634ea4f26e9e858c3b8"), // cleanse
                 FeatureGroup.None,

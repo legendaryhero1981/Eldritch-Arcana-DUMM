@@ -35,6 +35,7 @@ using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using Newtonsoft.Json;
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -51,7 +52,7 @@ namespace EldritchArcana
             magus = library.Get<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780");
 
             // Load metamagic feats
-            var metamagicFeats = SafeLoad(MetamagicFeats.CreateMetamagicFeats, "Metamagic feats")?.ToArray();
+            var metamagicFeats = SafeLoad(MetamagicFeats.CreateMetamagicFeats, RES.MetamagicFeatsFeatureName_info)?.ToArray();
             if (metamagicFeats == null) metamagicFeats = Array.Empty<BlueprintFeature>();
             var feats = metamagicFeats.ToList();
 
@@ -59,26 +60,26 @@ namespace EldritchArcana
             library.AddFeats( /*SorcererBonusFeat*/ "d6dd06f454b34014ab0903cb1ed2ade3", metamagicFeats);
             library.AddFeats(Helpers.magusFeatSelection, metamagicFeats);
 
-            SafeAddToList(CreateOppositionResearch, feats, "Opposition Research");
+            SafeAddToList(CreateOppositionResearch, feats, RES.OppositionResearchFeatureName_info);
 
             // Add metamagics and Opposition Research to Wizard bonus feat list.
             library.AddFeats( /*WizardFeatSelection*/ "8c3102c2ff3b69444b139a98521a4899", feats.ToArray());
 
-            SafeAddToList(CreateMagesTattoo, feats, "Mage's Tattoo");
-            SafeAddToList(() => CreateSpellPerfection(metamagicFeats), feats, "Spell Perfection");
+            SafeAddToList(CreateMagesTattoo, feats, RES.MagesTattooFeatureName_info);
+            SafeAddToList(() => CreateSpellPerfection(metamagicFeats), feats, RES.SpellPerfectionFeatureName_info);
 
             // Magus Arcanas, Extra Magus Arcana
-            SafeAddRangeToList(LoadMagusArcanas, feats, "Magus Arcanas");
+            SafeAddRangeToList(LoadMagusArcanas, feats, RES.MagusArcanasFeatureName_info);
 
-            Main.SafeLoad(LoadDervishDance, "Dervish Dance");
+            Main.SafeLoad(LoadDervishDance, RES.DervishDanceFeatureName_info);
 
-            SafeAddToList(CreateFeyFoundling, feats, "Fey Foundling");
+            SafeAddToList(CreateFeyFoundling, feats, RES.FeyFoundlingFeatureName_info);
 
             // Add all feats (including metamagic, wizard discoveries) to general feats.         
             library.AddFeats(feats.ToArray());
-            Main.SafeLoad(FixSpellSpecialization, "Spell Specialization");
+            Main.SafeLoad(FixSpellSpecialization, RES.FixSpellSpecializationFeatureName_info);
 
-            Main.SafeLoad(AddSpellScrolls, "Scrolls for new spells");
+            Main.SafeLoad(AddSpellScrolls, RES.AddSpellScrollsFeatureName_info);
         }
 
         internal static T SafeLoad<T>(Func<T> load, String name) => Main.SafeLoad(load, name);
@@ -98,13 +99,13 @@ namespace EldritchArcana
 
         static BlueprintFeature CreateFeyFoundling()
         {
-            var feat = Helpers.CreateFeature("FeyFoundling", "Fey Foundling",
-                "You were found in the wilds as a child.\nWhenever you receive magical healing, you heal an additional 2 points per die rolled. You gain a +2 bonus on all saving throws against death effects. Unfortunately, you also suffer +1 point of damage from cold iron weapons (although you can wield cold iron weapons without significant discomfort).",
+            var feat = Helpers.CreateFeature("FeyFoundling", RES.FeyFoundlingFeatureName_info,
+                RES.FeyFoundlingFeatureDescription_info,
                 "0659556638b04ecc85e069e050751bfa",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Fey_foundling.png"),
                 FeatureGroup.Feat,
                 Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Death; s.ModifierDescriptor = ModifierDescriptor.Feat; }),
-                Helpers.Create<FeyFoundlingLogic>(s => { s.dieModefier = 2;}),
+                Helpers.Create<FeyFoundlingLogic>(s => { s.dieModefier = 2; }),
                 PrerequisiteCharacterLevelExact.Create(1));
             return feat;
         }
@@ -129,8 +130,8 @@ namespace EldritchArcana
             magusArcanas.SetFeatures(magusArcanas.AllFeatures.AddToArray(arcanas));
             scionArcanas.SetFeatures(scionArcanas.AllFeatures.AddToArray(arcanas));
             return new BlueprintFeature[] {
-                CreateExtraArcana(magusArcanas, "ExtraArcanaSelection", "Extra Arcana", "bace31a97ed141d9b11cc5dabacb5b88"),
-                CreateExtraArcana(scionArcanas, "ScionExtraArcanaSelection", $"Extra Arcana ({Helpers.eldritchScionArchetype.Name})", "4ea3182a6f544612af7b4aa42cb2b677")
+                CreateExtraArcana(magusArcanas, "ExtraArcanaSelection", RES.ExtraArcanaFeatureName_info, "bace31a97ed141d9b11cc5dabacb5b88"),
+                CreateExtraArcana(scionArcanas, "ScionExtraArcanaSelection", string.Format(RES.ScionExtraArcanaFeatureName_info,Helpers.eldritchScionArchetype.Name), "4ea3182a6f544612af7b4aa42cb2b677")
             };
         }
 
@@ -139,14 +140,16 @@ namespace EldritchArcana
             var metamagic = metamagicFeat.GetComponent<AddMetamagicFeat>().Metamagic;
             var name = metamagic.ToString();
             name += name.EndsWith("e") ? "d" : "ed";
-            var feat = Helpers.CreateFeature($"Magus{name}Magic", $"{name} Magic",
-                $"The magus can cast one spell per day as if it were modified by the {metamagic} Spell feat. " +
-                (metamagic == Metamagic.Quicken
-                    ? "This does not increase the level of the spell."
-                    : "This does not increase the casting time or the level of the spell."),
+            var feat = metamagic == Metamagic.Quicken ? Helpers.CreateFeature($"Magus{name}Magic", string.Format(RES.MagusMagicFeatureName_info, name),
+                    RES.MagusMagicFeatureDescription_info + RES.MagusMagicLevelFeatureDescription_info,
                 Helpers.MergeIds(metamagicFeat.AssetGuid, "65768d69b6b84954b3d6a1d1dc265cf8"),
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Extra_Arcana.png"),//metamagicFeat.Icon,
-                FeatureGroup.MagusArcana);
+                FeatureGroup.MagusArcana)
+                : Helpers.CreateFeature($"Magus{name}Magic", string.Format(RES.MagusMagicFeatureName_info, name),
+                    RES.MagusMagicFeatureDescription_info + RES.MagusMagicCastTimeLevelFeatureDescription_info,
+                    Helpers.MergeIds(metamagicFeat.AssetGuid, "65768d69b6b84954b3d6a1d1dc265cf8"),
+                    Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Extra_Arcana.png"),//metamagicFeat.Icon,
+                    FeatureGroup.MagusArcana);
 
             var resource = Helpers.CreateAbilityResource($"{feat.name}Resource", "", "",
                 Helpers.MergeIds(metamagicFeat.AssetGuid, "d7183ba98b094f8295181c9946319773"), null);
@@ -172,8 +175,7 @@ namespace EldritchArcana
         static BlueprintFeatureSelection CreateExtraArcana(BlueprintFeatureSelection magusArcanas, String name, String displayName, String assetId)
         {
             var feat = Helpers.CreateFeatureSelection(name, displayName,
-                "You have unlocked the secret of a new magus arcana. You gain one additional magus arcana. You must meet all the prerequisites for this magus arcana.\n" +
-                "Special: You can gain this feat multiple times. Its effects stack, granting a new arcana each time you gain this feat.",
+                RES.ExtraArcanaFeatureDescription_info,
                 assetId,
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Extra_Arcana.png"),//Helpers.GetIcon("cd9f19775bd9d3343a31a065e93f0c47"), // extra channel
                 FeatureGroup.Feat,
@@ -187,8 +189,8 @@ namespace EldritchArcana
             var arcaneBondSelection = library.Get<BlueprintFeatureSelection>("03a1781486ba98043afddaabf6b7d8ff");
             var itemBondFeature = library.Get<BlueprintFeature>("2fb5e65bd57caa943b45ee32d825e9b9");
 
-            var feat = Helpers.CreateFeatureSelection("MagusFamiliarSelection", "Familiar",
-                "The magus gains a familiar, using their magus level as their effective wizard level. This familiar follows the rules for familiars presented in the arcane bond wizard class feature.",
+            var feat = Helpers.CreateFeatureSelection("MagusFamiliarSelection", RES.MagusFamiliarFeatureName_info,
+                RES.MagusFamiliarFeatureDescription_info,
                 "310ed9de256445cca2915c4c0bc16f0b", arcaneBondSelection.Icon, FeatureGroup.MagusArcana);
             feat.SetComponents(feat.PrerequisiteNoFeature());
             feat.SetFeatures(arcaneBondSelection.Features.Where(f => f != itemBondFeature));
@@ -198,8 +200,8 @@ namespace EldritchArcana
         static BlueprintFeature CreateSpellBlending()
         {
             var name = "SpellBlending";
-            var feat = Helpers.CreateFeatureSelection($"{name}Selection", "Spell Blending",
-                "When a magus selects this arcana, they must select one spell from the wizard spell list that is of a magus spell level they can cast. They adds this spell to their spellbook and list of magus spells known as a magus spell of its wizard spell level. They can instead select two spells to add in this way, but both must be at least one level lower than the highest-level magus spell they can cast.\nSpecial: A magus can select this magus arcana more than once.",
+            var feat = Helpers.CreateFeatureSelection($"{name}Selection", RES.SpellBlendingFeatureName_info,
+                RES.SpellBlendingFeatureDescription_info,
                 "0a273cce57ed44bdb2b9f36270c23cb8",
                 Helpers.GetIcon("55edf82380a1c8540af6c6037d34f322"), // elven magic
                 FeatureGroup.MagusArcana);
@@ -254,8 +256,8 @@ namespace EldritchArcana
             var slashingGrace = library.Get<BlueprintParametrizedFeature>("697d64669eb2c0543abb9c9b07998a38");
             var weaponFinesse = library.Get<BlueprintFeature>("90e54424d682d104ab36436bd527af09");
 
-            var dervishDance = Helpers.CreateFeature("DervishDance", "Dervish Dance",
-                "When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier on melee attack and damage rolls. You treat the scimitar as a one-handed piercing weapon for all feats and class abilities that require such a weapon (such as a duelist's precise strike ability). The scimitar must be for a creature of your size. You cannot use this feat if you are carrying a weapon or shield in your off hand.",
+            var dervishDance = Helpers.CreateFeature("DervishDance", RES.DervishDanceFeatureName_info,
+                RES.DervishDanceFeatureDescription_info,
                 "7d0bb2ade9344cae833c5bbe66bf0460",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Dervish_Dance.png"),//slashingGrace.Icon,
                 FeatureGroup.Feat,
@@ -284,8 +286,8 @@ namespace EldritchArcana
 
             var noFeature = Helpers.PrerequisiteNoFeature(null);
             magesTattoo = Helpers.CreateParametrizedFeature("MagesTattooSelection",
-                "Mage's Tattoo",
-                "Select a school of magic in which you have Spell Focus—you cast spells from this school at +1 caster level.",
+                RES.MagesTattooFeatureName_info,
+                RES.MagesTattooFeatureDescription_info,
                 "8004aabdc67145c5b0613b7580d77da1",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Mages_Tatto.png"),
                 FeatureGroup.Feat,
@@ -322,8 +324,8 @@ namespace EldritchArcana
             var spellSpecialization1 = library.Get<BlueprintParametrizedFeature>("f327a765a4353d04f872482ef3e48c35");
             var noFeature = Helpers.PrerequisiteNoFeature(null);
             spellPerfection = Helpers.CreateParamSelection<KnownSpellSelection>("SpellPerfection",
-                "Spell Perfection",
-                "Pick one spell which you have the ability to cast. Whenever you cast that spell you may apply any one metamagic feat you have to that spell without affecting its level or casting time, as long as the total modified level of the spell does not use a spell slot above 9th level. In addition, if you have other feats which allow you to apply a set numerical bonus to any aspect of this spell (such as Spell Focus, Spell Penetration, Weapon Focus [ray], and so on), double the bonus granted by that feat when applied to this spell.",
+                RES.SpellPerfectionFeatureName_info,
+                RES.SpellPerfectionFeatureDescription_info,
                 "82165fb15af34cbb9c0c2e6fb232b2fc",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Spell_Perfection.png"),//spellSpecialization.Icon,
                 FeatureGroup.Feat,
@@ -496,7 +498,7 @@ namespace EldritchArcana
             }
             Log.Write($"Try to apply metamagic: {evt.AppliedMetamagics.StringJoin(m => m.ToString())}, spell {spell.name} allows {spell.AvailableMetamagic}");
             if (evt.AppliedMetamagics.Count == 0) return;
-            
+
             int reduction = Reduction;
             if (OneMetamagicIsFree)
             {
@@ -869,7 +871,7 @@ namespace EldritchArcana
     {
         bool inRuleHealDamage = false;
         public int dieModefier;
-        public int flatModefier=0;
+        public int flatModefier = 0;
 
         public void OnEventAboutToTrigger(RuleHealDamage evt)
         {

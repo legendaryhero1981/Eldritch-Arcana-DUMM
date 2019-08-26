@@ -61,6 +61,34 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Choose one of your revelations that has a number of uses per day. You gain 1 additional use per day of that revelation.
+        ///Special: You can gain this feat multiple times. Its effects do not stack. Each time you take the feat, it applies to a new revelation. 的本地化字符串。
+        /// </summary>
+        internal static string AbundantRevelationsFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("AbundantRevelationsFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Abundant Revelations 的本地化字符串。
+        /// </summary>
+        internal static string AbundantRevelationsFeatureName_info {
+            get {
+                return ResourceManager.GetString("AbundantRevelationsFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Scrolls for new spells 的本地化字符串。
+        /// </summary>
+        internal static string AddSpellScrollsFeatureName_info {
+            get {
+                return ResourceManager.GetString("AddSpellScrollsFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Failed to apply patch {0}: {1} 的本地化字符串。
         /// </summary>
         internal static string applyPatch_error {
@@ -130,6 +158,42 @@ namespace EldritchArcana.Properties {
         internal static string CheatCustomTraits_info {
             get {
                 return ResourceManager.GetString("CheatCustomTraits_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Once per day as an immediate action, whenever you fail a saving throw against a disease or poison, you may ignore its effects for 1 hour per level. At 7th and 15th level, you can use this ability one additional time per day. 的本地化字符串。
+        /// </summary>
+        internal static string DelayAfflictionFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("DelayAfflictionFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Delay Affliction 的本地化字符串。
+        /// </summary>
+        internal static string DelayAfflictionFeatureName_info {
+            get {
+                return ResourceManager.GetString("DelayAfflictionFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier on melee attack and damage rolls. You treat the scimitar as a one-handed piercing weapon for all feats and class abilities that require such a weapon (such as a duelist&apos;s precise strike ability). The scimitar must be for a creature of your size. You cannot use this feat if you are carrying a weapon or shield in your off hand. 的本地化字符串。
+        /// </summary>
+        internal static string DervishDanceFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("DervishDanceFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Dervish Dance 的本地化字符串。
+        /// </summary>
+        internal static string DervishDanceFeatureName_info {
+            get {
+                return ResourceManager.GetString("DervishDanceFeatureName_info", resourceCulture);
             }
         }
         
@@ -243,6 +307,62 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Whenever you cast a cure spell, the maximum number of hit points healed is based on your oracle level, not the limit based on the spell. For example, an 11th-level oracle of life with this revelation may cast cure light wounds to heal 1d8+11 hit points instead of the normal 1d8+5 maximum. 的本地化字符串。
+        /// </summary>
+        internal static string EnhancedCuresFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("EnhancedCuresFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Enhanced Cures 的本地化字符串。
+        /// </summary>
+        internal static string EnhancedCuresFeatureName_info {
+            get {
+                return ResourceManager.GetString("EnhancedCuresFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You have unlocked the secret of a new magus arcana. You gain one additional magus arcana. You must meet all the prerequisites for this magus arcana.
+        ///Special: You can gain this feat multiple times. Its effects stack, granting a new arcana each time you gain this feat. 的本地化字符串。
+        /// </summary>
+        internal static string ExtraArcanaFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("ExtraArcanaFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Extra Arcana 的本地化字符串。
+        /// </summary>
+        internal static string ExtraArcanaFeatureName_info {
+            get {
+                return ResourceManager.GetString("ExtraArcanaFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You gain one additional revelation. You must meet all of the prerequisites for this revelation.
+        ///Special: You can gain Extra Revelation multiple times. 的本地化字符串。
+        /// </summary>
+        internal static string ExtraRevelationFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("ExtraRevelationFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Extra Revelation 的本地化字符串。
+        /// </summary>
+        internal static string ExtraRevelationFeatureName_info {
+            get {
+                return ResourceManager.GetString("ExtraRevelationFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 &lt;b&gt;Error: Some assets failed to load. Saves using these features won&apos;t work:&lt;/b&gt; 的本地化字符串。
         /// </summary>
         internal static string failedLoading_error {
@@ -279,6 +399,43 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 You were found in the wilds as a child.
+        ///Whenever you receive magical healing, you heal an additional 2 points per die rolled. You gain a +2 bonus on all saving throws against death effects. Unfortunately, you also suffer +1 point of damage from cold iron weapons (although you can wield cold iron weapons without significant discomfort). 的本地化字符串。
+        /// </summary>
+        internal static string FeyFoundlingFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("FeyFoundlingFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Fey Foundling 的本地化字符串。
+        /// </summary>
+        internal static string FeyFoundlingFeatureName_info {
+            get {
+                return ResourceManager.GetString("FeyFoundlingFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Upon reaching 20th level, you become a perfect channel for life energy. You become immune to bleed, death attacks, exhaustion, fatigue, nausea effects, negative levels, and sickened effects. Ability damage and drain cannot reduce you below 1 in any ability score. 的本地化字符串。
+        /// </summary>
+        internal static string FinalRevelationFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("FinalRevelationFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Final Revelation 的本地化字符串。
+        /// </summary>
+        internal static string FinalRevelationFeatureName_info {
+            get {
+                return ResourceManager.GetString("FinalRevelationFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Fire spells 的本地化字符串。
         /// </summary>
         internal static string FireSpells_info {
@@ -303,6 +460,15 @@ namespace EldritchArcana.Properties {
         internal static string FixElementalSpells_info {
             get {
                 return ResourceManager.GetString("FixElementalSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Spell Specialization 的本地化字符串。
+        /// </summary>
+        internal static string FixSpellSpecializationFeatureName_info {
+            get {
+                return ResourceManager.GetString("FixSpellSpecializationFeatureName_info", resourceCulture);
             }
         }
         
@@ -348,6 +514,24 @@ namespace EldritchArcana.Properties {
         internal static string GreaterMagicWeaponSpells_info {
             get {
                 return ResourceManager.GetString("GreaterMagicWeaponSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You gain a +4 bonus on Heal checks. You may use {0} as a swift action. 的本地化字符串。
+        /// </summary>
+        internal static string HealingHandsFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("HealingHandsFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Healing Hands 的本地化字符串。
+        /// </summary>
+        internal static string HealingHandsFeatureName_info {
+            get {
+                return ResourceManager.GetString("HealingHandsFeatureName_info", resourceCulture);
             }
         }
         
@@ -514,6 +698,24 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 As a standard action, you may create a bond between yourself and another creature. Each round at the start of your turn, if the bonded creature is wounded for 5 or more hit points below its maximum hit points, it heals 5 hit points and you take 5 hit points of damage. You may have one bond active per oracle level. This bond continues until the bonded creature dies, you die, the distance between you and the other creature exceeds medium range, or you end it as an immediate action (if you have multiple bonds  [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string LifeLinkFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("LifeLinkFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Life Link 的本地化字符串。
+        /// </summary>
+        internal static string LifeLinkFeatureName_info {
+            get {
+                return ResourceManager.GetString("LifeLinkFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Class skills: {0}, {1}
         ///An oracle with the life mystery can choose from any of the following revelations: 的本地化字符串。
         /// </summary>
@@ -547,6 +749,24 @@ namespace EldritchArcana.Properties {
         internal static string LifeRevelationFeatureName_info {
             get {
                 return ResourceManager.GetString("LifeRevelationFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You notice and locate living creatures within 30 feet, just as if you possessed the blindsight ability. You must be at least 11th level to select this revelation. 的本地化字符串。
+        /// </summary>
+        internal static string LifeSenseFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("LifeSenseFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Life Sense 的本地化字符串。
+        /// </summary>
+        internal static string LifeSenseFeatureName_info {
+            get {
+                return ResourceManager.GetString("LifeSenseFeatureName_info", resourceCulture);
             }
         }
         
@@ -699,6 +919,96 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Select a school of magic in which you have Spell Focus—you cast spells from this school at +1 caster level. 的本地化字符串。
+        /// </summary>
+        internal static string MagesTattooFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("MagesTattooFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Mage&apos;s Tattoo 的本地化字符串。
+        /// </summary>
+        internal static string MagesTattooFeatureName_info {
+            get {
+                return ResourceManager.GetString("MagesTattooFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Magus Arcanas 的本地化字符串。
+        /// </summary>
+        internal static string MagusArcanasFeatureName_info {
+            get {
+                return ResourceManager.GetString("MagusArcanasFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The magus gains a familiar, using their magus level as their effective wizard level. This familiar follows the rules for familiars presented in the arcane bond wizard class feature. 的本地化字符串。
+        /// </summary>
+        internal static string MagusFamiliarFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("MagusFamiliarFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Familiar 的本地化字符串。
+        /// </summary>
+        internal static string MagusFamiliarFeatureName_info {
+            get {
+                return ResourceManager.GetString("MagusFamiliarFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This does not increase the casting time or the level of the spell. 的本地化字符串。
+        /// </summary>
+        internal static string MagusMagicCastTimeLevelFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("MagusMagicCastTimeLevelFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The magus can cast one spell per day as if it were modified by the {0} Spell feat.  的本地化字符串。
+        /// </summary>
+        internal static string MagusMagicFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("MagusMagicFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {0} Magic 的本地化字符串。
+        /// </summary>
+        internal static string MagusMagicFeatureName_info {
+            get {
+                return ResourceManager.GetString("MagusMagicFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This does not increase the level of the spell. 的本地化字符串。
+        /// </summary>
+        internal static string MagusMagicLevelFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("MagusMagicLevelFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Metamagic feats 的本地化字符串。
+        /// </summary>
+        internal static string MetamagicFeatsFeatureName_info {
+            get {
+                return ResourceManager.GetString("MetamagicFeatsFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 You don&apos;t so much cast a miracle as request one. You state what you would like to have happen and request that your deity (or the power you pray to for spells) intercede.
         ///A miracle can do any of the following things.
         ///• Duplicate any cleric spell of 8th level or lower.
@@ -723,11 +1033,155 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Oracles receive additional class skills depending upon their oracle mystery. 的本地化字符串。
+        /// </summary>
+        internal static string MysteryClassSkillsFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("MysteryClassSkillsFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Bonus Class Skills 的本地化字符串。
+        /// </summary>
+        internal static string MysteryClassSkillsFeatureName_info {
+            get {
+                return ResourceManager.GetString("MysteryClassSkillsFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Opposition Research 的本地化字符串。
+        /// </summary>
+        internal static string OppositionResearchFeatureName_info {
+            get {
+                return ResourceManager.GetString("OppositionResearchFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 In addition to the spells gained by oracles as they gain levels, each oracle also adds all of either the cure spells or the inflict spells to her list of spells known (cure spells include all spells with &quot;cure&quot; in the name, inflict spells include all spells with &quot;inflict&quot; in the name). These spells are added as soon as the oracle is capable of casting them. This choice is made when the oracle gains her first level and cannot be changed. 的本地化字符串。
+        /// </summary>
+        internal static string OracleCureOrInflictSpellFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("OracleCureOrInflictSpellFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Cure or Inflict Spells 的本地化字符串。
+        /// </summary>
+        internal static string OracleCureOrInflictSpellFeatureName_info {
+            get {
+                return ResourceManager.GetString("OracleCureOrInflictSpellFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Cure Spells 的本地化字符串。
+        /// </summary>
+        internal static string OracleCureSpellProgressionName_info {
+            get {
+                return ResourceManager.GetString("OracleCureSpellProgressionName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Give Oracle class 3+int skill points on level up (instead of 4, due to condensed skills) 的本地化字符串。
         /// </summary>
         internal static string OracleHas3SkillPoints_info {
             get {
                 return ResourceManager.GetString("OracleHas3SkillPoints_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Inflict Spells 的本地化字符串。
+        /// </summary>
+        internal static string OracleInflictSpellProgressionName_info {
+            get {
+                return ResourceManager.GetString("OracleInflictSpellProgressionName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Although the gods work through many agents, perhaps none is more mysterious than the oracle. These divine vessels are granted power without their choice, selected by providence to wield powers that even they do not fully understand. Unlike a cleric, who draws her magic through devotion to a deity, oracles garner strength and power from many sources, namely those patron deities who support their ideals. Instead of worshiping a single source, oracles tend to venerate all of the gods that share their beliefs.  [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string OracleLocalizedDescription_info {
+            get {
+                return ResourceManager.GetString("OracleLocalizedDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Oracle 的本地化字符串。
+        /// </summary>
+        internal static string OracleLocalizedName_info {
+            get {
+                return ResourceManager.GetString("OracleLocalizedName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Each oracle draws upon a divine mystery to grant her spells and powers. This mystery also grants additional class skills and other special abilities. This mystery can represent a devotion to one ideal, prayers to deities that support the concept, or a natural calling to champion a cause. For example, an oracle with the waves mystery might have been born at sea and found a natural calling to worship the gods of the oceans, rivers, and lakes, be they benign or malevolent. Regardless of its source, the mystery [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string OracleMysteryFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("OracleMysteryFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Mystery 的本地化字符串。
+        /// </summary>
+        internal static string OracleMysteryFeatureName_info {
+            get {
+                return ResourceManager.GetString("OracleMysteryFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Oracles learn a number of orisons, or 0-level spells. These spells are cast like any other spell, but they do not consume any slots and may be used again. 的本地化字符串。
+        /// </summary>
+        internal static string OracleOrisonsFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("OracleOrisonsFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Oracles are proficient with all simple weapons, light armor, medium armor, and shields (except tower shields). Some oracle revelations grant additional proficiencies. 的本地化字符串。
+        /// </summary>
+        internal static string OracleProficienciesFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("OracleProficienciesFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Oracle Proficiencies 的本地化字符串。
+        /// </summary>
+        internal static string OracleProficienciesFeatureName_info {
+            get {
+                return ResourceManager.GetString("OracleProficienciesFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 At 1st level, 3rd level, and every four levels thereafter (7th, 11th, and so on), an oracle uncovers a new secret about her mystery that grants her powers and abilities. The oracle must select a revelation from the list of revelations available to her mystery (see FAQ at right). If a revelation is chosen at a later level, the oracle gains all of the abilities and bonuses granted by that revelation based on her current level. Unless otherwise noted, activating the power of a revelation is a standard action.        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string OracleRevelationFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("OracleRevelationFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Revelation 的本地化字符串。
+        /// </summary>
+        internal static string OracleRevelationFeatureName_info {
+            get {
+                return ResourceManager.GetString("OracleRevelationFeatureName_info", resourceCulture);
             }
         }
         
@@ -804,6 +1258,33 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Whenever you cast a spell that cures the target of hit point damage, you do not provoke attacks of opportunity for spellcasting. 的本地化字符串。
+        /// </summary>
+        internal static string SafeCuringFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("SafeCuringFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Safe Curing 的本地化字符串。
+        /// </summary>
+        internal static string SafeCuringFeatureName_info {
+            get {
+                return ResourceManager.GetString("SafeCuringFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Extra Arcana ({0}) 的本地化字符串。
+        /// </summary>
+        internal static string ScionExtraArcanaFeatureName_info {
+            get {
+                return ResourceManager.GetString("ScionExtraArcanaFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Show custom portraits in the portrait list at character creation (if changed, requires restart) 的本地化字符串。
         /// </summary>
         internal static string ShowCustomPortraits_info {
@@ -822,6 +1303,25 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 When a magus selects this arcana, they must select one spell from the wizard spell list that is of a magus spell level they can cast. They adds this spell to their spellbook and list of magus spells known as a magus spell of its wizard spell level. They can instead select two spells to add in this way, but both must be at least one level lower than the highest-level magus spell they can cast.
+        ///Special: A magus can select this magus arcana more than once. 的本地化字符串。
+        /// </summary>
+        internal static string SpellBlendingFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("SpellBlendingFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Spell Blending 的本地化字符串。
+        /// </summary>
+        internal static string SpellBlendingFeatureName_info {
+            get {
+                return ResourceManager.GetString("SpellBlendingFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 (After casting this spell, use the ability bar to select your {0}.)
         /// 的本地化字符串。
         /// </summary>
@@ -832,11 +1332,47 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Pick one spell which you have the ability to cast. Whenever you cast that spell you may apply any one metamagic feat you have to that spell without affecting its level or casting time, as long as the total modified level of the spell does not use a spell slot above 9th level. In addition, if you have other feats which allow you to apply a set numerical bonus to any aspect of this spell (such as Spell Focus, Spell Penetration, Weapon Focus [ray], and so on), double the bonus granted by that feat when applied [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string SpellPerfectionFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("SpellPerfectionFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Spell Perfection 的本地化字符串。
+        /// </summary>
+        internal static string SpellPerfectionFeatureName_info {
+            get {
+                return ResourceManager.GetString("SpellPerfectionFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似  Spells 的本地化字符串。
         /// </summary>
         internal static string SpellsSpellNamePostfix_info {
             get {
                 return ResourceManager.GetString("SpellsSpellNamePostfix_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Whenever your healing spells heal a target up to its maximum hit points, any excess points persist for 1 round per level as temporary hit points (up to a maximum number of temporary hit points equal to your oracle level). 的本地化字符串。
+        /// </summary>
+        internal static string SpiritBoostFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("SpiritBoostFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Spirit Boost 的本地化字符串。
+        /// </summary>
+        internal static string SpiritBoostFeatureName_info {
+            get {
+                return ResourceManager.GetString("SpiritBoostFeatureName_info", resourceCulture);
             }
         }
         

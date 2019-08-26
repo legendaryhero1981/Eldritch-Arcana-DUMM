@@ -1,9 +1,6 @@
 // Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -12,18 +9,22 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Root;
-using Kingmaker.Blueprints.Validation;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Class.LevelUp.Actions;
-using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
+
 using Newtonsoft.Json;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -42,14 +43,13 @@ namespace EldritchArcana
 
             var sorcerer = Helpers.GetClass("b3a505fb61437dc4097f43c3f8f9a4cf");
             var cleric = Helpers.GetClass("67819271767a9dd4fbfd4ae700befea0");
-            
+
             var oracle = OracleClass.oracle = Helpers.Create<BlueprintCharacterClass>();
             oracleArray = new BlueprintCharacterClass[] { oracle };
             oracle.name = "OracleClass";
             library.AddAsset(oracle, "ec73f4790c1d4554871b81cde0b9399b");
-            oracle.LocalizedName = Helpers.CreateString("Oracle.Name", "Oracle");
-            oracle.LocalizedDescription = Helpers.CreateString("Oracle.Description", "Although the gods work through many agents, perhaps none is more mysterious than the oracle. These divine vessels are granted power without their choice, selected by providence to wield powers that even they do not fully understand. Unlike a cleric, who draws her magic through devotion to a deity, oracles garner strength and power from many sources, namely those patron deities who support their ideals. Instead of worshiping a single source, oracles tend to venerate all of the gods that share their beliefs. While some see the powers of the oracle as a gift, others view them as a curse, changing the life of the chosen in unforeseen ways.\n" +
-                "Role: Oracles do not usually associate with any one church or temple, instead preferring to strike out on their own, or with a small group of like-minded individuals. Oracles typically use their spells and revelations to further their understanding of their mystery, be it through fighting mighty battles or tending to the poor and sick.");
+            oracle.LocalizedName = Helpers.CreateString("Oracle.Name", RES.OracleLocalizedName_info);
+            oracle.LocalizedDescription = Helpers.CreateString("Oracle.Description", RES.OracleLocalizedDescription_info);
             oracle.m_Icon = cleric.Icon;
             oracle.SkillPoints = Main.settings?.OracleHas3SkillPoints == true ? 3 : 4;
             oracle.HitDie = DiceType.D8;
@@ -123,7 +123,7 @@ namespace EldritchArcana
                 "e62f392949c24eb4b8fb2bc9db4345e3", // cleric orisions
                 "OracleOrisonsFeature",
                 "926891a8e8a74d9eac63a1e296b1a4f3");
-            orisons.SetDescription("Oracles learn a number of orisons, or 0-level spells. These spells are cast like any other spell, but they do not consume any slots and may be used again.");
+            orisons.SetDescription(RES.OracleOrisonsFeatureDescription_info);
             orisons.SetComponents(orisons.ComponentsArray.Select(c =>
             {
                 var bind = c as BindAbilitiesToClass;
@@ -137,8 +137,8 @@ namespace EldritchArcana
                 "8c971173613282844888dc20d572cfc9", // cleric proficiencies
                 "OracleProficiencies",
                 "baee2212dee249cb8136bda72a872ba4");
-            proficiencies.SetName("Oracle Proficiencies");
-            proficiencies.SetDescription("Oracles are proficient with all simple weapons, light armor, medium armor, and shields (except tower shields). Some oracle revelations grant additional proficiencies.");
+            proficiencies.SetName(RES.OracleProficienciesFeatureName_info);
+            proficiencies.SetDescription(RES.OracleProficienciesFeatureDescription_info);
 
             // Note: curses need to be created first, because some revelations use them (e.g. Cinder Dance).
             var curse = OracleCurses.CreateSelection();
@@ -179,7 +179,7 @@ namespace EldritchArcana
             oracle.RegisterClass();
 
             var extraRevelation = Helpers.CreateFeatureSelection("ExtraRevelation",
-                "Extra Revelation", "You gain one additional revelation. You must meet all of the prerequisites for this revelation.\nSpecial: You can gain Extra Revelation multiple times.",
+                RES.ExtraRevelationFeatureName_info, RES.ExtraRevelationFeatureDescription_info,
                 "e91bd89bb5534ae2b61a3222a9b7325e",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Revelations_Extra.png"),//Helpers.GetIcon("fd30c69417b434d47b6b03b9c1f568ff"), // selective channel
                 FeatureGroup.Feat,
@@ -191,8 +191,8 @@ namespace EldritchArcana
             extras.Add(UndoSelection.Feature.Value);
             extraRevelation.SetFeatures(extras);
             var abundantRevelations = Helpers.CreateFeatureSelection("AbundantRevelations",
-                "Abundant Revelations",
-                "Choose one of your revelations that has a number of uses per day. You gain 1 additional use per day of that revelation.\nSpecial: You can gain this feat multiple times. Its effects do not stack. Each time you take the feat, it applies to a new revelation.",
+                RES.AbundantRevelationsFeatureName_info,
+                RES.AbundantRevelationsFeatureDescription_info,
                 "1614c7b40565481fa3728fd7375ddca0",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Revelations_Abundant.png"),//Helpers.GetIcon("a2b2f20dfb4d3ed40b9198e22be82030"), // extra lay on hands
                 FeatureGroup.Feat);
@@ -241,8 +241,8 @@ namespace EldritchArcana
         static (BlueprintFeatureSelection, BlueprintFeatureSelection, BlueprintFeature) CreateMysteryAndRevelationSelection()
         {
             // This feature allows archetypes to replace mystery class skills with something else.
-            var classSkill = Helpers.CreateFeature("MysteryClassSkills", "Bonus Class Skills",
-                "Oracles receive additional class skills depending upon their oracle mystery.",
+            var classSkill = Helpers.CreateFeature("MysteryClassSkills", RES.MysteryClassSkillsFeatureName_info,
+                RES.MysteryClassSkillsFeatureDescription_info,
                 "3949c44664d047c99d870b1f3728457c",
                 null,
                 FeatureGroup.None);
@@ -269,8 +269,7 @@ namespace EldritchArcana
             // Heroism/Greater Heroism, since that's the 2 spells Loremaster gives up,
             // and duplicating spells as SLAs is common for revelations.)
 
-            var mysteryDescription = "Each oracle draws upon a divine mystery to grant her spells and powers. This mystery also grants additional class skills and other special abilities. This mystery can represent a devotion to one ideal, prayers to deities that support the concept, or a natural calling to champion a cause. For example, an oracle with the waves mystery might have been born at sea and found a natural calling to worship the gods of the oceans, rivers, and lakes, be they benign or malevolent. Regardless of its source, the mystery manifests in a number of ways as the oracle gains levels. An oracle must pick one mystery upon taking her first level of oracle. Once made, this choice cannot be changed.\n" +
-                            "At 2nd level, and every two levels thereafter, an oracle learns an additional spell derived from her mystery. These spells are in addition to the number of chosen known spells. They cannot be exchanged for different spells at higher levels.";
+            var mysteryDescription = RES.OracleMysteryFeatureDescription_info;
 
             var mysteriesAndRevelations = new (BlueprintFeature, BlueprintFeature)[] {
                 BattleMystery.Create(mysteryDescription, classSkill),
@@ -279,15 +278,14 @@ namespace EldritchArcana
                 LifeMystery.Create(mysteryDescription, classSkill),
                 TimeMystery.Create(mysteryDescription, classSkill),
             };
-            var mysteryChoice = Helpers.CreateFeatureSelection("OracleMysterySelection", "Mystery",
+            var mysteryChoice = Helpers.CreateFeatureSelection("OracleMysterySelection", RES.OracleMysteryFeatureName_info,
                             mysteryDescription,
                             "ec3a4ede658f4b2696c89bdd590b5e04",
                             null,
                             UpdateLevelUpDeterminatorText.Group);
             mysteryChoice.SetFeatures(mysteriesAndRevelations.Select(m => m.Item1));
-            var revelationChoice = Helpers.CreateFeatureSelection("OracleRevelationSelection", "Revelation",
-                "At 1st level, 3rd level, and every four levels thereafter (7th, 11th, and so on), an oracle uncovers a new secret about her mystery that grants her powers and abilities. The oracle must select a revelation from the list of revelations available to her mystery (see FAQ at right). If a revelation is chosen at a later level, the oracle gains all of the abilities and bonuses granted by that revelation based on her current level. Unless otherwise noted, activating the power of a revelation is a standard action.\n" +
-                "Unless otherwise noted, the DC to save against these revelations is equal to 10 + 1 / 2 the oracle’s level + the oracle’s Charisma modifier.",
+            var revelationChoice = Helpers.CreateFeatureSelection("OracleRevelationSelection", RES.OracleMysteryFeatureName_info,
+                RES.OracleMysteryFeatureDescription_info,
                 "1dd88ec42dc249ca94bf3c2fc239064d",
                 null,
                 FeatureGroup.None);
@@ -304,14 +302,14 @@ namespace EldritchArcana
 
         static BlueprintFeatureSelection CreateCureOrInflictSpellSelection()
         {
-            var selection = Helpers.CreateFeatureSelection("OracleCureOrInflictSpellSelection", "Cure or Inflict Spells",
-                "In addition to the spells gained by oracles as they gain levels, each oracle also adds all of either the cure spells or the inflict spells to her list of spells known (cure spells include all spells with “cure” in the name, inflict spells include all spells with “inflict” in the name). These spells are added as soon as the oracle is capable of casting them. This choice is made when the oracle gains her first level and cannot be changed.",
+            var selection = Helpers.CreateFeatureSelection("OracleCureOrInflictSpellSelection", RES.OracleCureOrInflictSpellFeatureName_info,
+                RES.OracleCureOrInflictSpellFeatureDescription_info,
                 "4e685b25900246939394662b7fa36295",
                 null,
                 UpdateLevelUpDeterminatorText.Group);
 
             var cureProgression = Helpers.CreateProgression("OracleCureSpellProgression",
-                "Cure Spells",
+                RES.OracleCureSpellProgressionName_info,
                 selection.Description,
                 "99b17564aaf94886b6858c92eec20285",
                 Helpers.GetIcon("47808d23c67033d4bbab86a1070fd62f"), // cure light wounds
@@ -329,7 +327,7 @@ namespace EldritchArcana
             cureProgression.UIGroups = Helpers.CreateUIGroups(cureSpells);
 
             var inflictProgression = Helpers.CreateProgression("OracleInflictSpellProgression",
-                "Inflict Spells",
+                RES.OracleInflictSpellProgressionName_info,
                 selection.Description,
                 "1ad92576cf214c9a8890cd9ef6a06a31",
                 Helpers.GetIcon("e5cb4c4459e437e49a4cd73fde6b9063"), // inflict light wounds
