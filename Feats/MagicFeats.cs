@@ -345,8 +345,8 @@ namespace EldritchArcana
             var wizardClass = Helpers.GetClass("ba34257984f4c41408ce1dc2004e342e");
             var spellFocusGreater = (library.Get<BlueprintFeature>("5b04b45b228461c43bad768eb0f7c7bf"));
             var oppositionResearch = Helpers.CreateFeatureSelection("OppositionResearchSelection",
-                "Opposition Research",
-                "Select one Wizard opposition school; preparing spells of this school now only requires one spell slot of the appropriate level instead of two, and you no longer have the –4 Spellcraft penalty for crafting items from that school.",
+                RES.OppositionResearchFeatureName_info,
+                RES.OppositionResearchFeatureDescription_info,
                 "48eb4a47b01e4d088f763ff20824189e",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Opposition_Research.png"),//spellFocusGreater.Icon,
                 FeatureGroup.WizardFeat,

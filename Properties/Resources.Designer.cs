@@ -125,6 +125,170 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 
+        ///You can also add any metamagic feats that you know to your spells without increasing their casting time, although you must still expend higher-level spell slots. 的本地化字符串。
+        /// </summary>
+        internal static string ArcaneApotheosisFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("ArcaneApotheosisFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You gain the orc subtype, including light sensitivity. Whenever you cast a spell that deals damage, that spell deals +1 point of damage per die rolled. 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcArcanaFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcArcanaFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Orc Bloodline Arcana 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcArcanaFeatureName_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcArcanaFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 At 3rd level, you gain a +4 bonus on saving throws made against fear and a +1 natural armor bonus. At 9th level, you lose your light sensitivity, gain immunity to fear, and your natural armor bonus increases to +2. 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcFearlessFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcFearlessFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Fearless 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcFearlessFeatureName_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcFearlessFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Creatures with light sensitivity are dazzled in areas of bright sunlight or within the radius of a daylight spell. 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcLightSensitivityFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcLightSensitivityFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Light Sensitivity 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcLightSensitivityFeatureName_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcLightSensitivityFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 At 2nd level, and every two levels thereafter, an oracle learns an additional spell derived from their mystery. 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcOracleSpellDescription_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcOracleSpellDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 At 15th level, you may grow to Large size as a standard action. At this size you gain a +6 size bonus to Strength, a –2 penalty to Dexterity, a +4 size bonus to Constitution, and a +4 natural armor bonus. You may return to your normal size as a standard action. You may remain in this size for up to 1 minute per character level per day; this duration does not need to be consecutive, but it must be used in 1 minute increments. 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcPowerOfGiantsBuffDescription_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcPowerOfGiantsBuffDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Power of Giants 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcPowerOfGiantsBuffName_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcPowerOfGiantsBuffName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell derived from their bloodline. 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcSpellDescription_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcSpellDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {0}These spells cannot be exchanged for different spells at higher levels.
+        ///{1} 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcSpellFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcSpellFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 At 9th level, you gain a +2 inherent bonus to your Strength. This bonus increases to +4 at 13th level, and to +6 at 17th level. 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcStrengthOfTheBeastFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcStrengthOfTheBeastFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Strength of the Beast 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcStrengthOfTheBeastFeatureName_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcStrengthOfTheBeastFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 At 1st level, you can touch a creature as a standard action, giving it a morale bonus on attack rolls, damage rolls, and Will saving throws equal to 1/2 your sorcerer level (minimum 1) for 1 round. You can use this ability a number of times per day equal to 3 + your Charisma modifier. 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcTouchOfRageBuffDescription_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcTouchOfRageBuffDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Touch of Rage 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcTouchOfRageBuffName_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcTouchOfRageBuffName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 At 20th level, you become a true orc warlord of legend. You gain immunity to fire and DR 5/—. Once per day, you can cast transformation as a spell-like ability using your sorcerer level as your caster level. 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcWarlordRebornFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcWarlordRebornFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Warlord Reborn 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineOrcWarlordRebornFeatureName_info {
+            get {
+                return ResourceManager.GetString("BloodlineOrcWarlordRebornFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Failed to patch LibraryScriptableObject.LoadDictionary(), cannot load mod! 的本地化字符串。
         /// </summary>
         internal static string cannotLoadMod_error {
@@ -258,6 +422,65 @@ namespace EldritchArcana.Properties {
         internal static string DrawbackForextraTraits_info {
             get {
                 return ResourceManager.GetString("DrawbackForextraTraits_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 If you pick a Drawback at level one you can choose an extra feat on top.
+        ///You have A frail body and you break bones easily also your health is not great so you have -1 vs disease saves.
+        ///Drawback: -3 hp at level 1 and You lose 1 additional hit points.For every Hit Die you possess. 的本地化字符串。
+        /// </summary>
+        internal static string DrawbackFrailFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("DrawbackFrailFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Frail 的本地化字符串。
+        /// </summary>
+        internal static string DrawbackFrailFeatureName_info {
+            get {
+                return ResourceManager.GetString("DrawbackFrailFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 If you pick a Drawback at level one you can choose an extra feat on top.
+        ///Drawback: Even with a peg leg, you lose 10 feet from your race抯 normal speed.
+        ///Drawback: You lose 2 initiative. 的本地化字符串。
+        /// </summary>
+        internal static string DrawbackOneLeggedFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("DrawbackOneLeggedFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Peg leg 的本地化字符串。
+        /// </summary>
+        internal static string DrawbackOneLeggedFeatureName_info {
+            get {
+                return ResourceManager.GetString("DrawbackOneLeggedFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 If you pick a Drawback at level one you can choose an extra feat on top.
+        ///Bane: choose a spellschool you have {0} on saves vs that spellschool. 的本地化字符串。
+        /// </summary>
+        internal static string DrawbackSpellVulnerabilityFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("DrawbackSpellVulnerabilityFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Spell Vulnerability 的本地化字符串。
+        /// </summary>
+        internal static string DrawbackSpellVulnerabilityFeatureName_info {
+            get {
+                return ResourceManager.GetString("DrawbackSpellVulnerabilityFeatureName_info", resourceCulture);
             }
         }
         
@@ -1000,6 +1223,24 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 At 3rd level, you can apply any one metamagic feat you know to a spell you are about to cast without increasing the casting time. You must still expend a higher-level spell slot to cast this spell. You can use this ability once per day at 3rd level and one additional time per day for every four sorcerer levels you possess beyond 3rd, up to five times per day at 19th level. At 20th level, this ability is replaced by arcane apotheosis. 的本地化字符串。
+        /// </summary>
+        internal static string MetamagicAdeptFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("MetamagicAdeptFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Metamagic Adept (Arcane Bloodline) 的本地化字符串。
+        /// </summary>
+        internal static string MetamagicAdeptFeatureName_info {
+            get {
+                return ResourceManager.GetString("MetamagicAdeptFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Metamagic feats 的本地化字符串。
         /// </summary>
         internal static string MetamagicFeatsFeatureName_info {
@@ -1047,6 +1288,15 @@ namespace EldritchArcana.Properties {
         internal static string MysteryClassSkillsFeatureName_info {
             get {
                 return ResourceManager.GetString("MysteryClassSkillsFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Select one Wizard opposition school; preparing spells of this school now only requires one spell slot of the appropriate level instead of two, and you no longer have the –4 Spellcraft penalty for crafting items from that school. 的本地化字符串。
+        /// </summary>
+        internal static string OppositionResearchFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("OppositionResearchFeatureDescription_info", resourceCulture);
             }
         }
         
@@ -1182,6 +1432,25 @@ namespace EldritchArcana.Properties {
         internal static string OracleRevelationFeatureName_info {
             get {
                 return ResourceManager.GetString("OracleRevelationFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The rage of your ancestors burns within you, and the taint of savage orc blood flows through your veins. Your anger is never far from the surface, giving you strength and driving you to seek greater power.
+        ///Bonus Feats of the Orc Bloodline: Diehard, Endurance, Great Fortitude, Intimidating Prowess, Improved Bull Rush, Power Attack, Toughness, Reach Spell. 的本地化字符串。
+        /// </summary>
+        internal static string OrcBloodlineFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("OrcBloodlineFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Orc Bloodline 的本地化字符串。
+        /// </summary>
+        internal static string OrcBloodlineFeatureName_info {
+            get {
+                return ResourceManager.GetString("OrcBloodlineFeatureName_info", resourceCulture);
             }
         }
         
@@ -1355,6 +1624,24 @@ namespace EldritchArcana.Properties {
         internal static string SpellsSpellNamePostfix_info {
             get {
                 return ResourceManager.GetString("SpellsSpellNamePostfix_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You have {0} on saves vs {1} and Elementalweakness {2}. 的本地化字符串。
+        /// </summary>
+        internal static string SpellVulnerabilityFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("SpellVulnerabilityFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Spell Vulnerability ({0}) 的本地化字符串。
+        /// </summary>
+        internal static string SpellVulnerabilityFeatureName_info {
+            get {
+                return ResourceManager.GetString("SpellVulnerabilityFeatureName_info", resourceCulture);
             }
         }
         

@@ -35,6 +35,7 @@ using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using Newtonsoft.Json;
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -117,10 +118,8 @@ namespace EldritchArcana
                 fraily[i - 1] = Helpers.CreateAddStatBonusOnLevel(StatType.HitPoints, i * -1, ModifierDescriptor.Penalty, i, i);
             };
 
-            var feat = Helpers.CreateFeature("Frail", "Frail",
-                "You have A frail body and you break bones easily also your health is not great so you have -1 vs disease saves.\n" +
-                "if you pick a Drawback at level one you can choose an extra feat on top\n" +
-                "Drawback: -3 hp at level 1 and You lose 1 additional hit points.For every Hit Die you possess.",
+            var feat = Helpers.CreateFeature("Frail", RES.DrawbackFrailFeatureName_info,
+                RES.DrawbackFrailFeatureDescription_info,
                 "0639446638b04ecc85e069e050751bfb",
                 frailsprite,//Helpers.NiceIcons(9),
                 FeatureGroup.Feat,
@@ -136,10 +135,8 @@ namespace EldritchArcana
         {
             var frailsprite = Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Peg_Leg.png");
             Log.Write(DrawFeatGuids[0]);
-            var feat = Helpers.CreateFeature("OneLegged", "Peg leg",
-                "if you pick a Drawback at level one you can choose an extra feat on top\n" +
-                "Drawback: Even with a peg leg, you lose 10 feet from your race’s normal speed.\n" +
-                "Drawback: You lose 2 initiative",
+            var feat = Helpers.CreateFeature("OneLegged", RES.DrawbackOneLeggedFeatureName_info,
+                RES.DrawbackOneLeggedFeatureDescription_info,
                 DrawFeatGuids[0],
                 frailsprite,//Helpers.NiceIcons(38),
                 FeatureGroup.Feat,
@@ -166,8 +163,8 @@ namespace EldritchArcana
                 SpellSchool.Necromancy,
                 SpellSchool.Transmutation,
                 //SpellSchool.Universalist
-            }).Select((school) => Helpers.CreateFeature($"SpellVulnerability{school}", $"SpellVulnerability-{school}",
-            $" you have {SpellVunrabilityBonus} on saves vs {school}", Helpers.MergeIds(DrawFeatGuids[1], Helpers.spellSchoolGuid(school)),
+            }).Select((school) => Helpers.CreateFeature($"SpellVulnerability{school}", $"Spell Vulnerability ({school})",
+            $"You have {SpellVunrabilityBonus} on saves vs {school}", Helpers.MergeIds(DrawFeatGuids[1], Helpers.spellSchoolGuid(school)),
             Helpers.GetIcon(Helpers.spellSchoolGuid(school)), FeatureGroup.None,
             Helpers.Create<SavingThrowBonusAgainstSchool>(a =>
             {
@@ -198,9 +195,8 @@ namespace EldritchArcana
 
             //var noFeature = Helpers.PrerequisiteNoFeature(null);
 
-            var feat = Helpers.CreateFeatureSelection("SpellVulnerability", "Spell Vulnerability",
-                "if you pick a Drawback at level one you can choose an extra feat on top\n" +
-                $"Bane: choose a spellschool you have {SpellVunrabilityBonus} on saves vs that spellschool.",//\n(except universalist and divination becouse there are no saves of those catagory)
+            var feat = Helpers.CreateFeatureSelection("SpellVulnerability", RES.DrawbackSpellVulnerabilityFeatureName_info,
+                string.Format(RES.DrawbackSpellVulnerabilityFeatureDescription_info, SpellVunrabilityBonus),
                 DrawFeatGuids[1],
                 spellvulsprite,//Helpers.NiceIcons(15),
                 FeatureGroup.Feat,
@@ -208,8 +204,6 @@ namespace EldritchArcana
             //feat.AddComponents(ElementalWeaknesChoiceFeature);
             //noFeature.Feature = feat;
             feat.SetFeatures(SpellschoolChoiceFeature);
-
-
             //feat.AddComponents(ikweethetniet);
             //components.AddRange(ikweethetniet);
 
@@ -218,6 +212,3 @@ namespace EldritchArcana
 
     }
 }
-
-
-
