@@ -66,7 +66,7 @@ namespace EldritchArcana
                 "A master druid revealed to you greater secrets of concentration when changing your form into that of an animal." +
                 "\nBenefit: You can shapeshift more often.",
                 "e34889a2dd7e4e9ebfdfa76bfb8f4445",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Gnome_Animal_Friend.png"),//WildShapeResource.Icon, 
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Beast_of_Society.png"),//WildShapeResource.Icon, 
                 FeatureGroup.None,
                 WildShapeResource.CreateIncreaseResourceAmount(4)));
 

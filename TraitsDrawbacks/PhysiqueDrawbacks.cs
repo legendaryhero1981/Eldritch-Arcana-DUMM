@@ -224,7 +224,7 @@ namespace EldritchArcana
             //8791da25011fd1844ad61a3fea6ece54
 
 
-            var CurseOptions = Helpers.CreateFeatureSelection("CurseOptions", "You Were Cursed",
+            var CurseOptions = Helpers.CreateFeatureSelection("CurseOptions", "You Were Cursed[HB]",
                 "You were cursed. Select a Curse.",
                 PhysiqueGuids[14],
                 Helpers.NiceIcons(10),

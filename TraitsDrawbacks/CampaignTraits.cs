@@ -94,7 +94,7 @@ namespace EldritchArcana
                 "Their motto is 'High Above.' \n" +
                 "House Orlovsky controls northeastern Brevoy from Eagle's Watch on Mount Veshka. They try to rise above petty political maneuvers. As staunch allies of the now disappeared House Rogarvia, this has landed them in a prickly situation." +
                 "\nBenefit: You have a +1 trait bonus on CMD. You select one of the following skills: Persuasion, Athletics, or Stealth. You gain a +1 trait bonus on checks with that skill, and it is always a class skill for you.",
-                Helpers.MergeIds(Helpers.getGuids(StatType.AC), "9b03b7ff17394007a3fbec18bb42604b"),
+                Helpers.MergeIds(Helpers.getStattypeGuid(StatType.AC), "9b03b7ff17394007a3fbec18bb42604b"),
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Orlovsky.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.AdditionalCMD, 1, ModifierDescriptor.Trait));
@@ -121,7 +121,7 @@ namespace EldritchArcana
                 "Family Motto: 'Success through Grace.'\n" +
                 "House Lebeda is based to the southwest of Lake Reykal in Brevoy, controlling the plains and significant portions of the lake's shipping. They are considered to be the Brevic noble family that epitomizes Rostland, having significant Taldan blood, an appreciation for fine things, and a love of sword fighting." +
                 "\nBenefit: You get a +1 trait bonus on Knowledge (Arcana), and select a resource for a usable ability. You can use it at least one additional time.",
-                Helpers.MergeIds(Helpers.getGuids(StatType.Intelligence), "9b03b7ff17394007a3fbec18bb42604c"),
+                Helpers.MergeIds(Helpers.getStattypeGuid(StatType.Intelligence), "9b03b7ff17394007a3fbec18bb42604c"),
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Lebeda.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.SkillKnowledgeArcana, 1, ModifierDescriptor.Trait));
@@ -160,6 +160,21 @@ namespace EldritchArcana
             var wizard = Traits.library.Get<BlueprintCharacterClass>("ba34257984f4c41408ce1dc2004e342e");
             var oracle = Traits.library.Get<BlueprintCharacterClass>("ec73f4790c1d4554871b81cde0b9399b");
             var rogue = Traits.library.Get<BlueprintCharacterClass>("299aa766dee3cbf4790da4efb8c72484");
+            
+            var BloodlineFeyWoodlandStride = Traits.library.CopyAndAdd<BlueprintFeature>(
+                "11f4072ea766a5840a46e6660894527d",
+                "Noble family Garess Trait",
+                Helpers.MergeIds(Helpers.getStattypeGuid(StatType.Reach), "9b03b7ff17394007a3fbec18bb42604b"));
+            BloodlineFeyWoodlandStride.SetNameDescriptionIcon(
+                "Noble family — Garess",
+                "Familty motto: 'Strong as the Mountains'\n" +
+                "House Garess is based in the western part of Brevoy, in the foothills of the Golushkin Mountains. " +
+                "House Garess's crest is that of a snow-capped mountain peak in gray set against a dark blue field. There is a silvery crescent moon in the upper right corner, and there is a black hammer across the base of the peak. The Houses motto is Strong as the Mountains. " +
+                "House Garess had a good relationship with the Golka dwarves until the dwarves vanished. Members of the house worked the metal that the dwarves mined. " +
+                "The House has built several strongholds, Highdelve and Grayhaven, in the Golushkin Mountains. \nBenefit: Your movement speed is 5ft faster. And you have no trouble moving through nonmagical rough terrain.",
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Garess.png")
+                );
+            BloodlineFeyWoodlandStride.AddComponent(Helpers.CreateAddStatBonus(StatType.Speed, 5, ModifierDescriptor.Trait));
             string[] Diffforhumans = new string[] { "Ki power as a monk", "Alchemy mutagen as a Alchemist", "Bonded item restore spell as a wizard", "Impromtu sneak attack as a acrane trickster", "Judgement ability as a inquisitor", "Arcane weapon enhancements as a magus", "Performances as a Sensei" };
             var LebdaFeatures = new List<BlueprintFeature>() { };
             var Resources = new List<BlueprintAbilityResource> { kiPowerResource, MutagenResource, ItemBondResource, ImpromptuSneakAttackResource, JudgmentResource, ArcanePoolResourse, SenseiPerformanceResource };
@@ -190,7 +205,7 @@ namespace EldritchArcana
                 "The people of the area raise mountain goats and sheep. They hunt in the forest and farm what little good land is on the edges of their concerns. Religion in this area tends to be more centralized on Erastil, but rumors of hidden shrines to Lamashtu do exist."+
                 "The house crest is a black bear with black antlers above its head in front of a red field.Their motto is 'Endurance Overcomes All.'" +
                 "\nBenefit: You can use Lay on Hands 4 times more per day, and you get a +1 trait bonus on saving throws vs compulsion effects from feys.",
-                Helpers.MergeIds(Helpers.getGuids(StatType.AdditionalCMB), "9b03b7ff17394007a3fbec18bb42604b"),
+                Helpers.MergeIds(Helpers.getStattypeGuid(StatType.AdditionalCMB), "9b03b7ff17394007a3fbec18bb42604b"),
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Medvyed.png"),
                 FeatureGroup.None,
                 layonhandsResource.CreateIncreaseResourceAmount(4),Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Compulsion; s.Value = 1; s.ModifierDescriptor = ModifierDescriptor.Trait; })),
@@ -202,7 +217,7 @@ namespace EldritchArcana
                 "The fleet primarily catches fish and freshwater crabs."+
                 "The house's crest includes a green crab climbing out of the water towards a gray tower/keep. Their motto is 'The Waters, Our Fields'." +
                 "\nBenefit: You get a +2 trait bonus on Athletics checks. If you are a spellcaster, you know the spell Snowball.",
-                Helpers.MergeIds(Helpers.getGuids(StatType.BaseAttackBonus), "9b03b7ff17394007a3fbec18bb42604b"),
+                Helpers.MergeIds(Helpers.getStattypeGuid(StatType.BaseAttackBonus), "9b03b7ff17394007a3fbec18bb42604b"),
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Lodovka.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddKnownSpell(snowball,wizard,0),
@@ -223,6 +238,8 @@ namespace EldritchArcana
                 //Helpers.CreateAddKnownSpell(snowball,scald,1),
                 Helpers.CreateAddStatBonus(StatType.SkillAthletics,2,ModifierDescriptor.Trait)),
                 //family garess + 5 mvnt spd
+                BloodlineFeyWoodlandStride,
+                /*
                 Helpers.CreateFeature("Noble family Garess Trait", "Noble family — Garess",
                 "Familty motto: 'Strong as the Mountains'\n" +
                 "House Garess is based in the western part of Brevoy, in the foothills of the Golushkin Mountains. " +
@@ -233,6 +250,7 @@ namespace EldritchArcana
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Garess.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.Speed,5,ModifierDescriptor.Trait)),
+                */
                 //family rogarvia
                 Helpers.CreateFeature("Noble family Rogarvia Trait", "Noble family — Rogarvia",
                 "Family Motto: 'With Sword and Flame.'\n" +
@@ -301,7 +319,7 @@ namespace EldritchArcana
                 "The Surtovans are known as careful and cunning diplomats. Before Choral the Conqueror invaded, the Surtovans were known as pirates and raiders, and the family still has many connections with the pirates and brigands of the region, many of whom are distant relations of the Surtova clan. One of the more active pirates of the Lake of Mists and Veils, Captain Vali Dobos, is rumoured to have a close connection with the Surtova's, although he keeps his lineage hidden."+
                 "Their family motto is 'Ours Is the Right,' which likely reflects their belief in a right to rulership of Brevoy since their family formerly ruled Issia as a group of crafty pirate-kings. Their crest is a gray ship in front of fields of blue on the lower half and black with silver stars on the upper half." +
                 "\nBenefit: You get a +2 trait bonus on damage against flanked targets.",
-                Helpers.MergeIds(Helpers.getGuids(StatType.SneakAttack), "9b03b7ff17394007a3fbec18bb42604c"),
+                Helpers.MergeIds(Helpers.getStattypeGuid(StatType.SneakAttack), "9b03b7ff17394007a3fbec18bb42604c"),
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Surtova.png"),
                 FeatureGroup.None,
                 Helpers.Create<DamageBonusAgainstFlankedTarget>(a => a.Bonus = 2))
@@ -410,14 +428,7 @@ namespace EldritchArcana
             families.Add();
             */
             var summonedBow = Traits.library.Get<BlueprintItem>("2fe00e2c0591ecd4b9abee963373c9a7");
-            var bob = new StatType[] {
-                StatType.AC,
-                StatType.Reach,
-                StatType.SneakAttack,
-                StatType.Intelligence,
-                StatType.BaseAttackBonus,
-                StatType.AdditionalCMB
-            };
+            
             //ishomebrew
             var dice = Helpers.GetIcon("3fcc181a8b2094b4d9a636b639f0b79b");
             var OptimisticGambler =Helpers.CreateFeatureSelection("OptimisticGamblerTrait", "Optimistic Gambler",
@@ -458,7 +469,8 @@ namespace EldritchArcana
                 "e66154511a6f9fc49a9de644bd8922db",
                 "9c141c687eae35f4ba5399c11a4bdbc3",
                 "9993edb6c470a6f4ab0bb8aac0b7522a",
-                "aae0cb964bf516a4480d6745b71de4e7"
+                "aae0cb964bf516a4480d6745b71de4e7",
+                "2ee2ba60850dd064e8b98bf5c2c946ba",
             };
             
             /*
@@ -513,10 +525,23 @@ namespace EldritchArcana
                 OptimisticGamblerOptions.Add(CopiedFeat);
             }
 
+            var bob = new StatType[] {
+                StatType.AC,
+                StatType.AdditionalAttackBonus,
+                StatType.AdditionalCMB,
+                StatType.BaseAttackBonus,
+                StatType.Charisma,//(1.2.4)
+                StatType.Reach,
+                StatType.SneakAttack,
+                StatType.Strength,//(1.2.4)
+                StatType.Intelligence,
+                StatType.Wisdom,//(1.2.4)
+            };
+
             foreach (StatType stat in bob)
             {
-                OptimisticGamblerOptions.Add(Helpers.CreateFeature($"randomeffect{stat}", wwib, Gmbldsc + " +3 {stat} luck bonus"
-                    , Helpers.MergeIds(Helpers.getGuids(stat), "c88b9398af66406cac173884df308eb8"),dice,FeatureGroup.None,
+                OptimisticGamblerOptions.Add(Helpers.CreateFeature($"randomeffect{stat}", wwib, Gmbldsc + $" +3 {stat} luck bonus"
+                    , Helpers.MergeIds(Helpers.getStattypeGuid(stat), "c88b9398af66406cac173884df308eb8"),dice,FeatureGroup.None,
                     Helpers.CreateAddStatBonus(stat,3,ModifierDescriptor.Luck)));
             }
 
@@ -546,9 +571,10 @@ namespace EldritchArcana
 
                 OptimisticGamblerOptions.Add(
                     Helpers.CreateFeature(
-                        $"randomeffectExtra{weap}", wwib, Gmbldsc + $" You start with a {weap} and you have +3 damage with weapons of this type"
+                        $"randomeffectExtra{weap}", wwib, Gmbldsc + $" You start with a {weap} and you have a 3 bonus on attack rolls with weapons of this type"
                         , CampaignGuids[x], dice, FeatureGroup.None,
-                        Helpers.Create<WeaponCategoryAttackBonus>(b => { b.Category = weap; b.AttackBonus = 3; }),                        
+                        Helpers.Create<WeaponCategoryAttackBonus>(b => { b.Category = weap; b.AttackBonus = 3;}),
+                        //Helpers.Create<WeaponTypeDamageBonus>(c=> { c.WeaponType = weap; })
                         Helpers.Create<AddStartingEquipment>(a =>
                         {
                             a.CategoryItems = new WeaponCategory[] { weap, weap };
@@ -571,7 +597,8 @@ namespace EldritchArcana
             var option2 = OptimisticGamblerOptions[rnd2];
             //var option3 = OptimisticGamblerOptions[DateTime.Now.Millisecond % OptimisticGamblerOptions.Count];
             OptimisticGambler.SetFeatures(xander,option2);
-            //OptimisticGambler.SetFeatures(OptimisticGamblerOptions);
+            OptimisticGambler.IgnorePrerequisites=true;
+            OptimisticGambler.SetFeatures(OptimisticGamblerOptions);
             choices.Add(OptimisticGambler);
 
             choices.Add(Helpers.CreateFeature("RostlanderTrait", "Rostlander",

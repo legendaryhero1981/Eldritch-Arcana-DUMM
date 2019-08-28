@@ -331,6 +331,9 @@
   <data name="HealingHandsFeatureName_info" xml:space="preserve">
     <value>治愈之手</value>
   </data>
+  <data name="HighDCl_info" xml:space="preserve">
+    <value>外域法术获得施法者等级和DC的最大值（作弊）</value>
+  </data>
   <data name="HypnoticDurationLocalized_info" xml:space="preserve">
     <value>专注＋2轮</value>
   </data>
@@ -609,6 +612,12 @@
   </data>
   <data name="SpellPerfectionFeatureName_info" xml:space="preserve">
     <value>完美法术</value>
+  </data>
+  <data name="SpellVulnerabilityFeatureDescription_info" xml:space="preserve">
+    <value>你在抵抗{1}学派法术时会遭受{0}点豁免惩罚，还具备元素弱点（{2}）。</value>
+  </data>
+  <data name="SpellVulnerabilityFeatureName_info" xml:space="preserve">
+    <value>法术弱点（{0}）</value>
   </data>
   <data name="SpellsSpellNamePostfix_info" xml:space="preserve">
     <value>法术</value>

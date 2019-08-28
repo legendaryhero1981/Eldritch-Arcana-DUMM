@@ -1,22 +1,16 @@
 // Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Harmony12;
+
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints.Items;
-using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Controllers.Combat;
-using Kingmaker.Designers.Mechanics.Buffs;
-using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -30,16 +24,18 @@ using Kingmaker.UI.ServiceWindow;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Buffs;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Class.LevelUp;
 using Kingmaker.UnitLogic.Class.LevelUp.Actions;
 using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Parts;
-using Harmony12;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
+
 using Newtonsoft.Json;
-using Kingmaker.UnitLogic.Buffs;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EldritchArcana
 {
@@ -95,6 +91,7 @@ namespace EldritchArcana
             choices.Add(MagicTraits.CreateMagicTraits());
             BlueprintFeatureSelection adopted;
             choices.Add(SocialTraits.CreateSocialTraits(out adopted));
+            choices.Add(EquipmentTraits.CreateEquipmentTraits());
             choices.Add(RaceTraits.CreateRaceTraits(adopted));
             choices.Add(CampaignTraits.CreateCampaignTraits());
             choices.Add(RegionalTraits.CreateRegionalTraits());
@@ -399,14 +396,16 @@ namespace EldritchArcana
 
         public void OnEventDidTrigger(RuleCalculateAbilityParams evt) { }
     }
+
     [AllowedOn(typeof(BlueprintParametrizedFeature))]
     public class IncreaseCasterLevelForSpellMax : ParametrizedFeatureComponent, IInitiatorRulebookHandler<RuleCalculateAbilityParams>
     {
-        public int Bonus = Main.settings?.CheatCustomTraits == true ? 999999999 : 1;
+        public int Bonus;
         public void OnEventAboutToTrigger(RuleCalculateAbilityParams evt)
         {
             var spell = Param.Blueprint;
             if (evt.Spell != spell && evt.Spell?.Parent != spell) return;
+            Bonus = Main.settings?.HighDCl == true ? 999999999 : 1;
             Log.Write($"Increase caster level of {spell.name} by {Bonus}");
             evt.AddBonusDC(Bonus);
             evt.AddBonusCasterLevel(Bonus);

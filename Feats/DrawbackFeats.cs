@@ -1,40 +1,21 @@
 // Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints.Items.Equipment;
-using Kingmaker.Blueprints.Root;
-using Kingmaker.Blueprints.Root.Strings;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
-using Kingmaker.PubSubSystem;
-using Kingmaker.RuleSystem;
-using Kingmaker.RuleSystem.Rules;
-using Kingmaker.RuleSystem.Rules.Abilities;
-using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Class.LevelUp;
 using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics;
-using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.UnitLogic.Parts;
-using Kingmaker.Utility;
-using Newtonsoft.Json;
-using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
@@ -152,46 +133,34 @@ namespace EldritchArcana
             var spellvulsprite = Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_spell_Vulnerability.png");
             int SpellVunrabilityBonus = -4;
             var components = new List<BlueprintComponent> { };
-            var SpellschoolChoiceFeature = (new SpellSchool[]
-            {
-                SpellSchool.Abjuration,
-                SpellSchool.Conjuration,
-                //SpellSchool.Divination,
-                SpellSchool.Enchantment,
-                SpellSchool.Evocation,
-                SpellSchool.Illusion,
-                SpellSchool.Necromancy,
-                SpellSchool.Transmutation,
-                //SpellSchool.Universalist
-            }).Select((school) => Helpers.CreateFeature($"SpellVulnerability{school}", $"Spell Vulnerability ({school})",
-            $"You have {SpellVunrabilityBonus} on saves vs {school}", Helpers.MergeIds(DrawFeatGuids[1], Helpers.spellSchoolGuid(school)),
-            Helpers.GetIcon(Helpers.spellSchoolGuid(school)), FeatureGroup.None,
-            Helpers.Create<SavingThrowBonusAgainstSchool>(a =>
-            {
-                a.School = school;
-                a.Value = SpellVunrabilityBonus;
-                a.ModifierDescriptor = ModifierDescriptor.Penalty;
-            }))).ToArray();
 
-            var ElementalWeaknes = new DamageEnergyType[] {
-                DamageEnergyType.Cold,
-                DamageEnergyType.Acid,
-                //divination
-                DamageEnergyType.Sonic,
-                DamageEnergyType.Fire,
-                DamageEnergyType.Electricity,
-                DamageEnergyType.Unholy,
-                DamageEnergyType.Divine,
-                //universalist
+            var schoolTypes = new Dictionary<SpellSchool, DamageEnergyType>()
+            {
+                {SpellSchool.Abjuration,DamageEnergyType.Cold},
+                {SpellSchool.Conjuration,DamageEnergyType.Acid},
+                {SpellSchool.Enchantment,DamageEnergyType.Sonic},
+                {SpellSchool.Evocation,DamageEnergyType.Fire},
+                {SpellSchool.Illusion,DamageEnergyType.Electricity},
+                {SpellSchool.Necromancy,DamageEnergyType.Unholy},
+                {SpellSchool.Transmutation,DamageEnergyType.Divine}
             };
 
-            BlueprintFeature feature = SpellschoolChoiceFeature[1];
-            for (int i = 0; i < 7; i++)
+            var spellSchoolChoiceFeature = schoolTypes.Select(schoolType =>
             {
-                feature = SpellschoolChoiceFeature[i];
-                feature.SetDescription(feature.GetDescription() + $" and Elementalweakness {ElementalWeaknes[i]}");
-                feature.AddComponent(Helpers.Create<AddEnergyVulnerability>(a => { a.Type = ElementalWeaknes[i]; }));
-            }
+                var result = Helpers.CreateFeature($"SpellVulnerability{schoolType.Key}",
+                    string.Format(RES.SpellVulnerabilityFeatureName_info, schoolType.Key),
+                    string.Format(RES.SpellVulnerabilityFeatureDescription_info, SpellVunrabilityBonus, schoolType.Key,
+                        schoolType.Value), Helpers.MergeIds(DrawFeatGuids[1], Helpers.spellSchoolGuid(schoolType.Key)),
+                    Helpers.GetIcon(Helpers.spellSchoolGuid(schoolType.Key)), FeatureGroup.None,
+                    Helpers.Create<SavingThrowBonusAgainstSchool>(a =>
+                    {
+                        a.School = schoolType.Key;
+                        a.Value = SpellVunrabilityBonus;
+                        a.ModifierDescriptor = ModifierDescriptor.Penalty;
+                    }));
+                result.AddComponent(Helpers.Create<AddEnergyVulnerability>(a => a.Type = schoolType.Value));
+                return result;
+            }).ToArray();
 
             //var noFeature = Helpers.PrerequisiteNoFeature(null);
 
@@ -203,7 +172,7 @@ namespace EldritchArcana
                 PrerequisiteCharacterLevelExact.Create(1));
             //feat.AddComponents(ElementalWeaknesChoiceFeature);
             //noFeature.Feature = feat;
-            feat.SetFeatures(SpellschoolChoiceFeature);
+            feat.SetFeatures(spellSchoolChoiceFeature);
             //feat.AddComponents(ikweethetniet);
             //components.AddRange(ikweethetniet);
 

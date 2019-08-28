@@ -3,6 +3,39 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [1.2.4]
+
+### Added
+-scimitar as an heirloom weapon.
+-Option to make outlander spells Cl max +999999; just in case you want a spell to last a long time{cheat}
+
+### Changed
+-Description gambler damage -> attack rolls
+
+## [1.2.3]
+
+### Added
+-scimitar as an heirloom weapon.
+-Option to make outlander spells Cl max +999999; just in case you want a spell to last a long time{cheat}
+
+### Changed
+-Garess now has the woodland stride Effect added
+-Wanderlust 5ft->10ft
+
+### Fixed
+-Frostborn spelling
+
+## [1.2.2]
+
+### Added
+-More Icons Made by Nolanoth for spells traits and feats in the mod.
+-A couple of traits
+-Equipment trait section
+
+### Changed
+-Family heirloom has been moved to equipment traits.
+
+
 ## [1.2.1]
 
 ### Added

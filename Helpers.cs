@@ -1540,21 +1540,24 @@ namespace EldritchArcana
             return replacement;
         }
 
-        internal static string getGuids(StatType skill)
+        internal static string getStattypeGuid(StatType skill)
         {
-            if (skill == StatType.AC) return "0b183a3acaf5464eaad54276413fec04";
-            if (skill == StatType.Reach) return "0b183a3acaf5464eaad54276413fec05";
-            if (skill == StatType.SneakAttack) return "0b183a3acaf5464eaad54276413fec06";
-            if (skill == StatType.Intelligence) return "0b183a3acaf5464eaad54276413fec07";
-            if (skill == StatType.BaseAttackBonus) return "0b183a3acaf5464eaad54276413fec08";
-            if (skill == StatType.AdditionalCMB) return "0b183a3acaf5464eaad54276413fec09";
-            /*
-            if (skill == StatType.AC) return "0b183a3acaf5464eaad54276413fec10";
-            if (skill == StatType.AC) return "0b183a3acaf5464eaad54276413fec11";
-            if (skill == StatType.AC) return "0b183a3acaf5464eaad54276413fec12";
-            if (skill == StatType.AC) return "0b183a3acaf5464eaad54276413fec13";
-            */
-            return "0b183a3acaf5464eaad54286413fec14";
+
+            switch (skill)
+            {
+                case StatType.AC:                     return "0b183a3acaf5464eaad54276413fec04";
+                case StatType.AdditionalAttackBonus:  return "0b183a3acaf5464ecad54276414fec09";//(1.2.4)
+                case StatType.AdditionalCMB:          return "0b183a3acaf5464eaad54276413fec09";
+                case StatType.AdditionalCMD:          return "1b194a3acaf5464eaad54276413fec08";//(1.2.4)
+                case StatType.Charisma:               return "2b194a3acaf5464eaad54376413fec23";//(1.2.4)
+                case StatType.BaseAttackBonus:        return "0b183a3acaf5464eaad54276413fec08";
+                case StatType.Intelligence:           return "0b183a3acaf5464eaad54276413fec07";
+                case StatType.Reach:                  return "0b183a3acaf5464eaad54276413fec05";
+                case StatType.SneakAttack:            return "0b183a3acaf5464eaad54276413fec06";
+                case StatType.Strength:               return "0b183a3acaf5464eabd44276413fec17";//(1.2.4)
+                case StatType.Wisdom:                 return "2b194a3acaf5464eaad54276413fec18";//(1.2.4)
+                default:                              return "0b183a3acaf5464eaad54286413fec14";
+            }
         }
 
         public static void ReplaceContextRankConfig(this BlueprintScriptableObject obj, Action<ContextRankConfig> update)

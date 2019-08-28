@@ -338,13 +338,14 @@ namespace EldritchArcana
             }
 
             SingleLineToggle(ref settings.EldritchKnightFix, RES.EldritchKnightFix_info, RES.EldritchKnightFix_tip);
-            SingleLineToggle(ref settings.ShowCustomPortraits, RES.ShowCustomPortraits_info);
-            SingleLineToggle(ref settings.CheatCustomTraits, RES.CheatCustomTraits_info);
             SingleLineToggle(ref settings.DrawbackForextraTraits, RES.DrawbackForextraTraits_info);
             SingleLineToggle(ref settings.OracleHas3SkillPoints, RES.OracleHas3SkillPoints_info);
             OracleClass.MaybeUpdateSkillPoints();
             SingleLineToggle(ref settings.RelaxAncientLorekeeper, RES.RelaxAncientLorekeeper_info);
             SingleLineToggle(ref settings.RelaxTonguesCurse, RES.RelaxTonguesCurse_info, RES.RelaxTonguesCurse_tip);
+            SingleLineToggle(ref settings.ShowCustomPortraits, RES.ShowCustomPortraits_info);
+            SingleLineToggle(ref settings.CheatCustomTraits, RES.CheatCustomTraits_info);
+            SingleLineToggle(ref settings.HighDCl, RES.HighDCl_info);
 
             GL.EndVertical();
 
@@ -393,18 +394,13 @@ namespace EldritchArcana
     public class Settings : UnityModManager.ModSettings
     {
         public bool EldritchKnightFix = true;
-
-        public bool CheatCustomTraits = false;
-
-        public bool ShowCustomPortraits = false;
-
         public bool DrawbackForextraTraits = true;
-
         public bool OracleHas3SkillPoints = true;
-
         public bool RelaxAncientLorekeeper = false;
-
         public bool RelaxTonguesCurse = false;
+        public bool ShowCustomPortraits = false;
+        public bool CheatCustomTraits = false;
+        public bool HighDCl = false;
 
         public override void Save(UnityModManager.ModEntry modEntry)
         {

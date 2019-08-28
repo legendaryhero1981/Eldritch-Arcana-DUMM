@@ -43,12 +43,11 @@ using System.Linq;
 
 using UnityEngine;
 
-using UnityModManagerNet;
-
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
 
 using GC = UnityEngine.GUIContent;
 using GL = UnityEngine.GUILayout;
+using UnityModManager = UnityModManagerNet.UnityModManager;
 
 namespace EldritchArcana
 {
@@ -304,6 +303,52 @@ namespace EldritchArcana
             return apply_buff;
         }
 
+
+        public class ModEntryCheck
+        {
+
+            UnityModManager.ModEntry modEntry;
+
+
+            public ModEntryCheck(string modId)
+            {
+                modEntry = UnityModManager.FindMod(modId);
+            }
+
+            public bool ModIsActive()
+            {
+                if (modEntry != null && modEntry.Assembly != null)
+                {
+                    return modEntry.Active;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            public bool IsInstalled()
+            {
+                if (modEntry != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            public string Version()
+            {
+                if (modEntry != null)
+                {
+                    return modEntry.Info.Version;
+                }
+                else
+                {
+                    return "";
+                }
+            }
+        }
 
         internal static Kingmaker.UnitLogic.Mechanics.Actions.ContextActionRandomize createContextActionRandomize(params Kingmaker.ElementsSystem.ActionList[] actions)
         {

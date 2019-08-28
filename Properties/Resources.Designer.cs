@@ -759,6 +759,15 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Outlander spells gain caster level and DC max (cheat) 的本地化字符串。
+        /// </summary>
+        internal static string HighDCl_info {
+            get {
+                return ResourceManager.GetString("HighDCl_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Concentration + 2 rounds 的本地化字符串。
         /// </summary>
         internal static string HypnoticDurationLocalized_info {
@@ -1628,7 +1637,7 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 You have {0} on saves vs {1} and Elementalweakness {2}. 的本地化字符串。
+        ///   查找类似 You have {0} on saves vs {1} and elemental weakness {2}. 的本地化字符串。
         /// </summary>
         internal static string SpellVulnerabilityFeatureDescription_info {
             get {

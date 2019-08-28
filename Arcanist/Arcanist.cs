@@ -237,7 +237,7 @@ namespace EldritchArcana
         {
             //Familiar(Su)
             var selection = Helpers.CreateFeatureSelection("ArcanistExploitSelection", "Select Exploit",
-                "By bending and sometimes even breaking the rules of magic, the arcanist learns to exploit gaps and exceptions in the laws of magic. Some of these exploits allow her to break down various forms of magic, adding their essence to her arcane reservoir. At 1st level and every 2 levels thereafter, the arcanist learns a new arcane exploit selected from the following list. An arcanist exploit cannot be selected more than once. Once an arcanist exploit has been selected, it cannot be changed. Most arcanist exploits require the arcanist to expend points from her arcane reservoir to function. Unless otherwise noted, the saving throw DC for an arcanist exploit is equal to 10 + 1/2 the arcanist’s level + the arcanist’s Charisma modifier..",
+                "By bending and sometimes even breaking the rules of magic, the arcanist learns to exploit gaps and exceptions in the laws of magic. Some of these exploits allow her to break down various forms of magic, adding their essence to her arcane reservoir. At 1st level and every 2 levels thereafter, the arcanist learns a new arcane exploit selected from the following list. An arcanist exploit cannot be selected more than once. Once an arcanist exploit has been selected, it cannot be changed. Most arcanist exploits require the arcanist to expend points from her arcane reservoir to function. Unless otherwise noted, the saving throw DC for an arcanist exploit is equal to 10 + 1/2 the arcanistï¿½s level + the arcanistï¿½s Charisma modifier..",
                 "4e685b25900246939394662b7faac125",
                 null,
                 UpdateLevelUpDeterminatorText.Group);
@@ -270,8 +270,8 @@ namespace EldritchArcana
 
         static void createArcaneReservoir()
         {
-            string abilitydescription = "An arcanist has an innate pool of magical energy that she can draw upon to fuel her arcanist exploits and enhance her spells. The arcanist’s arcane reservoir can hold a maximum amount of magical energy.\n" +
-                "Points from the arcanist reservoir are used to fuel many of the arcanist’s powers. In addition, the arcanist can expend 1 point from her arcane reservoir as a free action whenever she casts an arcanist spell. If she does, she can choose to increase the caster level by 1 or increase the spell’s DC by 1.\n" +
+            string abilitydescription = "An arcanist has an innate pool of magical energy that she can draw upon to fuel her arcanist exploits and enhance her spells. The arcanistï¿½s arcane reservoir can hold a maximum amount of magical energy.\n" +
+                "Points from the arcanist reservoir are used to fuel many of the arcanistï¿½s powers. In addition, the arcanist can expend 1 point from her arcane reservoir as a free action whenever she casts an arcanist spell. If she does, she can choose to increase the caster level by 1 or increase the spellï¿½s DC by 1.\n" +
                 "You gain 3 at the minimum and extra charges based on your arcanist level.";
             var resource = Helpers.CreateAbilityResource("ArcanistReservoirResource","Reservoir charge",
                                              "One charge from the reservoir",

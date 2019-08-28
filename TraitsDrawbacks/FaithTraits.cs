@@ -60,7 +60,21 @@ namespace EldritchArcana
                     a.ModifierDescriptor = ModifierDescriptor.Trait;
                 })));
 
-            
+
+            choices.Add(Helpers.CreateFeature("DefyMadnessTrait", "Defy Madness (Old Cults)",
+                "Your direct involvement with supernatural and alien forces has left you less vulnerable to the insanity they cause." +
+                "\nBenefit: You gain a +1 trait bonus on any saving throws against confusion, insanity, madness, and Wisdom damage and drain.",
+                "fdc612c0789d43a2b6cfad26aeda34f9",
+                Helpers.GetIcon("2483a523984f44944a7cf157b21bf79c"), // Elven Immunities
+                FeatureGroup.None,
+                Helpers.Create<SavingThrowBonusAgainstDescriptor>(a =>
+                {
+                    a.SpellDescriptor = SpellDescriptor.MindAffecting;
+                    a.Value = 1;
+                    a.ModifierDescriptor = ModifierDescriptor.Trait;
+                })));
+
+
 
             choices.Add(Traits.CreateAddStatBonus("ChildOfTheTempleTrait", "Child of the Temple",
                 "You have long served at a temple in a city, where you picked up on many of the nobility’s customs in addition to spending much time in the temple libraries studying your faith.",
@@ -98,13 +112,59 @@ namespace EldritchArcana
                 FeatureGroup.None,
                 Helpers.Create<ExtraLuckBonus>()));
 
+            var planar = Helpers.CreateFeatureSelection("PlanarSavantTrait", "Planar Savant",
+                "You have always had an innate sense of the workings of the planes and their denizens." +
+                "Benefit: You may use your Charisma modifier when making Knowledge checks instead of your Intelligence modifier. choose a knowledge to replace",
+                "2e4dcecc32e148cbaf0fb3c643249cbf",
+                Helpers.NiceIcons(43),
+                FeatureGroup.None, Helpers.Create<ReplaceBaseStatForStatTypeLogic>(x =>
+                {
+                    x.StatTypeToReplaceBastStatFor = StatType.SkillKnowledgeArcana;
+                    x.NewBaseStatType = StatType.Wisdom;
+                })
+                );
+
+
+
+
+            var planarOptions = new List<BlueprintFeature>(){
+
+                Helpers.CreateFeature("PlanarArcana", "Knowledge Arcana",
+                    "Use Charisma for calculating Knowledge (Arcana)\n" +
+                    "Benefit: You modify your Knowledge (Arcana) using your Charisma modifier. insted of your Inteligence",
+                    $"a982f3e69db44cdd33963985e37a6d2b",
+                    Helpers.NiceIcons(3),
+                    FeatureGroup.None,
+                    Helpers.Create<ReplaceBaseStatForStatTypeLogic>(x =>
+                    {
+                        x.StatTypeToReplaceBastStatFor = StatType.SkillKnowledgeArcana;
+                        x.NewBaseStatType = StatType.Charisma;
+                    })
+                  ),Helpers.CreateFeature("PlanarWorld", "Knowledge World",
+                    "Use Charisma for calculating Knowledge (World)\n" +
+                    "Benefit: You modify your Knowledge (World) using your Charisma modifier. insted of your Inteligence",
+                    $"b234f3e69db44cdd33963985e37a6d1b",
+                    Helpers.NiceIcons(3),
+                    FeatureGroup.None,
+                    Helpers.Create<ReplaceBaseStatForStatTypeLogic>(x =>
+                    {
+                        x.StatTypeToReplaceBastStatFor = StatType.SkillKnowledgeWorld;
+                        x.NewBaseStatType = StatType.Charisma;
+                    })
+                  ),
+
+            };
+
+
+            planar.SetFeatures(planarOptions);
+            choices.Add(planar);
+
             var WisFlesh = Helpers.CreateFeatureSelection("WisdomintheFleshTrait", "Wisdom in the Flesh",
                 "Your hours of meditation on inner perfection and the nature of strength and speed allow you to focus your thoughts to achieve things your body might not normally be able to do on its own.\n" +
                 "Benefit: Choose a skill normally decided by Strength, Charisma, or Dexterity, and use Wisdom instead.",
                 "1d4dcccc21e148cdaf0fb3c643249cbf",
-                Helpers.NiceIcons(43), // blessing luck & resolve
-                FeatureGroup.None,
-                Helpers.Create<ExtraLuckBonus>());
+                Helpers.NiceIcons(43), // wisman
+                FeatureGroup.None);
 
             var WisFleshOptions = new BlueprintFeature[6];
             var icons = new int[] {0,1,24,2,25,6,22 };
@@ -152,6 +212,55 @@ namespace EldritchArcana
                 Helpers.GetIcon("175d1577bb6c9a04baf88eec99c66334"), // Iron Will
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.SaveWill, 1, ModifierDescriptor.Trait)));
+
+            var LessonResource = Helpers.CreateAbilityResource("ChaldiraResource", "Chaldira charge",
+                                             "One charge Chaldira",
+                                             "2dc32000b6e056d42a8ecc9921dd43c2",
+                                             Helpers.NiceIcons(3),
+                                             null
+                                             );
+            LessonResource.SetFixedResource(0);
+            int rnd = DateTime.Now.Millisecond % 17+3;
+
+            var Chaldira = Helpers.CreateFeatureSelection("ChaldiraTrait", "Lessons of Faith",
+                "Your studies have given you a knack for avoiding trouble." +
+                "\nBenefit: Your first few saves have are better" +
+                "\nChoose how to apply " +
+                "the original version from tabletop is there but in tabletop you can choose if you want to reroll and if you roll a 18 you might not want to reroll becouse the chance you roll better is small." +
+                "And if you have a save you know has a verry low dc you might not want to reroll even a 2 becouse you are going to succeed anyway." +
+                "This is why there is an option to gain a flat bonus to the first few saves. this is not in the normal tabletop version.",
+                "f51acadad65b4028884dd4a74f14e817",
+                Helpers.GetIcon("175d1577bb6c9a04baf88eec99c66334"), // Iron Will
+                FeatureGroup.None,                
+                Helpers.CreateAddAbilityResource(LessonResource));
+
+            //
+            int len = 5;
+            var ChaldiraOptions = new List<BlueprintFeature>(len);
+
+            ChaldiraOptions.Add(Helpers.CreateFeature($"ChaldiraEffectnumber", $"Chaldira(original)",
+                "Your studies have given you a knack for avoiding trouble." +
+                "\nBenefit: The first time you have to roll a save you roll the d20 2 times and pick the best this can be used once per day",
+                $"f53acadad65b4048884dd4a74f14e617",
+                Helpers.GetIcon("175d1577bb6c9a04baf88eec99c66334"), // Iron Will
+                FeatureGroup.None,
+                Helpers.Create<NewMechanics.SavingThrowReroll>(a => { a.Descriptor = ModifierDescriptor.Sacred; a.Value = rnd; a.resource = LessonResource; a.original = true; }),
+                LessonResource.CreateIncreaseResourceAmount(1)));
+
+            for (int i = 1; i < len; i++)
+            {
+                ChaldiraOptions.Add(Helpers.CreateFeature($"ChaldiraEffectnumber{i}", $"Chaldira {i}[HB]",
+                "Your studies have given you a knack for avoiding trouble." +
+                $"\nBenefit: Each day add a {(int)(12/i)} Sacred bonus to the first {i} save(s).",
+                $"f5{i}acadad65b40{i}8884dd4a74f14e{i}17",
+                Helpers.GetIcon("175d1577bb6c9a04baf88eec99c66334"), // Iron Will
+                FeatureGroup.None,
+                Helpers.Create<NewMechanics.SavingThrowReroll>(a => { a.Descriptor = ModifierDescriptor.Sacred; a.Value = (int)(12 / i); a.resource = LessonResource; }),
+                LessonResource.CreateIncreaseResourceAmount(i)));
+            }
+
+            Chaldira.SetFeatures(ChaldiraOptions);
+            choices.Add(Chaldira);
 
             choices.Add(Traits.CreateAddStatBonus("ScholarOfTheGreatBeyondTrait", "Scholar of the Great Beyond",
                 "Your greatest interests as a child did not lie with current events or the mundane—you have always felt out of place, as if you were born in the wrong era. You take to philosophical discussions of the Great Beyond and of historical events with ease.",

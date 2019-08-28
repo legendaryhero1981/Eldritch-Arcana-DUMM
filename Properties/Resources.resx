@@ -332,6 +332,9 @@ Whenever you receive magical healing, you heal an additional 2 points per die ro
   <data name="HealingHandsFeatureName_info" xml:space="preserve">
     <value>Healing Hands</value>
   </data>
+  <data name="HighDCl_info" xml:space="preserve">
+    <value>Outlander spells gain caster level and DC max (cheat)</value>
+  </data>
   <data name="HypnoticDurationLocalized_info" xml:space="preserve">
     <value>Concentration + 2 rounds</value>
   </data>
@@ -613,7 +616,7 @@ Special: A magus can select this magus arcana more than once.</value>
     <value>Spell Perfection</value>
   </data>
   <data name="SpellVulnerabilityFeatureDescription_info" xml:space="preserve">
-    <value>You have {0} on saves vs {1} and Elementalweakness {2}.</value>
+    <value>You have {0} on saves vs {1} and elemental weakness {2}.</value>
   </data>
   <data name="SpellVulnerabilityFeatureName_info" xml:space="preserve">
     <value>Spell Vulnerability ({0})</value>

@@ -332,6 +332,58 @@ namespace EldritchArcana
         }
 
 
+        [AllowMultipleComponents]
+        [AllowedOn(typeof(BlueprintUnitFact))]
+        [ComponentName("Saving throw Reroll")]
+        public class SavingThrowReroll : RuleInitiatorLogicComponent<RuleSavingThrow>
+        {
+            public ModifierDescriptor Descriptor;
+            public BlueprintAbilityResource resource;
+            public int Value;
+            public bool original;
+
+            public override void OnEventAboutToTrigger(RuleSavingThrow evt)
+            {
+                if (this.Owner.Resources.GetResourceAmount((BlueprintScriptableObject)this.resource) == 0||evt.IsPassed)
+                    return;
+                //this.Value = this.Owner.Stats.SkillLoreReligion;
+                this.Owner.Resources.Spend((BlueprintScriptableObject)this.resource, 1);
+                if (original) {
+                    int maxy = Math.Max(evt.RollResult, Value);
+                    int d1 = evt.D20;
+                    Common.AddBattleLogMessage($"{Owner.CharacterName}: Your first roll was a {d1} and your reroll was a {Value} so you get a {Value} bonus to your save");
+                    //evt.BaseRollResult=maxy;
+                    //if (evt.RollResult >= Value) { return; }
+                    
+                    //evt.ro
+                    //evt.Initiator.Stats.SaveFortitude.
+                    //var x = evt.DifficultyClass;
+                    //Common.AddBattleLogMessage($"{Owner.CharacterName}: Your reroll was higher than your roll so you get {Value} bonus to your normal roll so your save roll will be {maxy}");
+                    //evt.
+                }
+                //Common.AddBattleLogMessage($"event is:'{evt.IsPassed}' :");
+                Common.AddBattleLogMessage($"{Owner.CharacterName}: added {Value} to his save. this can be used {this.Owner.Resources.GetResourceAmount((BlueprintScriptableObject)this.resource)} more times");
+                evt.AddTemporaryModifier(evt.Initiator.Stats.SaveWill.AddModifier(this.Value, (GameLogicComponent)this, this.Descriptor));
+                evt.AddTemporaryModifier(evt.Initiator.Stats.SaveReflex.AddModifier(this.Value, (GameLogicComponent)this, this.Descriptor));
+                evt.AddTemporaryModifier(evt.Initiator.Stats.SaveFortitude.AddModifier(this.Value, (GameLogicComponent)this, this.Descriptor));
+                evt.AddTemporaryModifier(evt.Initiator.Stats.SkillAthletics.AddModifier(this.Value, (GameLogicComponent)this, this.Descriptor));
+                evt.AddTemporaryModifier(evt.Initiator.Stats.SkillMobility.AddModifier(this.Value, (GameLogicComponent)this, this.Descriptor));
+                //evt.AddTemporaryModifier(evt.Initiator.Stats.CheckDiplomacy.AddModifier(this.Value, (GameLogicComponent)this, this.Descriptor));
+                //evt.AddTemporaryModifier(evt.Initiator.Stats.CheckDiplomacy.AddModifier(this.Value, (GameLogicComponent)this, this.Descriptor));
+                //evt.AddTemporaryModifier(evt.Initiator.Stats.CheckBluff.AddModifier(this.Value, (GameLogicComponent)this, this.Descriptor));
+            }
+
+            public override void OnEventDidTrigger(RuleSavingThrow evt)
+            {
+                
+                //if (resource != null)
+                //{
+                   
+                //}
+            }
+        }
+
+
         public class BuffRemainingGroupsSizeEnchantPrimaryHandWeapon : BuffLogic
         {
             public ActivatableAbilityGroup group;

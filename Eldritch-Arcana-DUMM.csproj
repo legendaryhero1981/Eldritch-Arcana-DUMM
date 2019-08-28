@@ -11,11 +11,11 @@
     <LangVersion>latest</LangVersion>
     <RootNamespace>EldritchArcana</RootNamespace>
     <AssemblyName>EldritchArcana</AssemblyName>
-    <ApplicationVersion>1.2.1.7</ApplicationVersion>
+    <ApplicationVersion>1.2.4.8</ApplicationVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AssemblyVersion>1.2.1.7</AssemblyVersion>
-    <FileVersion>1.2.1.7</FileVersion>
-    <Version>1.2.1.7</Version>
+    <AssemblyVersion>1.2.4.8</AssemblyVersion>
+    <FileVersion>1.2.4.8</FileVersion>
+    <Version>1.2.4.8</Version>
     <Authors>李允</Authors>
     <Company>Legend</Company>
     <Copyright>Copyright © Legend 2019</Copyright>

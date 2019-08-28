@@ -51,7 +51,7 @@ namespace EldritchArcana
             choices.Add(Helpers.CreateFeature("AnatomistTrait", "Anatomist",
                 "You have studied the workings of anatomy, either as a student at university or as an apprentice mortician or necromancer. You know where to aim your blows to strike vital organs.\nBenefit: You gain a +1 trait bonus on all rolls made to confirm critical hits.",
                 "69245ef4b4ba44ddac917fc2aa10fbad",
-                Helpers.GetIcon("f4201c85a991369408740c6888362e20"), // Improved Critical
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Anatomist.png"), // Improved Critical
                 FeatureGroup.None,
                 Helpers.Create<CriticalConfirmationBonus>(a => { a.Bonus = 1; a.Value = 0; })));
 

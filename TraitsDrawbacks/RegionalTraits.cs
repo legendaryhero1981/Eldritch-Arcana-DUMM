@@ -71,6 +71,25 @@ namespace EldritchArcana
             choices.Add(metamagicApprentice);
 
 
+            choices.Add(Helpers.CreateFeature("BlightedTrait", "Blighted Physiology",
+                "Exposure to corruption has altered your body causing you to sprout horrific growths beneath your skin." +
+                "\nBenefit: You gain a +1 natural armor bonus to AC, but your body does not work as a normal creature’s would. Anytime you receive magical healing you heal 1 hp less per die.",
+                "c50bdfaad65b4028884dd4a74f14e792",
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Anatomist.png"),
+                FeatureGroup.None,
+                Helpers.CreateAddStatBonus(StatType.AC, 1, ModifierDescriptor.NaturalArmor),
+                Helpers.Create<FeyFoundlingLogic>(s => { s.dieModefier = -1; s.flatModefier = 0; })));
+
+            choices.Add(Helpers.CreateFeature("WanderlustTrait", "Wanderlust",
+                "Your childhood was brightened by the new places you constantly saw as you traveled with your parents, who were merchants. Still excited by travel, you gain great energy when traveling overland." +
+                "\nBenefit: Treat your base land speed as 10 feet higher when determining your overland speed.",
+                "d40bdfaad65b4028884dd4a74f14e793",
+                Helpers.NiceIcons(0),
+                FeatureGroup.None,
+                Helpers.CreateAddStatBonus(StatType.Speed, 10, ModifierDescriptor.Insight)));
+
+
+
 
             var dagger = Traits.library.Get<BlueprintWeaponType>("07cc1a7fceaee5b42b3e43da960fe76d");
 
@@ -108,6 +127,7 @@ namespace EldritchArcana
             }));
             choices.Add(riverrat);
             //WeaponCategoryAttackBonus
+
             choices.Add(Helpers.CreateFeature("EmpathicDiplomatTrait", "Empathic Diplomat",
                 "You have long followed the path of common sense and empathic insight when using diplomacy. \n" +
                 "Benefit:You modify your Diplomacy checks using your Wisdom modifier, not your Charisma modifier.",
@@ -120,7 +140,21 @@ namespace EldritchArcana
                     x.StatTypeToReplaceBastStatFor = StatType.SkillPersuasion;
                     x.NewBaseStatType = StatType.Wisdom;
                 })));
-            
+
+            var BruisingInt = Traits.CreateAddStatBonus("BruisingIntellectTrait", "Bruising Intellect",
+               "Your sharp intellect and rapier-like wit bruise egos. \n" +
+                "Benefits: Intimidate is always a class skill for you, and you may use your Intelligence modifier when making Intimidate checks instead of your Charisma modifier.",
+                "b222b5e69db44cdd88983985e37a6d2f",
+                StatType.SkillPersuasion
+                );
+
+            BruisingInt.AddComponent(Helpers.Create<ReplaceBaseStatForStatTypeLogic>(x =>
+            {
+                x.StatTypeToReplaceBastStatFor = StatType.SkillPersuasion;
+                x.NewBaseStatType = StatType.Intelligence;
+            }));
+
+            choices.Add(BruisingInt);
 
             choices.Add(UndoSelection.Feature.Value);
             regionalTraits.SetFeatures(choices);
