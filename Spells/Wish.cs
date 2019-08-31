@@ -156,7 +156,7 @@ namespace EldritchArcana
         internal static void FixBloodlineSpell(BlueprintAbility spell, String bloodlineId, String addSpellId)
         {
             var addSpellFeat = library.Get<BlueprintFeature>(addSpellId);
-            addSpellFeat.SetNameDescriptionIcon(spell.Name, $"{RES.FixBloodlineSpellDescriptionPrefix_info}{spell.Description}", spell.Icon);
+            addSpellFeat.SetNameDescriptionIcon(spell.Name, string.Format(RES.FixBloodlineSpellDescription_info, spell.Description), spell.Icon);
 
             // Fix the spell, and the spell recommendations.
             var addSpell = addSpellFeat.GetComponent<AddKnownSpell>();
@@ -316,8 +316,8 @@ namespace EldritchArcana
 
             var wishText = isMiracle ? RES.MiracleSpells_info : RES.WishSpells_info;
             var spell = Helpers.CreateAbility($"{wishSpell.name}{level}",
-                $"{wishSpell.Name}{string.Format(RES.LevelSpellNamePostfix_info, level)}",
-                $"{string.Format(RES.SpellDescriptionPrefix_info, wishText)}{wishSpell.Description}",
+                string.Format(RES.WishLevelSpellName_info, wishSpell.Name, level),
+                string.Format(RES.WishSpellDescription_info, wishText, wishSpell.Description),
                 Helpers.MergeIds(wishSpell.AssetGuid, MiracleID, FavoredClassBonus.spellLevelGuids[level - 1]),
                 wishSpell.Icon, wishSpell.Type, wishSpell.ActionType, wishSpell.Range,
                 wishSpell.LocalizedDuration, wishSpell.LocalizedSavingThrow);
@@ -440,7 +440,7 @@ namespace EldritchArcana
                     variantSpells = validSpells.Where(s => s.HasVariants).ToArray();
                     // Group all of the non-variant spells together.
                     var schoolVariant = Helpers.CreateAbility($"{spellForLevel.name}{school}Spells",
-                        $"{schoolName}{RES.SpellsSpellNamePostfix_info}", spellForLevel.Description,
+                        string.Format(RES.WishSpellsSpellName_info, schoolName), spellForLevel.Description,
                         Helpers.MergeIds(spellForLevel.AssetGuid, spellSchoolGuids[(int)school]),
                         schoolIcon,
                         AbilityType.SpellLike,

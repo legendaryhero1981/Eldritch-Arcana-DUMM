@@ -127,6 +127,9 @@ Special: You can gain this feat multiple times. Its effects do not stack. Each t
   <data name="AddSpellScrollsFeatureName_info" xml:space="preserve">
     <value>Scrolls for new spells</value>
   </data>
+  <data name="AnyClassSkillName_info" xml:space="preserve">
+    <value>Any Lore/Knowledge Skill</value>
+  </data>
   <data name="ArcaneApotheosisFeatureDescription_info" xml:space="preserve">
     <value>
 You can also add any metamagic feats that you know to your spells without increasing their casting time, although you must still expend higher-level spell slots.</value>
@@ -183,6 +186,24 @@ You can also add any metamagic feats that you know to your spells without increa
   <data name="BloodlineOrcWarlordRebornFeatureName_info" xml:space="preserve">
     <value>Warlord Reborn</value>
   </data>
+  <data name="BonusHitPointFeatureDescription_info" xml:space="preserve">
+    <value>Gain +1 hit point</value>
+  </data>
+  <data name="BonusHitPointFeatureName_info" xml:space="preserve">
+    <value>Bonus Hit Point</value>
+  </data>
+  <data name="BonusSkillRankFeatureDescription_info" xml:space="preserve">
+    <value>Gain +1 skill rank</value>
+  </data>
+  <data name="BonusSkillRankFeatureName_info" xml:space="preserve">
+    <value>Bonus Skill Rank</value>
+  </data>
+  <data name="BonusSpellLevelFeatureDescription_info" xml:space="preserve">
+    <value>Add one level {0} spell known from the {1} spell list. This spell must be at least one level below the highest {2} spell you can cast.</value>
+  </data>
+  <data name="BonusSpellLevelFeatureName_info" xml:space="preserve">
+    <value>Bonus Known Spell (Level {0})</value>
+  </data>
   <data name="ChannelEnergyFeatureDescription_info" xml:space="preserve">
     <value>You can channel positive energy like a cleric, using your oracle level as your effective cleric level when determining the amount of damage healed (or caused to undead) and the DC.
 You can use this ability a number of times per day equal to 1+your Charisma modifier.</value>
@@ -192,6 +213,12 @@ You can use this ability a number of times per day equal to 1+your Charisma modi
   </data>
   <data name="CheatCustomTraits_info" xml:space="preserve">
     <value>Enable choosing extra cheat traits,spells(if changed, requires restart for changes to show up)</value>
+  </data>
+  <data name="ChooseFavoredClassLocalized_info" xml:space="preserve">
+    <value>Choose Favored Class Bonus</value>
+  </data>
+  <data name="ChooseMysteryLocalized_info" xml:space="preserve">
+    <value>Choose Mystery</value>
   </data>
   <data name="DelayAfflictionFeatureDescription_info" xml:space="preserve">
     <value>Once per day as an immediate action, whenever you fail a saving throw against a disease or poison, you may ignore its effects for 1 hour per level. At 7th and 15th level, you can use this ability one additional time per day.</value>
@@ -250,6 +277,13 @@ Bane: choose a spellschool you have {0} on saves vs that spellschool.</value>
   <data name="DrawbackSpellVulnerabilityFeatureName_info" xml:space="preserve">
     <value>Spell Vulnerability</value>
   </data>
+  <data name="EldritchHeritageFeatureDescription_info" xml:space="preserve">
+    <value>You are descended from a long line of sorcerers, and some portion of their power flows in your veins.
+Select one sorcerer bloodline. You must have Skill focus in the class skill that bloodline grants to a sorcerer at 1st level (for example, Heal for the celestial bloodline). This bloodline cannot be a bloodline you already have. You gain the first-level bloodline power for the selected bloodline. For purposes of using that power, treat your sorcerer level as equal to your character level – 2, even if you have levels in sorcerer. You do not gain any of the other bloodline abilities.</value>
+  </data>
+  <data name="EldritchHeritageFeatureName_info" xml:space="preserve">
+    <value>Eldritch Heritage</value>
+  </data>
   <data name="EldritchKnightFix_info" xml:space="preserve">
     <value>Eldritch Knight requires martial class</value>
   </data>
@@ -285,6 +319,39 @@ Special: You can gain Extra Revelation multiple times.</value>
   <data name="ExtraRevelationFeatureName_info" xml:space="preserve">
     <value>Extra Revelation</value>
   </data>
+  <data name="FavoredClassAnyFeatureDescription_info" xml:space="preserve">
+    <value>The favored class is automatically determined each level-up, and an extra hit point is awarded if gaining a level in that class. The favored class is your highest level non-prestige class. This is the default game behavior.</value>
+  </data>
+  <data name="FavoredClassAnyFeatureName_info" xml:space="preserve">
+    <value>Favored Class — Any</value>
+  </data>
+  <data name="FavoredClassExtraSpellProgressionDescription_info" xml:space="preserve">
+    <value>
+Racial favored class benefits:
+Human (and Half-Elf, Half-Orc, Aasimar) — Add one spell known from the {0} spell list. This spell must be at least one level below the highest {1} spell you can cast.</value>
+  </data>
+  <data name="FavoredClassFeatureDescription_info" xml:space="preserve">
+    <value>Each character begins play with a single favored class of their choosing—typically, this is the same class as the one they choose at 1st level. Whenever a character gains a level in their favored class, they receive either +1 hit point, +1 skill rank, or the racial bonus associated with their favored class. The choice of favored class cannot be changed once the character is created.</value>
+  </data>
+  <data name="FavoredClassFeatureName_info" xml:space="preserve">
+    <value>Favored Class</value>
+  </data>
+  <data name="FavoredClassProgressionDescription_info" xml:space="preserve">
+    <value>Whenever you gain a {0} level, you can choose between +1 hit point, +1 skill rank, or the racial bonus associated with their favored class.</value>
+  </data>
+  <data name="FavoredClassProgressionName_info" xml:space="preserve">
+    <value>Favored Class — {0}</value>
+  </data>
+  <data name="FavoredPresitgeClassFeatureDescription_info" xml:space="preserve">
+    <value>You have come to favor a certain prestige class, either because you are particularly devoted to the class’s cause, have trained more than most others have for that specific role, or have simply been destined to excel in the prestige class all along. Regardless of the reason, levels gained in your favored prestige class grant additional benefits in a way similar to those you gain for taking levels in your base favored class.
+You can select this feat before you gain levels in your chosen favored prestige class, but the benefits of the feat do not apply until you actually gain at least 1 level in that prestige class.</value>
+  </data>
+  <data name="FavoredPresitgeClassFeatureName_info" xml:space="preserve">
+    <value>Favored Prestige Class</value>
+  </data>
+  <data name="FavoredPrestigeProgressionName_info" xml:space="preserve">
+    <value>Favored Prestige Class — {0}</value>
+  </data>
   <data name="FeyFoundlingFeatureDescription_info" xml:space="preserve">
     <value>You were found in the wilds as a child.
 Whenever you receive magical healing, you heal an additional 2 points per die rolled. You gain a +2 bonus on all saving throws against death effects. Unfortunately, you also suffer +1 point of damage from cold iron weapons (although you can wield cold iron weapons without significant discomfort).</value>
@@ -301,9 +368,9 @@ Whenever you receive magical healing, you heal an additional 2 points per die ro
   <data name="FireSpells_info" xml:space="preserve">
     <value>Fire spells</value>
   </data>
-  <data name="FixBloodlineSpellDescriptionPrefix_info" xml:space="preserve">
+  <data name="FixBloodlineSpellDescription_info" xml:space="preserve">
     <value>At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline. These spells are in addition to the number of spells given at new levels.
-</value>
+{0}</value>
   </data>
   <data name="FixElementalSpells_info" xml:space="preserve">
     <value>Enable spellcasting for elemental forms</value>
@@ -319,6 +386,13 @@ Whenever you receive magical healing, you heal an additional 2 points per die ro
   </data>
   <data name="GoblinSpellName_info" xml:space="preserve">
     <value>Summon Six Goblins</value>
+  </data>
+  <data name="GreaterEldritchHeritageFeatureDescription_info" xml:space="preserve">
+    <value>Your discovered bloodline power reaches its zenith.
+You gain an additional power from the bloodline you selected with the Eldritch Heritage feat. You gain a 15th-level (or lower) sorcerer bloodline power that you do not already have. For purposes of using that power, treat your character level as your sorcerer level for all your sorcerer bloodline powers granted by this feat, Eldritch Heritage, and Improved Eldritch Heritage.</value>
+  </data>
+  <data name="GreaterEldritchHeritageFeatureName_info" xml:space="preserve">
+    <value>Greater Eldritch Heritage</value>
   </data>
   <data name="GreaterMagicWeaponAbilityDescription_info" xml:space="preserve">
     <value>This spell functions like magic weapon, except that it gives a weapon an enhancement bonus on attack and damage rolls of +1 per four caster levels (maximum +5). This bonus does not allow a weapon to bypass damage reduction aside from magic.</value>
@@ -343,6 +417,13 @@ Whenever you receive magical healing, you heal an additional 2 points per die ro
   </data>
   <data name="HypnoticSpellDescription_info" xml:space="preserve">
     <value>A twisting pattern of subtle, shifting colors weaves through the air, fascinating creatures within it. Roll 2d4 and add your caster level (maximum 10) to determine the total number of HD of creatures affected. Creatures with the fewest HD are affected first; and, among creatures with equal HD, those who are closest to the spell's point of origin are affected first. HD that are not sufficient to affect a creature are wasted. Affected creatures become fascinated by the pattern of colors. Sightless creatures are not affected.</value>
+  </data>
+  <data name="ImprovedEldritchHeritageFeatureDescription_info" xml:space="preserve">
+    <value>The power of your discovered bloodline continues to grow.
+You gain either the 3rd-level or the 9th-level power (your choice) of the bloodline you selected with the Eldritch Heritage feat. For purposes of using that power, treat your sorcerer level as equal to your character level – 2, even if you have levels in sorcerer. You do not gain any of the other bloodline abilities.</value>
+  </data>
+  <data name="ImprovedEldritchHeritageFeatureName_info" xml:space="preserve">
+    <value>Improved Eldritch Heritage</value>
   </data>
   <data name="KeepAllSpellsFeatureDescription_info" xml:space="preserve">
     <value>Choose this to skip replacing a known spell this level.</value>
@@ -396,9 +477,6 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
   </data>
   <data name="LesserMiracleSpells_info" xml:space="preserve">
     <value>Miracle preloading</value>
-  </data>
-  <data name="LevelSpellNamePostfix_info" xml:space="preserve">
-    <value> (spell level {0})</value>
   </data>
   <data name="LifeLinkFeatureDescription_info" xml:space="preserve">
     <value>As a standard action, you may create a bond between yourself and another creature. Each round at the start of your turn, if the bonded creature is wounded for 5 or more hit points below its maximum hit points, it heals 5 hit points and you take 5 hit points of damage. You may have one bond active per oracle level. This bond continues until the bonded creature dies, you die, the distance between you and the other creature exceeds medium range, or you end it as an immediate action (if you have multiple bonds active, you may end as many as you want as part of the same immediate action).</value>
@@ -506,6 +584,9 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
   <data name="OppositionResearchFeatureName_info" xml:space="preserve">
     <value>Opposition Research</value>
   </data>
+  <data name="OrClassSkillName_info" xml:space="preserve">
+    <value> or {0}</value>
+  </data>
   <data name="OracleCureOrInflictSpellFeatureDescription_info" xml:space="preserve">
     <value>In addition to the spells gained by oracles as they gain levels, each oracle also adds all of either the cure spells or the inflict spells to her list of spells known (cure spells include all spells with "cure" in the name, inflict spells include all spells with "inflict" in the name). These spells are added as soon as the oracle is capable of casting them. This choice is made when the oracle gains her first level and cannot be changed.</value>
   </data>
@@ -598,16 +679,22 @@ Befit over Ressurection: this is a free action.</value>
   <data name="SingleLineDescription_info" xml:space="preserve">
     <value>• {0}</value>
   </data>
+  <data name="SkillBonusProgressionDescription_info" xml:space="preserve">
+    <value>{0}
+You gain a +2 bonus on checks using the skill you chose from that prestige class's class skills. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill. This bonus stacks with the bonus granted by Skill Focus, but does not stack with a bonus granted by any other feat (such as Magical Aptitude or Persuasive).</value>
+  </data>
+  <data name="SkipDeityFeatureDescription_info" xml:space="preserve">
+    <value>Choose this to skip selecting a deity at character creation. You may select one later if you gain a level in a class that requires it (such as Cleric, Inquisitor, or Paladin).</value>
+  </data>
+  <data name="SkipDeityFeatureName_info" xml:space="preserve">
+    <value>Skip Deity</value>
+  </data>
   <data name="SpellBlendingFeatureDescription_info" xml:space="preserve">
     <value>When a magus selects this arcana, they must select one spell from the wizard spell list that is of a magus spell level they can cast. They adds this spell to their spellbook and list of magus spells known as a magus spell of its wizard spell level. They can instead select two spells to add in this way, but both must be at least one level lower than the highest-level magus spell they can cast.
 Special: A magus can select this magus arcana more than once.</value>
   </data>
   <data name="SpellBlendingFeatureName_info" xml:space="preserve">
     <value>Spell Blending</value>
-  </data>
-  <data name="SpellDescriptionPrefix_info" xml:space="preserve">
-    <value>(After casting this spell, use the ability bar to select your {0}.)
-</value>
   </data>
   <data name="SpellPerfectionFeatureDescription_info" xml:space="preserve">
     <value>Pick one spell which you have the ability to cast. Whenever you cast that spell you may apply any one metamagic feat you have to that spell without affecting its level or casting time, as long as the total modified level of the spell does not use a spell slot above 9th level. In addition, if you have other feats which allow you to apply a set numerical bonus to any aspect of this spell (such as Spell Focus, Spell Penetration, Weapon Focus [ray], and so on), double the bonus granted by that feat when applied to this spell.</value>
@@ -620,9 +707,6 @@ Special: A magus can select this magus arcana more than once.</value>
   </data>
   <data name="SpellVulnerabilityFeatureName_info" xml:space="preserve">
     <value>Spell Vulnerability ({0})</value>
-  </data>
-  <data name="SpellsSpellNamePostfix_info" xml:space="preserve">
-    <value> Spells</value>
   </data>
   <data name="SpiritBoostFeatureDescription_info" xml:space="preserve">
     <value>Whenever your healing spells heal a target up to its maximum hit points, any excess points persist for 1 round per level as temporary hit points (up to a maximum number of temporary hit points equal to your oracle level).</value>
@@ -692,8 +776,18 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
   <data name="WishFeatureDescription_info" xml:space="preserve">
     <value>A wish granted a permanent inherent bonus to {0}.</value>
   </data>
+  <data name="WishLevelSpellName_info" xml:space="preserve">
+    <value>{0} (spell level {1})</value>
+  </data>
   <data name="WishReason_error" xml:space="preserve">
     <value>Opposition school spells of this level are not available.</value>
+  </data>
+  <data name="WishSpellDescription_info" xml:space="preserve">
+    <value>(After casting this spell, use the ability bar to select your {0}.){1}
+</value>
+  </data>
+  <data name="WishSpellsSpellName_info" xml:space="preserve">
+    <value>{0} Spells</value>
   </data>
   <data name="WishSpells_info" xml:space="preserve">
     <value>Wish</value>
@@ -733,9 +827,6 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
   </data>
   <data name="loadDrawbackFeats_error" xml:space="preserve">
     <value>Drawback Feats</value>
-  </data>
-  <data name="loadEldritchHeritage_error" xml:space="preserve">
-    <value>Eldritch Heritage</value>
   </data>
   <data name="loadFavoredClassBonus_error" xml:space="preserve">
     <value>Favored class bonus, deity selection</value>

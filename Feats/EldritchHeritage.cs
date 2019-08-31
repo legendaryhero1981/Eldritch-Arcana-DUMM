@@ -32,6 +32,7 @@ using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using Newtonsoft.Json;
 using UnityEngine;
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -51,9 +52,8 @@ namespace EldritchArcana
             var spellSpecialization = library.Get<BlueprintFeatureSelection>("fe67bc3b04f1cd542b4df6e28b6e0ff5");
             //var noFeature = Helpers.Create<PrerequisiteNoFeature>();
             heritageSelection = Helpers.CreateFeatureSelection("EldritchHeritageSelection",
-                "Eldritch Heritage",
-                "You are descended from a long line of sorcerers, and some portion of their power flows in your veins.\n" +
-                "Select one sorcerer bloodline. You must have Skill focus in the class skill that bloodline grants to a sorcerer at 1st level (for example, Heal for the celestial bloodline). This bloodline cannot be a bloodline you already have. You gain the first-level bloodline power for the selected bloodline. For purposes of using that power, treat your sorcerer level as equal to your character level – 2, even if you have levels in sorcerer. You do not gain any of the other bloodline abilities.",
+                RES.EldritchHeritageFeatureName_info,
+                RES.EldritchHeritageFeatureDescription_info,
                 "733b54b0669b4aeda47953ec0e2b33dd",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Eldritch_Heritage.png"),//spellSpecialization.Icon,
                 FeatureGroup.Feat);
@@ -67,9 +67,8 @@ namespace EldritchArcana
             heritageSelection.SetComponents(components);
 
             improvedHeritageSelection = Helpers.CreateFeatureSelection("ImprovedEldritchHeritageSelection",
-                "Improved Eldritch Heritage",
-                "The power of your discovered bloodline continues to grow.\n" +
-                "You gain either the 3rd-level or the 9th-level power (your choice) of the bloodline you selected with the Eldritch Heritage feat. For purposes of using that power, treat your sorcerer level as equal to your character level – 2, even if you have levels in sorcerer. You do not gain any of the other bloodline abilities.",
+                RES.ImprovedEldritchHeritageFeatureName_info,
+                RES.ImprovedEldritchHeritageFeatureDescription_info,
                 "c8bd273034684e6689b105a7d8bc9c3b",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Eldritch_Heritage_Improved.png"),//spellSpecialization.Icon,
                 FeatureGroup.Feat,
@@ -81,9 +80,8 @@ namespace EldritchArcana
 
             var noFeature = Helpers.Create<PrerequisiteNoFeature>();
             var greaterHeritageSelection = Helpers.CreateFeatureSelection("GreaterEldritchHeritageSelection",
-                "Greater Eldritch Heritage",
-                "Your discovered bloodline power reaches its zenith.\n" +
-                "You gain an additional power from the bloodline you selected with the Eldritch Heritage feat. You gain a 15th-level (or lower) sorcerer bloodline power that you do not already have. For purposes of using that power, treat your character level as your sorcerer level for all your sorcerer bloodline powers granted by this feat, Eldritch Heritage, and Improved Eldritch Heritage.",
+                RES.GreaterEldritchHeritageFeatureName_info,
+                RES.GreaterEldritchHeritageFeatureDescription_info,
                 "24aad7af058a49f88d1203b856409023",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Eldritch_Heritage_Greater.png"),// spellSpecialization.Icon,
                 FeatureGroup.Feat,
@@ -93,7 +91,7 @@ namespace EldritchArcana
                 noFeature);
             noFeature.Feature = greaterHeritageSelection;
 
-            
+
             EldritchHeritageBloodlineLogic.greaterHeritageSelection = greaterHeritageSelection;
 
             var undoChoice = UndoSelection.Feature.Value;
@@ -192,7 +190,7 @@ namespace EldritchArcana
                     StatType.SkillLoreNature,
                     StatType.SkillLoreReligion
                 }.Select(Helpers.GetSkillFocus)));
-                classSkillName = "Any Lore/Knowledge Skill";
+                classSkillName = RES.AnyClassSkillName_info;
             }
             else
             {
@@ -212,10 +210,11 @@ namespace EldritchArcana
                     // So offer that choice, along with Athletics (which is what the game gives them).
                     components.Add(skillFocus.PrerequisiteFeature(true));
                     components.Add(Helpers.GetSkillFocus(StatType.SkillLoreReligion).PrerequisiteFeature(true));
-                    classSkillName += $" or {UIUtility.GetStatText(StatType.SkillLoreReligion)}";
-                }else if(bloodline.AssetGuid == feyBloodlineId)
+                    classSkillName += string.Format(RES.OrClassSkillName_info, UIUtility.GetStatText(StatType.SkillLoreReligion));
+                }
+                else if (bloodline.AssetGuid == feyBloodlineId)
                 {
-                    var laughingFeyTouch = library.Get <BlueprintAbility>( "1353fa3fadb35af48afd4ee95d9bd484" );
+                    var laughingFeyTouch = library.Get<BlueprintAbility>("1353fa3fadb35af48afd4ee95d9bd484");
                     //components.Add());
                     Helpers.AddSpell(laughingFeyTouch);
                     //this adds laughing tuach to feys;

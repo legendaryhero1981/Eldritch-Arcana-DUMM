@@ -127,6 +127,9 @@
   <data name="AddSpellScrollsFeatureName_info" xml:space="preserve">
     <value>卷轴和新法术</value>
   </data>
+  <data name="AnyClassSkillName_info" xml:space="preserve">
+    <value>任何知识/学识技能</value>
+  </data>
   <data name="ArcaneApotheosisFeatureDescription_info" xml:space="preserve">
     <value>
 你也可以在不增加施法时间的情况下将你所知道的任何元魔法技能添加到你的法术中，尽管你仍然必须花费更高级别的法术槽。</value>
@@ -183,6 +186,24 @@
   <data name="BloodlineOrcWarlordRebornFeatureName_info" xml:space="preserve">
     <value>战神重生</value>
   </data>
+  <data name="BonusHitPointFeatureDescription_info" xml:space="preserve">
+    <value>获得+1点生命值</value>
+  </data>
+  <data name="BonusHitPointFeatureName_info" xml:space="preserve">
+    <value>奖励生命点数</value>
+  </data>
+  <data name="BonusSkillRankFeatureDescription_info" xml:space="preserve">
+    <value>获得+1级技能等级</value>
+  </data>
+  <data name="BonusSkillRankFeatureName_info" xml:space="preserve">
+    <value>奖励技能等级</value>
+  </data>
+  <data name="BonusSpellLevelFeatureDescription_info" xml:space="preserve">
+    <value>增加一个{0}级法术来自于已知的{1}法术列表。这个法术必须至少比你能施放的最高等级{2}法术低一级。</value>
+  </data>
+  <data name="BonusSpellLevelFeatureName_info" xml:space="preserve">
+    <value>奖励已知法术（等级{0}）</value>
+  </data>
   <data name="ChannelEnergyFeatureDescription_info" xml:space="preserve">
     <value>你可以像牧师一样输送正能量，在确定治愈（或伤害不死生物）的生命值和DC时，使用你的神使等级作为你的有效牧师等级。
 你可以每天多次使用这个能力，相当于你的魅力修正值＋1。</value>
@@ -192,6 +213,12 @@
   </data>
   <data name="CheatCustomTraits_info" xml:space="preserve">
     <value>启用额外的作弊特性和法术（需要重新启动才能生效）</value>
+  </data>
+  <data name="ChooseFavoredClassLocalized_info" xml:space="preserve">
+    <value>选择偏爱职业奖励</value>
+  </data>
+  <data name="ChooseMysteryLocalized_info" xml:space="preserve">
+    <value>选择秘法</value>
   </data>
   <data name="DelayAfflictionFeatureDescription_info" xml:space="preserve">
     <value>每天一次，作为一个即时的行动，当你对某种疾病或毒素的豁免失败时，你可以忽略它的影响，每级1小时。在第7级和第15级，你可以每天额外使用这个技能一次。</value>
@@ -249,6 +276,13 @@
   <data name="DrawbackSpellVulnerabilityFeatureName_info" xml:space="preserve">
     <value>法术弱点</value>
   </data>
+  <data name="EldritchHeritageFeatureDescription_info" xml:space="preserve">
+    <value>你是一个历史悠久的巫师家族后裔，他们力量的一部分在你的血管里流动。
+选择一个巫师血统。你必须在血统给予第1级巫师的职业技能中拥有技能专攻（例如，为天界血统治疗）。这个血统不能是你已有的血统。你获得所选血统的第1级血统力量。为了使用这种力量，将你的巫师等级等同于你的角色等级－2，即使你已有巫师等级。你没有获得任何其他血统的能力。</value>
+  </data>
+  <data name="EldritchHeritageFeatureName_info" xml:space="preserve">
+    <value>埃尔德里奇的遗产</value>
+  </data>
   <data name="EldritchKnightFix_info" xml:space="preserve">
     <value>兼职埃尔德里奇骑士需要已拥有战士类职业</value>
   </data>
@@ -284,6 +318,40 @@
   <data name="ExtraRevelationFeatureName_info" xml:space="preserve">
     <value>额外启示</value>
   </data>
+  <data name="FavoredClassAnyFeatureDescription_info" xml:space="preserve">
+    <value>喜爱的职业将自动确定每一等级，如果在该职业中获得一个等级，将获得额外的生命点。喜爱的职业是你最高级别的非声望职业。这是默认的游戏行为。</value>
+  </data>
+  <data name="FavoredClassAnyFeatureName_info" xml:space="preserve">
+    <value>偏爱职业——任何</value>
+  </data>
+  <data name="FavoredClassExtraSpellProgressionDescription_info" xml:space="preserve">
+    <value>
+每当你获得{0}等级时，你可以在+1生命点、+1技能等级或与偏爱职业相关的种族加值之间作出选择。
+种族奖励：
+人类（半精灵，半兽人，阿西马尔）-从{0}法术列表中添加一个已知法术。这个法术必须至少比你能施放的最高等级{1}法术低一级。</value>
+  </data>
+  <data name="FavoredClassFeatureDescription_info" xml:space="preserve">
+    <value>每个角色开始玩他们通常选择的一个最喜欢的单一职业，这他们在第一级选择的同一个职业。当一个角色在他们喜欢的职业中获得一个等级时，他们将获得命中率+1，技能等级+1，或者与他们的偏爱职业相关的种族奖励。一旦创建了角色，就不能更改偏爱职业的选择。</value>
+  </data>
+  <data name="FavoredClassFeatureName_info" xml:space="preserve">
+    <value>偏爱职业</value>
+  </data>
+  <data name="FavoredClassProgressionDescription_info" xml:space="preserve">
+    <value>每当你获得{0}等级时，你可以在+1生命点、+1技能等级或与偏爱职业相关的种族加值之间作出选择。</value>
+  </data>
+  <data name="FavoredClassProgressionName_info" xml:space="preserve">
+    <value>偏爱职业——{0}</value>
+  </data>
+  <data name="FavoredPresitgeClassFeatureDescription_info" xml:space="preserve">
+    <value>你之所以喜爱某个声望职业，要么是因为你对该职业的事业特别投入，比大多数其他人在这个特定角色上所接受的培训都多，要么是因为你注定会一直在声望职业上表现出色。不管原因是什么，在你所喜爱的声望等级中获得等级会以一种类似于在你所喜爱的基础等级中获得等级的方式给予额外利益。
+你可以在你所选择的声望等级中获得等级之前选择此专长，但你在该声望等级中获得至少一个等级之前，此专长的好处不适用。</value>
+  </data>
+  <data name="FavoredPresitgeClassFeatureName_info" xml:space="preserve">
+    <value>喜爱声望职业</value>
+  </data>
+  <data name="FavoredPrestigeProgressionName_info" xml:space="preserve">
+    <value>喜爱声望职业——{0}</value>
+  </data>
   <data name="FeyFoundlingFeatureDescription_info" xml:space="preserve">
     <value>你小时候在野外被发现。
 每当你得到魔法治疗，你能获得每骰子额外2点治疗量0。对死亡效果的所有豁免掷骰都会获得＋2加值。不幸的是，你也会受到＋1点的寒铁武器伤害（尽管你可以使用寒铁武器而没有明显的不适）。</value>
@@ -300,9 +368,9 @@
   <data name="FireSpells_info" xml:space="preserve">
     <value>火系法术</value>
   </data>
-  <data name="FixBloodlineSpellDescriptionPrefix_info" xml:space="preserve">
+  <data name="FixBloodlineSpellDescription_info" xml:space="preserve">
     <value>从第三级起，以及之后每两级，巫师可学习一个额外的法术，来自她的血统。这些法术是在新等级的法术数量之外的附加法术。
-</value>
+{0}</value>
   </data>
   <data name="FixElementalSpells_info" xml:space="preserve">
     <value>启用元素形式的施法</value>
@@ -318,6 +386,13 @@
   </data>
   <data name="GoblinSpellName_info" xml:space="preserve">
     <value>召唤六个地精</value>
+  </data>
+  <data name="GreaterEldritchHeritageFeatureDescription_info" xml:space="preserve">
+    <value>你已发现的血统力量达到了顶峰。
+你可以从你选择的血统中获得额外的力量，这是你在埃尔德里奇的遗产专长中选择的。你获得了一个尚未具备的15级（或更低）巫师血统力量。为了使用这种力量，将你的角色等级视为你的巫师等级，以获得此专长、埃尔德里奇的遗产专长和精通埃尔德里奇的遗产专长所给予的所有巫师血统力量。</value>
+  </data>
+  <data name="GreaterEldritchHeritageFeatureName_info" xml:space="preserve">
+    <value>高等埃尔德里奇的遗产</value>
   </data>
   <data name="GreaterMagicWeaponAbilityDescription_info" xml:space="preserve">
     <value>这个法术的功能类似于魔化武器，除了它给武器每四个施法者等级＋1的攻击和伤害骰的增强加值（最大＋5）。这个加值不允许武器绕过魔法之外的伤害减免。</value>
@@ -342,6 +417,13 @@
   </data>
   <data name="HypnoticSpellDescription_info" xml:space="preserve">
     <value>一种微妙而多变的扭曲的彩色符文在空气中编织，里面有着迷人的生物。投掷2D4并添加施法者等级（最多10级），以确定受影响生物的HD总数。具有最小HD的生物首先受到影响；在具有相同HD的生物中，最接近法术原点的生物首先受到影响。不足以影响生物的HD将被浪费。受影响的生物将对彩色符文着迷。无视觉的生物不会受到影响。</value>
+  </data>
+  <data name="ImprovedEldritchHeritageFeatureDescription_info" xml:space="preserve">
+    <value>你已发现的血统力量继续增长。
+你可以获得你选择的第3级或第9级的血统力量（你的选择）与埃尔德里奇的遗产专长。为了使用这种力量，将你的巫师等级等同于你的角色等级－2，即使你已有巫师等级。你没有获得任何其他血统的能力。</value>
+  </data>
+  <data name="ImprovedEldritchHeritageFeatureName_info" xml:space="preserve">
+    <value>精通埃尔德里奇的遗产</value>
   </data>
   <data name="KeepAllSpellsFeatureDescription_info" xml:space="preserve">
     <value>选择此选项可跳过替换此级别的已知法术。</value>
@@ -394,9 +476,6 @@
   </data>
   <data name="LesserMiracleSpells_info" xml:space="preserve">
     <value>奇迹——预警</value>
-  </data>
-  <data name="LevelSpellNamePostfix_info" xml:space="preserve">
-    <value>（法术等级{0}）</value>
   </data>
   <data name="LifeLinkFeatureDescription_info" xml:space="preserve">
     <value>作为一个标准动作，你可以在自己和另一个生物之间建立一种连接。每回合开始时，如果被绑定生物在其最大生命点以下受伤5点或更多，它将治疗5个生命点，并且您将受到5个伤害点。每个神使等级可以有一个有效的绑定。这种结合持续到被结合的生物死亡，你死亡，你和其他生物之间的距离超过中等范围，或者你作为一个即时动作结束它（如果你有多个连接，你可以作为同一即时动作的一部分结束尽可能多的连接）。</value>
@@ -504,6 +583,9 @@
   <data name="OppositionResearchFeatureName_info" xml:space="preserve">
     <value>反对学派研究</value>
   </data>
+  <data name="OrClassSkillName_info" xml:space="preserve">
+    <value>或{0}</value>
+  </data>
   <data name="OracleCureOrInflictSpellFeatureDescription_info" xml:space="preserve">
     <value>神使除了可获得等级法术外，还将所有治疗法术或造成法术添加到她已知的法术列表中（治疗法术包括名字中有“治疗”的所有法术，造成法术包括名字中有“造成”的所有法术）。一旦神使能够施法，这些法术就会被添加。这个选择是在神使获得第一个职业等级并且不能改变的时候作出的。</value>
   </data>
@@ -531,7 +613,7 @@
 在第二级，以及此后的每两级，一个神使从她的秘法中学习一个额外的法术。这些法术是对所选已知法术数量的补充。它们不能在更高级别上交换不同的法术。</value>
   </data>
   <data name="OracleMysteryFeatureName_info" xml:space="preserve">
-    <value>神使秘法</value>
+    <value>秘法</value>
   </data>
   <data name="OracleOrisonsFeatureDescription_info" xml:space="preserve">
     <value>神使学习了许多祷念，或0级法术。这些法术像其他法术一样施法，但它们不消耗任何槽位，可以再次使用。</value>
@@ -596,16 +678,22 @@
   <data name="SingleLineDescription_info" xml:space="preserve">
     <value>・{0}</value>
   </data>
+  <data name="SkillBonusProgressionDescription_info" xml:space="preserve">
+    <value>{0}
+使用你从声望职业的职业技能中选择的技能，您在检定上获得+2加值。如果你在这些技能中有10个或更多的等级，该技能的加值将增加到+4。此加值与技能专攻给予的加值叠加，但不与任何其他技能给予的加值叠加（如魔法天赋或说服）。</value>
+  </data>
+  <data name="SkipDeityFeatureDescription_info" xml:space="preserve">
+    <value>选择此选项可跳过在角色创建时选择神祗。如果你获得了一个需要选择神祗的职业等级（如牧师、审判官或圣骑士），你可以稍后再选择神祗。</value>
+  </data>
+  <data name="SkipDeityFeatureName_info" xml:space="preserve">
+    <value>忽略神祗</value>
+  </data>
   <data name="SpellBlendingFeatureDescription_info" xml:space="preserve">
     <value>当秘法师选择这个秘法时，他们必须从法师的法术列表中选择一个可以施放的法术等级。他们将这个法术添加到法术书和被称为法术级别的法术列表中。他们可以用这种方式选择两个法术来添加，但是两个法术都必须至少比他们能施放的最高法术低一级。
 特殊：秘法师可以多次选择这个秘法。</value>
   </data>
   <data name="SpellBlendingFeatureName_info" xml:space="preserve">
     <value>法术融合</value>
-  </data>
-  <data name="SpellDescriptionPrefix_info" xml:space="preserve">
-    <value>（施法后，使用能力栏选择你的{0}）。
-</value>
   </data>
   <data name="SpellPerfectionFeatureDescription_info" xml:space="preserve">
     <value>选择一个你有能力施展的法术。每当你施法时，你可以在不影响其等级或施法时间的情况下对该法术应用任何一个元魔法专长，只要该法术的总修改等级不使用高于9级的法术槽。另外，如果你有其他的专长，允许你对这个法术的任何方面（如法术专攻、法术穿透、武器专攻【射线】等等）应用一个固定的数字加值，那么当应用到这个法术时，该专长所给予的加值会加倍。</value>
@@ -618,9 +706,6 @@
   </data>
   <data name="SpellVulnerabilityFeatureName_info" xml:space="preserve">
     <value>法术弱点（{0}）</value>
-  </data>
-  <data name="SpellsSpellNamePostfix_info" xml:space="preserve">
-    <value>法术</value>
   </data>
   <data name="SpiritBoostFeatureDescription_info" xml:space="preserve">
     <value>每当你的治疗法术将一个目标治疗到它的最大生命值时，任何多余的生命值将作为临时生命值持续1轮（临时生命值最大值等于你的神使等级）。</value>
@@ -688,8 +773,18 @@
   <data name="WishFeatureDescription_info" xml:space="preserve">
     <value>许愿术给予{0}永久固有加值。</value>
   </data>
+  <data name="WishLevelSpellName_info" xml:space="preserve">
+    <value>{0}（法术等级{1}）</value>
+  </data>
   <data name="WishReason_error" xml:space="preserve">
     <value>此级别法术的反对学派法术不可用。</value>
+  </data>
+  <data name="WishSpellDescription_info" xml:space="preserve">
+    <value>（施法后，使用能力栏选择你的{0}）{1}。
+</value>
+  </data>
+  <data name="WishSpellsSpellName_info" xml:space="preserve">
+    <value>{0}法术</value>
   </data>
   <data name="WishSpells_info" xml:space="preserve">
     <value>许愿术</value>
@@ -729,9 +824,6 @@
   </data>
   <data name="loadDrawbackFeats_error" xml:space="preserve">
     <value>有缺点的专长</value>
-  </data>
-  <data name="loadEldritchHeritage_error" xml:space="preserve">
-    <value>埃尔德里奇的遗产</value>
   </data>
   <data name="loadFavoredClassBonus_error" xml:space="preserve">
     <value>天赋职业奖励和神祗选择</value>

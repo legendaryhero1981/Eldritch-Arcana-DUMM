@@ -89,6 +89,15 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Any Lore/Knowledge Skill 的本地化字符串。
+        /// </summary>
+        internal static string AnyClassSkillName_info {
+            get {
+                return ResourceManager.GetString("AnyClassSkillName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Failed to apply patch {0}: {1} 的本地化字符串。
         /// </summary>
         internal static string applyPatch_error {
@@ -289,6 +298,60 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Gain +1 hit point 的本地化字符串。
+        /// </summary>
+        internal static string BonusHitPointFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("BonusHitPointFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Bonus Hit Point 的本地化字符串。
+        /// </summary>
+        internal static string BonusHitPointFeatureName_info {
+            get {
+                return ResourceManager.GetString("BonusHitPointFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Gain +1 skill rank 的本地化字符串。
+        /// </summary>
+        internal static string BonusSkillRankFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("BonusSkillRankFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Bonus Skill Rank 的本地化字符串。
+        /// </summary>
+        internal static string BonusSkillRankFeatureName_info {
+            get {
+                return ResourceManager.GetString("BonusSkillRankFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Add one level {0} spell known from the {1} spell list. This spell must be at least one level below the highest {2} spell you can cast. 的本地化字符串。
+        /// </summary>
+        internal static string BonusSpellLevelFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("BonusSpellLevelFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Bonus Known Spell (Level {0}) 的本地化字符串。
+        /// </summary>
+        internal static string BonusSpellLevelFeatureName_info {
+            get {
+                return ResourceManager.GetString("BonusSpellLevelFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Failed to patch LibraryScriptableObject.LoadDictionary(), cannot load mod! 的本地化字符串。
         /// </summary>
         internal static string cannotLoadMod_error {
@@ -322,6 +385,24 @@ namespace EldritchArcana.Properties {
         internal static string CheatCustomTraits_info {
             get {
                 return ResourceManager.GetString("CheatCustomTraits_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Choose Favored Class Bonus 的本地化字符串。
+        /// </summary>
+        internal static string ChooseFavoredClassLocalized_info {
+            get {
+                return ResourceManager.GetString("ChooseFavoredClassLocalized_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Choose Mystery 的本地化字符串。
+        /// </summary>
+        internal static string ChooseMysteryLocalized_info {
+            get {
+                return ResourceManager.GetString("ChooseMysteryLocalized_info", resourceCulture);
             }
         }
         
@@ -485,6 +566,25 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 You are descended from a long line of sorcerers, and some portion of their power flows in your veins.
+        ///Select one sorcerer bloodline. You must have Skill focus in the class skill that bloodline grants to a sorcerer at 1st level (for example, Heal for the celestial bloodline). This bloodline cannot be a bloodline you already have. You gain the first-level bloodline power for the selected bloodline. For purposes of using that power, treat your sorcerer level as equal to your character level – 2, even if you h [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string EldritchHeritageFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("EldritchHeritageFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Eldritch Heritage 的本地化字符串。
+        /// </summary>
+        internal static string EldritchHeritageFeatureName_info {
+            get {
+                return ResourceManager.GetString("EldritchHeritageFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Eldritch Knight requires martial class 的本地化字符串。
         /// </summary>
         internal static string EldritchKnightFix_info {
@@ -604,6 +704,99 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 The favored class is automatically determined each level-up, and an extra hit point is awarded if gaining a level in that class. The favored class is your highest level non-prestige class. This is the default game behavior. 的本地化字符串。
+        /// </summary>
+        internal static string FavoredClassAnyFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("FavoredClassAnyFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Favored Class — Any 的本地化字符串。
+        /// </summary>
+        internal static string FavoredClassAnyFeatureName_info {
+            get {
+                return ResourceManager.GetString("FavoredClassAnyFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 
+        ///Racial favored class benefits:
+        ///Human (and Half-Elf, Half-Orc, Aasimar) — Add one spell known from the {0} spell list. This spell must be at least one level below the highest {1} spell you can cast. 的本地化字符串。
+        /// </summary>
+        internal static string FavoredClassExtraSpellProgressionDescription_info {
+            get {
+                return ResourceManager.GetString("FavoredClassExtraSpellProgressionDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Each character begins play with a single favored class of their choosing—typically, this is the same class as the one they choose at 1st level. Whenever a character gains a level in their favored class, they receive either +1 hit point, +1 skill rank, or the racial bonus associated with their favored class. The choice of favored class cannot be changed once the character is created. 的本地化字符串。
+        /// </summary>
+        internal static string FavoredClassFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("FavoredClassFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Favored Class 的本地化字符串。
+        /// </summary>
+        internal static string FavoredClassFeatureName_info {
+            get {
+                return ResourceManager.GetString("FavoredClassFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Whenever you gain a {0} level, you can choose between +1 hit point, +1 skill rank, or the racial bonus associated with their favored class. 的本地化字符串。
+        /// </summary>
+        internal static string FavoredClassProgressionDescription_info {
+            get {
+                return ResourceManager.GetString("FavoredClassProgressionDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Favored Class — {0} 的本地化字符串。
+        /// </summary>
+        internal static string FavoredClassProgressionName_info {
+            get {
+                return ResourceManager.GetString("FavoredClassProgressionName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You have come to favor a certain prestige class, either because you are particularly devoted to the class’s cause, have trained more than most others have for that specific role, or have simply been destined to excel in the prestige class all along. Regardless of the reason, levels gained in your favored prestige class grant additional benefits in a way similar to those you gain for taking levels in your base favored class.
+        ///You can select this feat before you gain levels in your chosen favored prestige cla [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string FavoredPresitgeClassFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("FavoredPresitgeClassFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Favored Prestige Class 的本地化字符串。
+        /// </summary>
+        internal static string FavoredPresitgeClassFeatureName_info {
+            get {
+                return ResourceManager.GetString("FavoredPresitgeClassFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Favored Prestige Class — {0} 的本地化字符串。
+        /// </summary>
+        internal static string FavoredPrestigeProgressionName_info {
+            get {
+                return ResourceManager.GetString("FavoredPrestigeProgressionName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似   • &lt;b&gt;{0}&lt;/b&gt; 的本地化字符串。
         /// </summary>
         internal static string featureName_error {
@@ -669,11 +862,11 @@ namespace EldritchArcana.Properties {
         
         /// <summary>
         ///   查找类似 At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline. These spells are in addition to the number of spells given at new levels.
-        /// 的本地化字符串。
+        ///{0} 的本地化字符串。
         /// </summary>
-        internal static string FixBloodlineSpellDescriptionPrefix_info {
+        internal static string FixBloodlineSpellDescription_info {
             get {
-                return ResourceManager.GetString("FixBloodlineSpellDescriptionPrefix_info", resourceCulture);
+                return ResourceManager.GetString("FixBloodlineSpellDescription_info", resourceCulture);
             }
         }
         
@@ -719,6 +912,25 @@ namespace EldritchArcana.Properties {
         internal static string GoblinSpellName_info {
             get {
                 return ResourceManager.GetString("GoblinSpellName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Your discovered bloodline power reaches its zenith.
+        ///You gain an additional power from the bloodline you selected with the Eldritch Heritage feat. You gain a 15th-level (or lower) sorcerer bloodline power that you do not already have. For purposes of using that power, treat your character level as your sorcerer level for all your sorcerer bloodline powers granted by this feat, Eldritch Heritage, and Improved Eldritch Heritage. 的本地化字符串。
+        /// </summary>
+        internal static string GreaterEldritchHeritageFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("GreaterEldritchHeritageFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Greater Eldritch Heritage 的本地化字符串。
+        /// </summary>
+        internal static string GreaterEldritchHeritageFeatureName_info {
+            get {
+                return ResourceManager.GetString("GreaterEldritchHeritageFeatureName_info", resourceCulture);
             }
         }
         
@@ -791,6 +1003,25 @@ namespace EldritchArcana.Properties {
         internal static string HypnoticSpellDescription_info {
             get {
                 return ResourceManager.GetString("HypnoticSpellDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The power of your discovered bloodline continues to grow.
+        ///You gain either the 3rd-level or the 9th-level power (your choice) of the bloodline you selected with the Eldritch Heritage feat. For purposes of using that power, treat your sorcerer level as equal to your character level – 2, even if you have levels in sorcerer. You do not gain any of the other bloodline abilities. 的本地化字符串。
+        /// </summary>
+        internal static string ImprovedEldritchHeritageFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("ImprovedEldritchHeritageFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Improved Eldritch Heritage 的本地化字符串。
+        /// </summary>
+        internal static string ImprovedEldritchHeritageFeatureName_info {
+            get {
+                return ResourceManager.GetString("ImprovedEldritchHeritageFeatureName_info", resourceCulture);
             }
         }
         
@@ -917,15 +1148,6 @@ namespace EldritchArcana.Properties {
         internal static string LesserMiracleSpells_info {
             get {
                 return ResourceManager.GetString("LesserMiracleSpells_info", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似  (spell level {0}) 的本地化字符串。
-        /// </summary>
-        internal static string LevelSpellNamePostfix_info {
-            get {
-                return ResourceManager.GetString("LevelSpellNamePostfix_info", resourceCulture);
             }
         }
         
@@ -1057,15 +1279,6 @@ namespace EldritchArcana.Properties {
         internal static string loadDrawbackFeats_error {
             get {
                 return ResourceManager.GetString("loadDrawbackFeats_error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Eldritch Heritage 的本地化字符串。
-        /// </summary>
-        internal static string loadEldritchHeritage_error {
-            get {
-                return ResourceManager.GetString("loadEldritchHeritage_error", resourceCulture);
             }
         }
         
@@ -1464,6 +1677,15 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似  or {0} 的本地化字符串。
+        /// </summary>
+        internal static string OrClassSkillName_info {
+            get {
+                return ResourceManager.GetString("OrClassSkillName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Any race can choose the Oracle Ancient Lorekeeper archetype 的本地化字符串。
         /// </summary>
         internal static string RelaxAncientLorekeeper_info {
@@ -1581,6 +1803,34 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 {0}
+        ///You gain a +2 bonus on checks using the skill you chose from that prestige class&apos;s class skills. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill. This bonus stacks with the bonus granted by Skill Focus, but does not stack with a bonus granted by any other feat (such as Magical Aptitude or Persuasive). 的本地化字符串。
+        /// </summary>
+        internal static string SkillBonusProgressionDescription_info {
+            get {
+                return ResourceManager.GetString("SkillBonusProgressionDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Choose this to skip selecting a deity at character creation. You may select one later if you gain a level in a class that requires it (such as Cleric, Inquisitor, or Paladin). 的本地化字符串。
+        /// </summary>
+        internal static string SkipDeityFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("SkipDeityFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Skip Deity 的本地化字符串。
+        /// </summary>
+        internal static string SkipDeityFeatureName_info {
+            get {
+                return ResourceManager.GetString("SkipDeityFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 When a magus selects this arcana, they must select one spell from the wizard spell list that is of a magus spell level they can cast. They adds this spell to their spellbook and list of magus spells known as a magus spell of its wizard spell level. They can instead select two spells to add in this way, but both must be at least one level lower than the highest-level magus spell they can cast.
         ///Special: A magus can select this magus arcana more than once. 的本地化字符串。
         /// </summary>
@@ -1600,16 +1850,6 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 (After casting this spell, use the ability bar to select your {0}.)
-        /// 的本地化字符串。
-        /// </summary>
-        internal static string SpellDescriptionPrefix_info {
-            get {
-                return ResourceManager.GetString("SpellDescriptionPrefix_info", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 Pick one spell which you have the ability to cast. Whenever you cast that spell you may apply any one metamagic feat you have to that spell without affecting its level or casting time, as long as the total modified level of the spell does not use a spell slot above 9th level. In addition, if you have other feats which allow you to apply a set numerical bonus to any aspect of this spell (such as Spell Focus, Spell Penetration, Weapon Focus [ray], and so on), double the bonus granted by that feat when applied [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string SpellPerfectionFeatureDescription_info {
@@ -1624,15 +1864,6 @@ namespace EldritchArcana.Properties {
         internal static string SpellPerfectionFeatureName_info {
             get {
                 return ResourceManager.GetString("SpellPerfectionFeatureName_info", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似  Spells 的本地化字符串。
-        /// </summary>
-        internal static string SpellsSpellNamePostfix_info {
-            get {
-                return ResourceManager.GetString("SpellsSpellNamePostfix_info", resourceCulture);
             }
         }
         
@@ -1818,6 +2049,15 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 {0} (spell level {1}) 的本地化字符串。
+        /// </summary>
+        internal static string WishLevelSpellName_info {
+            get {
+                return ResourceManager.GetString("WishLevelSpellName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Opposition school spells of this level are not available. 的本地化字符串。
         /// </summary>
         internal static string WishReason_error {
@@ -1827,11 +2067,30 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 (After casting this spell, use the ability bar to select your {0}.){1}
+        /// 的本地化字符串。
+        /// </summary>
+        internal static string WishSpellDescription_info {
+            get {
+                return ResourceManager.GetString("WishSpellDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Wish 的本地化字符串。
         /// </summary>
         internal static string WishSpells_info {
             get {
                 return ResourceManager.GetString("WishSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {0} Spells 的本地化字符串。
+        /// </summary>
+        internal static string WishSpellsSpellName_info {
+            get {
+                return ResourceManager.GetString("WishSpellsSpellName_info", resourceCulture);
             }
         }
     }

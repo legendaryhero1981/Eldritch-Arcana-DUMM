@@ -88,7 +88,7 @@ namespace EldritchArcana
                 SafeLoad(CrossbloodedSorcerer.Load, RES.loadCrossbloodedSorcerer_error);
 
                 // Note: needs to run after things that add martial classes or bloodlines.
-                SafeLoad(EldritchHeritage.Load, RES.loadEldritchHeritage_error);
+                SafeLoad(EldritchHeritage.Load, RES.EldritchHeritageFeatureName_info);
 
                 // Note: needs to run after crossblooded and spontaneous caster classes,
                 // so it can find their spellbooks.

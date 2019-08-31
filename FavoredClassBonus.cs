@@ -1,9 +1,6 @@
 // Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -18,13 +15,19 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
 using Kingmaker.PubSubSystem;
-using Kingmaker.UI.Common;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Class.LevelUp;
 using Kingmaker.UnitLogic.Class.LevelUp.Actions;
 using Kingmaker.Utility;
+
 using Newtonsoft.Json;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -41,7 +44,7 @@ namespace EldritchArcana
         internal static void Load()
         {
             bonusHitPointFeat = Helpers.CreateFeature("FavoredClassBonusHitPoint",
-                "Bonus Hit Point", "Gain +1 hit point",
+                RES.BonusHitPointFeatureName_info, RES.BonusHitPointFeatureDescription_info,
                 "33642179f90c4452a3122892ebc81692",
                 Helpers.GetIcon("d09b20029e9abfe4480b356c92095623"), // toughness
                 FeatureGroup.None,
@@ -49,7 +52,7 @@ namespace EldritchArcana
             bonusHitPointFeat.Ranks = 20;
 
             bonusSkillRankFeat = Helpers.CreateFeature("FavoredClassBonusSkillRank",
-                "Bonus Skill Rank", "Gain +1 skill rank",
+                RES.BonusSkillRankFeatureName_info, RES.BonusSkillRankFeatureDescription_info,
                 "e0ede31846a0499d854391302f039ede",
                 Helpers.GetIcon("3adf9274a210b164cb68f472dc1e4544"), // human skilled
                 FeatureGroup.None,
@@ -69,9 +72,8 @@ namespace EldritchArcana
             var noFeature = Helpers.Create<PrerequisiteNoFeature>();
             favoredPrestigeClass = Helpers.CreateFeatureSelection(
                 "FavoredPresitgeClassSelection",
-                "Favored Prestige Class",
-                "You have come to favor a certain prestige class, either because you are particularly devoted to the class’s cause, have trained more than most others have for that specific role, or have simply been destined to excel in the prestige class all along. Regardless of the reason, levels gained in your favored prestige class grant additional benefits in a way similar to those you gain for taking levels in your base favored class.\n" +
-                "You can select this feat before you gain levels in your chosen favored prestige class, but the benefits of the feat do not apply until you actually gain at least 1 level in that prestige class.",
+                RES.FavoredPresitgeClassFeatureName_info,
+                RES.FavoredPresitgeClassFeatureDescription_info,
                 "4fab2e6256e644daaa637093bc2421aa",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Favored_Prestige_Class.png"),//.skillFocusFeat.Icon,
                 FeatureGroup.Feat,
@@ -99,7 +101,7 @@ namespace EldritchArcana
             // Create the progression that will allow +1 HP or skill rank.
             var progression = Helpers.CreateProgression(
                 $"FavoredPrestige{prestigeClass.name}",
-                $"Favored Prestige Class — {prestigeClass.Name}",
+                string.Format(RES.FavoredPrestigeProgressionName_info, prestigeClass.Name),
                 prestigeClass.LocalizedDescription,
                 Helpers.MergeIds(prestigeClass.AssetGuid, "989807536776445d9b4875b4cfbfdd11"),
                 prestigeClass.Icon,
@@ -145,7 +147,7 @@ namespace EldritchArcana
                 var paramSkill = Helpers.CreateParamSelection<CustomSkillSelection>(
                     favored.name + "SkillBonus",
                     favored.Name,
-                    favored.Description + "\nYou gain a +2 bonus on checks using the skill you chose from that prestige class’s class skills. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill. This bonus stacks with the bonus granted by Skill Focus, but does not stack with a bonus granted by any other feat (such as Magical Aptitude or Persuasive).",
+                    string.Format(RES.SkillBonusProgressionDescription_info, favored.Description),
                     Helpers.MergeIds(favoredClass.AssetGuid, "15faccea8a364cb39d091dd01b513c3a"),
                     Helpers.skillFocusFeat.Icon,
                     FeatureGroup.None,
@@ -168,8 +170,8 @@ namespace EldritchArcana
             // AddFavoredClassBonusChoice on level up. 
             var favoredClassAny = Helpers.CreateFeature(
                 "FavoredClassAny",
-                "Favored Class — Any",
-                "The favored class is automatically determined each level-up, and an extra hit point is awarded if gaining a level in that class. The favored class is your highest level non-prestige class. This is the default game behavior.",
+                RES.FavoredClassAnyFeatureName_info,
+                RES.FavoredClassAnyFeatureDescription_info,
                 "ea5f395c351a4f00be7f7a300d3bb5b4",
                 null,
                 FeatureGroup.Feat);
@@ -193,10 +195,8 @@ namespace EldritchArcana
             var noFeature = Helpers.PrerequisiteNoFeature(null);
             var favoredClass = Helpers.CreateFeatureSelection(
                 "FavoredClass",
-                "Favored Class",
-                "Each character begins play with a single favored class of their choosing—typically, this is the same class as the one they choose at 1st level. " +
-                "Whenever a character gains a level in their favored class, they receive either +1 hit point, +1 skill rank, or the racial bonus associated with their favored class. " +
-                "The choice of favored class cannot be changed once the character is created.",
+                RES.FavoredClassFeatureName_info,
+                RES.FavoredClassFeatureDescription_info,
                 "bc4c271ef0954eceb808d84978c500f7",
                 null,
                 UpdateLevelUpDeterminatorText.Group,
@@ -213,7 +213,7 @@ namespace EldritchArcana
         {
             var className = favoredClass.Name.ToLower();
             // TODO: implement other classes/races favored class benefits.
-            var description = $"Whenever you gain a {className} level, you can choose between +1 hit point, +1 skill rank, or the racial bonus associated with their favored class.";
+            var description = string.Format(RES.FavoredClassProgressionDescription_info, className);
 
             var isSorcerer = favoredClass.AssetGuid == "b3a505fb61437dc4097f43c3f8f9a4cf";
             var isBard = favoredClass.AssetGuid == "772c83a25e2268e448e841dcd548235f";
@@ -224,8 +224,7 @@ namespace EldritchArcana
             var isExtraSpellClass = isSorcerer || isBard || isOracle;
             if (isExtraSpellClass)
             {
-                description += "\nRacial favored class benefits:" +
-                    $"\n  Human (and Half-Elf, Half-Orc, Aasimar) — Add one spell known from the {className} spell list. This spell must be at least one level below the highest {className} spell you can cast.";
+                description += string.Format(RES.FavoredClassExtraSpellProgressionDescription_info, className, className);
             }
             //string mergeGuid = ;
             //string mergeGuid = isArcanist == false ?: "081651146ada3d2a99f6e9190ac6b01a";
@@ -235,7 +234,7 @@ namespace EldritchArcana
 
             var favored = Helpers.CreateProgression(
                 $"FavoredClass{favoredClass.name}Progression",
-                $"Favored Class — {favoredClass.Name}",
+                string.Format(RES.FavoredClassProgressionName_info, favoredClass.Name),
                 description,
                 Helpers.MergeIds(favoredClass.AssetGuid, "081651146ada4d0a88f6e9190ac6b01a"),
                 favoredClass.Icon,
@@ -265,8 +264,8 @@ namespace EldritchArcana
             components.Add(Helpers.Create<AddOneSpellChoice>(a => { a.CharacterClass = @class; a.SpellLevel = spellLevel; }));
 
             var feat = Helpers.CreateFeature($"Favored{@class.name}BonusSpellLevel{spellLevel}",
-                $"Bonus Known Spell (Level {spellLevel})",
-                $"Add one level {spellLevel} spell known from the {className} spell list. This spell must be at least one level below the highest {className} spell you can cast.",
+                string.Format(RES.BonusSpellLevelFeatureName_info, spellLevel),
+                string.Format(RES.BonusSpellLevelFeatureDescription_info, spellLevel, className, className),
                 Helpers.MergeIds(@class.AssetGuid, spellLevelGuids[spellLevel - 1]),
                 Helpers.GetIcon("55edf82380a1c8540af6c6037d34f322"), // elven magic
                 FeatureGroup.None,
@@ -291,8 +290,8 @@ namespace EldritchArcana
 
             var deitySelection = library.CopyAndAdd(baseDeitySelection, "DeitySelectionAny", "d5c3c9d4080043f98e6c09f4e843440e");
             deitySelection.Group = FeatureGroup.None; // to prevent "determinators" page clutter.
-            var noDeityChoice = Helpers.CreateFeature("SkipDeity", "(Skip)",
-                "Choose this to skip selecting a deity at character creation. You may select one later if you gain a level in a class that requires it (such as Cleric, Inquisitor, or Paladin).",
+            var noDeityChoice = Helpers.CreateFeature("SkipDeity", RES.SkipDeityFeatureName_info,
+                RES.SkipDeityFeatureDescription_info,
                 "e1f5711210404b34a805b00749eeba20",
                 null, FeatureGroup.None);
             noDeityChoice.HideInUI = true;
@@ -352,12 +351,12 @@ namespace EldritchArcana
             CharGenText = Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharGen;
             SavedText = CharGenText.ChannelEnergy;
             SavedChoiceText = CharGenText.ChooseChannelEnergy;
-            MysteryText = Helpers.CreateString("CharGen.Mystery", "Mystery");
-            ChooseMysteryText = Helpers.CreateString("CharGen.ChooseMystery", "Choose Mystery");
-            FavoredClass = Helpers.CreateString("CharGen.FavoredClass", "Favored Class");
-            ChooseFavoredClass = Helpers.CreateString("CharGen.ChooseFavoredClass", "Choose Favored Class");
-            BonusText = Helpers.CreateString("CharGen.FavoredClassBonus", "Favored Class");
-            ChooseBonusText = Helpers.CreateString("CharGen.ChooseFavoredClassBonus", "Choose Favored Class Bonus");
+            MysteryText = Helpers.CreateString("CharGen.Mystery", RES.OracleMysteryFeatureName_info);
+            ChooseMysteryText = Helpers.CreateString("CharGen.ChooseMystery", RES.ChooseMysteryLocalized_info);
+            FavoredClass = Helpers.CreateString("CharGen.FavoredClass", RES.FavoredClassFeatureName_info);
+            ChooseFavoredClass = Helpers.CreateString("CharGen.ChooseFavoredClass", RES.ChooseFavoredClassLocalized_info);
+            BonusText = Helpers.CreateString("CharGen.FavoredClassBonus", RES.FavoredClassFeatureName_info);
+            ChooseBonusText = Helpers.CreateString("CharGen.ChooseFavoredClassBonus", "");
         }
 
         void ILevelUpSelectClassHandler.HandleSelectClass(UnitDescriptor unit, LevelUpState state)
