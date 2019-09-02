@@ -1,21 +1,22 @@
 // Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
-using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Class.LevelUp;
 using Kingmaker.UnitLogic.Class.LevelUp.Actions;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -49,8 +50,8 @@ namespace EldritchArcana
 
             // TODO: it would be nice to find the list of spellcasting prestige classes with skipped levels automatically.
             var spellSpecialization = library.Get<BlueprintFeatureSelection>("fe67bc3b04f1cd542b4df6e28b6e0ff5");
-            var prestigiousSpell = Helpers.CreateFeatureSelection("PrestigiousSpellcasterSelection", "Prestigious Spellcaster",
-                "The transition into a spellcasting prestige class is less difficult for you, and because of this, you gain 1 additional effective spellcaster level from your prestige class levels.",
+            var prestigiousSpell = Helpers.CreateFeatureSelection("PrestigiousSpellcasterSelection", RES.PrestigiousSpellcasterFeatureName_info,
+                RES.PrestigiousSpellcasterFeatureDescription_info,
                 "30e9a3fcdb0446aa87f45d0f50b3b3fc",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Prestigious_Spellcaster.png"),//spellSpecialization.Icon,
                 FeatureGroup.Feat);
@@ -140,7 +141,7 @@ namespace EldritchArcana
 
             var favoredClassFeat = FavoredClassBonus.favoredPrestigeClass.Features[Helpers.prestigeClasses.IndexOf(prestigeClass)];
             var prestigiousCaster = Helpers.CreateFeature($"PrestigiousCaster{prestigeClass.name}",
-                $"Prestigious Spellcaster — {prestigeClass.Name}",
+                string.Format(RES.PrestigiousSpellcasterClassFeatureName_info, prestigeClass.Name),
                 prestigeClass.LocalizedDescription,
                 Helpers.MergeIds(prestigeClass.AssetGuid, "c526dfc221db493d9ec6291575086a99"),
                 prestigeClass.Icon,
@@ -283,7 +284,7 @@ namespace EldritchArcana
 
         static int previousCasterLevel;
 
-        static ApplySpellbook_Apply_Patch() => Main.ApplyPatch(typeof(ApplySpellbook_Apply_Patch), "Prestigious Spellcaster, spell replacement for spontaneous casters");
+        static ApplySpellbook_Apply_Patch() => Main.ApplyPatch(typeof(ApplySpellbook_Apply_Patch), RES.PrestigiousSpellcasterFeatureName_error);
 
         static bool Prefix(ApplySpellbook __instance, LevelUpState state, UnitDescriptor unit)
         {

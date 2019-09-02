@@ -144,6 +144,26 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 A bloodrager need not be in a bloodrage to use her bloodline mutation powers. Alternatively, a bloodrager or sorcerer can select a bloodline mutation in place of a bloodline bonus feat, provided her class level is at least equal to the level of the bloodline ability the mutation normally replaces.
+        ///Bloodline Mutation: Blood havoc
+        ///Whenever you cast a bloodrager or sorcerer spell that deals damage, add 1 point of damage per die rolled.  的本地化字符串。
+        /// </summary>
+        internal static string BloodHavocMutationFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("BloodHavocMutationFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Blood Havoc Mutation({0}) 的本地化字符串。
+        /// </summary>
+        internal static string BloodHavocMutationFeatureName_info {
+            get {
+                return ResourceManager.GetString("BloodHavocMutationFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 You gain the orc subtype, including light sensitivity. Whenever you cast a spell that deals damage, that spell deals +1 point of damage per die rolled. 的本地化字符串。
         /// </summary>
         internal static string BloodlineOrcArcanaFeatureDescription_info {
@@ -298,6 +318,42 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 At 1st, 3rd, 9th, 15th, and 20th levels, a crossblooded sorcerer gains one of the two new bloodline powers available to their at that level. They may instead select a lower-level bloodline power they did not choose in place of one of these higher-level powers. 的本地化字符串。
+        /// </summary>
+        internal static string BloodlinePowerFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("BloodlinePowerFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Bloodline Power 的本地化字符串。
+        /// </summary>
+        internal static string BloodlinePowerFeatureName_info {
+            get {
+                return ResourceManager.GetString("BloodlinePowerFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 A crossblooded sorcerer may select their bonus spells from either of their bloodlines. The sorcerer also has the choice to learn a lower-level bonus spell they did not choose in place of the higher-level bonus spell they would normally gain. Lower-level bonus spells learned this way always use the spell level that they would be if the sorcerer had learned them with the appropriate bonus spell. 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineSpellFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("BloodlineSpellFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Bloodline Spell 的本地化字符串。
+        /// </summary>
+        internal static string BloodlineSpellFeatureName_info {
+            get {
+                return ResourceManager.GetString("BloodlineSpellFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Gain +1 hit point 的本地化字符串。
         /// </summary>
         internal static string BonusHitPointFeatureDescription_info {
@@ -407,6 +463,52 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 
+        ///Choices for each bloodline: 的本地化字符串。
+        /// </summary>
+        internal static string CrossbloodedChoicesFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("CrossbloodedChoicesFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The conflicting urges created by the divergent nature of the crossblooded sorcerer’s dual heritage forces them to constantly take some mental effort just to remain focused on their current situation and needs. This leaves them with less mental resolve to deal with external threats. A crossblooded sorcerer always takes a –2 penalty on Will saves. 的本地化字符串。
+        /// </summary>
+        internal static string CrossbloodedConflictingUrgesFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("CrossbloodedConflictingUrgesFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Crossblooded (conflicting urges) 的本地化字符串。
+        /// </summary>
+        internal static string CrossbloodedConflictingUrgesFeatureName_info {
+            get {
+                return ResourceManager.GetString("CrossbloodedConflictingUrgesFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 A crossblooded sorcerer selects two different bloodlines. The sorcerer may gain access to the skills, feats, and some of the powers of both bloodlines they are descended from, but at the cost of reduced mental clarity and choice. 的本地化字符串。
+        /// </summary>
+        internal static string CrossbloodedSorcererLocalizedDescription_info {
+            get {
+                return ResourceManager.GetString("CrossbloodedSorcererLocalizedDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Crossblooded Sorcerer 的本地化字符串。
+        /// </summary>
+        internal static string CrossbloodedSorcererLocalizedName_info {
+            get {
+                return ResourceManager.GetString("CrossbloodedSorcererLocalizedName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Once per day as an immediate action, whenever you fail a saving throw against a disease or poison, you may ignore its effects for 1 hour per level. At 7th and 15th level, you can use this ability one additional time per day. 的本地化字符串。
         /// </summary>
         internal static string DelayAfflictionFeatureDescription_info {
@@ -421,6 +523,24 @@ namespace EldritchArcana.Properties {
         internal static string DelayAfflictionFeatureName_info {
             get {
                 return ResourceManager.GetString("DelayAfflictionFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This spell functions like fireball, except that it is more powerful and can detonate up to 5 rounds after the spell is cast. The burst of flame deals 1d6 points of fire damage per caster level (maximum 20d6). The glowing bead created by delayed blast fireball can detonate immediately if you desire, or you can choose to delay the burst for as many as 5 rounds. You select the amount of delay upon completing the spell, and that time cannot change once it has been set unless someone touches the bead. If you cho [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string DelayedBlastFireballAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("DelayedBlastFireballAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Delayed Blast Fireball 的本地化字符串。
+        /// </summary>
+        internal static string DelayedBlastFireballAbilityName_info {
+            get {
+                return ResourceManager.GetString("DelayedBlastFireballAbilityName_info", resourceCulture);
             }
         }
         
@@ -485,6 +605,26 @@ namespace EldritchArcana.Properties {
         internal static string DetectSecretDoorsSpells_info {
             get {
                 return ResourceManager.GetString("DetectSecretDoorsSpells_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Some spells can be dismissed at will, others when you are out of combat. You must be within range of the spell&apos;s effect. Dismissing a spell is a standard action that does not provoke attacks of opportunity.
+        ///A spell that depends on concentration is dismissible by its very nature, and dismissing it does not take an action, since all you have to do to end the spell is to stop concentrating on your turn.
+        ///If this ability is enabled, it means you have a currently active effect spell that can be dismissed. 的本地化字符串。
+        /// </summary>
+        internal static string DismissAreaEffectAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("DismissAreaEffectAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Dismiss Area Effect Spell 的本地化字符串。
+        /// </summary>
+        internal static string DismissAreaEffectAbilityName_info {
+            get {
+                return ResourceManager.GetString("DismissAreaEffectAbilityName_info", resourceCulture);
             }
         }
         
@@ -562,6 +702,15 @@ namespace EldritchArcana.Properties {
         internal static string DrawbackSpellVulnerabilityFeatureName_info {
             get {
                 return ResourceManager.GetString("DrawbackSpellVulnerabilityFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Eldritch Heritage — {0} 的本地化字符串。
+        /// </summary>
+        internal static string EldritchHeritageBloodlineFeatureName_info {
+            get {
+                return ResourceManager.GetString("EldritchHeritageBloodlineFeatureName_info", resourceCulture);
             }
         }
         
@@ -682,6 +831,24 @@ namespace EldritchArcana.Properties {
         internal static string ExtraRevelationFeatureName_info {
             get {
                 return ResourceManager.GetString("ExtraRevelationFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Failed to find the entries for {0} (guid {1}) 的本地化字符串。
+        /// </summary>
+        internal static string failedFindEntries_error {
+            get {
+                return ResourceManager.GetString("failedFindEntries_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 could not find level {0} spell for {1} 的本地化字符串。
+        /// </summary>
+        internal static string failedFindLevelSpell {
+            get {
+                return ResourceManager.GetString("failedFindLevelSpell", resourceCulture);
             }
         }
         
@@ -916,6 +1083,15 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Improved Eldritch Heritage — {0} 的本地化字符串。
+        /// </summary>
+        internal static string GreaterEldritchHeritageBloodlineFeatureName_info {
+            get {
+                return ResourceManager.GetString("GreaterEldritchHeritageBloodlineFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Your discovered bloodline power reaches its zenith.
         ///You gain an additional power from the bloodline you selected with the Eldritch Heritage feat. You gain a 15th-level (or lower) sorcerer bloodline power that you do not already have. For purposes of using that power, treat your character level as your sorcerer level for all your sorcerer bloodline powers granted by this feat, Eldritch Heritage, and Improved Eldritch Heritage. 的本地化字符串。
         /// </summary>
@@ -1003,6 +1179,15 @@ namespace EldritchArcana.Properties {
         internal static string HypnoticSpellDescription_info {
             get {
                 return ResourceManager.GetString("HypnoticSpellDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Greater Eldritch Heritage — {0} 的本地化字符串。
+        /// </summary>
+        internal static string ImprovedEldritchHeritageBloodlineFeatureName_info {
+            get {
+                return ResourceManager.GetString("ImprovedEldritchHeritageBloodlineFeatureName_info", resourceCulture);
             }
         }
         
@@ -1256,15 +1441,6 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Crossblooded Sorcerer 的本地化字符串。
-        /// </summary>
-        internal static string loadCrossbloodedSorcerer_error {
-            get {
-                return ResourceManager.GetString("loadCrossbloodedSorcerer_error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 Custom Portraits in main portrait selection 的本地化字符串。
         /// </summary>
         internal static string LoadCustomPortraits_error {
@@ -1315,15 +1491,6 @@ namespace EldritchArcana.Properties {
         internal static string loadOracleClass_error {
             get {
                 return ResourceManager.GetString("loadOracleClass_error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Prestigious Spellcaster 的本地化字符串。
-        /// </summary>
-        internal static string loadPrestigiousSpellcaster_error {
-            get {
-                return ResourceManager.GetString("loadPrestigiousSpellcaster_error", resourceCulture);
             }
         }
         
@@ -1686,6 +1853,42 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Prestigious Spellcaster — {0} 的本地化字符串。
+        /// </summary>
+        internal static string PrestigiousSpellcasterClassFeatureName_info {
+            get {
+                return ResourceManager.GetString("PrestigiousSpellcasterClassFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The transition into a spellcasting prestige class is less difficult for you, and because of this, you gain 1 additional effective spellcaster level from your prestige class levels. 的本地化字符串。
+        /// </summary>
+        internal static string PrestigiousSpellcasterFeatureDescription_info {
+            get {
+                return ResourceManager.GetString("PrestigiousSpellcasterFeatureDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Prestigious Spellcaster, spell replacement for spontaneous casters 的本地化字符串。
+        /// </summary>
+        internal static string PrestigiousSpellcasterFeatureName_error {
+            get {
+                return ResourceManager.GetString("PrestigiousSpellcasterFeatureName_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Prestigious Spellcaster 的本地化字符串。
+        /// </summary>
+        internal static string PrestigiousSpellcasterFeatureName_info {
+            get {
+                return ResourceManager.GetString("PrestigiousSpellcasterFeatureName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Any race can choose the Oracle Ancient Lorekeeper archetype 的本地化字符串。
         /// </summary>
         internal static string RelaxAncientLorekeeper_info {
@@ -1904,6 +2107,26 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 A weapon made of force appears and attacks foes at a distance, as you direct it, dealing 1d8 force damage per hit, +1 point per three caster levels (maximum +5 at 15th level). 
+        ///The weapon takes the shape of a weapon favored by your deity or a weapon with some spiritual significance or symbolism to you (see below) and has the same threat range and critical multipliers as a real weapon of its form. 
+        ///It strikes the opponent you designate, starting with one attack in the round the spell is cast and continuing [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string SpiritualWeaponAbilityDescription_info {
+            get {
+                return ResourceManager.GetString("SpiritualWeaponAbilityDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Spiritual Weapon 的本地化字符串。
+        /// </summary>
+        internal static string SpiritualWeaponAbilityName_info {
+            get {
+                return ResourceManager.GetString("SpiritualWeaponAbilityName_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Spiritual Weapon 的本地化字符串。
         /// </summary>
         internal static string SpritualWeaponSpells_info {
@@ -1945,6 +2168,24 @@ namespace EldritchArcana.Properties {
         internal static string testedGameVersion_warning {
             get {
                 return ResourceManager.GetString("testedGameVersion_warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 1d4+1 rounds (apparent time) 的本地化字符串。
+        /// </summary>
+        internal static string TimeStopAbilityDuration_info {
+            get {
+                return ResourceManager.GetString("TimeStopAbilityDuration_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This spell seems to make time cease to flow for everyone but you. In fact, you speed up so greatly that all other creatures seem frozen, though they are actually still moving at their normal speeds. You are free to act for 1d4+1 rounds of apparent time. Normal and magical fire, cold, gas, and the like can still harm you. While the time stop is in effect, other creatures are invulnerable to your attacks and spells; you cannot target such creatures with any attack or spell. A spell that affects an area and ha [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string TimeStopBuffDescription_info {
+            get {
+                return ResourceManager.GetString("TimeStopBuffDescription_info", resourceCulture);
             }
         }
         

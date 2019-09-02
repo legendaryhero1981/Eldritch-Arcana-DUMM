@@ -1,37 +1,30 @@
 // Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints.Root;
-using Kingmaker.Blueprints.Validation;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.UI.Common;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.ActivatableAbilities;
-using Kingmaker.UnitLogic.Class.LevelUp.Actions;
 using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
+
 using Newtonsoft.Json;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
 using UnityEngine;
+
 using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
@@ -230,7 +223,7 @@ namespace EldritchArcana
             var power = GetBloodlinePower(bloodline, powerLevel);
             return CreateHeritageFeat(bloodline, power, powerLevel,
                 $"{bloodline.name.Replace("Progression", "")}EldritchHeritage",
-                $"Eldritch Heritage — {bloodline.Name}",
+                string.Format(RES.EldritchHeritageBloodlineFeatureName_info, bloodline.name),
                 bloodline.Icon,
                 Helpers.MergeIds(bloodline.AssetGuid, "7114742a530d4946ba36888247422abe"),
                 components);
@@ -241,7 +234,7 @@ namespace EldritchArcana
             var power = GetBloodlinePower(bloodline, powerLevel);
             return CreateHeritageFeat(bloodline, power, powerLevel,
                 $"{GetPowerName(power)}ImprovedHeritage",
-                $"Improved Eldritch Heritage — {power.Name}",
+                string.Format(RES.ImprovedEldritchHeritageBloodlineFeatureName_info, power.Name),
                 power.Icon,
                 Helpers.MergeIds(power.AssetGuid, "6a4ec4f556ff4f0d9581722972cb6600"),
                 new List<BlueprintComponent> { heritageFeat.PrerequisiteFeature() });
@@ -257,7 +250,7 @@ namespace EldritchArcana
         {
             var power = GetBloodlinePower(bloodline, powerLevel);
             var name = $"{GetPowerName(power)}GreaterHeritage";
-            var displayName = $"Greater Eldritch Heritage — {power.Name}";
+            var displayName = string.Format(RES.GreaterEldritchHeritageBloodlineFeatureName_info, power.Name);
             var assetId = Helpers.MergeIds(power.AssetGuid, "f2f2797315644c32a949182d79ae151e");
             if (improvedFeat != null)
             {
@@ -370,7 +363,7 @@ namespace EldritchArcana
                 if (entries.Count < 3)
                 {
                     foreach (var e in entries) Log.Append($"  level {e.Item1} {e.Item2.name}");
-                    throw Main.Error($"Failed to find the entries for {ability.name} (guid {ability.AssetGuid})");
+                    throw Main.Error(string.Format(RES.failedFindEntries_error, ability.name, ability.AssetGuid));
                 }
                 return entries;
             }
@@ -392,7 +385,7 @@ namespace EldritchArcana
             if (entries.Count < 2)
             {
                 foreach (var e in entries) Log.Append($"  level {e.Item1} {e.Item2.name}");
-                throw Main.Error($"Failed to find the entries for {ability.name} (guid {ability.AssetGuid})");
+                throw Main.Error(string.Format(RES.failedFindEntries_error, ability.name, ability.AssetGuid));
             }
             return entries;
         }

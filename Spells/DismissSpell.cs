@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Kingmaker;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Root;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
@@ -11,11 +7,16 @@ using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
-using Newtonsoft.Json;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
+
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -34,10 +35,8 @@ namespace EldritchArcana
 
         public AreaEffectDismissal()
         {
-            dismiss = Helpers.CreateAbility("DismissAreaEffectSpell", "Dismiss Area Effect Spell",
-                "Some spells can be dismissed at will, others when you are out of combat. You must be within range of the spell’s effect. Dismissing a spell is a standard action that does not provoke attacks of opportunity.\n" +
-                "A spell that depends on concentration is dismissible by its very nature, and dismissing it does not take an action, since all you have to do to end the spell is to stop concentrating on your turn.\n" +
-                "(If this ability is enabled, it means you have a currently active effect spell that can be dismissed.)",
+            dismiss = Helpers.CreateAbility("DismissAreaEffectSpell", RES.DismissAreaEffectAbilityName_info,
+                RES.DismissAreaEffectAbilityDescription_info,
                 "da09c33c33d44be485c5757262923bfb",
                 Helpers.GetIcon("95f7cdcec94e293489a85afdf5af1fd7"), // dismissal
                 AbilityType.Extraordinary, // (Ex) so it doesn't provoke an attack of opportunity, and works w/ antimagic field.

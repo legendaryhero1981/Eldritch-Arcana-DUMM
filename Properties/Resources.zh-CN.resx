@@ -134,6 +134,14 @@
     <value>
 你也可以在不增加施法时间的情况下将你所知道的任何元魔法技能添加到你的法术中，尽管你仍然必须花费更高级别的法术槽。</value>
   </data>
+  <data name="BloodHavocMutationFeatureDescription_info" xml:space="preserve">
+    <value>一个嗜血者不需要在一场血腥的狂怒中使用她的血统突变能力。或者，一个嗜血者或巫师可以选择一个血统突变来代替血统奖励专长，前提是她的等级至少等于突变替代的血统能力等级。
+血统突变：血统严重破坏
+每当你施展一个造成伤害的嗜血或巫师法术时，投掷的每个伤害骰子点数增加1点。</value>
+  </data>
+  <data name="BloodHavocMutationFeatureName_info" xml:space="preserve">
+    <value>血统严重突变（{0}）</value>
+  </data>
   <data name="BloodlineOrcArcanaFeatureDescription_info" xml:space="preserve">
     <value>你获得了兽人亚类，包括光敏感性。每当你施放一个造成伤害的法术时，此法术每个骰子投掷的伤害点数+1。</value>
   </data>
@@ -186,6 +194,18 @@
   <data name="BloodlineOrcWarlordRebornFeatureName_info" xml:space="preserve">
     <value>战神重生</value>
   </data>
+  <data name="BloodlinePowerFeatureDescription_info" xml:space="preserve">
+    <value>在第1、第3、第9、第15和第20级，一个混血巫师获得了该级别的两个新血统力量之一。相反，他们可以选择一个他们尚未具备的较低级别的血统力量来取代这些较高级别的力量之一。</value>
+  </data>
+  <data name="BloodlinePowerFeatureName_info" xml:space="preserve">
+    <value>血统力量</value>
+  </data>
+  <data name="BloodlineSpellFeatureDescription_info" xml:space="preserve">
+    <value>一个混血巫师可以从他们的血统中选择他们的额外法术。巫师也可以选择学习一个他们没有选择的较低等级的奖励法术来代替他们通常会获得的较高等级的奖励法术。以这种方式学习的低级奖励法术总是使用如果巫师用合适的奖励法术学习的法术等级。</value>
+  </data>
+  <data name="BloodlineSpellFeatureName_info" xml:space="preserve">
+    <value>血统法术</value>
+  </data>
   <data name="BonusHitPointFeatureDescription_info" xml:space="preserve">
     <value>获得+1点生命值</value>
   </data>
@@ -220,11 +240,33 @@
   <data name="ChooseMysteryLocalized_info" xml:space="preserve">
     <value>选择秘法</value>
   </data>
+  <data name="CrossbloodedChoicesFeatureDescription_info" xml:space="preserve">
+    <value>
+每个血统的选择：</value>
+  </data>
+  <data name="CrossbloodedConflictingUrgesFeatureDescription_info" xml:space="preserve">
+    <value>由于混血巫师的双重遗产的不同性质所产生的相互冲突的渴望，迫使他们不断地进行一些精神上的努力，只是为了保持对他们当前的状况和需求的专注。这使得他们在处理外部威胁时没有那么大的决心。一个混血巫师总是在意志豁免检定中遭到-2的惩罚。</value>
+  </data>
+  <data name="CrossbloodedConflictingUrgesFeatureName_info" xml:space="preserve">
+    <value>混血（相互冲突的欲望）</value>
+  </data>
+  <data name="CrossbloodedSorcererLocalizedDescription_info" xml:space="preserve">
+    <value>一个混血巫师可以选择两种不同的血统。巫师可以获得技能，专长和他们所继承的两种血统的一些力量，但代价是降低了精神的清晰度和选择。</value>
+  </data>
+  <data name="CrossbloodedSorcererLocalizedName_info" xml:space="preserve">
+    <value>混血巫师</value>
+  </data>
   <data name="DelayAfflictionFeatureDescription_info" xml:space="preserve">
     <value>每天一次，作为一个即时的行动，当你对某种疾病或毒素的豁免失败时，你可以忽略它的影响，每级1小时。在第7级和第15级，你可以每天额外使用这个技能一次。</value>
   </data>
   <data name="DelayAfflictionFeatureName_info" xml:space="preserve">
     <value>缓解痛苦</value>
+  </data>
+  <data name="DelayedBlastFireballAbilityDescription_info" xml:space="preserve">
+    <value>这个法术的作用类似火球，只是它更强大，在施放这个法术后最多可以5轮后再引爆。火焰爆发使得每施法者等级造成1d6点火焰伤害（最大20d6）。延迟爆炸火球产生的发光火珠可以立即引爆，如果你愿意，或者你可以选择延迟爆炸多达5轮。你可以在完成法术后选择延迟的时间，这个时间一旦设置好就不能改变，除非有人触碰了光珠。如果你选择一个延迟，光珠会停留在它的目的地直到爆炸。一个生物可以捡起并投掷光珠作为投掷武器（射程增加10英尺）。如果一个生物在其爆炸的1轮内操控并移动光珠，那么光珠在被操控时爆炸的几率为25%。</value>
+  </data>
+  <data name="DelayedBlastFireballAbilityName_info" xml:space="preserve">
+    <value>延迟爆炸火球</value>
   </data>
   <data name="DervishDanceFeatureDescription_info" xml:space="preserve">
     <value>当用一只手使用弯刀时，你可以在近战攻击和伤害骰上使用你的敏捷加值而不是你的力量加值。你将弯刀视为一种单手穿透武器，用于所有需要此类武器（如决斗家的精确造成能力）的专长和等级能力。弯刀必须适合你这种体型的生物。如果你的副手里拿着武器或盾牌，你就不能使用这个专长。</value>
@@ -247,6 +289,14 @@
   </data>
   <data name="DetectSecretDoorsSpells_info" xml:space="preserve">
     <value>检测暗门</value>
+  </data>
+  <data name="DismissAreaEffectAbilityDescription_info" xml:space="preserve">
+    <value>有些法术可以随意取消，有些法术可以在你退出战斗时取消。你必须在法术效果范围内。解除一个法术是一种不会引发借机攻击的标准行为。
+依赖于专注的法术本质上是可以被忽略的，而忽略它并不会采取任何行动，因为你需要做的就是停止专注于你的回合。
+如果这个能力被启用，这意味着你有一个当前有效的效果法术可以被解除。</value>
+  </data>
+  <data name="DismissAreaEffectAbilityName_info" xml:space="preserve">
+    <value>解除区域效果法术</value>
   </data>
   <data name="DismissSpells_info" xml:space="preserve">
     <value>驱散区域效果的能力</value>
@@ -275,6 +325,9 @@
   </data>
   <data name="DrawbackSpellVulnerabilityFeatureName_info" xml:space="preserve">
     <value>法术弱点</value>
+  </data>
+  <data name="EldritchHeritageBloodlineFeatureName_info" xml:space="preserve">
+    <value>埃尔德里奇的遗产——{0}</value>
   </data>
   <data name="EldritchHeritageFeatureDescription_info" xml:space="preserve">
     <value>你是一个历史悠久的巫师家族后裔，他们力量的一部分在你的血管里流动。
@@ -387,6 +440,9 @@
   <data name="GoblinSpellName_info" xml:space="preserve">
     <value>召唤六个地精</value>
   </data>
+  <data name="GreaterEldritchHeritageBloodlineFeatureName_info" xml:space="preserve">
+    <value>精通埃尔德里奇的遗产——{0}</value>
+  </data>
   <data name="GreaterEldritchHeritageFeatureDescription_info" xml:space="preserve">
     <value>你已发现的血统力量达到了顶峰。
 你可以从你选择的血统中获得额外的力量，这是你在埃尔德里奇的遗产专长中选择的。你获得了一个尚未具备的15级（或更低）巫师血统力量。为了使用这种力量，将你的角色等级视为你的巫师等级，以获得此专长、埃尔德里奇的遗产专长和精通埃尔德里奇的遗产专长所给予的所有巫师血统力量。</value>
@@ -417,6 +473,9 @@
   </data>
   <data name="HypnoticSpellDescription_info" xml:space="preserve">
     <value>一种微妙而多变的扭曲的彩色符文在空气中编织，里面有着迷人的生物。投掷2D4并添加施法者等级（最多10级），以确定受影响生物的HD总数。具有最小HD的生物首先受到影响；在具有相同HD的生物中，最接近法术原点的生物首先受到影响。不足以影响生物的HD将被浪费。受影响的生物将对彩色符文着迷。无视觉的生物不会受到影响。</value>
+  </data>
+  <data name="ImprovedEldritchHeritageBloodlineFeatureName_info" xml:space="preserve">
+    <value>高等埃尔德里奇的遗产——{0}</value>
   </data>
   <data name="ImprovedEldritchHeritageFeatureDescription_info" xml:space="preserve">
     <value>你已发现的血统力量继续增长。
@@ -638,6 +697,18 @@
   <data name="OrcBloodlineFeatureName_info" xml:space="preserve">
     <value>兽人血统</value>
   </data>
+  <data name="PrestigiousSpellcasterClassFeatureName_info" xml:space="preserve">
+    <value>有威望的施法者——{0}</value>
+  </data>
+  <data name="PrestigiousSpellcasterFeatureDescription_info" xml:space="preserve">
+    <value>对你来说，转换到有威望的施法者职业的难度较小，因此，你从有威望的施法者职业等级中获得1个额外的有效施法者等级。</value>
+  </data>
+  <data name="PrestigiousSpellcasterFeatureName_error" xml:space="preserve">
+    <value>著名的施法者，自发施法者的法术替代者</value>
+  </data>
+  <data name="PrestigiousSpellcasterFeatureName_info" xml:space="preserve">
+    <value>有威望的施法者</value>
+  </data>
   <data name="RelaxAncientLorekeeper_info" xml:space="preserve">
     <value>任何种族都可以选择职业 神使：远古博学者</value>
   </data>
@@ -713,6 +784,22 @@
   <data name="SpiritBoostFeatureName_info" xml:space="preserve">
     <value>精神振奋</value>
   </data>
+  <data name="SpiritualWeaponAbilityDescription_info" xml:space="preserve">
+    <value>一件由原力制造的武器出现并在你指示的距离攻击敌人敌人，每次命中造成1d8点原力伤害，每3个施法者等级+1点(15级时最多+5点)。
+该武器的形状为你的神所喜爱的武器，或对你具有某种精神意义或象征意义的武器(见下文)，并具有与真实武器相同的威胁范围和重击倍数。
+它攻击你指定的对手，从施法的本轮中进行一次攻击开始，然后继续在你的每个轮次中进行一次攻击。
+它使用你的基础攻击加值（可能允许它在以后的每个轮次中进行多次攻击）加上你的感知加值（或者主要施法能力，如果是作为法术施法）作为攻击加值。
+它以法术的形式攻击，而不是以武器的形式攻击，因此，它可以伤害具有伤害减免的生物。
+作为一种原力效果，它可以攻击无实体生物，而不会减少与无实体相关的伤害。
+武器总是从你的方向攻击。它不能获得夹击奖励，也不能帮助战斗人员获得夹击奖励。你的专长或战斗动作不影响武器。
+每一轮过后，武器继续攻击前一轮的目标。如果目标死亡，它将攻击下一个最近的敌人，如果有的话。在武器切换目标的任何一轮中，它都会受到一次攻击。如果你的基础攻击加值允许的话，后续的攻击轮次允许该武器进行多次攻击。
+精神武器不能被物理攻击或伤害，但是驱散魔法、瓦解、毁灭之球或取消之杖会影响它。
+如果一个被攻击的生物有法术抗性，当精神武器第一次攻击它时，你对该法术抗性进行施法者等级检查(1d20 +施法者等级)。如果武器被成功抵抗，法术将被驱散。如果没有，该武器在法术期间对该生物具有正常的全部效果。
+你得到的武器通常是你神祗的私人武器的原力复制品。没有神祗的牧师根据他们的阵营获得武器。一个没有神祗的中立牧师可以创造任何结盟的精神武器，前提是他们的行为至少大体上与当时的阵营一致。与每个阵营相关的武器如下：混乱(战斧)，邪恶(轻连枷)，善良(战锤)，守序(长剑)。</value>
+  </data>
+  <data name="SpiritualWeaponAbilityName_info" xml:space="preserve">
+    <value>灵能武器</value>
+  </data>
   <data name="SpritualWeaponSpells_info" xml:space="preserve">
     <value>灵能武器</value>
   </data>
@@ -724,6 +811,14 @@
   </data>
   <data name="SummonWildhuntSpells_info" xml:space="preserve">
     <value>荒野猎人</value>
+  </data>
+  <data name="TimeStopAbilityDuration_info" xml:space="preserve">
+    <value>1d4+1轮（视时）</value>
+  </data>
+  <data name="TimeStopBuffDescription_info" xml:space="preserve">
+    <value>这个法术似乎让时间停止流动，除了你。事实上，你的速度是如此之快，以至于所有其他的生物看起来像都被冻住了，尽管它们实际上仍在以正常的速度运动。你可以在1d4+1回合的有效时间内自由行动。普通和魔法的火、冰、电等仍然会伤害你。当时间停止生效时，其他生物对你的攻击和法术伤害是免疫的。一种影响一个区域的法术，其持续时间长于时间停止的剩余持续时间，一旦时间停止结束，对其他生物有正常影响。大多数施法者使用额外的时间来提高他们的防御能力，召唤盟友，或者逃离战斗。
+你不能移动或伤害被困在正常时间的生物持有、携带或穿戴的物品，但是你可以影响任何不属于其它生物的物品。
+当时间停止时，你无法被察觉。在时间停止的作用下，您不能进入受反魔法场保护的区域。</value>
   </data>
   <data name="TimeStopSpells_info" xml:space="preserve">
     <value>时间停止</value>
@@ -804,6 +899,12 @@
   <data name="cannotLoadMod_error" xml:space="preserve">
     <value>修补方法libraryscriptableobject.loadDictionary()失败，无法加载mod！</value>
   </data>
+  <data name="failedFindEntries_error" xml:space="preserve">
+    <value>找不到{0}的条目（GUID：{1}）</value>
+  </data>
+  <data name="failedFindLevelSpell" xml:space="preserve">
+    <value>找不到{1}的第{0}级法术</value>
+  </data>
   <data name="failedLoading_error" xml:space="preserve">
     <value>&lt;b&gt;错误：某些功能加载失败。保存的这些功能将不起作用：&lt;/b&gt;</value>
   </data>
@@ -819,9 +920,6 @@
   <data name="loadBloodlines_error" xml:space="preserve">
     <value>血源</value>
   </data>
-  <data name="loadCrossbloodedSorcerer_error" xml:space="preserve">
-    <value>混血巫师</value>
-  </data>
   <data name="loadDrawbackFeats_error" xml:space="preserve">
     <value>有缺点的专长</value>
   </data>
@@ -836,9 +934,6 @@
   </data>
   <data name="loadOracleClass_error" xml:space="preserve">
     <value>神使职业</value>
-  </data>
-  <data name="loadPrestigiousSpellcaster_error" xml:space="preserve">
-    <value>有威望的施法者</value>
   </data>
   <data name="loadReplaceSpells_error" xml:space="preserve">
     <value>自然施法者的法术替换</value>

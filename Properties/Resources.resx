@@ -134,6 +134,14 @@ Special: You can gain this feat multiple times. Its effects do not stack. Each t
     <value>
 You can also add any metamagic feats that you know to your spells without increasing their casting time, although you must still expend higher-level spell slots.</value>
   </data>
+  <data name="BloodHavocMutationFeatureDescription_info" xml:space="preserve">
+    <value>A bloodrager need not be in a bloodrage to use her bloodline mutation powers. Alternatively, a bloodrager or sorcerer can select a bloodline mutation in place of a bloodline bonus feat, provided her class level is at least equal to the level of the bloodline ability the mutation normally replaces.
+Bloodline Mutation: Blood havoc
+Whenever you cast a bloodrager or sorcerer spell that deals damage, add 1 point of damage per die rolled. </value>
+  </data>
+  <data name="BloodHavocMutationFeatureName_info" xml:space="preserve">
+    <value>Blood Havoc Mutation({0})</value>
+  </data>
   <data name="BloodlineOrcArcanaFeatureDescription_info" xml:space="preserve">
     <value>You gain the orc subtype, including light sensitivity. Whenever you cast a spell that deals damage, that spell deals +1 point of damage per die rolled.</value>
   </data>
@@ -186,6 +194,18 @@ You can also add any metamagic feats that you know to your spells without increa
   <data name="BloodlineOrcWarlordRebornFeatureName_info" xml:space="preserve">
     <value>Warlord Reborn</value>
   </data>
+  <data name="BloodlinePowerFeatureDescription_info" xml:space="preserve">
+    <value>At 1st, 3rd, 9th, 15th, and 20th levels, a crossblooded sorcerer gains one of the two new bloodline powers available to their at that level. They may instead select a lower-level bloodline power they did not choose in place of one of these higher-level powers.</value>
+  </data>
+  <data name="BloodlinePowerFeatureName_info" xml:space="preserve">
+    <value>Bloodline Power</value>
+  </data>
+  <data name="BloodlineSpellFeatureDescription_info" xml:space="preserve">
+    <value>A crossblooded sorcerer may select their bonus spells from either of their bloodlines. The sorcerer also has the choice to learn a lower-level bonus spell they did not choose in place of the higher-level bonus spell they would normally gain. Lower-level bonus spells learned this way always use the spell level that they would be if the sorcerer had learned them with the appropriate bonus spell.</value>
+  </data>
+  <data name="BloodlineSpellFeatureName_info" xml:space="preserve">
+    <value>Bloodline Spell</value>
+  </data>
   <data name="BonusHitPointFeatureDescription_info" xml:space="preserve">
     <value>Gain +1 hit point</value>
   </data>
@@ -220,11 +240,33 @@ You can use this ability a number of times per day equal to 1+your Charisma modi
   <data name="ChooseMysteryLocalized_info" xml:space="preserve">
     <value>Choose Mystery</value>
   </data>
+  <data name="CrossbloodedChoicesFeatureDescription_info" xml:space="preserve">
+    <value>
+Choices for each bloodline:</value>
+  </data>
+  <data name="CrossbloodedConflictingUrgesFeatureDescription_info" xml:space="preserve">
+    <value>The conflicting urges created by the divergent nature of the crossblooded sorcerer’s dual heritage forces them to constantly take some mental effort just to remain focused on their current situation and needs. This leaves them with less mental resolve to deal with external threats. A crossblooded sorcerer always takes a –2 penalty on Will saves.</value>
+  </data>
+  <data name="CrossbloodedConflictingUrgesFeatureName_info" xml:space="preserve">
+    <value>Crossblooded (conflicting urges)</value>
+  </data>
+  <data name="CrossbloodedSorcererLocalizedDescription_info" xml:space="preserve">
+    <value>A crossblooded sorcerer selects two different bloodlines. The sorcerer may gain access to the skills, feats, and some of the powers of both bloodlines they are descended from, but at the cost of reduced mental clarity and choice.</value>
+  </data>
+  <data name="CrossbloodedSorcererLocalizedName_info" xml:space="preserve">
+    <value>Crossblooded Sorcerer</value>
+  </data>
   <data name="DelayAfflictionFeatureDescription_info" xml:space="preserve">
     <value>Once per day as an immediate action, whenever you fail a saving throw against a disease or poison, you may ignore its effects for 1 hour per level. At 7th and 15th level, you can use this ability one additional time per day.</value>
   </data>
   <data name="DelayAfflictionFeatureName_info" xml:space="preserve">
     <value>Delay Affliction</value>
+  </data>
+  <data name="DelayedBlastFireballAbilityDescription_info" xml:space="preserve">
+    <value>This spell functions like fireball, except that it is more powerful and can detonate up to 5 rounds after the spell is cast. The burst of flame deals 1d6 points of fire damage per caster level (maximum 20d6). The glowing bead created by delayed blast fireball can detonate immediately if you desire, or you can choose to delay the burst for as many as 5 rounds. You select the amount of delay upon completing the spell, and that time cannot change once it has been set unless someone touches the bead. If you choose a delay, the glowing bead sits at its destination until it detonates. A creature can pick up and hurl the bead as a thrown weapon (range increment 10 feet). If a creature handles and moves the bead within 1 round of its detonation, there is a 25% chance that the bead detonates while being handled.</value>
+  </data>
+  <data name="DelayedBlastFireballAbilityName_info" xml:space="preserve">
+    <value>Delayed Blast Fireball</value>
   </data>
   <data name="DervishDanceFeatureDescription_info" xml:space="preserve">
     <value>When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier on melee attack and damage rolls. You treat the scimitar as a one-handed piercing weapon for all feats and class abilities that require such a weapon (such as a duelist's precise strike ability). The scimitar must be for a creature of your size. You cannot use this feat if you are carrying a weapon or shield in your off hand.</value>
@@ -247,6 +289,14 @@ Each round, you can turn to detect secret doors in a new area. This spell requir
   </data>
   <data name="DetectSecretDoorsSpells_info" xml:space="preserve">
     <value>Detect Secret Doors</value>
+  </data>
+  <data name="DismissAreaEffectAbilityDescription_info" xml:space="preserve">
+    <value>Some spells can be dismissed at will, others when you are out of combat. You must be within range of the spell's effect. Dismissing a spell is a standard action that does not provoke attacks of opportunity.
+A spell that depends on concentration is dismissible by its very nature, and dismissing it does not take an action, since all you have to do to end the spell is to stop concentrating on your turn.
+If this ability is enabled, it means you have a currently active effect spell that can be dismissed.</value>
+  </data>
+  <data name="DismissAreaEffectAbilityName_info" xml:space="preserve">
+    <value>Dismiss Area Effect Spell</value>
   </data>
   <data name="DismissSpells_info" xml:space="preserve">
     <value>Ability to dismiss area effects</value>
@@ -276,6 +326,9 @@ Bane: choose a spellschool you have {0} on saves vs that spellschool.</value>
   </data>
   <data name="DrawbackSpellVulnerabilityFeatureName_info" xml:space="preserve">
     <value>Spell Vulnerability</value>
+  </data>
+  <data name="EldritchHeritageBloodlineFeatureName_info" xml:space="preserve">
+    <value>Eldritch Heritage — {0}</value>
   </data>
   <data name="EldritchHeritageFeatureDescription_info" xml:space="preserve">
     <value>You are descended from a long line of sorcerers, and some portion of their power flows in your veins.
@@ -387,6 +440,9 @@ Whenever you receive magical healing, you heal an additional 2 points per die ro
   <data name="GoblinSpellName_info" xml:space="preserve">
     <value>Summon Six Goblins</value>
   </data>
+  <data name="GreaterEldritchHeritageBloodlineFeatureName_info" xml:space="preserve">
+    <value>Improved Eldritch Heritage — {0}</value>
+  </data>
   <data name="GreaterEldritchHeritageFeatureDescription_info" xml:space="preserve">
     <value>Your discovered bloodline power reaches its zenith.
 You gain an additional power from the bloodline you selected with the Eldritch Heritage feat. You gain a 15th-level (or lower) sorcerer bloodline power that you do not already have. For purposes of using that power, treat your character level as your sorcerer level for all your sorcerer bloodline powers granted by this feat, Eldritch Heritage, and Improved Eldritch Heritage.</value>
@@ -417,6 +473,9 @@ You gain an additional power from the bloodline you selected with the Eldritch H
   </data>
   <data name="HypnoticSpellDescription_info" xml:space="preserve">
     <value>A twisting pattern of subtle, shifting colors weaves through the air, fascinating creatures within it. Roll 2d4 and add your caster level (maximum 10) to determine the total number of HD of creatures affected. Creatures with the fewest HD are affected first; and, among creatures with equal HD, those who are closest to the spell's point of origin are affected first. HD that are not sufficient to affect a creature are wasted. Affected creatures become fascinated by the pattern of colors. Sightless creatures are not affected.</value>
+  </data>
+  <data name="ImprovedEldritchHeritageBloodlineFeatureName_info" xml:space="preserve">
+    <value>Greater Eldritch Heritage — {0}</value>
   </data>
   <data name="ImprovedEldritchHeritageFeatureDescription_info" xml:space="preserve">
     <value>The power of your discovered bloodline continues to grow.
@@ -639,6 +698,18 @@ Bonus Feats of the Orc Bloodline: Diehard, Endurance, Great Fortitude, Intimidat
   <data name="OrcBloodlineFeatureName_info" xml:space="preserve">
     <value>Orc Bloodline</value>
   </data>
+  <data name="PrestigiousSpellcasterClassFeatureName_info" xml:space="preserve">
+    <value>Prestigious Spellcaster — {0}</value>
+  </data>
+  <data name="PrestigiousSpellcasterFeatureDescription_info" xml:space="preserve">
+    <value>The transition into a spellcasting prestige class is less difficult for you, and because of this, you gain 1 additional effective spellcaster level from your prestige class levels.</value>
+  </data>
+  <data name="PrestigiousSpellcasterFeatureName_error" xml:space="preserve">
+    <value>Prestigious Spellcaster, spell replacement for spontaneous casters</value>
+  </data>
+  <data name="PrestigiousSpellcasterFeatureName_info" xml:space="preserve">
+    <value>Prestigious Spellcaster</value>
+  </data>
   <data name="RelaxAncientLorekeeper_info" xml:space="preserve">
     <value>Any race can choose the Oracle Ancient Lorekeeper archetype</value>
   </data>
@@ -714,6 +785,22 @@ Special: A magus can select this magus arcana more than once.</value>
   <data name="SpiritBoostFeatureName_info" xml:space="preserve">
     <value>Spirit Boost</value>
   </data>
+  <data name="SpiritualWeaponAbilityDescription_info" xml:space="preserve">
+    <value>A weapon made of force appears and attacks foes at a distance, as you direct it, dealing 1d8 force damage per hit, +1 point per three caster levels (maximum +5 at 15th level). 
+The weapon takes the shape of a weapon favored by your deity or a weapon with some spiritual significance or symbolism to you (see below) and has the same threat range and critical multipliers as a real weapon of its form. 
+It strikes the opponent you designate, starting with one attack in the round the spell is cast and continuing each round thereafter on your turn. 
+It uses your base attack bonus (possibly allowing it multiple attacks per round in subsequent rounds) plus your Wisdom modifier (or primary casting ability, if cast as a spell) as its attack bonus. 
+It strikes as a spell, not as a weapon, so for example, it can damage creatures that have damage reduction. 
+As a force effect, it can strike incorporeal creatures without the reduction in damage associated with incorporeality. 
+The weapon always strikes from your direction. It does not get a flanking bonus or help a combatant get one. Your feats or combat actions do not affect the weapon. 
+Each round after the first, the weapon continues to attack the previous round’s target. If the target dies, it will attack the next nearest enemy, if any. On any round that the weapon switches targets, it gets one attack. Subsequent rounds of attacking allow the weapon to make multiple attacks if your base attack bonus would allow it to.
+A spiritual weapon cannot be attacked or harmed by physical attacks, but dispel magic, disintegrate, a sphere of annihilation, or a rod of cancellation affects it.
+If an attacked creature has Spell Resistance, you make a caster level check (1d20 + caster level) against that Spell Resistance the first time the spiritual weapon strikes it. If the weapon is successfully resisted, the spell is dispelled. If not, the weapon has its normal full effect on that creature for the duration of the spell.
+The weapon that you get is often a force replica of your deity’s own personal weapon. A cleric without a deity gets a weapon based on their alignment. A neutral cleric without a deity can create a spiritual weapon of any alignment, provided they are acting at least generally in accord with that alignment at the time. The weapons associated with each alignment are as follows: chaos (battleaxe), evil (light flail), good (warhammer), law (longsword).</value>
+  </data>
+  <data name="SpiritualWeaponAbilityName_info" xml:space="preserve">
+    <value>Spiritual Weapon</value>
+  </data>
   <data name="SpritualWeaponSpells_info" xml:space="preserve">
     <value>Spiritual Weapon</value>
   </data>
@@ -725,6 +812,14 @@ Special: A magus can select this magus arcana more than once.</value>
   </data>
   <data name="SummonWildhuntSpells_info" xml:space="preserve">
     <value>Wild Hunt</value>
+  </data>
+  <data name="TimeStopAbilityDuration_info" xml:space="preserve">
+    <value>1d4+1 rounds (apparent time)</value>
+  </data>
+  <data name="TimeStopBuffDescription_info" xml:space="preserve">
+    <value>This spell seems to make time cease to flow for everyone but you. In fact, you speed up so greatly that all other creatures seem frozen, though they are actually still moving at their normal speeds. You are free to act for 1d4+1 rounds of apparent time. Normal and magical fire, cold, gas, and the like can still harm you. While the time stop is in effect, other creatures are invulnerable to your attacks and spells; you cannot target such creatures with any attack or spell. A spell that affects an area and has a duration longer than the remaining duration of the time stop have their normal effects on other creatures once the time stop ends. Most spellcasters use the additional time to improve their defenses, summon allies, or flee from combat.
+You cannot move or harm items held, carried, or worn by a creature stuck in normal time, but you can affect any item that is not in another creature’s possession.
+You are undetectable while time stop lasts. You cannot enter an area protected by an antimagic field while under the effect of time stop.</value>
   </data>
   <data name="TimeStopSpells_info" xml:space="preserve">
     <value>Time Stop</value>
@@ -807,6 +902,12 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
   <data name="cannotLoadMod_error" xml:space="preserve">
     <value>Failed to patch LibraryScriptableObject.LoadDictionary(), cannot load mod!</value>
   </data>
+  <data name="failedFindEntries_error" xml:space="preserve">
+    <value>Failed to find the entries for {0} (guid {1})</value>
+  </data>
+  <data name="failedFindLevelSpell" xml:space="preserve">
+    <value>could not find level {0} spell for {1}</value>
+  </data>
   <data name="failedLoading_error" xml:space="preserve">
     <value>&lt;b&gt;Error: Some assets failed to load. Saves using these features won't work:&lt;/b&gt;</value>
   </data>
@@ -822,9 +923,6 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
   <data name="loadBloodlines_error" xml:space="preserve">
     <value>Bloodlines</value>
   </data>
-  <data name="loadCrossbloodedSorcerer_error" xml:space="preserve">
-    <value>Crossblooded Sorcerer</value>
-  </data>
   <data name="loadDrawbackFeats_error" xml:space="preserve">
     <value>Drawback Feats</value>
   </data>
@@ -839,9 +937,6 @@ A duplicated spell allows saving throws and spell resistance as normal, but the 
   </data>
   <data name="loadOracleClass_error" xml:space="preserve">
     <value>Oracle class</value>
-  </data>
-  <data name="loadPrestigiousSpellcaster_error" xml:space="preserve">
-    <value>Prestigious Spellcaster</value>
   </data>
   <data name="loadReplaceSpells_error" xml:space="preserve">
     <value>Spell replacement for spontaneous casters</value>

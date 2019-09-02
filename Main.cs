@@ -76,7 +76,7 @@ namespace EldritchArcana
                 SafeLoad(Traits.Load, RES.loadTraits_error);
 
                 // Note: needs to run after we create Favored Prestige Class above.
-                SafeLoad(PrestigiousSpellcaster.Load, RES.loadPrestigiousSpellcaster_error);
+                SafeLoad(PrestigiousSpellcaster.Load, RES.PrestigiousSpellcasterFeatureName_info);
 
                 // Note: needs to run after we create Favored Prestige Class above.
                 //SafeLoad(WarpriestClass.Load, "Arcane Savant");
@@ -85,7 +85,7 @@ namespace EldritchArcana
                 //SafeLoad(ArcanistClass.Load, "Arcanist");
 
                 // Note: needs to run after things that add bloodlines.
-                SafeLoad(CrossbloodedSorcerer.Load, RES.loadCrossbloodedSorcerer_error);
+                SafeLoad(CrossbloodedSorcerer.Load, RES.CrossbloodedSorcererLocalizedName_info);
 
                 // Note: needs to run after things that add martial classes or bloodlines.
                 SafeLoad(EldritchHeritage.Load, RES.EldritchHeritageFeatureName_info);

@@ -1,10 +1,6 @@
 // Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
@@ -13,13 +9,18 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.UI.Common;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Class.LevelUp;
-using Kingmaker.UnitLogic.Class.LevelUp.Actions;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -47,9 +48,9 @@ namespace EldritchArcana
             var crossblooded = Helpers.Create<BlueprintArchetype>(a =>
             {
                 a.name = "CrossbloodedSorcererArchetype";
-                a.LocalizedName = Helpers.CreateString("Crossblooded.Name", "Crossblooded Sorcerer");
+                a.LocalizedName = Helpers.CreateString("Crossblooded.Name", RES.CrossbloodedSorcererLocalizedName_info);
                 a.LocalizedDescription = Helpers.CreateString("Crossblooded.Description",
-                    "A crossblooded sorcerer selects two different bloodlines. The sorcerer may gain access to the skills, feats, and some of the powers of both bloodlines they are descended from, but at the cost of reduced mental clarity and choice.");
+                    RES.CrossbloodedSorcererLocalizedDescription_info);
             });
             library.AddAsset(crossblooded, crossbloodedId);
             crossblooded.SetIcon(sorcererClass.Icon);
@@ -76,7 +77,7 @@ namespace EldritchArcana
 
             var crossbloodlines = new List<BlueprintProgression>();
 
-            
+
             foreach (var bloodline in bloodlines)
             {
                 //Log.Write(bloodline);
@@ -103,7 +104,7 @@ namespace EldritchArcana
                 {
                     var power = CreateBloodlinePower(bloodline, level, crossbloodline);
                     powers[level].Add(power);
-                    
+
                 }
                 foreach (var level in spellLevels)
                 {
@@ -137,10 +138,10 @@ namespace EldritchArcana
                 SortedSet<BlueprintFeature> powerChoices;
                 if (powers.TryGetValue(level, out powerChoices))
                 {
-                    var description = "At 1st, 3rd, 9th, 15th, and 20th levels, a crossblooded sorcerer gains one of the two new bloodline powers available to their at that level. They may instead select a lower-level bloodline power they did not choose in place of one of these higher-level powers.";
-                    
+                    var description = RES.BloodlinePowerFeatureDescription_info;
+
                     var powerSelection = Helpers.CreateFeatureSelection($"BloodlinePowerSelection{level}",
-                        "Bloodline Power",
+                        RES.BloodlinePowerFeatureName_info,
                         DescribeChoices(description, powerChoices),
                         Helpers.MergeIds(guidsByLevel[level], "15029e64baee4db6b09ca6a6ed2d70c0"),
                         null,
@@ -157,9 +158,9 @@ namespace EldritchArcana
                 SortedSet<BlueprintFeature> spellChoices;
                 if (spells.TryGetValue(level, out spellChoices))
                 {
-                    var description = "A crossblooded sorcerer may select their bonus spells from either of their bloodlines. The sorcerer also has the choice to learn a lower-level bonus spell they did not choose in place of the higher-level bonus spell they would normally gain. Lower-level bonus spells learned this way always use the spell level that they would be if the sorcerer had learned them with the appropriate bonus spell.";
+                    var description = RES.BloodlineSpellFeatureDescription_info;
                     var spellSelection = Helpers.CreateFeatureSelection($"BloodlineSpellSelection{level}",
-                        "Bloodline Spell",
+                        RES.BloodlineSpellFeatureName_info,
                         DescribeChoices(description, spellChoices),
                         Helpers.MergeIds(guidsByLevel[level], "d333e2fb82ab4ab4af7d03d84aa5895c"),
                         null,
@@ -192,8 +193,8 @@ namespace EldritchArcana
             //
             var level1 = Helpers.LevelEntry(1,
                 crossbloodProgression,
-                Helpers.CreateFeature("CrossbloodedConflictingUrges", "Crossblooded (conflicting urges)",
-                    "The conflicting urges created by the divergent nature of the crossblooded sorcerer’s dual heritage forces them to constantly take some mental effort just to remain focused on their current situation and needs. This leaves them with less mental resolve to deal with external threats. A crossblooded sorcerer always takes a –2 penalty on Will saves.",
+                Helpers.CreateFeature("CrossbloodedConflictingUrges", RES.CrossbloodedConflictingUrgesFeatureName_info,
+                    RES.CrossbloodedConflictingUrgesFeatureDescription_info,
                     "ebefc29906f74c0d9a8b914095cc05d6",
                     Helpers.GetIcon("983e8ad193160b44da80b38af4927e75"), // Diverse Training
                     FeatureGroup.None,
@@ -242,10 +243,10 @@ namespace EldritchArcana
             foreach (var bloodlinethingy in NoBloodrager)
             {
                 bloodragerTester = bloodlinethingy.GetName();
-                if (x<10)
+                if (x < 10)
                 {
                     //draconicBloodlines.AddToArray<BlueprintFeature>(bloodlinethingy);
-                    draconicBloodlines[x]=bloodlinethingy;
+                    draconicBloodlines[x] = bloodlinethingy;
                     //Log.Write(bloodlinethingy.GetName());
                     //Log.Write("hekll");
                     x++;
@@ -262,18 +263,18 @@ namespace EldritchArcana
             }
 
             BlueprintProgression[] draconicCrossbloods = draconicBloodlines.Select(f => crossbloodForBloodline[f as BlueprintProgression]).ToArray();
-           
+
             //bloodOfDragonsSelection.SetFeatures(draconicBloodlines.Concat(draconicCrossbloods));
 
-            
+
             //bloodOfDragonsSelection.SetFeatures(draconicBloodlines.Concat(draconicCrossbloods));
-            
+
             bloodOfDragonsSelection.AllFeatures = bloodOfDragonsSelection.AllFeatures.AddToArray(draconicCrossbloods);
             //bloodOfDragonsSelection.SetFeatures(draconicBloodlines.Concat(draconicCrossbloods));
             //NoBloodrager.SetFeatures(draconicBloodlines.Concat(draconicCrossbloods));
 
             //Log.Write("started draconic");
-            
+
             foreach (var draconic in draconicCrossbloods)
             {
                 // Ensure the crossblood ones can only be chosen if this is a crossblooded sorcerer.
@@ -284,20 +285,20 @@ namespace EldritchArcana
                     p.Archetype = crossblooded;
                     p.Level = 1;
                 }));
-                
+
             }
-            
+
             // Fix dragon disciple features.
             var dragonDiscipleProgression = library.Get<BlueprintProgression>("69fc2bad2eb331346a6c777423e0d0f7");
-            
-                foreach (var entry in dragonDiscipleProgression.LevelEntries)
+
+            foreach (var entry in dragonDiscipleProgression.LevelEntries)
+            {
+                foreach (var feat in entry.Features.OfType<BlueprintFeature>())
                 {
-                    foreach (var feat in entry.Features.OfType<BlueprintFeature>())
-                    {                     
-                        FixDragonDisciple(feat, draconicBloodlines);                    
-                    }
+                    FixDragonDisciple(feat, draconicBloodlines);
                 }
-            
+            }
+
         }
 
         static void FixDragonDisciple(BlueprintFeature feat, BlueprintFeature[] bloodlines)
@@ -357,7 +358,7 @@ namespace EldritchArcana
         static String DescribeChoices(String description, IEnumerable<BlueprintFeature> features)
         {
             var str = new StringBuilder(description);
-            str.Append("\nChoices for each bloodline:");
+            str.Append(RES.CrossbloodedChoicesFeatureDescription_info);
             var seenDraconic = false;
             var seenElemental = false;
             foreach (var f in features)
@@ -464,9 +465,7 @@ namespace EldritchArcana
             if (name.EndsWith("1")) name = name.Substring(0, power.name.Length - 1);
             name += " Mutation Havoc";
 
-            var feature = Helpers.CreateFeature($"{name}CrossMutate", "Blood Havoc Mutation("+ bloodline.Name + ")", "A bloodrager need not be in a bloodrage to use her bloodline mutation powers. Alternatively, a bloodrager or sorcerer can select a bloodline mutation in place of a bloodline bonus feat, provided her class level is at least equal to the level of the bloodline ability the mutation normally replaces.\n" +
-                "Bloodline Mutation: Blood havoc\n" +
-                "Whenever you cast a bloodrager or sorcerer spell that deals damage, add 1 point of damage per die rolled. ",
+            var feature = Helpers.CreateFeature($"{name}CrossMutate", string.Format(RES.BloodHavocMutationFeatureName_info, bloodline.Name), RES.BloodHavocMutationFeatureDescription_info,
                 Helpers.MergeIds(power.AssetGuid, "2b983f0653914618844275e20d9fe562"),
                 Helpers.NiceIcons(28), FeatureGroup.None);
             var components = new List<BlueprintComponent> { crossbloodline.PrerequisiteFeature(), spellFocus.PrerequisiteFeature(), Helpers.Create<OrcBloodlineArcana>() };
@@ -480,14 +479,6 @@ namespace EldritchArcana
             feature.SetComponents(components);
             return feature;
         }
-
-
-
-
-
-
-
-
 
         static BlueprintFeature CreateBloodlineSpell(BlueprintProgression bloodline, int level, BlueprintProgression crossbloodline)
         {
@@ -506,7 +497,7 @@ namespace EldritchArcana
                 spell.AddRecommendNoFeature(crossbloodline);
                 return result;
             }
-            throw Main.Error($"could not find level {level} spell for ${bloodline.name}");
+            throw Main.Error(string.Format(RES.failedFindLevelSpell, level, bloodline.name));
         }
 
         static BlueprintFeature CreateCrossbloodedFeature(BlueprintFeature f, BlueprintFeature bloodline)

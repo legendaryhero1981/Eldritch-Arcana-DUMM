@@ -70,6 +70,7 @@ using Newtonsoft.Json;
 using UnityEngine;
 using static Kingmaker.UI.GenericSlot.EquipSlotBase;
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
@@ -87,30 +88,8 @@ namespace EldritchArcana
 
             // TODO: Create an ability button so you can retarget the attack?
 
-            var spell = Helpers.CreateAbility("SpiritualWeapon", "Spiritual Weapon",
-                "A weapon made of force appears and attacks foes at a distance, as you direct it, dealing 1d8 force damage per hit, +1 point per three caster levels (maximum +5 at 15th level). " +
-                "The weapon takes the shape of a weapon favored by your deity or a weapon with some spiritual significance or symbolism to you (see below) and has the same threat range and critical multipliers as a real weapon of its form. " +
-                "It strikes the opponent you designate, starting with one attack in the round the spell is cast and continuing each round thereafter on your turn. " +
-                "It uses your base attack bonus (possibly allowing it multiple attacks per round in subsequent rounds) plus your Wisdom modifier (or primary casting ability, if cast as a spell) as its attack bonus. " +
-                "It strikes as a spell, not as a weapon, so for example, it can damage creatures that have damage reduction. " +
-                "As a force effect, it can strike incorporeal creatures without the reduction in damage associated with incorporeality. " +
-                "The weapon always strikes from your direction. It does not get a flanking bonus or help a combatant get one. Your feats or combat actions do not affect the weapon. " +
-                //"If the weapon goes beyond the spell range, if it goes out of your sight, or if you are not directing it, the weapon returns to you and hovers. " +
-                "\n" +
-                //"Each round after the first, you can use a move action to redirect the weapon to a new target. If you do not, the weapon continues to attack the previous round’s target. " +
-                "Each round after the first, the weapon continues to attack the previous round’s target. If the target dies, it will attack the next nearest enemy, if any. " +
-                "On any round that the weapon switches targets, it gets one attack. Subsequent rounds of attacking allow the weapon to make multiple attacks if your base attack bonus would allow it to." +
-                //"Even if the spiritual weapon is a ranged weapon, use the spell’s range, not the weapon’s normal range increment, and switching targets still is a move action." +
-                "\n" +
-                "A spiritual weapon cannot be attacked or harmed by physical attacks, but dispel magic, disintegrate, a sphere of annihilation, or a rod of cancellation affects it." +
-                //"A spiritual weapon‘s AC against touch attacks is 12 (10 + size bonus for Tiny object)." +
-                "\n" +
-                "If an attacked creature has Spell Resistance, you make a caster level check (1d20 + caster level) against that Spell Resistance the first time the spiritual weapon strikes it." +
-                "If the weapon is successfully resisted, the spell is dispelled. If not, the weapon has its normal full effect on that creature for the duration of the spell." +
-                "\n" +
-                "The weapon that you get is often a force replica of your deity’s own personal weapon. A cleric without a deity gets a weapon based on their alignment." +
-                "A neutral cleric without a deity can create a spiritual weapon of any alignment, provided they are acting at least generally in accord with that alignment at the time." +
-                "The weapons associated with each alignment are as follows: chaos (battleaxe), evil (light flail), good (warhammer), law (longsword).",
+            var spell = Helpers.CreateAbility("SpiritualWeapon", RES.SpiritualWeaponAbilityName_info,
+                RES.SpiritualWeaponAbilityDescription_info,
                 "3e68ea1392d8451681656639c54e2155",
                 Helpers.GetIcon("46c96cc3a3ef35243915ff3452dfacf5"), // disrupting weapon
                 AbilityType.Spell,
@@ -149,8 +128,8 @@ namespace EldritchArcana
         static void LoadDelayedBlastFireball()
         {
             var fireball = library.Get<BlueprintAbility>("2d81362af43aeac4387a3d4fced489c3");
-            var spell = Helpers.CreateAbility("DelayedBlastFireball", "Delayed Blast Fireball",
-                "This spell functions like fireball, except that it is more powerful and can detonate up to 5 rounds after the spell is cast. The burst of flame deals 1d6 points of fire damage per caster level (maximum 20d6). The glowing bead created by delayed blast fireball can detonate immediately if you desire, or you can choose to delay the burst for as many as 5 rounds. You select the amount of delay upon completing the spell, and that time cannot change once it has been set unless someone touches the bead. If you choose a delay, the glowing bead sits at its destination until it detonates. A creature can pick up and hurl the bead as a thrown weapon (range increment 10 feet). If a creature handles and moves the bead within 1 round of its detonation, there is a 25% chance that the bead detonates while being handled.",
+            var spell = Helpers.CreateAbility("DelayedBlastFireball", RES.DelayedBlastFireballAbilityName_info,
+                RES.DelayedBlastFireballAbilityDescription_info,
                 "dfe891561c4d48ed8235268b0e7692e7",
                 fireball.Icon, AbilityType.Spell, CommandType.Standard, fireball.Range,
                 "5 rounds or less; see text", fireball.LocalizedSavingThrow);
@@ -237,10 +216,8 @@ namespace EldritchArcana
             var expeditiousRetreat = library.Get<BlueprintAbility>("4f8181e7a7f1d904fbaea64220e83379");
             var haste = library.Get<BlueprintAbility>("486eaff58293f6441a5c2759c4872f98");
 
-            var buff = Helpers.CreateBuff("TimeStopBuff", "Time Stop",
-                "This spell seems to make time cease to flow for everyone but you. In fact, you speed up so greatly that all other creatures seem frozen, though they are actually still moving at their normal speeds. You are free to act for 1d4+1 rounds of apparent time. Normal and magical fire, cold, gas, and the like can still harm you. While the time stop is in effect, other creatures are invulnerable to your attacks and spells; you cannot target such creatures with any attack or spell. A spell that affects an area and has a duration longer than the remaining duration of the time stop have their normal effects on other creatures once the time stop ends. Most spellcasters use the additional time to improve their defenses, summon allies, or flee from combat.\n" +
-                "You cannot move or harm items held, carried, or worn by a creature stuck in normal time, but you can affect any item that is not in another creature’s possession.\n" +
-                "You are undetectable while time stop lasts. You cannot enter an area protected by an antimagic field while under the effect of time stop.",
+            var buff = Helpers.CreateBuff("TimeStopBuff", RES.TimeStopSpells_info,
+                RES.TimeStopBuffDescription_info,
                 "a5adb4794e364485bca802e7ecfb694a",
                 dispelMagicGreater.Icon, null,
                 Helpers.Create<TimeStopExperiment>());
@@ -249,7 +226,7 @@ namespace EldritchArcana
 
             var spell = Helpers.CreateAbility("TimeStop", buff.Name, buff.Description,
                 "661c8d61f47d4c5c93e34f7d8692e81b", buff.Icon, AbilityType.Spell,
-                CommandType.Standard, AbilityRange.Personal, "1d4+1 rounds (apparent time)", "None",
+                CommandType.Standard, AbilityRange.Personal, RES.TimeStopAbilityDuration_info, "None",
                 expeditiousRetreat.GetComponent<AbilitySpawnFx>(),
                 Helpers.CreateSpellComponent(SpellSchool.Transmutation),
                 Helpers.CreateRunActions(Helpers.CreateApplyBuff(buff,

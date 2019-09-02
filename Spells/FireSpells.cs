@@ -22,6 +22,7 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
+using RES = EldritchArcana.Properties.Resources;
 
 namespace EldritchArcana
 {
