@@ -752,6 +752,15 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
+        ///   查找类似 As wall of force, except you create a hemispherical dome of force with hardness 20 and a number of hit points equal to 10 per caster level. The bottom edge of the dome forms a relatively watertight space if you are standing on a reasonably flat surface. The dome shape means that falling debris (such as rocks from a collapsing ceiling) tend to tumble to the side and pile up around the base of the dome. If you make a DC 20 Craft (stonemasonry), Knowledge (engineering), or Profession (architect or engineer) ch [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string EmergencyForceSphereBuffDescription_info {
+            get {
+                return ResourceManager.GetString("EmergencyForceSphereBuffDescription_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Emergency force sphere 的本地化字符串。
         /// </summary>
         internal static string EmergencyForceSphereSpells_info {
