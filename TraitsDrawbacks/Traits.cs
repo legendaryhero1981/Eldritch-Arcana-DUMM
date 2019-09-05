@@ -124,7 +124,7 @@ namespace EldritchArcana
                 "Additional Traits",
                 "You have more traits than normal.\nBenefit: You gain two character traits of your choice. These traits must be chosen from different lists, and cannot be chosen from lists from which you have already selected a character trait. You must meet any additional qualifications for the character traits you choose — this feat cannot enable you to select a dwarf character trait if you are an elf, for example.",
                 "02dbb324cc334412a55e6d8f9fe87009",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Additional_Traits.png"),//Helpers.GetIcon("0d3651b2cb0d89448b112e23214e744e"), // Extra Performance
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/additional_traits.png"),//Helpers.GetIcon("0d3651b2cb0d89448b112e23214e744e"), // Extra Performance
                 FeatureGroup.Feat);
 
             var additionalTrait1 = Helpers.CreateFeatureSelection("AdditionalTraitSelection1", "Traits",

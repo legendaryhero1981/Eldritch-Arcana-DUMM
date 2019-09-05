@@ -75,7 +75,7 @@ namespace EldritchArcana
                 RES.FavoredPresitgeClassFeatureName_info,
                 RES.FavoredPresitgeClassFeatureDescription_info,
                 "4fab2e6256e644daaa637093bc2421aa",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Favored_Prestige_Class.png"),//.skillFocusFeat.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/favored_prestige_class.png"),
                 FeatureGroup.Feat,
                 noFeature,
                 Helpers.Create<LevelUpRecommendation>(l =>
@@ -286,7 +286,7 @@ namespace EldritchArcana
             atheismFeature.AddComponents(
                 Helpers.classes.Where(c => c.GetComponents<PrerequisiteNoFeature>().Any(p => p.Feature == atheismFeature))
                     .Select(c => Helpers.Create<PrerequisiteNoClassLevel>(p => p.CharacterClass = c)));
-            atheismFeature.SetIcon(Image2Sprite.Create("Mods/EldritchArcana/sprites/Atheism.png"));
+            atheismFeature.SetIcon(Image2Sprite.Create("Mods/EldritchArcana/sprites/atheism.png"));
 
             var deitySelection = library.CopyAndAdd(baseDeitySelection, "DeitySelectionAny", "d5c3c9d4080043f98e6c09f4e843440e");
             deitySelection.Group = FeatureGroup.None; // to prevent "determinators" page clutter.

@@ -2295,8 +2295,13 @@ namespace EldritchArcana
                     return Helpers.GetIcon("48e2744846ed04b4580be1a3343a5d3d");//Contagion Contagion.
                 case 45:
                     return Helpers.GetIcon("b24583190f36a8442b212e45226c54fc");//WailOfBanshee.
-                //case 45:
-                    
+                case 46:
+                    return Helpers.GetIcon("c927a8b0cd3f5174f8c0b67cdbfde539");//RemoveBlindness.
+                case 47:
+                    return Helpers.GetIcon("41cf93453b027b94886901dbfc680cb9");//overwhelmingpresentsOverwhelmingPresence.
+                case 48:
+                    return Helpers.GetIcon("754c478a2aa9bb54d809e648c3f7ac0e");//DominateAnimal.
+
 
 
 

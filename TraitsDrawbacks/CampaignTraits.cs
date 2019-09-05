@@ -65,7 +65,7 @@ namespace EldritchArcana
             choices.Add(Helpers.CreateFeature("BastardTrait", "Bastard",
                 "One of your parents was a member of one of the great families of Brevoy, perhaps even of the line of Rogarvia itself. Yet you have no substantive proof of your nobility, and you’ve learned that claiming nobility without evidence makes you as good as a liar. While you might own a piece of jewelry, a scrap of once-rich fabric, or an aged confession of love, none of this directly supports your claim. Thus, you’ve lived your life in the shadow of nobility, knowing that you deserve the comforts and esteem of the elite, even though the contempt of fate brings you nothing but their scorn. Whether a recent attempt to prove your heritage has brought down the wrath of a noble family’s henchmen or you merely seek to prove the worth of the blood in your veins, you’ve joined an expedition into the Stolen Lands, hoping to make a name all your own. You take a –1 penalty on all Charisma-based skill checks made when dealing with members of Brevic nobility but gain a +1 trait bonus on Will saves as a result of your stubbornness and individuality. (The penalty aspect of this trait is removed if you ever manage to establish yourself as a true noble.)",
                 "d4f7e0915bd941cbac6f655927135817",
-                Helpers.GetIcon("175d1577bb6c9a04baf88eec99c66334"), // Iron Will
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/human_bastard.png"),
                 FeatureGroup.None,
                 Helpers.Create<PrerequisiteFeature>(p => p.Feature = Helpers.human),
                 // Other than the Prologue, there aren't many persuasion checks against members of the
@@ -77,7 +77,7 @@ namespace EldritchArcana
             var Outlander = Helpers.CreateFeatureSelection("OutlanderTrait", "Outlander",
                 "You’ve recently come from somewhere else and are hoping to make your fortune here.\nChoose one of the following",
                 "40DABEF7A6424982BC42CD39D8440029",
-                Helpers.GetIcon("175d1577bb6c9a04baf88eec99c66334"), // Iron Will
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/outlander.png"),
                 FeatureGroup.None);
 
 
@@ -86,7 +86,7 @@ namespace EldritchArcana
             var NobleFamilyBorn = Helpers.CreateFeatureSelection("NobleFamilyBornTrait", "Noble born",
                 NobleDescription + "\nBenefits: Select one of the following Royal families to gain its Traits",
                 "ecacfcbeddfe453cafc8d60fc2fb5d45",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Noble_Houses.png"),
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/noble_houses.png"),
                 FeatureGroup.None);
 
 
@@ -95,7 +95,7 @@ namespace EldritchArcana
                 "House Orlovsky controls northeastern Brevoy from Eagle's Watch on Mount Veshka. They try to rise above petty political maneuvers. As staunch allies of the now disappeared House Rogarvia, this has landed them in a prickly situation." +
                 "\nBenefit: You have a +1 trait bonus on CMD. You select one of the following skills: Persuasion, Athletics, or Stealth. You gain a +1 trait bonus on checks with that skill, and it is always a class skill for you.",
                 Helpers.MergeIds(Helpers.getStattypeGuid(StatType.AC), "9b03b7ff17394007a3fbec18bb42604b"),
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Orlovsky.png"),
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/house_orlovsky.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.AdditionalCMD, 1, ModifierDescriptor.Trait));
 
@@ -122,7 +122,7 @@ namespace EldritchArcana
                 "House Lebeda is based to the southwest of Lake Reykal in Brevoy, controlling the plains and significant portions of the lake's shipping. They are considered to be the Brevic noble family that epitomizes Rostland, having significant Taldan blood, an appreciation for fine things, and a love of sword fighting." +
                 "\nBenefit: You get a +1 trait bonus on Knowledge (Arcana), and select a resource for a usable ability. You can use it at least one additional time.",
                 Helpers.MergeIds(Helpers.getStattypeGuid(StatType.Intelligence), "9b03b7ff17394007a3fbec18bb42604c"),
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Lebeda.png"),
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/house_lebeda.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.SkillKnowledgeArcana, 1, ModifierDescriptor.Trait));
             //
@@ -172,7 +172,7 @@ namespace EldritchArcana
                 "House Garess's crest is that of a snow-capped mountain peak in gray set against a dark blue field. There is a silvery crescent moon in the upper right corner, and there is a black hammer across the base of the peak. The Houses motto is Strong as the Mountains. " +
                 "House Garess had a good relationship with the Golka dwarves until the dwarves vanished. Members of the house worked the metal that the dwarves mined. " +
                 "The House has built several strongholds, Highdelve and Grayhaven, in the Golushkin Mountains. \nBenefit: Your movement speed is 5ft faster. And you have no trouble moving through nonmagical rough terrain.",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Garess.png")
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/house_garess.png")
                 );
             BloodlineFeyWoodlandStride.AddComponent(Helpers.CreateAddStatBonus(StatType.Speed, 5, ModifierDescriptor.Trait));
             string[] Diffforhumans = new string[] { "Ki power as a monk", "Alchemy mutagen as a Alchemist", "Bonded item restore spell as a wizard", "Impromtu sneak attack as a acrane trickster", "Judgement ability as a inquisitor", "Arcane weapon enhancements as a magus", "Performances as a Sensei" };
@@ -206,7 +206,7 @@ namespace EldritchArcana
                 "The house crest is a black bear with black antlers above its head in front of a red field.Their motto is 'Endurance Overcomes All.'" +
                 "\nBenefit: You can use Lay on Hands 4 times more per day, and you get a +1 trait bonus on saving throws vs compulsion effects from feys.",
                 Helpers.MergeIds(Helpers.getStattypeGuid(StatType.AdditionalCMB), "9b03b7ff17394007a3fbec18bb42604b"),
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Medvyed.png"),
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/house_medvyed.png"),
                 FeatureGroup.None,
                 layonhandsResource.CreateIncreaseResourceAmount(4),Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Compulsion; s.Value = 1; s.ModifierDescriptor = ModifierDescriptor.Trait; })),
                 
@@ -218,7 +218,7 @@ namespace EldritchArcana
                 "The house's crest includes a green crab climbing out of the water towards a gray tower/keep. Their motto is 'The Waters, Our Fields'." +
                 "\nBenefit: You get a +2 trait bonus on Athletics checks. If you are a spellcaster, you know the spell Snowball.",
                 Helpers.MergeIds(Helpers.getStattypeGuid(StatType.BaseAttackBonus), "9b03b7ff17394007a3fbec18bb42604b"),
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Lodovka.png"),
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/house_lodovka.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddKnownSpell(snowball,wizard,0),
                 Helpers.CreateAddKnownSpell(snowball,alchemist,1),
@@ -260,7 +260,7 @@ namespace EldritchArcana
                 "\nDrawback: You take a -4 penalty on Persuasion checks vs nobles (They hate you)." +
                 "\nBenefit: You know the spell Fireball if you are a spell caster. Even if the caster normally does not get to learn the spell.",
                 "B48B8234942C4FD191E99721728BF49D",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Rogarvia.png"),
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/house_rogarvia.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonusOnLevel(StatType.SkillPersuasion, -4, ModifierDescriptor.Penalty, 1, 3),
                 Helpers.CreateAddKnownSpell(fireball,sorcerer,0),
@@ -299,7 +299,7 @@ namespace EldritchArcana
                 "Their crest is a white dragon with a helmet embedded in its chest. Many of the Khavortorov's are experts with the Aldori dueling sword.\n" +
                 "Benefit: Dueling sword and longsword deal 1 extra damage and you start with one of both.",
                 "44DFCE0451FC4188A06E2184EF65064B",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Khavortonov.png"),
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/house_khavortonov.png"),
                 FeatureGroup.None,
                 Helpers.Create<AddStartingEquipment>(a =>
                 {
@@ -320,7 +320,7 @@ namespace EldritchArcana
                 "Their family motto is 'Ours Is the Right,' which likely reflects their belief in a right to rulership of Brevoy since their family formerly ruled Issia as a group of crafty pirate-kings. Their crest is a gray ship in front of fields of blue on the lower half and black with silver stars on the upper half." +
                 "\nBenefit: You get a +2 trait bonus on damage against flanked targets.",
                 Helpers.MergeIds(Helpers.getStattypeGuid(StatType.SneakAttack), "9b03b7ff17394007a3fbec18bb42604c"),
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_House_Surtova.png"),
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/house_surtova.png"),
                 FeatureGroup.None,
                 Helpers.Create<DamageBonusAgainstFlankedTarget>(a => a.Bonus = 2))
                 //
@@ -353,7 +353,7 @@ namespace EldritchArcana
                 "You have come here to see about expanding the presence of your chosen faith after receiving visions that told you your faith is needed—what that need is, though, you’re not quite sure." +
                 "\nBenefit: Pick three spells when you choose this trait—from this point on, whenever you cast that spell, you do so at caster +1 level. and +1 dc and lore religion +1",
                 "6a3dfe274f45432b85361bdbb0a3009b",
-                Helpers.GetIcon("fe9220cdc16e5f444a84d85d5fa8e3d5"), // Spell Specialization Progression
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/outlander.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.SkillLoreReligion, 1, ModifierDescriptor.Trait));
             Traits.FillSpellSelection(SpellExpertise, 1, 9, Helpers.Create<IncreaseCasterLevelForSpellMax>());
@@ -367,7 +367,7 @@ namespace EldritchArcana
                 ".\nBenefit: Pick three spells when you choose this trait—from this point on, whenever you cast that spell, you do so at caster level +1 and dc +1." +
                 "\nBenefit2:lore arcana + 1",
                 "6a3dfe274f45432b85361bdbb0a3010c",
-                Helpers.GetIcon("fe9220cdc16e5f444a84d85d5fa8e3d5"), // Spell Specialization Progression
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/outlander.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.SkillKnowledgeArcana, 1, ModifierDescriptor.Trait));
             //FillSpellSelection(SpellExpertise2, 1, 9, Helpers.Create<IncreaseCasterLevelForSpellMax>(), Helpers.Create<IncreaseSpellDC>());
@@ -399,7 +399,7 @@ namespace EldritchArcana
                 Helpers.CreateFeature("OutlanderExile", "Outlander: Exile",
                 "For whatever reason, you were forced to flee your homeland. Chance or fate has brought you here, and it’s here that your money ran out, leaving you stranded in this small town. You are also being pursued by enemies from your homeland, and that has made you paranoid and quick to react to danger.\nBenefit: You gain a +2 trait bonus on initiative checks.",
                 "fa2c636580ee431297de8806a046054a",
-                Helpers.GetIcon("797f25d709f559546b29e7bcb181cc74"), // Improved Initiative
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/human_bastard.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.Initiative, 2, ModifierDescriptor.Trait))
             };
@@ -435,7 +435,7 @@ namespace EldritchArcana
                  "You’ve always seemed to have trouble keeping money. Worse, you always seem to have debts looming over your head. When you heard about the “Cheat the Devil and Take His Gold” gambling tournament, you felt in your gut that your luck was about to change. You’ve always been optimistic, in fact, and even though right now is one of those rare times where you don’t owe anyone any money (you just paid off a recent loan from local moneylender Lymas Smeed), you know that’ll change soon enough. Better to start amassing money now when you’re at one of those rare windfall times! You’ve set aside a gold coin for the entrance fee, and look forward to making it big—you can feel it in your bones! This time’s gonna be the big one! Your boundless optimism, even in the face of crushing situations, has always bolstered your spirit.\n" +
                  "Benefit: take a chance you will get a random benefit",
                  "c88b9398af66406cac173884df308eb8",
-                 Image2Sprite.Create("Mods/EldritchArcana/sprites/Fey_Foundling.png"), // Great Fortitude
+                 Image2Sprite.Create("Mods/EldritchArcana/sprites/optimistic_gambler.png"),
                  FeatureGroup.None);
             //list with random features
             string wwib = "What will it be?";
@@ -520,7 +520,7 @@ namespace EldritchArcana
                 CopiedFeat.SetName(wwib);
                 CopiedFeat.SetIcon(dice);
                 CopiedFeat.PrerequisiteFeature(any:true);
-
+                
                 
                 OptimisticGamblerOptions.Add(CopiedFeat);
             }
@@ -566,14 +566,14 @@ namespace EldritchArcana
             x = 0;
             foreach (WeaponCategory weap in weapons)
             {
-
+                
                 x++;
 
                 OptimisticGamblerOptions.Add(
                     Helpers.CreateFeature(
                         $"randomeffectExtra{weap}", wwib, Gmbldsc + $" You start with a {weap} and you have a 3 bonus on attack rolls with weapons of this type"
                         , CampaignGuids[x], dice, FeatureGroup.None,
-                        Helpers.Create<WeaponCategoryAttackBonus>(b => { b.Category = weap; b.AttackBonus = 3;}),
+                        Helpers.Create<WeaponCategoryAttackBonus>(b => { b.Category = weap; b.AttackBonus = 3;}),     
                         //Helpers.Create<WeaponTypeDamageBonus>(c=> { c.WeaponType = weap; })
                         Helpers.Create<AddStartingEquipment>(a =>
                         {
@@ -598,13 +598,13 @@ namespace EldritchArcana
             //var option3 = OptimisticGamblerOptions[DateTime.Now.Millisecond % OptimisticGamblerOptions.Count];
             OptimisticGambler.SetFeatures(xander,option2);
             OptimisticGambler.IgnorePrerequisites=true;
-            OptimisticGambler.SetFeatures(OptimisticGamblerOptions);
+            //OptimisticGambler.SetFeatures(OptimisticGamblerOptions);
             choices.Add(OptimisticGambler);
 
             choices.Add(Helpers.CreateFeature("RostlanderTrait", "Rostlander",
                 "You were raised in the south of Brevoy, a land of dense forests and rolling plains, of crystalline rivers and endless sapphire skies. You come from hearty stock and were raised with simple sensibilities of hard work winning well-deserved gains, the importance of charity and compassion, and the value of personal and familial honor. Yours is the country of the Aldori swordlords and the heroes who refused to bend before the armies of a violent conqueror. You care little for matters of politics and nobles or of deception and schemes. As you are thoroughly Brevic, the call for champions willing to expand your land’s influence into the Stolen Lands has inflamed your sense of patriotism and honor, and so you have joined an expedition to quest southward. Your hardy nature grants you a +1 trait bonus on all Fortitude saves.",
                 "d99b9398af66406cac173884df308eb7",
-                Helpers.GetIcon("79042cb55f030614ea29956177977c52"), // Great Fortitude
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/rostlander.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.SaveFortitude, 1, ModifierDescriptor.Trait)));
 
@@ -615,7 +615,7 @@ namespace EldritchArcana
             choices.Add(Helpers.CreateFeature("SwordScionTrait", "Sword Scion",
                 "You have lived all your life in and around the city of Restov, growing up on tales of Baron Sirian Aldori and the exploits of your home city’s heroic and legendary swordlords. Perhaps one of your family members was an Aldori swordlord, you have a contact among their members, or you have dreamed since childhood of joining. Regardless, you idolize the heroes, styles, and philosophies of the Aldori and have sought to mimic their vaunted art. Before you can petition to join their ranks, however, you feel that you must test your mettle. Joining an expedition into the Stolen Lands seems like a perfect way to improve your skills and begin a legend comparable to that of Baron Aldori. You begin play with a longsword or Aldori dueling sword and gain a +1 trait bonus on all attacks and combat maneuvers made with such weapons.",
                 "e16eb56b2f964321a29076226dccb29e",
-                Helpers.GetIcon("c3a66c1bbd2fb65498b130802d5f183a"), // DuelingMastery
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/sword_scion.png"),
                 FeatureGroup.None,
                 Helpers.Create<AddStartingEquipment>(a =>
                 {

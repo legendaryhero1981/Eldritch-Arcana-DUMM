@@ -91,7 +91,7 @@ namespace EldritchArcana
 
         static BlueprintFeature CreateFrail()
         {
-            var frailsprite = Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Frail.png");
+            var frailsprite = Image2Sprite.Create("Mods/EldritchArcana/sprites/frail.png");
             var fraily = new BlueprintComponent[64];
             fraily[0] = Helpers.CreateAddStatBonus(StatType.HitPoints, -3, ModifierDescriptor.Crippled);
             for (int i = 2; i < 65; i++)
@@ -114,7 +114,7 @@ namespace EldritchArcana
 
         static BlueprintFeature CreateOneLegged()
         {
-            var frailsprite = Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Peg_Leg.png");
+            var frailsprite = Image2Sprite.Create("Mods/EldritchArcana/sprites/peg_leg.png");
             Log.Write(DrawFeatGuids[0]);
             var feat = Helpers.CreateFeature("OneLegged", RES.DrawbackOneLeggedFeatureName_info,
                 RES.DrawbackOneLeggedFeatureDescription_info,
@@ -130,7 +130,7 @@ namespace EldritchArcana
         static BlueprintFeature CreateSpellVulnerability()
         {
             //Log.Write(DrawFeatGuids[1]);
-            var spellvulsprite = Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_spell_Vulnerability.png");
+            var spellvulsprite = Image2Sprite.Create("Mods/EldritchArcana/sprites/spell_vulnerability.png");
             int SpellVunrabilityBonus = -4;
             var components = new List<BlueprintComponent> { };
 

@@ -216,7 +216,7 @@ namespace EldritchArcana
             //var kalike = library.Get<BlueprintAbility>("5cb0f13fc0eef464993b2e082f186032");//SwitchTo_Kalikke_Ability.
             //var kanerah = library.Get<BlueprintAbility>("fb96d35da88acb1498dc51a934f6c4d5");//SwitchTo_Kanerah_Ability.
             var camo = library.Get<BlueprintAbility>("b26a123a009d4a141ac9c19355913285");//camoflage
-            var GobIcon = Image2Sprite.Create("Mods/EldritchArcana/sprites/Summon_goblins.png");
+            var GobIcon = Image2Sprite.Create("Mods/EldritchArcana/sprites/summon_goblins.png");
             //TestSummonAbility.1909400d0731ae049ac62edade91c1f7//summon 6 goblins
 
 

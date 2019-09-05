@@ -1,4 +1,5 @@
-﻿using Kingmaker.Blueprints.Classes;
+﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items;
@@ -8,6 +9,7 @@ using Kingmaker.Enums;
 using Kingmaker.UnitLogic.FactLogic;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EldritchArcana
 {
@@ -210,6 +212,72 @@ namespace EldritchArcana
                 Helpers.CreateAddStatBonus(StatType.Initiative, 1, ModifierDescriptor.Insight),
                 Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Evil; s.Value = -2; s.ModifierDescriptor = ModifierDescriptor.Penalty; })));
 
+            x++;
+            choices.Add(Helpers.CreateFeature("DaydreamerDrawback", "Daydreamer",
+                "You always have your head in the clouds." +
+                "\nDrawback: You suffer a -1 penalty to initiative checks and a -2 penalty to Perception checks to avoid being surprised.",
+                EmotionGuids[x],
+                Helpers.NiceIcons(6), //rush
+                FeatureGroup.None,
+                Helpers.CreateAddStatBonus(StatType.Initiative, -1, ModifierDescriptor.Penalty),
+                Helpers.CreateAddStatBonus(StatType.SkillPerception, -2, ModifierDescriptor.Penalty)));
+
+            x++;
+            choices.Add(Helpers.CreateFeature("ShadowDrawback", "Shadow-Scarred",
+                 "You were touched by terrible horrors that live in the darkness just outside the human sphere and feel your life-force ebb away ever so slightly whenever you return to the shadows." +
+                 "\nDrawback: Whenever you are in an area of dim light or darkness, you take a –1 penalty on saving throws.",
+                 EmotionGuids[x],
+                 Helpers.NiceIcons(6), //rush
+                 FeatureGroup.None,
+                 Helpers.Create<ShadowSensitivity>()));
+            x++;
+            var debuff2 = Helpers.CreateBuff("ShadowDeBuff", "Shadow-Scarred",
+                "You have 1 less on saving throws.",
+                EmotionGuids[x],
+                Helpers.NiceIcons(22), null);
+            var components = new List<BlueprintComponent> { };
+            components.AddRange((new SpellSchool[]
+            {
+                SpellSchool.Abjuration,
+                SpellSchool.Conjuration,
+                SpellSchool.Divination,
+                SpellSchool.Enchantment,
+                SpellSchool.Evocation,
+                SpellSchool.Illusion,
+                SpellSchool.Necromancy,
+                SpellSchool.Transmutation,
+                SpellSchool.Universalist
+            }).Select((school) => Helpers.Create<SavingThrowBonusAgainstSchool>(a =>
+            {
+                a.School = school;
+                a.Value = -1;
+                a.ModifierDescriptor = ModifierDescriptor.Penalty;
+            })));
+            debuff2.AddComponents(components);
+            ShadowSensitivity.ShadowBuff = debuff2;
+
+
+            x++;
+            choices.Add(Helpers.CreateFeature("SleepyDrawback", "Sleepy",
+                 "You must sleep or rest for at least 8 hours each night to get the benefits of a full night’s rest." +
+                 "\nDrawback: You take a –2 penalty on saving throws against sleep effects.",
+                 EmotionGuids[x],
+                 Helpers.NiceIcons(7),
+                 FeatureGroup.None,
+                 Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.Bonus = -2; s.SpellDescriptor = SpellDescriptor.Sleep; })));
+
+            x++;
+            choices.Add(Helpers.CreateFeature("ZealousDrawback", "Zealous",
+                 "You are fanatical in your beliefs, ruled by emotion over reason." +
+                 "\nDrawback: When you attack a creature that you know worships a different religion than you do, you take a –5 penalty on the attack roll and a +2 trait bonus on the damage roll.",
+                 EmotionGuids[x],
+                 Helpers.NiceIcons(48),
+                 FeatureGroup.None,
+                 Helpers.CreateAddStatBonus(StatType.AdditionalAttackBonus, -5, ModifierDescriptor.Sacred),
+                 Helpers.CreateAddStatBonus(StatType.AdditionalDamage, 2, ModifierDescriptor.Sacred)
+                 ));
+
+            
 
             Fraud.SetFeatures(hoi);
             choices.Add(Fraud);

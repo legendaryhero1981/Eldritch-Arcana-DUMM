@@ -102,7 +102,7 @@ namespace EldritchArcana
             var feat = Helpers.CreateFeature("FeyFoundling", RES.FeyFoundlingFeatureName_info,
                 RES.FeyFoundlingFeatureDescription_info,
                 "0659556638b04ecc85e069e050751bfa",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Fey_foundling.png"),
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/fey_foundling.png"),
                 FeatureGroup.Feat,
                 Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Death; s.ModifierDescriptor = ModifierDescriptor.Feat; }),
                 Helpers.Create<FeyFoundlingLogic>(s => { s.dieModefier = 2; }),
@@ -143,12 +143,12 @@ namespace EldritchArcana
             var feat = metamagic == Metamagic.Quicken ? Helpers.CreateFeature($"Magus{name}Magic", string.Format(RES.MagusMagicFeatureName_info, name),
                     RES.MagusMagicFeatureDescription_info + RES.MagusMagicLevelFeatureDescription_info,
                 Helpers.MergeIds(metamagicFeat.AssetGuid, "65768d69b6b84954b3d6a1d1dc265cf8"),
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Extra_Arcana.png"),//metamagicFeat.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/extra_arcana.png"),//metamagicFeat.Icon,
                 FeatureGroup.MagusArcana)
                 : Helpers.CreateFeature($"Magus{name}Magic", string.Format(RES.MagusMagicFeatureName_info, name),
                     RES.MagusMagicFeatureDescription_info + RES.MagusMagicCastTimeLevelFeatureDescription_info,
                     Helpers.MergeIds(metamagicFeat.AssetGuid, "65768d69b6b84954b3d6a1d1dc265cf8"),
-                    Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Extra_Arcana.png"),//metamagicFeat.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/extra_arcana.png"),//metamagicFeat.Icon,
                     FeatureGroup.MagusArcana);
 
             var resource = Helpers.CreateAbilityResource($"{feat.name}Resource", "", "",
@@ -177,7 +177,7 @@ namespace EldritchArcana
             var feat = Helpers.CreateFeatureSelection(name, displayName,
                 RES.ExtraArcanaFeatureDescription_info,
                 assetId,
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Extra_Arcana.png"),//Helpers.GetIcon("cd9f19775bd9d3343a31a065e93f0c47"), // extra channel
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/extra_arcana.png"),
                 FeatureGroup.Feat,
                 magusArcanas.PrerequisiteFeature());
             feat.SetFeatures(magusArcanas.AllFeatures);
@@ -259,7 +259,7 @@ namespace EldritchArcana
             var dervishDance = Helpers.CreateFeature("DervishDance", RES.DervishDanceFeatureName_info,
                 RES.DervishDanceFeatureDescription_info,
                 "7d0bb2ade9344cae833c5bbe66bf0460",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Dervish_Dance.png"),//slashingGrace.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/dervish_dance.png"),
                 FeatureGroup.Feat,
                 weaponFinesse.PrerequisiteFeature(),
                 Helpers.PrerequisiteStatValue(StatType.Dexterity, 13),
@@ -289,7 +289,7 @@ namespace EldritchArcana
                 RES.MagesTattooFeatureName_info,
                 RES.MagesTattooFeatureDescription_info,
                 "8004aabdc67145c5b0613b7580d77da1",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Mages_Tatto.png"),
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/mages_tattoo.png"),
                 FeatureGroup.Feat,
                 FeatureParameterType.SpellSchool,
                 spellFocus.PrerequisiteFeature(),
@@ -327,7 +327,7 @@ namespace EldritchArcana
                 RES.SpellPerfectionFeatureName_info,
                 RES.SpellPerfectionFeatureDescription_info,
                 "82165fb15af34cbb9c0c2e6fb232b2fc",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Spell_Perfection.png"),//spellSpecialization.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/spell_perfection.png"),
                 FeatureGroup.Feat,
                 Helpers.PrerequisiteStatValue(StatType.SkillKnowledgeArcana, 15),
                 Helpers.Create<PrerequisiteFeaturesFromList>(p => { p.Amount = 3; p.Features = allMetamagics; }),
@@ -348,7 +348,7 @@ namespace EldritchArcana
                 RES.OppositionResearchFeatureName_info,
                 RES.OppositionResearchFeatureDescription_info,
                 "48eb4a47b01e4d088f763ff20824189e",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Opposition_Research.png"),//spellFocusGreater.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/opposition_research.png"),
                 FeatureGroup.WizardFeat,
                 Helpers.PrerequisiteClassLevel(wizardClass, 9),
                 noFeature);

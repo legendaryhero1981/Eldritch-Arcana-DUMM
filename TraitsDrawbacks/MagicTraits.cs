@@ -66,7 +66,7 @@ namespace EldritchArcana
                 "A master druid revealed to you greater secrets of concentration when changing your form into that of an animal." +
                 "\nBenefit: You can shapeshift more often.",
                 "e34889a2dd7e4e9ebfdfa76bfb8f4445",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Beast_of_Society.png"),//WildShapeResource.Icon, 
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/beast_of_society.png"),
                 FeatureGroup.None,
                 WildShapeResource.CreateIncreaseResourceAmount(4)));
 
@@ -100,6 +100,20 @@ namespace EldritchArcana
                 FeatureGroup.None);
             Traits.FillSpellSelection(magicalLineage, 1, 9, Helpers.Create<ReduceMetamagicCostForSpell>(r => r.Reduction = 1));
             choices.Add(magicalLineage);
+
+            choices.Add(Helpers.CreateFeature("PragmaticActivatorTrait", "Pragmatic Activator",
+                    "While some figure out how to use magical devices with stubborn resolve, your approach is more pragmatic.\n" +
+                    "Benefit: You may use your Intelligence modifier when making Use Magic Device checks instead of your Charisma modifier.",
+                    "d982f3e69db44cdd34263985e37a6d4c",
+                    Image2Sprite.Create("Mods/EldritchArcana/sprites/spell_perfection.png"),
+                    FeatureGroup.None,
+                    Helpers.Create<ReplaceBaseStatForStatTypeLogic>(x =>
+                    {
+                        x.StatTypeToReplaceBastStatFor = StatType.SkillKnowledgeArcana;
+                        x.NewBaseStatType = StatType.Charisma;
+                    })
+                  ));
+
 
             choices.Add(UndoSelection.Feature.Value);
             magicTraits.SetFeatures(choices);

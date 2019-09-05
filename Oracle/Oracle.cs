@@ -181,7 +181,7 @@ namespace EldritchArcana
             var extraRevelation = Helpers.CreateFeatureSelection("ExtraRevelation",
                 RES.ExtraRevelationFeatureName_info, RES.ExtraRevelationFeatureDescription_info,
                 "e91bd89bb5534ae2b61a3222a9b7325e",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Revelations_Extra.png"),//Helpers.GetIcon("fd30c69417b434d47b6b03b9c1f568ff"), // selective channel
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/revelations_extra.png"),
                 FeatureGroup.Feat,
                 Helpers.PrerequisiteClassLevel(oracle, 1));
             var extras = revelation.Features.Select(
@@ -194,7 +194,7 @@ namespace EldritchArcana
                 RES.AbundantRevelationsFeatureName_info,
                 RES.AbundantRevelationsFeatureDescription_info,
                 "1614c7b40565481fa3728fd7375ddca0",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Revelations_Abundant.png"),//Helpers.GetIcon("a2b2f20dfb4d3ed40b9198e22be82030"), // extra lay on hands
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/revelations_abundant.png"),
                 FeatureGroup.Feat);
             var resourceChoices = new List<BlueprintFeature>();
             var prereqRevelations = new List<Prerequisite> { Helpers.PrerequisiteClassLevel(oracle, 1) };

@@ -53,7 +53,7 @@ namespace EldritchArcana
             var prestigiousSpell = Helpers.CreateFeatureSelection("PrestigiousSpellcasterSelection", RES.PrestigiousSpellcasterFeatureName_info,
                 RES.PrestigiousSpellcasterFeatureDescription_info,
                 "30e9a3fcdb0446aa87f45d0f50b3b3fc",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Prestigious_Spellcaster.png"),//spellSpecialization.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/prestigious_spellcaster.png"),
                 FeatureGroup.Feat);
             prestigiousSpell.SetFeatures(
                 CreatePrestigiousSpellcaster(eldritchKnightClass, "dc3ab8d0484467a4787979d93114ebc3" /*EldritchKnightSpellbookSelection*/ ),

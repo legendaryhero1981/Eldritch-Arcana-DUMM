@@ -75,7 +75,7 @@ namespace EldritchArcana
                 "Exposure to corruption has altered your body causing you to sprout horrific growths beneath your skin." +
                 "\nBenefit: You gain a +1 natural armor bonus to AC, but your body does not work as a normal creature’s would. Anytime you receive magical healing you heal 1 hp less per die.",
                 "c50bdfaad65b4028884dd4a74f14e792",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Anatomist.png"),
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/anatomist.png"),
                 FeatureGroup.None,
                 Helpers.CreateAddStatBonus(StatType.AC, 1, ModifierDescriptor.NaturalArmor),
                 Helpers.Create<FeyFoundlingLogic>(s => { s.dieModefier = -1; s.flatModefier = 0; })));

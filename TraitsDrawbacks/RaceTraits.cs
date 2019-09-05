@@ -191,7 +191,7 @@ namespace EldritchArcana
             choices.Add(Helpers.CreateFeature("TuskedTrait", "Tusked (Half-orc)",
                 "Benefit: Huge, sharp tusks bulge from your mouth, and you receive a bite attack (1d4 damage for Medium characters). If used as part of a full attack action, the bite attack is made at your full base attack bonus –5.",
                 "1511289c92ea4233b14c4f51072ea09g",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Halforc_Tusked.png"), // Great Fortitude
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/halforc_tusked.png"), // Great Fortitude
                 FeatureGroup.None,
                 halfOrcReq,
                 Helpers.Create<AddAdditionalLimb>(x => x.Weapon = bite)
@@ -227,7 +227,7 @@ namespace EldritchArcana
                 "\nYou belong to the elite veteran regiments of The old king and his army and are intensely loyal to him. It was you who made the last charge at the dwarven kingdom." +
                 "Benefit: You receive a +1 trait bonus on saving throws against spells, spell-like abilities, and poison",
                 "4283a523984f44944a7cf157b21bf7c9",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Spell_Perfection.png"),
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/spell_perfection.png"),
                 FeatureGroup.None,
                 dwarfReq,                
                 Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Poison; s.Value = 1; s.ModifierDescriptor = ModifierDescriptor.Racial; }),
@@ -262,7 +262,7 @@ namespace EldritchArcana
             choices.Add(Helpers.CreateFeature("LegacyOfSandTrait", "Legacy of Sand (Half-Orc)",
                 "A large tribe of orcs adapted to life in the desert once dwelt in southeastern Katapesh. Although this tribe is long extinct, some half-orcs of Katapesh carry the traits of this tribe in their particularly large jaws, broad shoulders, and shockingly pale eyes. You often have dreams of hunts and strange ceremonies held under moonlight in the desert sands. Some ascribe these dreams to racial memory, others to visions or prophecies. These dreams have instilled in you a fierce sense of tradition.\nBenefit: You gain a +1 trait bonus on all Will saving throws.",
                 "e5fb1675eb6e4ef9accef7eb3a10862a",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Halforc_Legacy_of_Sand.png"), // , // Iron Will
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/halforc_legacy_of_sand.png"),
                 FeatureGroup.None,
                 halfOrcReq,
                 Helpers.CreateAddStatBonus(StatType.SaveWill, 1, ModifierDescriptor.Trait)));
@@ -392,7 +392,7 @@ namespace EldritchArcana
             choices.Add(Helpers.CreateFeature("AnimalFriendTrait", "Animal Friend (Gnome)",
                 "You’ve long been a friend to animals, and feel safer when animals are nearby.\nBenefits: You gain a +1 trait bonus on Will saving throws as long as you have an animal companion or familiar, and Lore (Nature) is always a class skill for you.",
                 "91c612b225d54adaa4ce4c633501b58e",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Gnome_Animal_Friend.png"),//Helpers.GetIcon("1670990255e4fe948a863bafd5dbda5d"), // Boon Companion
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/gnome_animal_friend.png"),//Helpers.GetIcon("1670990255e4fe948a863bafd5dbda5d"), // Boon Companion
                 FeatureGroup.None,
                 components.ToArray()));
 

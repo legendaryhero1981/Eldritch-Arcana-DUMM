@@ -48,7 +48,7 @@ namespace EldritchArcana
                 RES.EldritchHeritageFeatureName_info,
                 RES.EldritchHeritageFeatureDescription_info,
                 "733b54b0669b4aeda47953ec0e2b33dd",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Eldritch_Heritage.png"),//spellSpecialization.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/eldritch_heritage.png"),
                 FeatureGroup.Feat);
 
             var components = new List<BlueprintComponent> {
@@ -63,7 +63,7 @@ namespace EldritchArcana
                 RES.ImprovedEldritchHeritageFeatureName_info,
                 RES.ImprovedEldritchHeritageFeatureDescription_info,
                 "c8bd273034684e6689b105a7d8bc9c3b",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Eldritch_Heritage_Improved.png"),//spellSpecialization.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/eldritch_heritage_improved.png"),//spellSpecialization.Icon,
                 FeatureGroup.Feat,
                 Helpers.PrerequisiteCharacterLevel(11),
                 Helpers.PrerequisiteStatValue(StatType.Charisma, 15),
@@ -76,7 +76,7 @@ namespace EldritchArcana
                 RES.GreaterEldritchHeritageFeatureName_info,
                 RES.GreaterEldritchHeritageFeatureDescription_info,
                 "24aad7af058a49f88d1203b856409023",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Icon_Eldritch_Heritage_Greater.png"),// spellSpecialization.Icon,
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/eldritch_heritage_greater.png"),
                 FeatureGroup.Feat,
                 Helpers.PrerequisiteCharacterLevel(17),
                 Helpers.PrerequisiteStatValue(StatType.Charisma, 17),

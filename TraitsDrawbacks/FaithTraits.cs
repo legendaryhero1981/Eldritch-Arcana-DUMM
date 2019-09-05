@@ -108,7 +108,7 @@ namespace EldritchArcana
             choices.Add(Helpers.CreateFeature("FatesFavoredTrait", "Fate's Favored",
                 "Whenever you are under the effect of a luck bonus of any kind, that bonus increases by 1.",
                 "0c5dcccc21e148cdaf0fb3c643249bfb",
-                Image2Sprite.Create("Mods/EldritchArcana/sprites/Fey_foundling.png"), // blessing luck & resolve
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/fey_foundling.png"), // blessing luck & resolve
                 FeatureGroup.None,
                 Helpers.Create<ExtraLuckBonus>()));
 
@@ -116,7 +116,7 @@ namespace EldritchArcana
                 "You have always had an innate sense of the workings of the planes and their denizens." +
                 "Benefit: You may use your Charisma modifier when making Knowledge checks instead of your Intelligence modifier. choose a knowledge to replace",
                 "2e4dcecc32e148cbaf0fb3c643249cbf",
-                Helpers.NiceIcons(43),
+                Helpers.NiceIcons(19),
                 FeatureGroup.None, Helpers.Create<ReplaceBaseStatForStatTypeLogic>(x =>
                 {
                     x.StatTypeToReplaceBastStatFor = StatType.SkillKnowledgeArcana;
@@ -133,7 +133,7 @@ namespace EldritchArcana
                     "Use Charisma for calculating Knowledge (Arcana)\n" +
                     "Benefit: You modify your Knowledge (Arcana) using your Charisma modifier. insted of your Inteligence",
                     $"a982f3e69db44cdd33963985e37a6d2b",
-                    Helpers.NiceIcons(3),
+                    Helpers.NiceIcons(32),
                     FeatureGroup.None,
                     Helpers.Create<ReplaceBaseStatForStatTypeLogic>(x =>
                     {
@@ -144,7 +144,7 @@ namespace EldritchArcana
                     "Use Charisma for calculating Knowledge (World)\n" +
                     "Benefit: You modify your Knowledge (World) using your Charisma modifier. insted of your Inteligence",
                     $"b234f3e69db44cdd33963985e37a6d1b",
-                    Helpers.NiceIcons(3),
+                    Helpers.NiceIcons(32),
                     FeatureGroup.None,
                     Helpers.Create<ReplaceBaseStatForStatTypeLogic>(x =>
                     {

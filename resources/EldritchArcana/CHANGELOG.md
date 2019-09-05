@@ -3,14 +3,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [1.2.5]
+
+### Added
+-More Icons Made by Nolanoth for spells traits and feats in the mod.
+-fauchard and scythe as an heirloom weapon.
+-Extra options for the well-provisioned adventurer.
+-Some requested traits.
+
+### Changed
+-Gambler trait has 2 random options again instead of all of them.
+
 ## [1.2.4]
 
 ### Added
--scimitar as an heirloom weapon.
--Option to make outlander spells Cl max +999999; just in case you want a spell to last a long time{cheat}
+-More Icons Made by Nolanoth for spells traits and feats in the mod.
+-falchion as an heirloom weapon.
+-Well provisioned adventurer Trait to equipment traits.
+-Extra options for the well-provisioned adventurer.
 
 ### Changed
 -Description gambler damage -> attack rolls
+
+### Fixed
+-Sprite paths for Linux users
 
 ## [1.2.3]
 
