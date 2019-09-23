@@ -1,17 +1,12 @@
 // Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Equipment;
-using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
-using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums.Damage;
@@ -24,14 +19,17 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
-using System.Reflection;
-using Harmony12;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using UnityEngine;
 
 namespace EldritchArcana
 {
@@ -129,14 +127,14 @@ namespace EldritchArcana
                 "You can modify a spell to daze a creature damaged by the spell. When a creature takes damage from this spell, they become dazed for a number of rounds equal to the original level of the spell. If the spell allows a saving throw, a successful save negates the daze effect. If the spell does not allow a save, the target can make a Will save to negate the daze effect. If the spell effect also causes the creature to become dazed, the duration of this metamagic effect is added to the duration of the spell." +
                 "\nLevel Increase: +3",
                 /*SpellFocusEnchantment*/
-                "c5bf645f128c39b40850cde005b8538f",
+                Helpers.GetIcon("c5bf645f128c39b40850cde005b8538f"),
                 Helpers.Create<DazingMetamagic>(d => d.DazeBuff = library.Get<BlueprintBuff>("9934fedff1b14994ea90205d189c8759"))));
             feats.Add(CreateMetamagicFeat(
                 ModMetamagic.Intensified, "ac3a3d3cdf4e4723bd99c14782092e8e", "Intensified Spell",
                 "An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat." +
                 "\nLevel Increase: +1",
                 /*SpellFocusDivination*/
-                "955e97411611d384db2cbc00d7ed5ead"));
+                Helpers.GetIcon("955e97411611d384db2cbc00d7ed5ead")));
             // patch to adjust the maximum dice cap.
             ContextRankConfig_GetValue_Patch.Apply();
 
@@ -146,7 +144,7 @@ namespace EldritchArcana
                 "\nThis feat only affects spells with the cold descriptor." +
                 "\nLevel Increase: +1",
                 /*SpellFocusNecromancy*/
-                "8791da25011fd1844ad61a3fea6ece54",
+                Helpers.GetIcon("8791da25011fd1844ad61a3fea6ece54"),
                 Helpers.Create<RimeMetamagic>(r => r.EntangleBuff = library.Get<BlueprintBuff>("f7f6330726121cf4b90a6086b05d2e38"))));
             feats.Add(CreateMetamagicFeat(
                 ModMetamagic.Toppling, "566739fdc0e2417f9165b72bab7ba421", "Toppling Spell",
@@ -154,14 +152,14 @@ namespace EldritchArcana
                 "\nThis feat only affects spells with the force descriptor." +
                 "\nLevel Increase: +1",
                 /*SpellFocusConjuration*/
-                "d342cc595f499434687f9765f56d525c",
+                Helpers.GetIcon("d342cc595f499434687f9765f56d525c"),
                 Helpers.Create<TopplingMetamagic>()));
             feats.Add(persistentSpellFeat = CreateMetamagicFeat(
                 ModMetamagic.Persistent, "fd0df5bbcadb4a5abb3d3030aeceb9a9", "Persistent Spell",
                 "Whenever a creature targeted by a persistent spell or within its area succeeds on its saving throw against the spell, it must make another saving throw against the effect. If a creature fails this second saving throw, it suffers the full effects of the spell, as if it had failed its first saving throw." +
                 "\nLevel Increase: +2",
                 /*SpellFocusIllusion*/
-                "e588279a80eb7a24b813fadad4bc83b5",
+                Helpers.GetIcon("e588279a80eb7a24b813fadad4bc83b5"),
                 Helpers.Create<PersistentMetamagic>()));
 
             // Note: this is different from PnP. Since it's impossible to selecti which targets to exclude,
@@ -171,7 +169,7 @@ namespace EldritchArcana
                 "When casting a selective spell with an area effect and a duration of instantaneous, friendly targets in the area are excluded from the effects of your spell." +
                 "\nLevel Increase: +1",
                 /*SpellFocusAbjuration*/
-                "71a3f1c1ac77ae3488b9b3d6d2aac01a",
+                Helpers.GetIcon("71a3f1c1ac77ae3488b9b3d6d2aac01a"),
                 Helpers.Create<SelectiveMetamagic>(),
                 Helpers.PrerequisiteStatValue(StatType.SkillKnowledgeArcana, 10)));
             RuleSpellTargetCheck.ApplyPatch();
@@ -185,12 +183,20 @@ namespace EldritchArcana
                 FeatureGroup.Feat,
                 Helpers.Create<RecommendationRequiresSpellbook>());
             elementalSpellFeat.Groups = new FeatureGroup[] { FeatureGroup.WizardFeat, FeatureGroup.Feat };
+
+            var fire = Image2Sprite.Create("Mods/EldritchArcana/sprites/fire.png");
+            var shoc = Image2Sprite.Create("Mods/EldritchArcana/sprites/shock.png");
+            var acid = Image2Sprite.Create("Mods/EldritchArcana/sprites/acid.png");
+            var forc = Image2Sprite.Create("Mods/EldritchArcana/sprites/forc.png");
+            var cold = Image2Sprite.Create("Mods/EldritchArcana/sprites/cold.png");
+            //string plaatje1 = powerplaatje.GetInstanceID().ToString();
+
             elementalSpellFeat.SetFeatures(
-                CreateElementalMetamagicFeat(ModMetamagic.ElementalFire, DamageEnergyType.Fire, "8fe8989edd8847968d36c57f90a1f344", /*ElementalFocusFire*/ "13bdf8d542811ac4ca228a53aa108145"),
-                CreateElementalMetamagicFeat(ModMetamagic.ElementalCold, DamageEnergyType.Cold, "9fafef03ad234c389b36e9c13199e60a", /*ElementalFocusCold*/ "2ed9d8bf76412ba4a8afe38fa9925fca"),
-                CreateElementalMetamagicFeat(ModMetamagic.ElementalElectricity, DamageEnergyType.Electricity, "f506a40aa32440839ba83177781d18b5", /*ElementalFocusElectricity*/ "d439691f37d17804890bd9c263ae1e80"),
-                CreateElementalMetamagicFeat(ModMetamagic.ElementalForce, DamageEnergyType.Magic, "f506a40cb32440839ba83177781d18b5", /*ElementalFocusForce*/ "4ac47ddb9fa1eaf43a1b6809980cfbd2"),
-                CreateElementalMetamagicFeat(ModMetamagic.ElementalAcid, DamageEnergyType.Acid, "4a78281cc87d43929a5417ae0ccb8e43", /*ElementalFocusAcid*/ "52135eada006e9045a848cd659749608"));
+                CreateElementalMetamagicFeat(ModMetamagic.ElementalFire, DamageEnergyType.Fire, "8fe8989edd8847968d36c57f90a1f344", fire ),
+                CreateElementalMetamagicFeat(ModMetamagic.ElementalCold, DamageEnergyType.Cold, "9fafef03ad234c389b36e9c13199e60a", cold),
+                CreateElementalMetamagicFeat(ModMetamagic.ElementalElectricity, DamageEnergyType.Electricity, "f506a40aa32440839ba83177781d18b5", shoc),
+                CreateElementalMetamagicFeat(ModMetamagic.ElementalForce, DamageEnergyType.Magic, "f506a40cb32440839ba83177781d18b5", forc),
+                CreateElementalMetamagicFeat(ModMetamagic.ElementalAcid, DamageEnergyType.Acid, "4a78281cc87d43929a5417ae0ccb8e43", acid));
             //4ac47ddb9fa1eaf43a1b6809980cfbd2
 
             feats.Add(elementalSpellFeat);
@@ -199,16 +205,16 @@ namespace EldritchArcana
             return metamagicFeats = feats;
         }
 
-        static BlueprintFeature CreateElementalMetamagicFeat(ModMetamagic metamagic, DamageEnergyType energyType, String assetId, String iconAssetId)
+        static BlueprintFeature CreateElementalMetamagicFeat(ModMetamagic metamagic, DamageEnergyType energyType, String assetId, Sprite icon)
         {
             var friendlyName = $"Elemental Spell — {energyType}";
             var shortName = energyType.ToString().ToLower();
             var description = $"You can manipulate the elemental nature of your spells. You may replace a spell’s normal damage with {shortName} damage.\nLevel Increase: +1";
-            return CreateMetamagicFeat(metamagic, assetId, friendlyName, description, iconAssetId,
+            return CreateMetamagicFeat(metamagic, assetId, friendlyName, description, icon,
                 Helpers.Create<ElementalMetamagic>(e => e.EnergyType = energyType));
         }
 
-        static BlueprintFeature CreateMetamagicFeat(ModMetamagic metamagic, String assetId, String friendlyName, String description, String iconAssetId, BlueprintComponent logic = null, params BlueprintComponent[] extra)
+        static BlueprintFeature CreateMetamagicFeat(ModMetamagic metamagic, String assetId, String friendlyName, String description, Sprite icon, BlueprintComponent logic = null, params BlueprintComponent[] extra)
         {
             var components = new List<BlueprintComponent> {
                 Helpers.Create<AddMetamagicFeat>(m => m.Metamagic = (Metamagic) metamagic),
@@ -221,7 +227,7 @@ namespace EldritchArcana
             feat.Groups = new FeatureGroup[] { FeatureGroup.WizardFeat, FeatureGroup.Feat };
             feat.SetComponents(components);
             friendlyName = friendlyName ?? (metamagic.ToString() + " Spell");
-            feat.SetNameDescriptionIcon($"Metamagic ({friendlyName})", description, Helpers.GetIcon(iconAssetId));
+            feat.SetNameDescriptionIcon($"Metamagic ({friendlyName})", description, icon);
             Main.library.AddAsset(feat, assetId);
 
             Main.SafeLoad(() => CreateMetamagicRods(feat, metamagic, friendlyName, logic), "Metamagic rods");

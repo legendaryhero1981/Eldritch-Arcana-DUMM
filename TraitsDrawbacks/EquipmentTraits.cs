@@ -32,6 +32,9 @@ namespace EldritchArcana
             var MithralHalfplate = Traits.library.Get<BlueprintItemArmor>("648d57a5a564f594497d28c596e691d9");
             var MithralChainshirt = Traits.library.Get<BlueprintItemArmor>("5fb6d5f9241cef241a4c878ff30d6bd4");
             var MithralBreastplate = Traits.library.Get<BlueprintItemArmor>("ac740e390d8e3e44ab99e961d660a633");
+            var ShadowLeatherPlus1 = Traits.library.Get<BlueprintItemArmor>("ee429a40453dcac43b4d272bdf35a0fe");
+
+            
             //var ArmorRobeItem = Traits.library.Get<BlueprintItemArmor>("a15cc28e6328f024183c7e7a9707304b");//test
 
             var HeavyShield = Traits.library.Get<BlueprintItemShield>("f4cef3ba1a15b0f4fa7fd66b602ff32b");
@@ -47,8 +50,8 @@ namespace EldritchArcana
 
             //bonus1 items
             var BracersOfArmor1 = Traits.library.Get<BlueprintItemEquipmentWrist>("9482c62934be44044918c3aac3730232");
+            var RingOfHuntersLuckItem = Traits.library.Get<BlueprintItemEquipmentRing>("fde80a3b342957f4b88b90fe8b8c261a");
 
-            
 
             //usables single use
             var ScrollOfRaiseDead_Prologue = Traits.library.Get<BlueprintItem>("d09ca044d12f6034d88fca09db50946d");//0
@@ -77,7 +80,9 @@ namespace EldritchArcana
 
             //weapons
             var MasterworkLightCrossbow = Traits.library.Get<BlueprintItem>("01067a23c0cd2c54eb2d41f139f7fde7");
+            var MasterworkHandCrossbow = Traits.library.Get<BlueprintItem>("cde78c8bd7a0b514ab0669852ded248e");
             var MasterworkLongsword = Traits.library.Get<BlueprintItem>("571c56d11dafbb04094cbaae659974b5");
+            var MasterworkGreataxe = Traits.library.Get<BlueprintItem>("38934e7d48e501644b2bbd43a417e737");
             var MasterworkCompositeLongbow = Traits.library.Get<BlueprintItem>("4de4658c0e9b0d146b9a08ed6f030f8a");
 
             //blueprintloot
@@ -91,12 +96,13 @@ namespace EldritchArcana
 
 
             int x = 0;
-            string[] PackGuids = new string[12];
-            for (int i = 0; i < 12; i++)
+            string[] PackGuids = new string[16];
+            for (int i = 0; i < 16; i++)
             {
                 x = i + 10;
                 PackGuids[i] = $"d{x}eb67b2f064321a32196226dcbc{x}6";
             }
+            string DefaultThings = ", three rations, a lantern and some paper to write on.";
 
 
             var WellProvisionedTrait = Helpers.CreateFeatureSelection("ProvisionedAdventurerTrait", "Well-Provisioned Adventurer",
@@ -111,14 +117,14 @@ namespace EldritchArcana
             Helpers.CreateFeature("ProvisionedAdventurerTraitStandard", "Team package",
                 "You get some versitile items that come in handy in almost every party." +
                 "\nBenefit: You start the game with some extra stuff:" +
-                " A mithral chainshirt,a wand of cure light wounds,a masterwork crossbow, two healthpotions, three rations, a lantarn, and some paper to write on.",
+                " You start the game with some extra stuff: A mithral chainshirt, a wand of cure light wounds, a masterwork crossbow, two masterwork hand crossbows, one of each kind of simple weapons, two healing potions"+DefaultThings,
                 PackGuids[1],
                 MithralChainshirt.Icon,
                 FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
                 {
-                    a.CategoryItems = Array.Empty<WeaponCategory>();
+                    a.CategoryItems = new WeaponCategory[] { WeaponCategory.Dagger,WeaponCategory.Javelin,WeaponCategory.Dart,WeaponCategory.HandCrossbow,WeaponCategory.HeavyCrossbow,WeaponCategory.HeavyFlail,WeaponCategory.HeavyMace,WeaponCategory.HeavyPick,WeaponCategory.HookedHammer,WeaponCategory.Kama,WeaponCategory.LightCrossbow,WeaponCategory.LightHammer,WeaponCategory.LightMace,WeaponCategory.LightPick,WeaponCategory.Longbow,WeaponCategory.Longspear,WeaponCategory.Longsword,WeaponCategory.Nunchaku,WeaponCategory.Rapier,WeaponCategory.Scimitar,WeaponCategory.Sickle,WeaponCategory.Club };
                     a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
-                    a.BasicItems = new BlueprintItem[] { MithralChainshirt,WandOfCureLightWounds,MasterworkLightCrossbow,HpPot,HpPot2,Rat,Rat,Rat,BundleofPaper,Lantarn};
+                    a.BasicItems = new BlueprintItem[] { MithralChainshirt,WandOfCureLightWounds,MasterworkLightCrossbow, MasterworkHandCrossbow, MasterworkHandCrossbow, HpPot,HpPot2,Rat,Rat,Rat,BundleofPaper,Lantarn};
                 })),
             
             
@@ -126,7 +132,7 @@ namespace EldritchArcana
             Helpers.CreateFeature("ProvisionedAdventurerTraitArcane", "Arcane package",
                 "The arcane adept has collected useful magical gear to ensure her success on her adventures, and she prides herself on having just the right tool for the job. This equipment package is appropriate for an arcanist, sorcerer, witch, or wizard. Some bards and summoners might also find it attractive. This equipment package can also work for a magus." +
                 "\nBenefit: You start the game with some extra stuff:" +
-                " A wyvernCloack,a wand of mage armor,a masterwork crossbow,a scroll of Detect secret doors, two healthpotions and three rations,a lantarn and two pots of acid.",
+                " A wyvern cloak, a wand of mage armor, a masterwork crossbow, a scroll of detect secret doors, two healing potions, three rations, a lantern and two pots of acid.",
                 PackGuids[2],
                 SilkySkinRobeItem.Icon,
                 FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
@@ -139,7 +145,7 @@ namespace EldritchArcana
             Helpers.CreateFeature("ProvisionedAdventurerTraitWarden", "Blessed Warden Package",
                 "A blessed warden is prepared to protect herself against the horrors of evil-aligned planes. This equipment package is suitable for clerics, druids, inquisitors, oracles, and paladins. The specific gear is appropriate for those visiting the chaotic evil Abyss but can be adjusted to suit other evil-aligned planes, such as swapping the scrolls of protection from chaos for scrolls of protection from law for a package designed for travel to Hell." +
                 "\nBenefit: You start the game with some extra stuff:" +
-                " A mithral chainshirt,a masterwork crossbow,scroll of breath of life, a scroll of remove curse,a scroll of protection from evil, a healthpotion, three rations, and some paper to write on.",
+                " A mithral chainshirt, a masterwork crossbow, a scroll of breath of life, a scroll of remove curse, a scroll of protection from evil, a healing potion, three rations, and some paper to write on.",
                 PackGuids[3],
                 MithralChainshirt.Icon,
                 FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
@@ -152,7 +158,7 @@ namespace EldritchArcana
             Helpers.CreateFeature("ProvisionedAdventurerTraitQuesting", "Questing Knight Package",
                 "If not descended from nobility, the questing knight certainly looks like he fits the part. This equipment package is useful for cavaliers, fighters, and paladins." +
                 "\nBenefit: You start the game with some extra stuff:" +
-                " A Halfplate armor+1,a masterwork longsword, a heavy wooden shield,three healthpotions,a javelin and three rations",
+                "You start the game with some extra stuff: a +1 half-plate armor, a masterwork longsword, a heavy wooden shield, three healing potions, a javelin and three rations.",
                 PackGuids[4],
                 HalfplateStandard.Icon,
                 FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
@@ -165,7 +171,7 @@ namespace EldritchArcana
             Helpers.CreateFeature("ProvisionedAdventurerTraitPlanar", "Planar Traveler Package",
                 "This package equipment prepares planar travelers for the challenges of a variety of planar destinations. This package works particularly well for lightly armored combatants, such as bards and rogues." +
                 "\nBenefit: You start the game with some extra stuff:" +
-                " A sparkly cape with elemental resistances,a masterwork Composite bow,a mace,a flail,an acid flask,three healthpotions,a lantarn and three rations",
+                " A sparkly cape with elemental resistances, a masterwork composite [insert long or short]bow, a mace, a flail, an acid flask"+DefaultThings,
                 PackGuids[5],
                 CloakOfSparklesItem.Icon,
                 FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
@@ -178,7 +184,7 @@ namespace EldritchArcana
             Helpers.CreateFeature("ProvisionedAdventurerTraitBravo", "Daring Bravo Package",
                 "The daring bravo is equally adept in social situations and combat, with the right equipment to move fluidly from one to the other. Such adventurers are known as much for their flair and panache as their martial prowess, and the daring bravo’s equipment is often ornately ornamented or personalized. This equipment package is good for a bard, fighter, rogue, swashbuckler, or vigilante. Certain cavaliers, investigators, skalds, or even paladins may also find it appealing." +
                 "\nBenefit: You start the game with some extra stuff:" +
-                " A cape that makes you more heroic, A mithral chainshirt,a crosbow,a rapier,a healthpotion,a lantarn and three rations",
+                " a cape that makes you more heroic, a mithral chainshirt, a crossbow, a rapier, a healing potion, a lantern and three rations.",
                 PackGuids[6],
                 CloakOfHeroism.Icon,
                 FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
@@ -191,7 +197,7 @@ namespace EldritchArcana
             Helpers.CreateFeature("ProvisionedAdventurerTraitCorporeal", "Corporeal Warrior Package",
                 "Normal equipment is ill suited to fighting intangible foes, and a warrior bound for the Ethereal Plane must be prepared for incorporeal threats lurking in the ever-present mists. This equipment package is suitable for fighters and paladins." +
                 "\nBenefit: You start the game with some extra stuff:" +
-                " A wand that lets you summon a Corporeal murder pony once a day,a wand of cure wounds,a wand of mage armor, A masterwork longsword , a heavycrossbow,a healthpotion,a lantarn and three rations",
+                " A wand that lets you summon a corporeal murder pony once a day, a wand of cure light wounds, a wand of mage armor, a masterwork longsword, a heavy crossbow, a healing potion, a lantern and three rations.",
                 PackGuids[7],
                 WandOfSummonMonsterZero.Icon,
                 FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
@@ -204,7 +210,8 @@ namespace EldritchArcana
             Helpers.CreateFeature("ProvisionedAdventurerTraitAdventurer", "Adventurer Package",
                 "The adventurer package is a general package for adventurers that do not yet know in what aerea they are going to specialize." +
                 "\nBenefit: You start the game with some extra stuff:" +
-                " An explorers belt that helps fight of fatige,a wand of mage armor, A masterwork composite bow,a shield ,a scimitar,a healthpotion,a lantarn and three rations",
+                " An explorer's belt that helps fight off fatigue, a wand of mage armor, a masterwork composite bow, a shield, a scimitar, a healing potion, a lantern and three rations.",
+
                 PackGuids[8],
                 ExplorersBeltItem.Icon,
                 FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
@@ -241,19 +248,82 @@ namespace EldritchArcana
                     a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
                     a.BasicItems = new BlueprintItem[] { MithralBreastplate, MasterworkLongsword,HeavyShield,UnPot,UnPot2,UnPot3,PotionOfShieldOfFaith,Rat,Rat,Rat,BundleofPaper};
                 })),
-
+            
             //Lore seeker package
             Helpers.CreateFeature("ProvisionedAdventurerTraitLore", "Lore Seeker Package",
                 "The lore seeker has the equipment necessary to delve into ancient ruins searching for lost knowledge. As this equipment package contains little by way of armor or weapons, it is most appropriate for alchemists, bards, monks, sorcerers, and wizards." +
                 "\nBenefit: You start the game with some extra stuff:" +
-                "A scroll of raize dead, a scroll of fireball, a handcrossbow, a quarterstaff, three healthpotions, a potion of shield of faith, three rations, and some paper to write on.",
+                " A scroll of raise dead, a scroll of fireball, a hand crossbow, a quarterstaff, three healing potions, a potion of shield of faith, three rations and some paper to write on.",
                 PackGuids[11],
                 ScrollOfRaiseDead_Prologue.Icon,
                 FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
                 {
-                    a.CategoryItems = new WeaponCategory[] { WeaponCategory.Quarterstaff,WeaponCategory.HandCrossbow,};
+                    a.CategoryItems = new WeaponCategory[] { WeaponCategory.Quarterstaff,WeaponCategory.LightCrossbow,};
                     a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
                     a.BasicItems = new BlueprintItem[] { ScrollOfRaiseDead_Prologue,ScrollOfFireball,HpPot,HpPot2,HpPot3,PotionOfShieldOfFaith,Rat,Rat,Rat,BundleofPaper};
+                })),
+
+            //Lore seeker package
+            Helpers.CreateFeature("ProvisionedAdventurerTraitMystic", "Mystic Guide Package",
+                "This equipment package is designed to provide the most aid to divine casters, such as clerics, druids, oracles, and inquisitors, who prefer to help their companions from behind the front lines of a fight." +
+                "\nBenefit: You start the game with some extra stuff:" +
+                " A wearable holy symbol of a frog, a cape of resisting heat and cold, a wand of cure light wounds, a light shield, a shortspear, a sling" +
+                ", a potion of shield of faith"+DefaultThings,
+                PackGuids[12],
+                GoldenToad.Icon,
+                FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = new WeaponCategory[] { WeaponCategory.Shortspear,WeaponCategory.Sling,};
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { CloakOfSparklesItem,GoldenToad,WandOfCureLightWounds,LightShield
+                        ,PotionOfShieldOfFaith,Rat,Rat,Rat,BundleofPaper,Lantarn};
+                })),
+
+            //Lore seeker package
+            Helpers.CreateFeature("ProvisionedAdventurerTraitShadowy", "Shadowy Stalker Package",
+                "Skulking through a city or a dungeon, the shadowy stalker is equipped to strike quickly and fade away. This equipment package is appropriate for stealthy characters such as rangers, rogues, and slayers, and for some bards and investigators." +
+                "\nBenefit: You start the game with some extra stuff:" +
+                " A wyvern cloak, an enchanted camouflage leather armor, three daggers, a sickle" +
+                ""+DefaultThings,
+                PackGuids[13],
+                CloakWyvernItem.Icon,
+                FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = new WeaponCategory[] { WeaponCategory.Dagger,WeaponCategory.Dagger,WeaponCategory.Dagger,WeaponCategory.Sickle};
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { CloakWyvernItem,ShadowLeatherPlus1
+                        ,Rat,Rat,Rat,BundleofPaper,Lantarn};
+                })),
+
+            //Lore seeker package
+            Helpers.CreateFeature("ProvisionedAdventurerTraitWildling", "Wildling Package",
+                "This equipment package is appropriate for a savage from the wild like a barbarian or a rogue." +
+                "\nBenefit: You start the game with some extra stuff:" +
+                " You start the game with some extra stuff: a cape that makes you more heroic, a stealthy leather armor, a masterwork greataxe" +
+                ""+DefaultThings,
+                PackGuids[14],
+                ShadowLeatherPlus1.Icon,
+                FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = new WeaponCategory[] { WeaponCategory.Quarterstaff,WeaponCategory.HandCrossbow,};
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { CloakOfHeroism,ShadowLeatherPlus1,MasterworkGreataxe
+                        ,Rat,Rat,Rat,BundleofPaper,Lantarn};
+                })),
+
+
+            //Lore seeker package
+            Helpers.CreateFeature("ProvisionedAdventurerTraitWilderness", "Wilderness Wanderer Package",
+                "This equipment package is appropriate for any survivalist in the wild, such as a hunter or a ranger." +
+                "\nBenefit: You start the game with some extra stuff:" +
+                " A ring of hunting, a masterwork composite longbow, two masterwrok hand crossbows and a dagger.",
+                PackGuids[15],
+                RingOfHuntersLuckItem.Icon,
+                FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = new WeaponCategory[] { WeaponCategory.Dagger,};
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { RingOfHuntersLuckItem, MasterworkCompositeLongbow,MasterworkHandCrossbow,MasterworkHandCrossbow};
                 })),
 
 
@@ -289,12 +359,39 @@ namespace EldritchArcana
             var FauchardPlus1 = Traits.library.Get<BlueprintItem>("36cadeb70d35fc84a9b69db9fb7e64f5");
             var ScythePlus1 = Traits.library.Get<BlueprintItem>("8933943621eca2d45b99d851bd9100d9");
             var Scythe = Traits.library.Get<BlueprintWeaponType>("4eacfc7e152930a45a1a16217c35011c");
+            var CompositeLongbow = Traits.library.Get<BlueprintWeaponType>("1ac79088a7e5dde46966636a3ac71c35");
+            var CompositeLongbowPlus1 = Traits.library.Get<BlueprintItem>("2753a0159681be94da3a5eeabc8c8d1a");
+            var Flail = Traits.library.Get<BlueprintWeaponType>("bf1e53f7442ed0c43bf52d3abe55e16a");
+            var FlailPlus1 = Traits.library.Get<BlueprintItem>("481f2d4c035c6b244a5732037db6c7cf");
+            var DwarvenWaraxe = Traits.library.Get<BlueprintWeaponType>("a6925f5f897801449a648d865637e5a0");
+            var DwarvenWaraxePlus1 = Traits.library.Get<BlueprintItem>("a06dd370e2d02cd449f82b209cbd61d6");
+            var Kukri = Traits.library.Get<BlueprintWeaponType>("006ecd4715809b343b7001e859e3ddb2");
+            var KukriPlus1 = Traits.library.Get<BlueprintItem>("cece2e26b026b244fba86a2075fc9811");
+            var Rapier = Traits.library.Get<BlueprintWeaponType>("2ece38f30500f454b8569136221e55b0");
+            var RapierPlus1 = Traits.library.Get<BlueprintItem>("390c6a76f872f0e499d0d1310d430279");
+            var BastardSword = Traits.library.Get<BlueprintWeaponType>("d2fe2c5516b56f04da1d5ea51ae3ddfe");
+            var BastardSwordPlus1 = Traits.library.Get<BlueprintItem>("517ba772f7eec2e43999eac2014c3ab8");
+            var HandCrossbow = Traits.library.Get<BlueprintWeaponType>("e702f2c2e4a8a7f4fa847dcf1e03ab07");
+            var HandCrossbowPlus1 = Traits.library.Get<BlueprintItem>("239096882dc4e86479ae713ff1eddb74");
+
+
+
+            var HandCrossbowProficiency = Traits.library.Get<BlueprintFeature>("8504fe61874f6a244886cca32e93b563");
+            HandCrossbowProficiency.AddComponent(Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = HandCrossbow; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; }));
+            HandCrossbowProficiency.AddComponent(Helpers.Create<AddStartingEquipment>(a => { a.CategoryItems = Array.Empty<WeaponCategory>(); a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>(); a.BasicItems = new BlueprintItem[] { HandCrossbowPlus1,HandCrossbowPlus1 }; }));
+            
+            HandCrossbowProficiency.SetNameDescriptionIcon("Family Heirloom Hand Crossbow", "You got this hand crossbow from your family for hunting for food for your family." +
+                "\nBenefit: You are proficient with hand crosbows.", HandCrossbowPlus1.Icon);
+
+
 
             var FamilyHeirloomTrait = Helpers.CreateFeatureSelection("HairloomTrait", "Family Heirloom Weapon",
                 "You inherited a weapon from someone.\nBenefit: You can choose a weapon and you start the game with a +1 variant on you.\nBenefit: When using weapons of this type you have a +1 bonus on attack rolls and combat maneurvers.",
                 "e16eb56b2f964321a30086226dccb39e",
                 Helpers.NiceIcons(37),
                 FeatureGroup.None);
+            FamilyHeirloomTrait.IgnorePrerequisites = true;
+            
             //int rnd = DateTime.Now.Millisecond % 64;
             var HeirloomWeapons = new BlueprintFeature[]
             {
@@ -312,6 +409,22 @@ namespace EldritchArcana
                 }),
                 Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = LongbowWeapontype; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; })
                 ),
+                //complongbow
+                Helpers.CreateFeature("HairloomTraitComBow", "Family Heirloom Composite Longbow",
+                "You made yourself this composite longbow during for hunting with your dad." +
+                "\nBenefit: You can shoot better with composite longbows.",
+                "e16eb56b2f962323a31234226dccb390",
+                CompositeLongbowPlus1.Icon,
+                FeatureGroup.None,Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = Array.Empty<WeaponCategory>();
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { CompositeLongbowPlus1 };
+                }),
+                Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = CompositeLongbow; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait;})
+                ),
+                //handbow
+                HandCrossbowProficiency,
                 //DuelingSword
                 Helpers.CreateFeature("HairloomTraitDuel", "Family Heirloom DuelingSword",
                 "You inherited this +1 dueling sword from your retired father." +
@@ -411,7 +524,7 @@ namespace EldritchArcana
                 "When you grow up in a family of assasins, everyone who leaves the house gets a few shurikens." +
                 "\nBenefit: You get shurikens and you have experience with shurikens.",
                 "c28eb56b2f964321a32196226dcbc496",
-                FalchionPlus1.Icon,
+                ShurikenPlus1.Icon,
                 FeatureGroup.None,Helpers.Create<AddStartingEquipment>(a =>
                 {
                     a.CategoryItems = Array.Empty<WeaponCategory>();
@@ -435,8 +548,8 @@ namespace EldritchArcana
                 ),
                 Helpers.CreateFeature("HairloomTraitScythe", "Family Heirloom Scythe",
                 "Woman of noble birth are forbidden from carrying any weapon bigger than a dagger." +
-                "Your mother just happened to keep a scythe close at all times just in case some weeds needed to be cut short like thorns , wild grasses , Outlaws." +
-                "When you went on your journey it was given to you for cutting things." +
+                " Your mother just happened to keep a scythe close at all times just in case some weeds needed to be cut short like: thorns , wild grasses or Outlaws." +
+                " When you went on your journey it was given to you for cutting things." +
                 "\nBenefit: You get a scythe and you have experience with scythes.",
                 "c28eb56b2f942329d32196226dcbd247",
                 ScythePlus1.Icon,
@@ -445,8 +558,82 @@ namespace EldritchArcana
                     a.CategoryItems = Array.Empty<WeaponCategory>();
                     a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
                     a.BasicItems = new BlueprintItem[] { ScythePlus1 };
+                    
                 }),
                 Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = Scythe; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; })
+                ),
+                Helpers.CreateFeature("HairloomTraitFlail", "Family Heirloom Flail",
+                "One of the statues dressed in armor in your home was holding a flail." +
+                " You decided it wouldn't be missed at home when you went on your adventure." +
+                "\nBenefit: You get a flail and you have experience with flails.",
+                "a14bd56b2f942329d32196226abcd256",
+                FlailPlus1.Icon,
+                FeatureGroup.None,Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = Array.Empty<WeaponCategory>();
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { FlailPlus1 };
+                }),
+                Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = Flail; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; })
+                //dwarven
+                ),
+                Helpers.CreateFeature("HairloomTraitDwaraxe", "Family Heirloom Dwarven Waraxe",
+                "Like almost all dwarvens your uncle was carrying a dwarven waraxe and in his will he left it to you." +
+                "\nBenefit: You get a dwarven waraxe and you have experience with dwarven waraxes.",
+                "d15bd56b2f942329d32196226adcd192",
+                DwarvenWaraxePlus1.Icon,
+                FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = Array.Empty<WeaponCategory>();
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { DwarvenWaraxePlus1 };
+                }),
+                Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = DwarvenWaraxe; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; })
+                
+
+                ),
+                Helpers.CreateFeature("HairloomTraitKukri", "Family Heirloom Kukri",
+                "You caught a wererat in a trap and you killed him and stole his kukri." +
+                "\nBenefit: You get a kukri and you have experience with kukris.",
+                "d16bd56b2f942329d32196226adcd193",
+                KukriPlus1.Icon,
+                FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = Array.Empty<WeaponCategory>();
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { KukriPlus1 };
+                }),
+                Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = Kukri; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; })
+                
+
+                ),
+                Helpers.CreateFeature("HairloomTraitRapier", "Family Heirloom Rapier",
+                "Like almost all 'honest sailers' your father was carrying a rapier and in his will he left it to you." +
+                "\nBenefit: You get a rapier and you have experience with rapier.",
+                "d15bd58b2f942329d32196226adcd194",
+                RapierPlus1.Icon,
+                FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = Array.Empty<WeaponCategory>();
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { RapierPlus1 };
+                }),
+                Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = Rapier; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; })
+                
+            
+                ),
+                Helpers.CreateFeature("HairloomTraitBsword", "Family Heirloom Bastard Sword",
+                "When your father and you started to practice he gave you a bastard sword the first time you could defeat him" +
+                "\nBenefit: You get a bastard sword and you have experience with bastard swords.",
+                "d05bd56b2f942329d32196226adcd191",
+                BastardSwordPlus1.Icon,
+                FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = Array.Empty<WeaponCategory>();
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { BastardSwordPlus1 };
+                }),
+                Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = BastardSword; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; })
                 ),
 
             };

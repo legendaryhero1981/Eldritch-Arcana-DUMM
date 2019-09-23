@@ -348,7 +348,6 @@ namespace EldritchArcana
             SingleLineToggle(ref settings.HighDCl, RES.HighDCl_info);
 
             GL.EndVertical();
-
             ShowTooltip();
         }
 

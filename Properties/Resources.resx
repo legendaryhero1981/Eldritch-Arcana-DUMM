@@ -232,7 +232,7 @@ You can use this ability a number of times per day equal to 1+your Charisma modi
     <value>Channel Energy</value>
   </data>
   <data name="CheatCustomTraits_info" xml:space="preserve">
-    <value>Enable choosing extra cheat traits,spells(if changed, requires restart for changes to show up)</value>
+    <value>Enable Show alll traits,spells even custom and homebrew(if changed, requires restart for changes to show up)</value>
   </data>
   <data name="ChooseFavoredClassLocalized_info" xml:space="preserve">
     <value>Choose Favored Class Bonus</value>

@@ -49,7 +49,7 @@ namespace EldritchArcana
                 Helpers.GetIcon("d09b20029e9abfe4480b356c92095623"), // toughness
                 FeatureGroup.None,
                 Helpers.Create<AddHitPointOnce>());
-            bonusHitPointFeat.Ranks = 20;
+            bonusHitPointFeat.Ranks = 64;
 
             bonusSkillRankFeat = Helpers.CreateFeature("FavoredClassBonusSkillRank",
                 RES.BonusSkillRankFeatureName_info, RES.BonusSkillRankFeatureDescription_info,
@@ -57,7 +57,7 @@ namespace EldritchArcana
                 Helpers.GetIcon("3adf9274a210b164cb68f472dc1e4544"), // human skilled
                 FeatureGroup.None,
                 Helpers.Create<AddSkillRankOnce>());
-            bonusSkillRankFeat.Ranks = 20;
+            bonusSkillRankFeat.Ranks = 64;
 
 
             LoadFavoredClass();

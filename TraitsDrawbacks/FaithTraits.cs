@@ -93,6 +93,7 @@ namespace EldritchArcana
                 StatType.SkillPersuasion));
 
             var channelEnergyResource = Traits.library.Get<BlueprintAbilityResource>("5e2bba3e07c37be42909a12945c27de7");
+            var channelEnergy = Traits.library.Get<BlueprintAbility>("f5fc9a1a2a3c1a946a31b320d1dd31b2");
             var channelEnergyEmpyrealResource = Traits.library.Get<BlueprintAbilityResource>("f9af9354fb8a79649a6e512569387dc5");
             var channelEnergyHospitalerResource = Traits.library.Get<BlueprintAbilityResource>("b0e0c7716ab27c64fb4b131c9845c596");
             choices.Add(Helpers.CreateFeature("ExaltedOfTheSocietyTrait", "Exalted of the Society",
@@ -105,6 +106,19 @@ namespace EldritchArcana
                 channelEnergyHospitalerResource.CreateIncreaseResourceAmount(1),
                 LifeMystery.channelResource.CreateIncreaseResourceAmount(1)));
 
+            choices.Add(Helpers.CreateFeature("SacredConduitTrait", "Sacred Conduit",
+                "Your birth was particularly painful and difficult for your mother, who needed potent divine magic to ensure that you survived (your mother may or may not have survived). In any event, that magic infused you from an early age, and you now use divine energy with greater ease than most." +
+                "\nBenefit: Whenever you use healing energy, you gain a +1 trait bonus to its save DC vs undead.",
+                "bd9c29875bd9d3343a31a065e93f0c28",
+                Helpers.GetIcon("cd9f19775bd9d3343a31a065e93f0c47"), // Extra Channel
+                FeatureGroup.None,
+
+                Helpers.Create<ReplaceAbilityDC>(r => { r.Ability = channelEnergy; r.Stat = StatType.Wisdom; }),
+                //Helpers.Create<ability>(r => { r.Ability = channelEnergy; r.Stat = StatType.Wisdom; }),
+                Helpers.Create<IncreaseSpellDescriptorDC>(r => { r.Descriptor = SpellDescriptor.Cure; r.BonusDC = 1;})
+                //Helpers.Create<IncreaseSpellDescriptorDC>(r => { r.Descriptor = SpellDescriptor.; r.BonusDC = 1; })
+                ));
+
             choices.Add(Helpers.CreateFeature("FatesFavoredTrait", "Fate's Favored",
                 "Whenever you are under the effect of a luck bonus of any kind, that bonus increases by 1.",
                 "0c5dcccc21e148cdaf0fb3c643249bfb",
@@ -114,7 +128,7 @@ namespace EldritchArcana
 
             var planar = Helpers.CreateFeatureSelection("PlanarSavantTrait", "Planar Savant",
                 "You have always had an innate sense of the workings of the planes and their denizens." +
-                "Benefit: You may use your Charisma modifier when making Knowledge checks instead of your Intelligence modifier. choose a knowledge to replace",
+                "\nBenefit: You may use your Charisma modifier when making Knowledge checks instead of your Intelligence modifier. choose a knowledge to replace.",
                 "2e4dcecc32e148cbaf0fb3c643249cbf",
                 Helpers.NiceIcons(19),
                 FeatureGroup.None, Helpers.Create<ReplaceBaseStatForStatTypeLogic>(x =>

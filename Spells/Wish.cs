@@ -278,7 +278,8 @@ namespace EldritchArcana
         {
             var spell = Helpers.CreateAbility("LesserMiracle", RES.LesserMiracleAbilityName_info,
                 RES.LesserMiracleAbilityDescription_info,
-                "2ce3374c93de461b91596ef7e4e04c14",
+                "be3eb41e7b4d484bbfaa83b83a98931c",
+                //"2ce3374c93de461b91596ef7e4e04c14",
                 Helpers.GetIcon("fafd77c6bfa85c04ba31fdc1c962c914"), // restoration greater
                 AbilityType.Spell,
                 CommandType.Standard,

@@ -104,10 +104,12 @@ namespace EldritchArcana
                 "0639446638b04ecc85e069e050751bfb",
                 frailsprite,//Helpers.NiceIcons(9),
                 FeatureGroup.Feat,
-                Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Disease; s.Bonus = -1; s.ModifierDescriptor = ModifierDescriptor.Crippled; }),
+                Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Disease; s.Bonus = -1; s.ModifierDescriptor = ModifierDescriptor.Crippled; })
+                //,
                 //Helpers.Create<FeyFoundlingLogic>(s => { s.dieModefier = 2;}),
                 //Helpers.CreateAddStatBonusOnLevel(StatType.HitPoints,-3,ModifierDescriptor.Penalty,1),
-                PrerequisiteCharacterLevelExact.Create(1));
+                //PrerequisiteCharacterLevelExact.Create(1)
+                );
             feat.AddComponents(fraily);
             return feat;
         }
@@ -122,8 +124,9 @@ namespace EldritchArcana
                 frailsprite,//Helpers.NiceIcons(38),
                 FeatureGroup.Feat,
                 Helpers.CreateAddStatBonus(StatType.Speed, -10, ModifierDescriptor.Crippled),
-                Helpers.CreateAddStatBonus(StatType.Initiative, -2, ModifierDescriptor.Crippled),
-                PrerequisiteCharacterLevelExact.Create(1));
+                Helpers.CreateAddStatBonus(StatType.Initiative, -2, ModifierDescriptor.Crippled)
+                //,PrerequisiteCharacterLevelExact.Create(1)
+                );
 
             return feat;
         }
@@ -168,8 +171,9 @@ namespace EldritchArcana
                 string.Format(RES.DrawbackSpellVulnerabilityFeatureDescription_info, SpellVunrabilityBonus),
                 DrawFeatGuids[1],
                 spellvulsprite,//Helpers.NiceIcons(15),
-                FeatureGroup.Feat,
-                PrerequisiteCharacterLevelExact.Create(1));
+                FeatureGroup.Feat);
+
+            //,PrerequisiteCharacterLevelExact.Create(1)
             //feat.AddComponents(ElementalWeaknesChoiceFeature);
             //noFeature.Feature = feat;
             feat.SetFeatures(spellSchoolChoiceFeature);

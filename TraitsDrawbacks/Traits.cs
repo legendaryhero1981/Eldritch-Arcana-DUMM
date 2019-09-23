@@ -180,8 +180,8 @@ namespace EldritchArcana
             var noFeature = Helpers.PrerequisiteNoFeature(null);
             var customTraits = Helpers.CreateFeatureSelection("CustomTrait", "Custom Trait{cheat}",
                 "These traits are a little overpowered and are here just for fun, if you want to play fair don't pick em.",
-                "9e41e60c929e46bc84ded046148d08ec", null, FeatureGroup.None, noFeature);
-            noFeature.Feature = customTraits;
+                "9e41e60c929e46bc84ded046148d08ec", null, FeatureGroup.None);
+            //noFeature.Feature = customTraits;
             var choices = new List<BlueprintFeature>();
 
 

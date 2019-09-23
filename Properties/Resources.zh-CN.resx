@@ -232,7 +232,7 @@
     <value>引导能量</value>
   </data>
   <data name="CheatCustomTraits_info" xml:space="preserve">
-    <value>启用额外的作弊特性和法术（需要重新启动才能生效）</value>
+    <value>启用所有作弊特性及法术甚至自定义和自制（需要重新启动才能生效）</value>
   </data>
   <data name="ChooseFavoredClassLocalized_info" xml:space="preserve">
     <value>选择偏爱职业奖励</value>

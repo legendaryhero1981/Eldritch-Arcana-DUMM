@@ -176,6 +176,7 @@ namespace EldritchArcana
                 );
             BloodlineFeyWoodlandStride.AddComponent(Helpers.CreateAddStatBonus(StatType.Speed, 5, ModifierDescriptor.Trait));
             string[] Diffforhumans = new string[] { "Ki power as a monk", "Alchemy mutagen as a Alchemist", "Bonded item restore spell as a wizard", "Impromtu sneak attack as a acrane trickster", "Judgement ability as a inquisitor", "Arcane weapon enhancements as a magus", "Performances as a Sensei" };
+            string[] DiffforhumansT = new string[] { "Ki", "Alchemy Mutagen", "Bonded Item", "Impromtu Sneak Attack", "Judgement", "Arcane Weapon Enhancements", "Sensei Performances" };
             var LebdaFeatures = new List<BlueprintFeature>() { };
             var Resources = new List<BlueprintAbilityResource> { kiPowerResource, MutagenResource, ItemBondResource, ImpromptuSneakAttackResource, JudgmentResource, ArcanePoolResourse, SenseiPerformanceResource };
             //CreateIncreaseResourceAmount for a few different resources
@@ -187,8 +188,8 @@ namespace EldritchArcana
                 x++;
                 y = x < 3 ? 1 : x - 3;
                 if (y == 0) y = 1;
-                LebdaFeatures.Add(Helpers.CreateFeature($"Noble family {stat} Trait", $"Gain {y} extra {Diffforhumans[x - 1]}",
-                $"you are a resourcefull family becouse of this you " +
+                LebdaFeatures.Add(Helpers.CreateFeature($"Noble family {stat} Trait", $"extra {DiffforhumansT[x - 1]}",
+                $"You are a resourceful family. Because of this, you " +
                 $"gain {y} extra uses of {Diffforhumans[x - 1]}.",
                 Helpers.MergeIds(stat.AssetGuid, "9b03b7ff17394007a3fbec18bb42604c"),
                 Helpers.GetIcon(stat.AssetGuid), //
@@ -204,7 +205,7 @@ namespace EldritchArcana
                 "House Medvyed is a noble house of Brevoy that holds authority over the eastern lands that border and contain the Icerime Peaks and Gronzi Forest. They have maintained the traditions of worshiping nature, the 'Old Way'. Lord Gurev Medyed heads the Stoneclimb-based house."+
                 "The people of the area raise mountain goats and sheep. They hunt in the forest and farm what little good land is on the edges of their concerns. Religion in this area tends to be more centralized on Erastil, but rumors of hidden shrines to Lamashtu do exist."+
                 "The house crest is a black bear with black antlers above its head in front of a red field.Their motto is 'Endurance Overcomes All.'" +
-                "\nBenefit: You can use Lay on Hands 4 times more per day, and you get a +1 trait bonus on saving throws vs compulsion effects from feys.",
+                "\nBenefit: You can use Lay on Hands 4 times more per day, and you get a +1 trait bonus on saving throws vs compulsion effects from feys.",//bow of the true world
                 Helpers.MergeIds(Helpers.getStattypeGuid(StatType.AdditionalCMB), "9b03b7ff17394007a3fbec18bb42604b"),
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/house_medvyed.png"),
                 FeatureGroup.None,
@@ -351,7 +352,7 @@ namespace EldritchArcana
 
             var SpellExpertise = Helpers.CreateFeatureSelection("OutlanderMissionary", "Outlander: Missionary",
                 "You have come here to see about expanding the presence of your chosen faith after receiving visions that told you your faith is needed—what that need is, though, you’re not quite sure." +
-                "\nBenefit: Pick three spells when you choose this trait—from this point on, whenever you cast that spell, you do so at caster +1 level. and +1 dc and lore religion +1",
+                "\nBenefit: Pick three spells when you choose this trait. From this point on, whenever you cast these spells, you get a +1 trait bonus to caster level and DC. You also gain a +1 trait bonus to lore (Religion).",
                 "6a3dfe274f45432b85361bdbb0a3009b",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/outlander.png"),
                 FeatureGroup.None,
@@ -364,8 +365,7 @@ namespace EldritchArcana
                 Helpers.GetIcon("fe9220cdc16e5f444a84d85d5fa8e3d5");*/
             var SpellExpertise2 = Helpers.CreateFeatureSelection("OutlanderLoreseeker", "Outlander: Loreseeker",
                 "The secrets of ancient fallen civilizations intrigue you, particularly magical traditions. You’ve studied magic intensely, and hope to increase that knowledge by adding lost lore. You’ve come to pursue that study, and chose this place as your base because it was out of the way of bigger cities—meaning less competition to study the ancient monuments in the region, you hope!" +
-                ".\nBenefit: Pick three spells when you choose this trait—from this point on, whenever you cast that spell, you do so at caster level +1 and dc +1." +
-                "\nBenefit2:lore arcana + 1",
+                ".\nBenefit: Pick three spells when you choose this trait. From this point on, whenever you cast these spells, you get a +1 trait bonus to caster level and DC. You also gain a +1 trait bonus to Knowledge (Arcana).",
                 "6a3dfe274f45432b85361bdbb0a3010c",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/outlander.png"),
                 FeatureGroup.None,
@@ -596,9 +596,10 @@ namespace EldritchArcana
             var xander = OptimisticGamblerOptions[rnd]; 
             var option2 = OptimisticGamblerOptions[rnd2];
             //var option3 = OptimisticGamblerOptions[DateTime.Now.Millisecond % OptimisticGamblerOptions.Count];
-            OptimisticGambler.SetFeatures(xander,option2);
-            OptimisticGambler.IgnorePrerequisites=true;
-            //OptimisticGambler.SetFeatures(OptimisticGamblerOptions);
+            OptimisticGamblerOptions = Main.settings?.CheatCustomTraits == true ? OptimisticGamblerOptions : new List<BlueprintFeature> {xander,option2 };
+            //OptimisticGambler.SetFeatures(xander,option2);
+            OptimisticGambler.SetFeatures(OptimisticGamblerOptions);
+            OptimisticGambler.IgnorePrerequisites = true;
             choices.Add(OptimisticGambler);
 
             choices.Add(Helpers.CreateFeature("RostlanderTrait", "Rostlander",

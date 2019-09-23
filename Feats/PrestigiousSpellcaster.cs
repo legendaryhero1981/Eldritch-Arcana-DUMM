@@ -44,7 +44,8 @@ namespace EldritchArcana
             dragonDiscipleClass = Helpers.GetClass(dragonDiscipleId);
             eldritchKnightClass = Helpers.GetClass(eldritchKnightId);
             // NOTE: this order must match the order used in the feats.
-            prestigiousSpellcasterClasses = new BlueprintCharacterClass[] { eldritchKnightClass, dragonDiscipleClass };
+            prestigiousSpellcasterClasses = Helpers.prestigeClassesSkipLevels.ToArray();
+            //prestigiousSpellcasterClasses = new BlueprintCharacterClass[] { eldritchKnightClass, dragonDiscipleClass };
 
             FixEldritchKnightPrereq();
 
@@ -55,9 +56,45 @@ namespace EldritchArcana
                 "30e9a3fcdb0446aa87f45d0f50b3b3fc",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/prestigious_spellcaster.png"),
                 FeatureGroup.Feat);
+            /*
             prestigiousSpell.SetFeatures(
-                CreatePrestigiousSpellcaster(eldritchKnightClass, "dc3ab8d0484467a4787979d93114ebc3" /*EldritchKnightSpellbookSelection*/ ),
-                CreatePrestigiousSpellcaster(dragonDiscipleClass, "8c1ba14c0b6dcdb439c56341385ee474" /*DragonDiscipleSpellbookSelection*/ ));
+                CreatePrestigiousSpellcaster(eldritchKnightClass, "dc3ab8d0484467a4787979d93114ebc3"  ),//*EldritchKnightSpellbookSelection
+                CreatePrestigiousSpellcaster(dragonDiscipleClass, "8c1ba14c0b6dcdb439c56341385ee474"  ));//*DragonDiscipleSpellbookSelection
+            //start*/
+            foreach (BlueprintCharacterClass c in prestigiousSpellcasterClasses)
+            {
+                var spellbookguid = "";
+                for (int i = 1; i < 11; i++)
+                {
+                    var entry = c.Progression.GetLevelEntry(i);
+                    foreach (BlueprintFeatureBase f in entry.Features)
+                    {
+                        if (f.name.ToUpper().Contains("SPELLBOOK"))
+                        {
+                            spellbookguid = f.AssetGuid;
+                            break;
+                        }
+                    }
+                    if (spellbookguid != "" && spellbookguid != null)
+                    {
+                        break;
+                    }
+                }
+                if (spellbookguid != "" && spellbookguid != null)
+                {
+                    try
+                    {
+                        var feat = CreatePrestigiousSpellcaster(c, spellbookguid);
+                        prestigiousSpell.Features.AddToArray(feat);
+                    }
+                    catch (System.Exception)
+                    {
+                        Log.Write("There was an issue with " + c.name + " unable to add to prestigious spellcaster");
+                    }
+
+                }
+            }
+            //end
 
             var components = new List<BlueprintComponent>(prestigiousSpellcasterClasses.Select(
                 c => Helpers.PrerequisiteClassLevel(c, 1, any: true)));

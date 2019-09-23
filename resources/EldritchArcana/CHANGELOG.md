@@ -3,6 +3,32 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [1.2.7]
+
+### Added
+-some family heirloom weapons
+
+### Changed
+-spelling:https://imgur.com/gallery/hfL1VbI.
+-Icons for some meta magic feats
+
+### Fixed
+-Prestigious spell caster to work with classes from other mods Thanks to Blindhamsters help
+
+
+## [1.2.6]
+
+### Added
+-composite longbow flail and dwarven waraxe, bastard sword rapier hand crossbow as an heirloom weapon.
+-Extra options for the well-provisioned adventurer.
+-An early adaptation of the roll with it feat for goblins
+
+### Changed
+-Gambler trait has 2 random options normally but has all of them if you select to be able to select custom traits.
+
+### Fixed
+-No more errors for emergency force sphere
+
 ## [1.2.5]
 
 ### Added

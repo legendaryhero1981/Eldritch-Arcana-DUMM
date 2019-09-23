@@ -689,6 +689,7 @@ namespace EldritchArcana
         public static List<BlueprintCharacterClass> classes;
 
         public static List<BlueprintCharacterClass> prestigeClasses;
+        public static List<BlueprintCharacterClass> prestigeClassesSkipLevels;
 
         public static BlueprintCharacterClass sorcererClass, magusClass, dragonDiscipleClass;
         public static BlueprintArchetype eldritchScionArchetype;
@@ -696,7 +697,7 @@ namespace EldritchArcana
         const String basicFeatSelection = "247a4068296e8be42890143f451b4b45";
         public const String magusFeatSelection = "66befe7b24c42dd458952e3c47c93563";
 
-        public static BlueprintRace human, halfElf, halfOrc, elf, dwarf, halfling, gnome, aasimar, tiefling;
+        public static BlueprintRace human, halfElf, halfOrc, elf, dwarf, halfling, gnome, aasimar, tiefling,goblin;
 
         public static LocalizedString tenMinPerLevelDuration, minutesPerLevelDuration, hourPerLevelDuration, roundsPerLevelDuration, oneRoundDuration;
 
@@ -728,6 +729,8 @@ namespace EldritchArcana
             const String eldritchScionClassId = "f5b8c63b141b2f44cbb8c2d7579c34f5";
             classes = library.Root.Progression.CharacterClasses.Where(c => c.AssetGuid != eldritchScionClassId).ToList();
             prestigeClasses = classes.Where(c => c.PrestigeClass).ToList();
+            prestigeClassesSkipLevels = prestigeClasses.Where(c => c.GetComponent<SkipLevelsForSpellProgression>()).ToList();
+
             sorcererClass = GetClass("b3a505fb61437dc4097f43c3f8f9a4cf");
             magusClass = GetClass("45a4607686d96a1498891b3286121780");
             dragonDiscipleClass = Helpers.GetClass("72051275b1dbb2d42ba9118237794f7c");
@@ -742,6 +745,7 @@ namespace EldritchArcana
             gnome = library.Get<BlueprintRace>("ef35a22c9a27da345a4528f0d5889157");
             aasimar = library.Get<BlueprintRace>("b7f02ba92b363064fb873963bec275ee");
             tiefling = library.Get<BlueprintRace>("5c4e42124dc2b4647af6e36cf2590500");
+            goblin = library.Get<BlueprintRace>("9d168ca7100e9314385ce66852385451");
 
             skillFocusFeat = library.Get<BlueprintFeatureSelection>("c9629ef9eebb88b479b2fbc5e836656a");
 
@@ -2175,6 +2179,8 @@ namespace EldritchArcana
             });
             progressionRoot.CharacterClasses = classes.ToArray();
             Helpers.classes.Add(oracle);
+            prestigeClasses = classes.Where(c => c.PrestigeClass).ToList();
+            prestigeClassesSkipLevels = prestigeClasses.Where(c => c.GetComponent<SkipLevelsForSpellProgression>()).ToList();
         }
         //function barrowed from hollic69 from The Call of the wild.
         internal static BlueprintFeature createCantrips(string name, string display_name, string description, UnityEngine.Sprite icon, string guid, BlueprintCharacterClass character_class,

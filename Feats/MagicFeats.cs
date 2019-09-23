@@ -74,6 +74,7 @@ namespace EldritchArcana
             Main.SafeLoad(LoadDervishDance, RES.DervishDanceFeatureName_info);
 
             SafeAddToList(CreateFeyFoundling, feats, RES.FeyFoundlingFeatureName_info);
+            SafeAddToList(CreateRollWithIt, feats, "Roll with it");
 
             // Add all feats (including metamagic, wizard discoveries) to general feats.         
             library.AddFeats(feats.ToArray());
@@ -107,6 +108,24 @@ namespace EldritchArcana
                 Helpers.Create<SavingThrowBonusAgainstDescriptor>(s => { s.SpellDescriptor = SpellDescriptor.Death; s.ModifierDescriptor = ModifierDescriptor.Feat; }),
                 Helpers.Create<FeyFoundlingLogic>(s => { s.dieModefier = 2; }),
                 PrerequisiteCharacterLevelExact.Create(1));
+            return feat;
+        }
+
+        static BlueprintFeature CreateRollWithIt()
+        {
+            var goblinReq = Helpers.PrerequisiteFeature(Helpers.goblin);
+            var feat = Helpers.CreateFeature("RollWithIt", "Roll With It",
+                "You know how to take a hit, even if your reaction sends you bouncing and flying out of battle while shrieking at the top of your lungs." +
+                "\nBenefit: If you are struck by a melee weapon you can try to convert some of that damage into a movement correction. that way you reduce damage by 13 points",
+                "1249556638b04ecc85e069e230751bfa",
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/optimistic_gambler.png"),
+                FeatureGroup.Feat,
+                Helpers.Create<AddDamageResistancePhysical>(s => { s.Value = 13; }),
+                Helpers.PrerequisiteStatValue(StatType.SkillMobility,5),
+                Helpers.Create<RecommendationHasFeature>(r => r.Feature = Helpers.goblin)
+
+                , goblinReq);
+            
             return feat;
         }
 

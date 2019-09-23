@@ -360,8 +360,33 @@ namespace EldritchArcana
             components.Add(protectionFromSonic.GetComponent<AbilitySpawnFx>());
             components.Add(Helpers.Create<SpellComponent>(s => s.School = SpellSchool.Abjuration));
             components.Add(Helpers.Create<SpellDescriptorComponent>(s => s.Descriptor = SpellDescriptor.Force));
+            //start 1.2.6 edit
+            var gameAction = ContextActionApplyBuff.CreateInstance<ContextActionApplyBuff>();
+            gameAction.Buff = buff;
+            gameAction.IsFromSpell = true;
+            gameAction.ToCaster = true;
+            gameAction.IsNotDispelable = true;
+            gameAction.AsChild = true;
+            gameAction.DurationValue = new ContextDurationValue()
+            {
+                DiceCountValue = 0,
+                Rate = DurationRate.Rounds,
+                BonusValue = new ContextValue()
+                {
+                    ValueType = ContextValueType.Rank,
+                }
+            };
             components.Add(Helpers.Create<AbilityEffectRunAction>(a => a.Actions = new ActionList()
             {
+
+                Actions = new GameAction[] { gameAction }
+            }));
+            //end 1.2.6 edit
+            //Old
+            /*
+            components.Add(Helpers.Create<AbilityEffectRunAction>(a => a.Actions = new ActionList()
+            {
+                
                 Actions = new GameAction[] {
                     new ContextActionApplyBuff() {
                         Buff = buff,
@@ -379,6 +404,7 @@ namespace EldritchArcana
                     }
                 }
             }));
+            //*/
             spell.SetComponents(components);
 
 

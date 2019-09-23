@@ -2,8 +2,8 @@
     "Id": "EldritchArcana",
     "DisplayName": "埃尔德里奇的秘法Mod",
     "Author": "李允",
-    "Version": "1.2.5.9",
-    "ManagerVersion": "0.20.0.17",
+    "Version": "1.2.7.10",
+    "ManagerVersion": "0.21.0.19",
     "EntryMethod": "EldritchArcana.Main.Load",
     "HomePage": "https://github.com/legendaryhero1981/Eldritch-Arcana-DUMM",
     "Repository": "https://raw.githubusercontent.com/legendaryhero1981/Eldritch-Arcana-DUMM/master/Repository.json"

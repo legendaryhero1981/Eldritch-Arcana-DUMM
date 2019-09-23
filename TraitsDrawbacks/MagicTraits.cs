@@ -103,14 +103,14 @@ namespace EldritchArcana
 
             choices.Add(Helpers.CreateFeature("PragmaticActivatorTrait", "Pragmatic Activator",
                     "While some figure out how to use magical devices with stubborn resolve, your approach is more pragmatic.\n" +
-                    "Benefit: You may use your Intelligence modifier when making Use Magic Device checks instead of your Charisma modifier.",
+                    "Benefit: You may use your Intelligence modifier when making Use Magic Device Checks instead of your Charisma modifier.",
                     "d982f3e69db44cdd34263985e37a6d4c",
                     Image2Sprite.Create("Mods/EldritchArcana/sprites/spell_perfection.png"),
                     FeatureGroup.None,
                     Helpers.Create<ReplaceBaseStatForStatTypeLogic>(x =>
                     {
-                        x.StatTypeToReplaceBastStatFor = StatType.SkillKnowledgeArcana;
-                        x.NewBaseStatType = StatType.Charisma;
+                        x.StatTypeToReplaceBastStatFor = StatType.SkillUseMagicDevice;
+                        x.NewBaseStatType = StatType.Intelligence;
                     })
                   ));
 

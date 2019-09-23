@@ -436,7 +436,7 @@ namespace EldritchArcana.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Enable choosing extra cheat traits,spells(if changed, requires restart for changes to show up) 的本地化字符串。
+        ///   查找类似 Enable Show alll traits,spells even custom and homebrew(if changed, requires restart for changes to show up) 的本地化字符串。
         /// </summary>
         internal static string CheatCustomTraits_info {
             get {
