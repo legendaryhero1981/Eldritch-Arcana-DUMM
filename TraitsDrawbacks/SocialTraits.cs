@@ -91,6 +91,38 @@ namespace EldritchArcana
                 Helpers.Create<IncreaseResourceAmount>(i => { i.Resource = MutagenResource; i.Value = 2; }),
                 gnomeReq));
 
+            var AvidReader = Helpers.CreateFeatureSelection("AvidReaderTrait", "Avid Reader",
+                "As a youth, you voraciously consumed books and scrolls provided by a member of an adventurer’s guild or a learned organization like the Pathfinder Society, and you have internalized these stories of bold adventurers." +
+                "\nBenefit: Choose one Knowledge skill. You always choose to take 10 on checks with the chosen Knowledge skill, even when distracted or threatened.",
+                "2e4dcdce32e159cbaf0fb3c641249cbf",
+                Image2Sprite.Create("Mods/EldritchArcana/sprites/opposition_research.png"),FeatureGroup.None );
+
+
+
+
+            var AvidReaderOptions = new List<BlueprintFeature>(){
+
+                Helpers.CreateFeature("AvidReaderArcana", "Knowledge Arcana",
+                    "Because you are a magic bookworm\n" +
+                    "Benefit: You can always choose to take 10 on checks with knowledge arcana, even when distracted or threatened.",
+                    $"a932f3e69db44cdd33965985e37a6d2b",
+                    Image2Sprite.Create("Mods/EldritchArcana/sprites/spell_perfection.png"),
+                    FeatureGroup.None,
+                    Helpers.Create<Take10ForSuccessLogic>(t => t.Skill = StatType.SkillKnowledgeArcana)
+                  ),Helpers.CreateFeature("AvidReaderWorld", "Knowledge World",
+                    "Becouse you are a bookworm.\n" +
+                    "Benefit: You can always choose to take 10 on checks with knowledge world, even when distracted or threatened.",
+                    $"b254f3e69db44cdd33964985e37a6d1b",
+                    Image2Sprite.Create("Mods/EldritchArcana/sprites/opposition_research.png"),
+                    FeatureGroup.None,
+                    Helpers.Create<Take10ForSuccessLogic>(t => t.Skill = StatType.SkillKnowledgeWorld)
+                  ),
+
+            };
+
+
+            AvidReader.SetFeatures(AvidReaderOptions);
+            choices.Add(AvidReader);
 
             choices.Add(Traits.CreateAddStatBonus("SuspiciousTrait", "Suspicious",
                 "You discovered at an early age that someone you trusted, perhaps an older sibling or a parent, had lied to you, and lied often, about something you had taken for granted, leaving you quick to question the claims of others.",

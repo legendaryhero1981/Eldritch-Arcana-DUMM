@@ -131,12 +131,7 @@ namespace EldritchArcana
                 "\nBenefit: You may use your Charisma modifier when making Knowledge checks instead of your Intelligence modifier. choose a knowledge to replace.",
                 "2e4dcecc32e148cbaf0fb3c643249cbf",
                 Helpers.NiceIcons(19),
-                FeatureGroup.None, Helpers.Create<ReplaceBaseStatForStatTypeLogic>(x =>
-                {
-                    x.StatTypeToReplaceBastStatFor = StatType.SkillKnowledgeArcana;
-                    x.NewBaseStatType = StatType.Wisdom;
-                })
-                );
+                FeatureGroup.None);
 
 
 

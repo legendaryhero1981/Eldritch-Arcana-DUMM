@@ -2308,14 +2308,6 @@ namespace EldritchArcana
                 case 48:
                     return Helpers.GetIcon("754c478a2aa9bb54d809e648c3f7ac0e");//DominateAnimal.
 
-
-
-
-
-
-
-
-
                 default:
                     return Helpers.GetIcon("0f5bd128c76dd374b8cb9111e3b5186b");//balans
             }

@@ -28,6 +28,8 @@ namespace EldritchArcana
 
         static BlueprintFeatureSelection prestigiousSpellcaster;
 
+        internal static BlueprintCharacterClass[] prestigiousSpellcasterDefault;
+        internal static BlueprintCharacterClass[] prestigiousSpellcasterExtra;
         internal static BlueprintCharacterClass[] prestigiousSpellcasterClasses;
 
         static LibraryScriptableObject library => Main.library;
@@ -44,8 +46,13 @@ namespace EldritchArcana
             dragonDiscipleClass = Helpers.GetClass(dragonDiscipleId);
             eldritchKnightClass = Helpers.GetClass(eldritchKnightId);
             // NOTE: this order must match the order used in the feats.
+            ///126
+            prestigiousSpellcasterDefault = new BlueprintCharacterClass[] { eldritchKnightClass, dragonDiscipleClass };
+            ///127
+            prestigiousSpellcasterExtra = Helpers.prestigeClassesSkipLevels.ToArray();
+            
+            //prestigiousSpellcasterClasses = prestigiousSpellcasterDefault.Concat(prestigiousSpellcasterExtra).ToArray();
             prestigiousSpellcasterClasses = Helpers.prestigeClassesSkipLevels.ToArray();
-            //prestigiousSpellcasterClasses = new BlueprintCharacterClass[] { eldritchKnightClass, dragonDiscipleClass };
 
             FixEldritchKnightPrereq();
 
@@ -56,13 +63,18 @@ namespace EldritchArcana
                 "30e9a3fcdb0446aa87f45d0f50b3b3fc",
                 Image2Sprite.Create("Mods/EldritchArcana/sprites/prestigious_spellcaster.png"),
                 FeatureGroup.Feat);
+            
+            
+            //126
             /*
             prestigiousSpell.SetFeatures(
                 CreatePrestigiousSpellcaster(eldritchKnightClass, "dc3ab8d0484467a4787979d93114ebc3"  ),//*EldritchKnightSpellbookSelection
-                CreatePrestigiousSpellcaster(dragonDiscipleClass, "8c1ba14c0b6dcdb439c56341385ee474"  ));//*DragonDiscipleSpellbookSelection
+                CreatePrestigiousSpellcaster(dragonDiscipleClass, "8c1ba14c0b6dcdb439c56341385ee474"  )
+                );//*DragonDiscipleSpellbookSelection
             //start*/
             foreach (BlueprintCharacterClass c in prestigiousSpellcasterClasses)
             {
+                Log.Write("patching:"+c.ToString());
                 var spellbookguid = "";
                 for (int i = 1; i < 11; i++)
                 {
@@ -299,8 +311,17 @@ namespace EldritchArcana
 
         internal static Fact GetSpellcasterFact(UnitDescriptor unit, BlueprintCharacterClass selectedClass)
         {
-            var blueprint = prestigiousSpellcaster.AllFeatures[Array.IndexOf(prestigiousSpellcasterClasses, selectedClass)];
-            return unit.Logic.GetFact(blueprint) ?? unit.Progression.Features.GetFact(blueprint);
+            try
+            {
+                var blueprint = prestigiousSpellcaster.AllFeatures[Array.IndexOf(prestigiousSpellcasterClasses, selectedClass)];
+                return unit.Logic.GetFact(blueprint) ?? unit.Progression.Features.GetFact(blueprint);
+            }
+            catch (System.Exception)
+            {
+                Log.Write("Sum ting wong with detecting prestigiusspellcasterfeat");
+                return null;
+            }
+
         }
 
         internal const String martialWeaponProfId = "203992ef5b35c864390b4e4a1e200629";

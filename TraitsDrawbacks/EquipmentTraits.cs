@@ -373,6 +373,8 @@ namespace EldritchArcana
             var BastardSwordPlus1 = Traits.library.Get<BlueprintItem>("517ba772f7eec2e43999eac2014c3ab8");
             var HandCrossbow = Traits.library.Get<BlueprintWeaponType>("e702f2c2e4a8a7f4fa847dcf1e03ab07");
             var HandCrossbowPlus1 = Traits.library.Get<BlueprintItem>("239096882dc4e86479ae713ff1eddb74");
+            var Club = Traits.library.Get<BlueprintWeaponType>("26aa0672af2c7d84ba93bec37758c712");
+            var ClubPlus1 = Traits.library.Get<BlueprintItem>("be163caf3a824b04a97f01b7ec38aec9");
 
 
 
@@ -634,6 +636,20 @@ namespace EldritchArcana
                     a.BasicItems = new BlueprintItem[] { BastardSwordPlus1 };
                 }),
                 Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = BastardSword; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; })
+                ),
+
+                Helpers.CreateFeature("HairloomTraitClub", "Family Heirloom Club",
+                "You still have the club you used to go owlbear hunting for pelts" +
+                "\nBenefit: You get a club and you have experience with clubs.",
+                "d05bd56b2d721529d32196226adcd191",
+                ClubPlus1.Icon,
+                FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = Array.Empty<WeaponCategory>();
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { ClubPlus1 };
+                }),
+                Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = Club; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; })
                 ),
 
             };

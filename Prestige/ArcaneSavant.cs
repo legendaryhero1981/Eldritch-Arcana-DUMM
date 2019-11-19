@@ -34,6 +34,7 @@ namespace EldritchArcana
         static LibraryScriptableObject library => Main.library;
         internal static BlueprintCharacterClass savant;
         internal static BlueprintCharacterClass[] savantArray;
+        private static BlueprintFeatureSelection spellbookSelection;
 
         internal static void Load()
         {
@@ -108,18 +109,18 @@ namespace EldritchArcana
             // TODO: implement these.
             //
             // note: silence master was removed, as it wouldn't do anything in game.
-            var esotericMagic = CreateEsotericMagic();
+            //var esotericMagic = CreateEsotericMagic();
             var entries = new List<LevelEntry> {
                 Helpers.LevelEntry(1, CreateAdeptActivation(), CreateMasterScholar()),
-                Helpers.LevelEntry(2, CreateSpellbookChoice(), esotericMagic, CreateGlyphFinding()),
-                Helpers.LevelEntry(3, esotericMagic, CreateScrollMaster()),
-                Helpers.LevelEntry(4, esotericMagic, CreateQuickIdentification()),
-                Helpers.LevelEntry(5, esotericMagic, CreateSigilMaster()),
-                Helpers.LevelEntry(6, esotericMagic, CreateAnalyzeDweomer()),
-                Helpers.LevelEntry(7, esotericMagic, CreateDispellingMaster()),
-                Helpers.LevelEntry(8, esotericMagic, CreateSymbolMaster()),
-                Helpers.LevelEntry(9, esotericMagic, CreateSpellcastingMaster()),
-                Helpers.LevelEntry(10, esotericMagic, CreateItemMaster()),
+                Helpers.LevelEntry(2/*, CreateSpellbookChoice()/*, esotericMagic/*, CreateGlyphFinding()*/),
+                Helpers.LevelEntry(3/*, CreateScrollMaster()*/),
+                Helpers.LevelEntry(4/*, CreateQuickIdentification()*/),
+                Helpers.LevelEntry(5/*, CreateSigilMaster()*/),
+                Helpers.LevelEntry(6/*, CreateAnalyzeDweomer()*/),
+                Helpers.LevelEntry(7/*, CreateDispellingMaster()*/),
+                Helpers.LevelEntry(8/*, CreateSymbolMaster()*/),
+                Helpers.LevelEntry(9/*, CreateSpellcastingMaster()*/),
+                Helpers.LevelEntry(10/*, CreateItemMaster()*/),
             };
 
             progression.UIDeterminatorsGroup = new BlueprintFeatureBase[] {
@@ -202,9 +203,16 @@ namespace EldritchArcana
             throw new NotImplementedException();
         }
 
-        static BlueprintFeature CreateSpellbookChoice()
+  
+        private static void CreateSpellbookSelection()
         {
-            // TODO: replace spellbook choice for all arcane/divine spellbooks.
+            BlueprintComponent[] array = new List<BlueprintComponent>().ToArray();
+            ArcaneSavantClass.spellbookSelection = Helpers.CreateFeatureSelection("ArcaneArcherSpellbookSelection", "Arcane Spellcasting", "At 2nd level, and at every level thereafter, with an exception for 5th and 9th levels, an Arcane Archer  gains new spells per day as if he had also gained a level in an arcane spellcasting class he belonged to before adding the prestige class. He does not, however, gain any other benefit a character of that class would have gained, except for additional spells per day, spells known, and an increased effective level of spellcasting. If a character had more than one arcane spellcasting class before becoming an Arcane Archer, he must decide to which class he adds the new level for purposes of determining spells per day.", "ea4c7c56d90d413886876152b03f9f5f", Image2Sprite.Create("FeatIcons/Icon_Casting_Combat.png"), FeatureGroup.ArcaneTricksterSpellbook, array);
+            addSpellbooksToSpellSelection("Arcane Archer", 1, ArcaneSavantClass.spellbookSelection, false, true, false);
+        }
+
+        private static void addSpellbooksToSpellSelection(string v1, int v2, BlueprintFeatureSelection spellbookSelection, bool v3, bool v4, bool v5)
+        {
             throw new NotImplementedException();
         }
 
