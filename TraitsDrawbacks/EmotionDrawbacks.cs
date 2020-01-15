@@ -277,7 +277,6 @@ namespace EldritchArcana
                  Helpers.CreateAddStatBonus(StatType.AdditionalDamage, 2, ModifierDescriptor.Sacred)
                  ));
 
-            
 
             Fraud.SetFeatures(hoi);
             choices.Add(Fraud);

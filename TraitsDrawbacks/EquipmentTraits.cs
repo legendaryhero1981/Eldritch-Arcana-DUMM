@@ -375,6 +375,10 @@ namespace EldritchArcana
             var HandCrossbowPlus1 = Traits.library.Get<BlueprintItem>("239096882dc4e86479ae713ff1eddb74");
             var Club = Traits.library.Get<BlueprintWeaponType>("26aa0672af2c7d84ba93bec37758c712");
             var ClubPlus1 = Traits.library.Get<BlueprintItem>("be163caf3a824b04a97f01b7ec38aec9");
+            var Estoc = Traits.library.Get<BlueprintWeaponType>("d516765b3c2904e4a939749526a52a9a");
+            var EstocPlus1 = Traits.library.Get<BlueprintItem>("11c66ec41f62708498f751abd911db88");
+            var Shortsword = Traits.library.Get<BlueprintWeaponType>("a7da36e0e7bb60e42b9f23462ce2f4fc");
+            var ShortswordPlus1 = Traits.library.Get<BlueprintItem>("9f455505128866146a9bd81895d4cecd");
 
 
 
@@ -651,6 +655,36 @@ namespace EldritchArcana
                 }),
                 Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = Club; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; })
                 ),
+
+                Helpers.CreateFeature("HairloomTraitEstoc", "Family Heirloom Estoc",
+                "Your family learned you to trust the weapon and also to thrust the weapon and that the weapons name means to thrust." +
+                "\nBenefit: You get a estoc and you have experience with Estocs.",
+                "d15bd56b2d721529d32196226adcd276",
+                EstocPlus1.Icon,
+                FeatureGroup.None, Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = Array.Empty<WeaponCategory>();
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { EstocPlus1 };
+                }),
+                Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = Estoc; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; })
+                ),
+                
+                //shortsword
+                Helpers.CreateFeature("HairloomTraitShortsword", "Family Heirloom Shortsword",
+                "You always saw this old iron shortsword on display in your garden cottage and you decided to take it along in your adventure." +
+                "\nBenefit: You are practiced with shortswords.",
+                "e16eb56b2f964321b31296226dccb393",
+                ShortswordPlus1.Icon, // DuelingMastery
+                FeatureGroup.None,Helpers.Create<AddStartingEquipment>(a =>
+                {
+                    a.CategoryItems = Array.Empty<WeaponCategory>();
+                    a.RestrictedByClass = Array.Empty<BlueprintCharacterClass>();
+                    a.BasicItems = new BlueprintItem[] { ShortswordPlus1 };
+                }),
+                Helpers.Create<WeaponAttackAndCombatManeuverBonus>(a => { a.WeaponType = Shortsword; a.AttackBonus = 1; a.Descriptor = ModifierDescriptor.Trait; })
+                ),
+                //
 
             };
             FamilyHeirloomTrait.SetFeatures(HeirloomWeapons);

@@ -418,6 +418,14 @@ namespace EldritchArcana
                 Helpers.Create<AttackBonusAgainstFactOwner>(a=> { a.Bonus = -4; a.CheckedFact = feyfeature; }),
                 Helpers.Create<SavingThrowBonusAgainstDescriptor>(f => { f.Bonus = -2; f.SpellDescriptor = SpellDescriptor.Fear; })));
 
+            /*
+            foreach (var choice in choices)
+            {
+                Log.Write(choice.Name);
+                Log.Write(choice.Description);
+            }*/
+
+
             PhysiqueDrawbacks.SetFeatures(choices);
             return PhysiqueDrawbacks;
         }

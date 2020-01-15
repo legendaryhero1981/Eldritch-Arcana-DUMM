@@ -96,6 +96,7 @@ namespace EldritchArcana
             var channelEnergy = Traits.library.Get<BlueprintAbility>("f5fc9a1a2a3c1a946a31b320d1dd31b2");
             var channelEnergyEmpyrealResource = Traits.library.Get<BlueprintAbilityResource>("f9af9354fb8a79649a6e512569387dc5");
             var channelEnergyHospitalerResource = Traits.library.Get<BlueprintAbilityResource>("b0e0c7716ab27c64fb4b131c9845c596");
+            var LayOnHandsResource = Traits.library.Get<BlueprintAbilityResource>("9dedf41d995ff4446a181f143c3db98c");
             choices.Add(Helpers.CreateFeature("ExaltedOfTheSocietyTrait", "Exalted of the Society",
                 "The vaults of the great city contain many secrets of the divine powers of the gods, and you have studied your god extensively.\nBenefit: You may channel energy 1 additional time per day.",
                 "3bb1b077ad0845b59663c0e1b343011a",
@@ -104,6 +105,7 @@ namespace EldritchArcana
                 channelEnergyResource.CreateIncreaseResourceAmount(1),
                 channelEnergyEmpyrealResource.CreateIncreaseResourceAmount(1),
                 channelEnergyHospitalerResource.CreateIncreaseResourceAmount(1),
+                LayOnHandsResource.CreateIncreaseResourceAmount(2),
                 LifeMystery.channelResource.CreateIncreaseResourceAmount(1)));
 
             choices.Add(Helpers.CreateFeature("SacredConduitTrait", "Sacred Conduit",

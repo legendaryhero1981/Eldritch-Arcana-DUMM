@@ -31,12 +31,11 @@ namespace EldritchArcana
 
         internal static void Load()
         {
-            if (!Main.settings.DrawbackForextraTraits) return;
             magus = library.Get<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780");
 
-            for (int i = 1000; i < 1010; i++)
+            for(int i = 1000; i < 1010; i++)
             {
-                DrawFeatGuids[i - 1000] = $"{i}63947738b04ecc8e069e050751cc";
+                DrawFeatGuids[i-1000] = $"{i}63947738b04ecc8e069e050751cc";
                 //Log.Write($"{i}63947738b04ecc8e069e050751cc");
             }
             // Load metamagic feats
@@ -60,7 +59,7 @@ namespace EldritchArcana
             noOneleg.Feature = OneLegged;
             noSpellVul.Feature = SpellVulnerability;
 
-            var NoDrawback = new PrerequisiteNoFeature[] { noFrail, noOneleg, noSpellVul };
+            var NoDrawback = new PrerequisiteNoFeature[] {noFrail,noOneleg,noSpellVul};
 
 
             feats.Add(Frailfeat);
@@ -69,7 +68,7 @@ namespace EldritchArcana
 
             //feats.Add(CreateSpellVulnerability());
             var BasicFeatSelection = library.Get<BlueprintFeatureSelection>("247a4068296e8be42890143f451b4b45");
-            foreach (var feat in feats)
+            foreach(var feat in feats)
             {
                 feat.AddComponents(NoDrawback);
                 SelectFeature_Apply_Patch.onApplyFeature.Add(feat, (state, unit) =>
@@ -79,9 +78,7 @@ namespace EldritchArcana
                 });
             }
 
-
             library.AddFeats(feats.ToArray());
-
         }
 
         internal static T SafeLoad<T>(Func<T> load, String name) => Main.SafeLoad(load, name);

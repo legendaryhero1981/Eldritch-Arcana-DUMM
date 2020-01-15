@@ -291,9 +291,9 @@ namespace EldritchArcana
             spell.AvailableMetamagic = Metamagic.Quicken | Metamagic.Heighten | Metamagic.Empower | Metamagic.Extend | Metamagic.Maximize | Metamagic.Reach;
 
             var variants = new List<BlueprintAbility>();
-            for (int level = 1; level <= 7; level++)
+            for (int level = 1; level <= 6; level++)
             {
-                variants.Add(CreateWishForSpellLevel(spell, level, 7, isMiracle: true));
+                variants.Add(CreateWishForSpellLevel(spell, level, 6, isMiracle: true));
             }
             spell.AddComponent(spell.CreateAbilityVariants(variants));
             spell.MaterialComponent = variants[0].MaterialComponent;
